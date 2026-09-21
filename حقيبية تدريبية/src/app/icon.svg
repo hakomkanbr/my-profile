@@ -1,0 +1,98 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="50%" stop-color="#151d30" />
+      <stop offset="100%" stop-color="#0b0f19" />
+    </linearGradient>
+
+    <!-- Border Glow Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#6366f1" stop-opacity="0.7" />
+      <stop offset="80%" stop-color="#10b981" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- AK Monogram Gradient -->
+    <linearGradient id="letterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="70%" stop-color="#f8fafc" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+
+    <!-- Accent Cyan Gradient -->
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0ea5e9" />
+    </linearGradient>
+
+    <!-- Top Glow -->
+    <radialGradient id="topAmbient" cx="50%" cy="15%" r="60%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.25" />
+      <stop offset="50%" stop-color="#6366f1" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#0b0f19" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Emerald Pulse Glow -->
+    <radialGradient id="pulseGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#10b981" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Shadow Filter -->
+    <filter id="shadowFilter" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- Background Base with Squircle shape -->
+  <rect width="512" height="512" rx="120" ry="120" fill="url(#bgGrad)" />
+
+  <!-- Ambient Top Light -->
+  <rect width="512" height="512" rx="120" ry="120" fill="url(#topAmbient)" />
+
+  <!-- Subtle Inner Grid lines pattern -->
+  <g opacity="0.04" stroke="#ffffff" stroke-width="1.5">
+    <line x1="0" y1="128" x2="512" y2="128" />
+    <line x1="0" y1="256" x2="512" y2="256" />
+    <line x1="0" y1="384" x2="512" y2="384" />
+    <line x1="128" y1="0" x2="128" y2="512" />
+    <line x1="256" y1="0" x2="256" y2="512" />
+    <line x1="384" y1="0" x2="384" y2="512" />
+  </g>
+
+  <!-- Sleek Glowing Border -->
+  <rect x="10" y="10" width="492" height="492" rx="112" ry="112" fill="none" stroke="url(#borderGrad)" stroke-width="12" filter="url(#shadowFilter)" />
+
+  <!-- Central Monogram: AK with Engineering Flair -->
+  <g filter="url(#shadowFilter)">
+    <!-- Letter 'A' -->
+    <path d="M 112 368 L 186 148 C 189 140 196 136 205 136 C 214 136 221 140 224 148 L 298 368 C 301 377 296 386 286 386 L 254 386 C 246 386 239 381 236 373 L 222 328 L 188 328 L 174 373 C 171 381 164 386 156 386 L 124 386 C 114 386 109 377 112 368 Z M 205 232 L 195 284 L 215 284 Z" fill="url(#letterGrad)" />
+    
+    <!-- Tech Accent for 'A' crossbar chevron -->
+    <path d="M 176 284 L 205 258 L 234 284" fill="none" stroke="url(#cyanGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Letter 'K' -->
+    <!-- Vertical stem of K -->
+    <rect x="290" y="140" width="34" height="246" rx="12" fill="url(#letterGrad)" />
+    
+    <!-- Upper diagonal of K -->
+    <path d="M 314 266 L 392 152 C 397 145 406 142 414 147 L 434 159 C 441 164 443 173 438 180 L 358 290 Z" fill="url(#letterGrad)" />
+    
+    <!-- Lower diagonal of K with Cyan Accent tip -->
+    <path d="M 334 256 L 418 366 C 423 373 422 383 415 388 L 392 402 C 385 406 376 404 371 397 L 298 300 Z" fill="url(#letterGrad)" />
+
+    <circle cx="414" cy="382" r="7" fill="url(#cyanGrad)" />
+  </g>
+
+  <!-- Glowing Live Availability Dot (Top Right) -->
+  <circle cx="424" cy="88" r="32" fill="url(#pulseGlow)" />
+  <circle cx="424" cy="88" r="16" fill="#10b981" stroke="#0b0f19" stroke-width="4" />
+  <circle cx="420" cy="84" r="5" fill="#a7f3d0" opacity="0.9" />
+
+  <!-- Terminal / Code Prompt Accent at bottom center ( _ ) -->
+  <rect x="236" y="420" width="40" height="6" rx="3" fill="#38bdf8" opacity="0.8" />
+</svg>

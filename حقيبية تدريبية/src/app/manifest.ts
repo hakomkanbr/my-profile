@@ -1,0 +1,45 @@
+﻿import type { MetadataRoute } from 'next';
+
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: 'Abdulhakim Kanbr | Software Engineer & System Designer',
+    short_name: 'Abdulhakim K.',
+    description:
+      'Abdulhakim Kanbr is a software engineer and technical mentor with 8+ years of experience in software development, server management, and system design.',
+    start_url: '/',
+    display: 'standalone',
+    background_color: '#0b0f19',
+    theme_color: '#0b0f19',
+    orientation: 'portrait-primary',
+    scope: '/',
+    lang: 'ar',
+    dir: 'rtl',
+    categories: ['education', 'productivity', 'portfolio'],
+    icons: [
+      {
+        src: '/icons/icon-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: '/icons/icon-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: '/icons/icon-maskable-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'maskable',
+      },
+      {
+        src: '/icons/icon-maskable-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'maskable',
+      },
+    ],
+  };
+}

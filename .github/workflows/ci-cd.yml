@@ -1,0 +1,102 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  # -------------------------------------------------------------
+  # Job 1: Continuous Integration (Lint, Typecheck & Docker Build Test)
+  # -------------------------------------------------------------
+  ci:
+    name: Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: 📦 Install Dependencies
+        run: npm ci
+
+      - name: 🔍 Run ESLint
+        run: npm run lint
+
+      - name: 🐳 Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: 🧪 Validate Docker Compose File
+        run: |
+          docker compose config
+
+      - name: 🏗️ Test Docker Build
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: false
+          tags: my-profile-test:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  # -------------------------------------------------------------
+  # Job 2: Continuous Deployment (Auto Deploy to VPS via SSH)
+  # -------------------------------------------------------------
+  deploy:
+    name: Deploy to Server
+    needs: ci
+    if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚀 Deploy via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          port: ${{ secrets.SERVER_PORT || 22 }}
+          script_stop: true
+          script: |
+            echo "=================================================="
+            echo "🚀 Starting Deployment on Server..."
+            echo "=================================================="
+
+            # الانتقال لمجلد المشروع على السيرفر
+            cd ${{ secrets.SERVER_PROJECT_PATH }}
+
+            # جلب آخر التحديثات من GitHub
+            echo "📥 Pulling latest changes from master..."
+            git pull origin master
+
+            # التأكد من وجود شبكة platform_backend
+            echo "🌐 Checking Docker network platform_backend..."
+            docker network inspect platform_backend >/dev/null 2>&1 || docker network create platform_backend
+
+            # إعادة بناء الحاوية وتشغيلها دون توقف
+            echo "🐳 Building and starting containers..."
+            docker compose up -d --build
+
+            # تنظيف الصور القديمة غير المستخدمة لتوفير مساحة السيرفر
+            echo "🧹 Cleaning up unused Docker images..."
+            docker image prune -f
+
+            # عرض حالة الحاوية
+            echo "📊 Container Status:"
+            docker compose ps
+
+            echo "=================================================="
+            echo "✅ Deployment Completed Successfully!"
+            echo "=================================================="
