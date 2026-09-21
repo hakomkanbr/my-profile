@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ورقة الأسبوع — Weekly Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-main: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+      --color-black: #0f172a;
+      --color-gray-dark: #334155;
+      --color-gray-mid: #64748b;
+      --color-gray-light: #cbd5e1;
+      --color-line: #e2e8f0;
+      --color-box-bg: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: #f1f5f9;
+      color: var(--color-black);
+      line-height: 1.35;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    /* Screen Toolbar */
+    .toolbar {
+      width: 297mm;
+      background: #1e293b;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    }
+    .toolbar a, .toolbar button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+    .toolbar button:hover, .toolbar a:hover {
+      background: #2563eb;
+    }
+    .toolbar .btn-secondary {
+      background: #475569;
+    }
+    .toolbar .btn-secondary:hover {
+      background: #334155;
+    }
+
+    /* A4 Landscape Page */
+    .sheet {
+      width: 297mm;
+      height: 210mm;
+      max-height: 210mm;
+      background: #ffffff;
+      padding: 10mm 12mm;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Header */
+    .header {
+      border-bottom: 2px solid var(--color-black);
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .brand-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      background: var(--color-black);
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+    .sheet-title {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--color-black);
+      margin-top: 2px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .field-row {
+      display: flex;
+      align-items: baseline;
+    }
+    .field-label {
+      color: var(--color-gray-dark);
+      white-space: nowrap;
+      margin-left: 6px;
+    }
+    .field-line {
+      border-bottom: 1.5px solid var(--color-gray-light);
+      height: 18px;
+    }
+
+    /* Checkbox */
+    .checkbox-box {
+      width: 17px;
+      height: 17px;
+      border: 1.8px solid var(--color-black);
+      border-radius: 3px;
+      display: inline-block;
+      background: #fff;
+      flex-shrink: 0;
+    }
+
+    /* Landscape Two-Column Grid */
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 12px;
+      flex: 1;
+      min-height: 0;
+    }
+
+    /* Left Column: Projects Weekly Table */
+    .projects-card {
+      border: 1.8px solid var(--color-black);
+      border-radius: 6px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid var(--color-black);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+    .card-title {
+      font-size: 14px;
+      font-weight: 900;
+      color: var(--color-black);
+    }
+    .card-sub {
+      font-size: 11px;
+      color: var(--color-gray-mid);
+      font-weight: 600;
+    }
+
+    /* Projects Table */
+    .table-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .projects-table {
+      width: 100%;
+      border-collapse: collapse;
+      flex: 1;
+    }
+    .projects-table th {
+      background: var(--color-black);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 5px 8px;
+      text-align: right;
+    }
+    .projects-table th:last-child {
+      text-align: center;
+      width: 70px;
+    }
+    .projects-table td {
+      border-bottom: 1.2px solid var(--color-line);
+      padding: 6px 8px;
+      vertical-align: middle;
+      font-size: 13px;
+    }
+    .projects-table td.col-project {
+      width: 32%;
+      font-weight: 700;
+    }
+    .projects-table td.col-status {
+      text-align: center;
+    }
+    .table-line {
+      height: 20px;
+      border-bottom: 1.2px solid var(--color-line);
+      width: 100%;
+    }
+
+    /* Right Column: Cards Stack */
+    .side-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Section Card */
+    .mini-card {
+      border: 1.5px solid var(--color-gray-dark);
+      border-radius: 6px;
+      padding: 8px 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    .mini-card.highlight {
+      border: 2px solid var(--color-black);
+      background: #fff;
+      box-shadow: 2px 2px 0 var(--color-black);
+    }
+    .mini-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.2px solid var(--color-black);
+      padding-bottom: 3px;
+      margin-bottom: 6px;
+    }
+    .mini-title {
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--color-black);
+    }
+    .mini-badge {
+      background: var(--color-black);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
+
+    /* Top 3 Outcomes */
+    .top-outcomes {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .outcome-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .outcome-num {
+      width: 20px;
+      height: 20px;
+      background: var(--color-black);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+    .outcome-line {
+      flex: 1;
+      border-bottom: 1.5px solid #64748b;
+      height: 20px;
+    }
+
+    /* Blockers */
+    .blockers-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .blocker-line {
+      border-bottom: 1.2px solid var(--color-line);
+      height: 19px;
+    }
+
+    /* Reminders */
+    .reminders-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .reminder-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .reminder-line {
+      flex: 1;
+      border-bottom: 1.2px solid var(--color-line);
+      height: 19px;
+    }
+
+    /* Footer */
+    .sheet-footer {
+      border-top: 1px solid var(--color-gray-light);
+      padding-top: 4px;
+      margin-top: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      color: var(--color-gray-mid);
+      font-weight: 600;
+    }
+
+    /* PRINT RULES */
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+        margin: 0;
+      }
+      .toolbar {
+        display: none !important;
+      }
+      .sheet {
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        box-shadow: none;
+        padding: 8mm 10mm;
+        margin: 0;
+        page-break-after: always;
+      }
+      @page {
+        size: A4 landscape;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen-Only Toolbar -->
+  <div class="toolbar">
+    <div>
+      <strong>ورقة الأسبوع — Weekly Overview</strong> (لوحة أفقية بانورامية لجميع المشاريع والأولويات)
+    </div>
+    <div style="display: flex; gap: 10px;">
+      <a href="index.html" class="btn-secondary">⌂ الفهرس الرئيسي</a>
+      <button onclick="window.print()">🖨️ طباعة الورقة (Print / PDF)</button>
+    </div>
+  </div>
+
+  <!-- A4 Landscape Sheet -->
+  <div class="sheet">
+    <!-- Header -->
+    <header class="header">
+      <div>
+        <span class="brand-tag">WEEKLY DASHBOARD</span>
+        <h1 class="sheet-title">THIS WEEK — لوحة الأسبوع والمشاريع</h1>
+      </div>
+      <div class="header-meta">
+        <div class="field-row">
+          <span class="field-label">الأسبوع:</span>
+          <div class="field-line" style="width: 100px;"></div>
+        </div>
+        <div class="field-row">
+          <span class="field-label">من تاريخ:</span>
+          <div class="field-line" style="width: 80px;"></div>
+          <span class="field-label" style="margin-right: 8px;">إلى:</span>
+          <div class="field-line" style="width: 80px;"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Grid -->
+    <div class="grid-container">
+      <!-- Right: Projects Table -->
+      <div class="projects-card">
+        <div class="card-header">
+          <span class="card-title">📊 جدول نتائج المشاريع هذا الأسبوع</span>
+          <span class="card-sub">نتيجة واحدة محددة وملموسة لكل مشروع</span>
+        </div>
+        <div class="table-wrapper">
+          <table class="projects-table">
+            <thead>
+              <tr>
+                <th>المشروع</th>
+                <th>النتيجة المطلوبة هذا الأسبوع</th>
+                <th>الحالة</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-project"><div class="table-line"></div></td>
+                <td><div class="table-line"></div></td>
+                <td class="col-status"><span class="checkbox-box"></span></td>
+              </tr>
+              <tr>
+                <td class="col-project"><div class="table-line"></div></td>
+                <td><div class="table-line"></div></td>
+                <td class="col-status"><span class="checkbox-box"></span></td>
+              </tr>
+              <tr>
+                <td class="col-project"><div class="table-line"></div></td>
+                <td><div class="table-line"></div></td>
+                <td class="col-status"><span class="checkbox-box"></span></td>
+              </tr>
+              <tr>
+                <td class="col-project"><div class="table-line"></div></td>
+                <td><div class="table-line"></div></td>
+                <td class="col-status"><span class="checkbox-box"></span></td>
+              </tr>
+              <tr>
+                <td class="col-project"><div class="table-line"></div></td>
+                <td><div class="table-line"></div></td>
+                <td class="col-status"><span class="checkbox-box"></span></td>
+              </tr>
+              <tr>
+                <td class="col-project"><div class="table-line"></div></td>
+                <td><div class="table-line"></div></td>
+                <td class="col-status"><span class="checkbox-box"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Left: Stacked Priorities & Blockers -->
+      <div class="side-stack">
+        <!-- Top 3 Outcomes -->
+        <div class="mini-card highlight">
+          <div class="mini-card-header">
+            <span class="mini-title">🎯 أهم نتائج هذا الأسبوع (Top 3)</span>
+            <span class="mini-badge">أولويات الأسبوع</span>
+          </div>
+          <div class="top-outcomes">
+            <div class="outcome-row">
+              <span class="outcome-num">1</span>
+              <div class="outcome-line"></div>
+            </div>
+            <div class="outcome-row">
+              <span class="outcome-num">2</span>
+              <div class="outcome-line"></div>
+            </div>
+            <div class="outcome-row">
+              <span class="outcome-num">3</span>
+              <div class="outcome-line"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blockers -->
+        <div class="mini-card" style="flex: 1;">
+          <div class="mini-card-header">
+            <span class="mini-title">🚧 الأشياء التي تعطل المشاريع (عقبات وانتظار)</span>
+            <span style="font-size: 10px; color: var(--color-gray-mid); font-weight: 700;">تحتاج تدخل لفك الاختناق</span>
+          </div>
+          <div class="blockers-list">
+            <div class="blocker-line"></div>
+            <div class="blocker-line"></div>
+            <div class="blocker-line"></div>
+          </div>
+        </div>
+
+        <!-- Reminders -->
+        <div class="mini-card" style="flex: 1;">
+          <div class="mini-card-header">
+            <span class="mini-title">🔔 أشياء يجب ألا أنساها هذا الأسبوع</span>
+            <span style="font-size: 10px; color: var(--color-gray-mid); font-weight: 700;">مواعيد، اتصالات، تسليمات</span>
+          </div>
+          <div class="reminders-list">
+            <div class="reminder-item"><span class="checkbox-box"></span><div class="reminder-line"></div></div>
+            <div class="reminder-item"><span class="checkbox-box"></span><div class="reminder-line"></div></div>
+            <div class="reminder-item"><span class="checkbox-box"></span><div class="reminder-line"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sheet Footer -->
+    <footer class="sheet-footer">
+      <div>بداية الأسبوع: راجع جميع المشاريع وحدد نتيجة واحدة لكل منها • علّق هذه الورقة أمامك مباشرة طوال الأسبوع.</div>
+      <div>Weekly Overview — A4 Landscape</div>
+    </footer>
+  </div>
+
+</body>
+</html>

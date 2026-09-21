@@ -1,0 +1,210 @@
+/**
+ * WEB CREATOR AI & ABDULHAKIM Kanbr — Semantic Design Tokens
+ * Visual Identity extracted from Trainer Photo (public/myphoto.jfif)
+ * Primary: #0f2b48 (Executive Navy), Secondary: #2563eb (Modern Blue), Accent: #d97706 (Warm Amber)
+ * Light Canvas: #f8fafc, White Surface: #ffffff
+ * Dark Canvas: #0a1120, Dark Surface: #111c30, Dark Border: #1e293b
+ */
+
+:root {
+  /* Primary & Brand (Executive Navy) */
+  --color-primary: #0f2b48;
+  --color-primary-hover: #163b65;
+  --color-primary-active: #0a1e33;
+  --color-primary-subtle: #eff6ff;
+
+  /* Secondary (Calm Executive Steel Blue - Comfortable on the eyes) */
+  --color-secondary: #3b76ad;
+  --color-secondary-hover: #2d5f8f;
+  --color-secondary-subtle: #f0f6fc;
+
+  /* Accent (Warm Amber / Gold highlight from photo lighting) */
+  --color-accent: #d97706;
+  --color-accent-hover: #b45309;
+  --color-accent-light: #f59e0b;
+  --color-accent-subtle: #fef3c7;
+
+  /* Surfaces & Backgrounds (Light) */
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #ffffff;
+  --color-surface-sunken: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-border-subtle: #f1f5f9;
+  --color-border-strong: #cbd5e1;
+
+  /* Typography Colors (Light) */
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-text-subtle: #64748b;
+  --color-text-inverse: #ffffff;
+
+  /* Feedback & Semantics (Light) */
+  --color-success: #166534;
+  --color-success-bg: #f0fdf4;
+  --color-success-border: #bbf7d0;
+  --color-warning: #854d0e;
+  --color-warning-bg: #fefce8;
+  --color-warning-border: #fef08a;
+  --color-error: #dc2626;
+  --color-error-bg: #fef2f2;
+  --color-error-border: #fecaca;
+  --color-info: #0284c7;
+  --color-info-bg: #f0f9ff;
+  --color-info-border: #bae6fd;
+
+  /* Interactive Elements */
+  --color-focus-ring: rgba(37, 99, 235, 0.35);
+
+  /* Code Surface Tokens */
+  --color-code-bg: #0b1322;
+  --color-code-surface: #111c30;
+  --color-code-border: #1e293b;
+  --color-code-text: #f8fafc;
+  --color-code-muted: #94a3b8;
+
+  /* Journey Accents (Stages 01 - 07) — Harmonious Slate & Blue gradients */
+  --stage-01-bg: #f0f7ff;
+  --stage-01-border: #dbeafe;
+  --stage-01-text: #0f2b48;
+
+  --stage-02-bg: #f8fafc;
+  --stage-02-border: #e2e8f0;
+  --stage-02-text: #0f2b48;
+
+  --stage-03-bg: #eff6ff;
+  --stage-03-border: #bfdbfe;
+  --stage-03-text: #1d4ed8;
+
+  --stage-04-bg: #f0fdf4;
+  --stage-04-border: #bbf7d0;
+  --stage-04-text: #15803d;
+
+  --stage-05-bg: #fefce8;
+  --stage-05-border: #fef08a;
+  --stage-05-text: #854d0e;
+
+  --stage-06-bg: #f8fafc;
+  --stage-06-border: #cbd5e1;
+  --stage-06-text: #0f2b48;
+
+  --stage-07-bg: #fffbeb;
+  --stage-07-border: #fde68a;
+  --stage-07-text: #b45309;
+
+  /* Elevation Shadows (Crisp Slate Shadows) */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 43, 72, 0.04);
+  --shadow-md:
+    0 4px 12px -2px rgba(15, 43, 72, 0.07),
+    0 2px 6px -1px rgba(15, 43, 72, 0.04);
+  --shadow-lg:
+    0 12px 24px -4px rgba(15, 43, 72, 0.1),
+    0 4px 10px -2px rgba(15, 43, 72, 0.04);
+  --shadow-card-hover: 0 12px 28px -5px rgba(15, 43, 72, 0.12);
+  --shadow-glow-blue: 0 0 35px -5px rgba(37, 99, 235, 0.18);
+  --shadow-glow-amber: 0 0 35px -5px rgba(217, 119, 6, 0.18);
+
+  /* Motion & Easing Tokens (Rule 37) */
+  --motion-fast: 150ms;
+  --motion-normal: 250ms;
+  --motion-slow: 400ms;
+  --motion-cinematic: 800ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.dark {
+  /* Primary & Brand (High-contrast Sky / Azure in Dark Mode) */
+  --color-primary: #38bdf8;
+  --color-primary-hover: #60a5fa;
+  --color-primary-active: #2563eb;
+  --color-primary-subtle: #0f2642;
+
+  /* Secondary (Calm Muted Ice/Steel Blue - Soft on the eyes) */
+  --color-secondary: #7fa1c4;
+  --color-secondary-hover: #9bb7d4;
+  --color-secondary-subtle: #0d1e33;
+
+  /* Accent */
+  --color-accent: #f59e0b;
+  --color-accent-hover: #fbbf24;
+  --color-accent-light: #fcd34d;
+  --color-accent-subtle: #291e07;
+
+  /* Surfaces & Backgrounds (Dark Obsidian Navy) */
+  --color-background: #0a1120;
+  --color-surface: #111c30;
+  --color-surface-elevated: #16243d;
+  --color-surface-sunken: #070c17;
+  --color-border: #1e293b;
+  --color-border-subtle: #141f33;
+  --color-border-strong: #334155;
+
+  /* Typography Colors (Dark) */
+  --color-text: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-text-subtle: #64748b;
+  --color-text-inverse: #0a1120;
+
+  /* Feedback & Semantics (Dark) */
+  --color-success: #4ade80;
+  --color-success-bg: #052e16;
+  --color-success-border: #166534;
+  --color-warning: #fde047;
+  --color-warning-bg: #3a2202;
+  --color-warning-border: #854d0e;
+  --color-error: #f87171;
+  --color-error-bg: #450a0a;
+  --color-error-border: #991b1b;
+  --color-info: #38bdf8;
+  --color-info-bg: #082f49;
+  --color-info-border: #0369a1;
+
+  /* Interactive Elements */
+  --color-focus-ring: rgba(56, 189, 248, 0.45);
+
+  /* Code Surface Tokens */
+  --color-code-bg: #070c17;
+  --color-code-surface: #0e1728;
+  --color-code-border: #1e293b;
+  --color-code-text: #f8fafc;
+  --color-code-muted: #94a3b8;
+
+  /* Journey Accents (Dark) */
+  --stage-01-bg: #111e36;
+  --stage-01-border: #1e355b;
+  --stage-01-text: #93c5fd;
+
+  --stage-02-bg: #111c30;
+  --stage-02-border: #1e2e4f;
+  --stage-02-text: #94a3b8;
+
+  --stage-03-bg: #0f2444;
+  --stage-03-border: #1d4073;
+  --stage-03-text: #60a5fa;
+
+  --stage-04-bg: #062817;
+  --stage-04-border: #0e4c2b;
+  --stage-04-text: #86efac;
+
+  --stage-05-bg: #291d04;
+  --stage-05-border: #4d3608;
+  --stage-05-text: #fde047;
+
+  --stage-06-bg: #131f36;
+  --stage-06-border: #22375e;
+  --stage-06-text: #94a3b8;
+
+  --stage-07-bg: #2b1704;
+  --stage-07-border: #522d08;
+  --stage-07-text: #fcd34d;
+
+  /* Elevation Shadows (Dark) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md:
+    0 4px 12px -2px rgba(0, 0, 0, 0.6), 0 2px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg:
+    0 12px 24px -4px rgba(0, 0, 0, 0.7), 0 4px 10px -2px rgba(0, 0, 0, 0.5);
+  --shadow-card-hover: 0 12px 28px -5px rgba(0, 0, 0, 0.7);
+}

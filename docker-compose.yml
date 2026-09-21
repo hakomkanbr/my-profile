@@ -1,0 +1,100 @@
+services:
+  # -------------------------------------------------------------
+  # Traefik Reverse Proxy & SSL Management
+  # -------------------------------------------------------------
+  traefik:
+    image: traefik:v3.1
+    container_name: traefik
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - "80:80"     # HTTP
+      - "443:443"   # HTTPS
+      - "8080:8080" # Traefik Dashboard (Dev / Management)
+    environment:
+      - DOMAIN=${DOMAIN:-localhost}
+      - ACME_EMAIL=${ACME_EMAIL:-admin@example.com}
+    command:
+      - "--global.checknewversion=false"
+      - "--global.sendanonymoususage=false"
+      - "--api.insecure=true"
+      - "--api.dashboard=true"
+      - "--ping=true"
+      - "--log.level=INFO"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.docker.network=traefik-net"
+      - "--providers.file.directory=/etc/traefik/dynamic"
+      - "--providers.file.watch=true"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      # Let's Encrypt automated TLS certificates
+      - "--certificatesresolvers.letsencrypt.acme.email=${ACME_EMAIL:-admin@example.com}"
+      - "--certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge=true"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - traefik_certificates:/letsencrypt
+      - ./traefik/dynamic:/etc/traefik/dynamic:ro
+    networks:
+      - traefik-net
+    healthcheck:
+      test: ["CMD", "traefik", "healthcheck", "--ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  # -------------------------------------------------------------
+  # Next.js Application (Standalone production build)
+  # -------------------------------------------------------------
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nextjs-app
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+    networks:
+      - traefik-net
+    depends_on:
+      traefik:
+        condition: service_healthy
+    labels:
+      - "traefik.enable=true"
+
+      # ---------------------------------------------------------
+      # HTTP Router (Port 80)
+      # ---------------------------------------------------------
+      - "traefik.http.routers.app-http.rule=Host(`${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.app-http.entrypoints=web"
+      - "traefik.http.routers.app-http.service=app-svc"
+      - "traefik.http.routers.app-http.middlewares=sec-headers@file,compress@file"
+
+      # ---------------------------------------------------------
+      # HTTPS Router (Port 443 with Let's Encrypt TLS)
+      # ---------------------------------------------------------
+      - "traefik.http.routers.app-https.rule=Host(`${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.app-https.entrypoints=websecure"
+      - "traefik.http.routers.app-https.service=app-svc"
+      - "traefik.http.routers.app-https.tls=true"
+      - "traefik.http.routers.app-https.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.app-https.middlewares=sec-headers@file,compress@file"
+
+      # ---------------------------------------------------------
+      # Internal Service Load Balancer
+      # ---------------------------------------------------------
+      - "traefik.http.services.app-svc.loadbalancer.server.port=3000"
+
+networks:
+  traefik-net:
+    name: traefik-net
+    driver: bridge
+
+volumes:
+  traefik_certificates:
+    name: traefik_certificates
