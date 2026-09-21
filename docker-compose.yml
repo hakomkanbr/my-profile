@@ -16,7 +16,7 @@ services:
       - "traefik.docker.network=platform_backend"
 
       # Traefik Router Configuration
-      - "traefik.http.routers.my-profile.rule=Host(`${DOMAIN:-YOUR_DOMAIN}`)"
+      - "traefik.http.routers.my-profile.rule=Host(`abdulhakimkanbr.com`)"
       - "traefik.http.routers.my-profile.entrypoints=websecure"
       - "traefik.http.routers.my-profile.tls=true"
       - "traefik.http.routers.my-profile.tls.certresolver=letsencrypt"
