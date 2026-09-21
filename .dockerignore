@@ -21,11 +21,10 @@ build
 .env*.local
 .env
 
-# Docker & Traefik files
+# Docker files
 Dockerfile*
 docker-compose*.yml
 .dockerignore
-traefik/acme.json
 
 # Documentation and temporary files
 *.md
