@@ -1,34 +1,37 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { usePreferencesStore } from '@/store';
-import { ALL_COURSES } from '@/content/courses';
-import { getLocalizedText } from '@/lib/utils';
-import { Button } from '@/components/ui';
-import { ArrowLeft, ArrowRight, GraduationCap } from 'lucide-react';
-import { Reveal } from '@/components/motion';
+import React from "react";
+import Link from "next/link";
+import { usePreferencesStore } from "@/store";
+import { ALL_COURSES } from "@/content/courses";
+import { getLocalizedText } from "@/lib/utils";
+import { Button } from "@/components/ui";
+import { ArrowLeft, ArrowRight, GraduationCap } from "lucide-react";
+import { Reveal } from "@/components/motion";
 
 export const CoursesSection: React.FC = () => {
   const { language } = usePreferencesStore();
-  const isRtl = language === 'ar';
+  const isRtl = language === "ar";
 
   return (
-    <section id="training" className="py-10 sm:py-20 border-b border-[var(--color-border)] text-start">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
+    <section
+      id="training"
+      className="py-10 sm:py-20 border-b border-[var(--color-border)] text-start"
+    >
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
         {/* Section Header (Rule 10: Training is a focused part, not the main identity) */}
         <Reveal direction="up" delay={50}>
           <div className="space-y-2">
             <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-secondary)]">
-              {isRtl ? 'نقل المعرفة' : 'Knowledge Sharing'}
+              {isRtl ? "نقل المعرفة" : "Knowledge Sharing"}
             </span>
-            <h2 className="text-h1 font-extrabold text-[var(--color-text)]">
-              {isRtl ? 'التدريب' : 'Training & Mentorship'}
+            <h2 className="text-h1 font-extrabold text-[var(--color-text)] tracking-tight rtl:tracking-normal">
+              {isRtl ? "المسارات التدريبية" : "Training & Mentorship"}
             </h2>
             <p className="text-body text-[var(--color-text-muted)] max-w-2xl font-normal leading-relaxed">
               {isRtl
-                ? 'مسارات تدريبية أشارك من خلالها خبرتي العملية في تطوير البرمجيات وهندسة الأنظمة.'
-                : 'Practical courses and engineering pathways where I share hands-on software development and system architecture experience.'}
+                ? "مسارات تدريبية أشارك من خلالها خبرتي العملية في تطوير البرمجيات وهندسة الأنظمة."
+                : "Practical courses and engineering pathways where I share hands-on software development and system architecture experience."}
             </p>
           </div>
         </Reveal>
@@ -53,7 +56,7 @@ export const CoursesSection: React.FC = () => {
                   </div>
 
                   <div className="space-y-1.5">
-                    <h3 className="text-h2 font-extrabold text-[var(--color-text)] tracking-tight">
+                    <h3 className="text-h2 font-extrabold text-[var(--color-text)] tracking-tight rtl:tracking-normal">
                       {getLocalizedText(course.title, language)}
                     </h3>
                     <p className="text-body-sm font-semibold text-[var(--color-secondary)]">
@@ -79,7 +82,7 @@ export const CoursesSection: React.FC = () => {
                 </div>
 
                 <div className="pt-4 border-t border-[var(--color-border-subtle)] flex items-center justify-between">
-                  {course.status === 'available' && course.href ? (
+                  {course.status === "available" && course.href ? (
                     <Link href={course.href}>
                       <Button
                         size="sm"
@@ -93,12 +96,12 @@ export const CoursesSection: React.FC = () => {
                           )
                         }
                       >
-                        <span>{isRtl ? 'عرض الدورة' : 'View Course'}</span>
+                        <span>{isRtl ? "عرض الدورة" : "View Course"}</span>
                       </Button>
                     </Link>
                   ) : (
                     <span className="text-xs font-mono text-[var(--color-text-subtle)] font-medium">
-                      {isRtl ? 'قريباً' : 'Coming Soon'}
+                      {isRtl ? "قريباً" : "Coming Soon"}
                     </span>
                   )}
                 </div>

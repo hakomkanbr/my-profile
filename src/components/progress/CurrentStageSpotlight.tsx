@@ -1,29 +1,37 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { usePreferencesStore, useProgressStore } from '@/store';
-import { getLocalizedText } from '@/lib/utils';
-import { getCurrentStageComputed, getNextActionStep } from '@/lib/progress-selectors';
-import { Button, Badge, Progress } from '@/components/ui';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
-
+import React from "react";
+import Link from "next/link";
+import { usePreferencesStore, useProgressStore } from "@/store";
+import { getLocalizedText } from "@/lib/utils";
+import {
+  getCurrentStageComputed,
+  getNextActionStep,
+} from "@/lib/progress-selectors";
+import { Button, Badge, Progress } from "@/components/ui";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 export const CurrentStageSpotlight: React.FC = () => {
   const { language } = usePreferencesStore();
   const { progress } = useProgressStore();
-  const isRtl = language === 'ar';
+  const isRtl = language === "ar";
 
   const currentStageComputed = getCurrentStageComputed(progress);
   const nextAction = getNextActionStep(progress);
-  const { stage, completionPercent, completedLessons, totalLessons, associatedModules } = currentStageComputed;
+  const {
+    stage,
+    completionPercent,
+    completedLessons,
+    totalLessons,
+    associatedModules,
+  } = currentStageComputed;
 
   return (
     <section className="py-12 sm:py-16 border-b border-[var(--color-border)] text-start">
-      <div className="max-w-5xl mx-auto space-y-8">
+      <div className=" mx-auto space-y-8">
         <div className="space-y-2">
           <Badge variant="primary" size="md">
-            {isRtl ? 'المرحلة النشطة حالياً' : 'Current Active Stage Spotlight'}
+            {isRtl ? "المرحلة النشطة حالياً" : "Current Active Stage Spotlight"}
           </Badge>
           <h2 className="text-display sm:text-h1 font-extrabold text-[var(--color-text)]">
             STAGE {stage.number} — {stage.code}
@@ -47,8 +55,12 @@ export const CurrentStageSpotlight: React.FC = () => {
           {/* Progress Bar within Stage */}
           <div className="space-y-2">
             <div className="flex items-center justify-between text-caption font-mono font-bold text-[var(--color-text)]">
-              <span>{isRtl ? 'إنجاز دروس هذه المرحلة' : 'Stage Lessons Progress'}</span>
-              <span>{completedLessons} / {totalLessons} ({completionPercent}%)</span>
+              <span>
+                {isRtl ? "إنجاز دروس هذه المرحلة" : "Stage Lessons Progress"}
+              </span>
+              <span>
+                {completedLessons} / {totalLessons} ({completionPercent}%)
+              </span>
             </div>
             <Progress value={completionPercent} size="md" showLabel={false} />
           </div>
@@ -56,7 +68,9 @@ export const CurrentStageSpotlight: React.FC = () => {
           {/* Modules Included in this Stage */}
           <div className="space-y-3 pt-2">
             <span className="text-xs font-mono font-bold text-[var(--color-text-subtle)] uppercase">
-              {isRtl ? 'الوحدات المرتبطة بهذه المرحلة:' : 'Modules in this stage:'}
+              {isRtl
+                ? "الوحدات المرتبطة بهذه المرحلة:"
+                : "Modules in this stage:"}
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {associatedModules.map((mod) => (
@@ -84,7 +98,9 @@ export const CurrentStageSpotlight: React.FC = () => {
           <div className="p-5 rounded-2xl bg-gradient-to-r from-[var(--color-primary-subtle)]/60 to-[var(--color-surface-sunken)] border border-[var(--color-secondary)]/30 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="space-y-1 text-center sm:text-start">
               <span className="text-[11px] font-mono font-bold text-[var(--color-secondary)] uppercase">
-                {isRtl ? 'خطوتك التنفيذية القادمة' : 'Your Next Recommended Step'}
+                {isRtl
+                  ? "خطوتك التنفيذية القادمة"
+                  : "Your Next Recommended Step"}
               </span>
               <p className="text-body-sm font-bold text-[var(--color-text)]">
                 {getLocalizedText(nextAction.title, language)}
@@ -98,7 +114,13 @@ export const CurrentStageSpotlight: React.FC = () => {
               <Button
                 size="md"
                 variant="primary"
-                rightIcon={isRtl ? <ArrowLeft className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
+                rightIcon={
+                  isRtl ? (
+                    <ArrowLeft className="w-4 h-4" />
+                  ) : (
+                    <ArrowRight className="w-4 h-4" />
+                  )
+                }
               >
                 {getLocalizedText(nextAction.ctaText, language)}
               </Button>

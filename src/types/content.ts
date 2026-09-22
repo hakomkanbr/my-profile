@@ -126,6 +126,11 @@ export interface Project {
   aiToolsRecommended: string[];
   milestones: ProjectMilestone[];
   tipsForSuccess: LocalizedString[];
+  aiMasterPrompt?: LocalizedString;
+  starterCodeSnippet?: string;
+  starterCodeLang?: string;
+  fileStructureTree?: string;
+  estimatedHours?: number;
 }
 
 export interface AIPromptItem {

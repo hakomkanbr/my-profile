@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation';
 import { cn, getLocalizedText } from '@/lib/utils';
 import { LEARNER_NAVIGATION_ITEMS } from '@/content/navigation';
 import { getTotalStats } from '@/content';
-import { usePreferencesStore, useProgressStore, useTrainerStore } from '@/store';
-import { IconMapper, Menu, X, Sun, Moon, Monitor, Globe, Presentation, GraduationCap, CheckCircle2 } from './IconMapper';
+import { usePreferencesStore, useProgressStore, useSessionStore } from '@/store';
+import { IconMapper, Menu, X, Sun, Moon, Monitor, Globe, GraduationCap, CheckCircle2 } from './IconMapper';
 import { IconButton } from '../ui/IconButton';
 import { Dropdown } from '../ui/Dropdown';
 import { Progress } from '../ui/Progress';
@@ -25,9 +25,13 @@ export const LearningShell: React.FC<LearningShellProps> = ({
   showFooter = true,
 }) => {
   const pathname = usePathname();
-  const { language, theme, mode, setLanguage, setTheme, setMode } = usePreferencesStore();
+  const { language, theme, setLanguage, setTheme } = usePreferencesStore();
   const { progress } = useProgressStore();
-  const { togglePresenter } = useTrainerStore();
+  const { initializeSessions } = useSessionStore();
+
+  React.useEffect(() => {
+    initializeSessions();
+  }, [initializeSessions]);
 
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const isRtl = language === 'ar';
@@ -63,10 +67,10 @@ export const LearningShell: React.FC<LearningShellProps> = ({
   return (
     <div className="min-h-screen flex flex-col bg-[var(--color-background)] text-[var(--color-text)] antialiased transition-colors">
       {/* Learning Shell Top Header */}
-      <header className="sticky top-0 z-40 w-full bg-[var(--color-surface)]/95 backdrop-blur-md border-b border-[var(--color-border)] px-4 sm:px-6 py-3 transition-colors">
-        <div className="flex items-center justify-between gap-3 max-w-7xl mx-auto">
+      <header className="sticky top-0 z-40 w-full bg-[var(--color-surface)]/95 backdrop-blur-md border-b border-[var(--color-border)] px-4 sm:px-6 h-16 transition-colors flex items-center">
+        <div className="flex items-center justify-between gap-3 max-w-7xl mx-auto w-full">
           {/* Left: Brand + Course Context */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 shrink-0">
             {/* Mobile menu trigger */}
             <IconButton
               variant="ghost"
@@ -79,16 +83,16 @@ export const LearningShell: React.FC<LearningShellProps> = ({
             </IconButton>
 
             {/* Brand Logo with Return to Portfolio link */}
-            <Link href="/web-creator-ai" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-[var(--color-primary)] text-white flex items-center justify-center font-extrabold text-xs shadow-xs">
+            <Link href="/web-creator-ai" className="flex items-center gap-2 group select-none shrink-0">
+              <div className="w-8 h-8 rounded-xl bg-[var(--color-primary)] text-white flex items-center justify-center font-extrabold text-xs shadow-xs group-hover:scale-105 transition-transform">
                 WC
               </div>
-              <div className="flex flex-col text-start">
-                <span className="font-extrabold text-sm tracking-tight text-[var(--color-text)] leading-none">
+              <div className="flex flex-col text-start leading-tight">
+                <span className="font-extrabold text-sm tracking-tight text-[var(--color-text)]">
                   WEB CREATOR <span className="text-[var(--color-secondary)]">AI</span>
                 </span>
-                <span className="text-[10px] text-[var(--color-text-subtle)] font-medium mt-0.5">
-                  {isRtl ? 'الحقيبة التدريبية التفاعلية' : 'Interactive Training Kit'}
+                <span className="text-[10px] text-[var(--color-text-subtle)] font-medium">
+                  {isRtl ? 'الحقيبة التدريبية' : 'Training Kit'}
                 </span>
               </div>
             </Link>
@@ -96,22 +100,22 @@ export const LearningShell: React.FC<LearningShellProps> = ({
             {/* Back to Portfolio link */}
             <Link
               href="/"
-              className="hidden xl:inline-flex items-center gap-1.5 ms-2 px-2.5 py-1 rounded-lg text-xs font-semibold bg-[var(--color-surface-sunken)] border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-secondary)] transition-all"
+              className="hidden xl:inline-flex items-center gap-1 ms-1 px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 bg-[var(--color-surface-sunken)] border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-secondary)] transition-all"
             >
-              <span>{isRtl ? '← موقع عبد الحكيم قنبر' : '← Abdulhakim Portfolio'}</span>
+              <span>{isRtl ? '← موقع عبد الحكيم' : '← Portfolio'}</span>
             </Link>
 
             {headerTitle && (
-              <div className="hidden md:flex items-center gap-2 ps-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-secondary)] inline-block" />
-                <h1 className="text-body-sm font-semibold text-[var(--color-text)]">{headerTitle}</h1>
+              <div className="hidden 2xl:flex items-center gap-2 ps-2 border-s border-[var(--color-border)] max-w-[180px] shrink-0">
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-secondary)] inline-block shrink-0" />
+                <h1 className="text-xs font-semibold text-[var(--color-text-muted)] truncate" title={headerTitle}>{headerTitle}</h1>
               </div>
             )}
           </div>
 
           {/* Center: Desktop Quick Context Links */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {LEARNER_NAVIGATION_ITEMS.slice(0, 5).map((item) => {
+          <nav className="hidden lg:flex items-center gap-1 bg-[var(--color-surface-sunken)]/70 p-1 rounded-xl border border-[var(--color-border-subtle)]">
+            {LEARNER_NAVIGATION_ITEMS.slice(0, 6).map((item) => {
               const isActive =
                 item.href === '/web-creator-ai'
                   ? pathname === '/web-creator-ai'
@@ -123,10 +127,10 @@ export const LearningShell: React.FC<LearningShellProps> = ({
                   key={item.id}
                   href={item.href}
                   className={cn(
-                    'px-2.5 py-1 rounded-lg text-xs font-semibold transition-colors',
+                    'px-2.5 py-1 rounded-lg text-xs font-bold whitespace-nowrap shrink-0 transition-all select-none',
                     isActive
-                      ? 'bg-[var(--color-primary-subtle)] text-[var(--color-primary)] font-bold'
-                      : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface-sunken)]'
+                      ? 'bg-[var(--color-surface)] text-[var(--color-primary)] shadow-xs'
+                      : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface)]/50'
                   )}
                 >
                   {label}
@@ -136,12 +140,12 @@ export const LearningShell: React.FC<LearningShellProps> = ({
           </nav>
 
           {/* Right: Progress + Mode + Lang + Theme */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             {/* Progress Pill */}
             <Link
               href="/web-creator-ai/journey"
               className={cn(
-                'hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full',
+                'hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full whitespace-nowrap shrink-0',
                 'bg-[var(--color-surface-sunken)] border border-[var(--color-border)]',
                 'hover:border-[var(--color-secondary)] transition-all cursor-pointer text-xs font-semibold'
               )}
@@ -153,48 +157,20 @@ export const LearningShell: React.FC<LearningShellProps> = ({
               </span>
             </Link>
 
-            {/* Mode Switcher */}
-            <button
-              type="button"
-              onClick={() => {
-                const newMode = mode === 'trainee' ? 'trainer' : 'trainee';
-                setMode(newMode);
-                if (newMode === 'trainer') togglePresenter();
-              }}
-              className={cn(
-                'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold transition-all border cursor-pointer',
-                mode === 'trainer'
-                  ? 'bg-[var(--color-primary)] text-white border-[var(--color-primary)]'
-                  : 'bg-[var(--color-surface-sunken)] text-[var(--color-text-muted)] border-[var(--color-border)] hover:text-[var(--color-text)]'
-              )}
-              title={
-                isRtl
-                  ? mode === 'trainer'
-                    ? 'وضع المدرب نشط'
-                    : 'وضع المتدرب نشط'
-                  : mode === 'trainer'
-                  ? 'Trainer Mode'
-                  : 'Trainee Mode'
-              }
+            {/* Student Mode Indicator */}
+            <div
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 bg-[var(--color-surface-sunken)] border border-[var(--color-border)] text-[var(--color-text)] select-none"
+              title={isRtl ? 'وضع الطالب' : 'Student Mode'}
             >
-              {mode === 'trainer' ? (
-                <>
-                  <Presentation className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline">{isRtl ? 'المدرب' : 'Trainer'}</span>
-                </>
-              ) : (
-                <>
-                  <GraduationCap className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline">{isRtl ? 'المتدرب' : 'Trainee'}</span>
-                </>
-              )}
-            </button>
+              <GraduationCap className="w-3.5 h-3.5 text-[var(--color-primary)]" />
+              <span className="hidden sm:inline">{isRtl ? 'الطالب' : 'Student'}</span>
+            </div>
 
             {/* Language */}
             <button
               type="button"
               onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
-              className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-bold border bg-[var(--color-surface-sunken)] border-[var(--color-border)] text-[var(--color-text)] hover:bg-[var(--color-border-subtle)] cursor-pointer"
+              className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-bold border whitespace-nowrap shrink-0 bg-[var(--color-surface-sunken)] border-[var(--color-border)] text-[var(--color-text)] hover:bg-[var(--color-border-subtle)] cursor-pointer"
             >
               <Globe className="w-3.5 h-3.5 text-[var(--color-secondary)]" />
               <span>{isRtl ? 'EN' : 'عربي'}</span>

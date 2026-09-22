@@ -7,7 +7,10 @@ import { ALL_PROJECTS } from '@/content';
 import { ProjectCard, Button } from '@/components';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
+import { useRouter } from 'next/navigation';
+
 export const WhatYouWillBuildSection: React.FC = () => {
+  const router = useRouter();
   const { language } = usePreferencesStore();
   const isRtl = language === 'ar';
 
@@ -30,7 +33,7 @@ export const WhatYouWillBuildSection: React.FC = () => {
           </p>
         </div>
 
-        <Link href="/projects" className="shrink-0">
+        <Link href="/web-creator-ai/projects" className="shrink-0">
           <Button
             variant="primary"
             size="md"
@@ -57,6 +60,7 @@ export const WhatYouWillBuildSection: React.FC = () => {
             level={prj.level}
             targetOutput={isRtl ? prj.targetOutput.ar : prj.targetOutput.en}
             techStack={prj.techStack}
+            onOpenWorkshop={() => router.push(`/web-creator-ai/projects?project=${prj.id}`)}
           />
         ))}
       </div>

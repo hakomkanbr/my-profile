@@ -18,6 +18,7 @@ interface ProgressState {
   toggleLesson: (lessonId: string) => void;
   completeChallenge: (challengeId: string) => void;
   completeProject: (projectId: string) => void;
+  toggleProject: (projectId: string) => void;
   recordQuizAttempt: (attempt: QuizAttempt) => void;
   toggleBookmark: (itemId: string) => void;
   saveNote: (targetId: string, targetType: 'lesson' | 'project' | 'prompt', content: string) => void;
@@ -100,6 +101,23 @@ export const useProgressStore = create<ProgressState>((set, get) => ({
     const updated: TraineeProgress = {
       ...progress,
       completedProjects: [...progress.completedProjects, projectId],
+      lastActiveAt: new Date().toISOString(),
+    };
+
+    set({ progress: updated });
+    defaultStorageAdapter.saveProgress(updated);
+  },
+
+  toggleProject: (projectId: string) => {
+    const { progress } = get();
+    const isCompleted = progress.completedProjects.includes(projectId);
+    const completedProjects = isCompleted
+      ? progress.completedProjects.filter((id) => id !== projectId)
+      : [...progress.completedProjects, projectId];
+
+    const updated: TraineeProgress = {
+      ...progress,
+      completedProjects,
       lastActiveAt: new Date().toISOString(),
     };
 

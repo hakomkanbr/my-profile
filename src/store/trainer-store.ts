@@ -10,6 +10,9 @@ interface TrainerStoreState {
   isFullscreen: boolean;
   showTrainerNotes: boolean;
   activeSlideIndex: number;
+  revealedStepIndex: number;
+  viewMode: 'trainer' | 'student';
+  presentationTheme: 'dark' | 'light';
   timerMinutes: number;
   timerSeconds: number;
   isTimerRunning: boolean;
@@ -19,7 +22,14 @@ interface TrainerStoreState {
   setPresenterActive: (active: boolean) => void;
   toggleFullscreen: () => void;
   toggleTrainerNotes: () => void;
+  setViewMode: (mode: 'trainer' | 'student') => void;
+  toggleViewMode: () => void;
+  setPresentationTheme: (theme: 'dark' | 'light') => void;
+  togglePresentationTheme: () => void;
   setActiveSlideIndex: (index: number) => void;
+  setRevealedStepIndex: (step: number) => void;
+  incrementRevealedStep: () => void;
+  resetRevealedStep: () => void;
   nextSlide: () => void;
   prevSlide: () => void;
   setTimer: (minutes: number, seconds: number) => void;
@@ -34,6 +44,9 @@ export const useTrainerStore = create<TrainerStoreState>((set) => ({
   isFullscreen: false,
   showTrainerNotes: false,
   activeSlideIndex: 0,
+  revealedStepIndex: 0,
+  viewMode: 'trainer',
+  presentationTheme: 'dark',
   timerMinutes: 15,
   timerSeconds: 0,
   isTimerRunning: false,
@@ -49,12 +62,42 @@ export const useTrainerStore = create<TrainerStoreState>((set) => ({
   toggleTrainerNotes: () =>
     set((state) => ({ showTrainerNotes: !state.showTrainerNotes })),
 
-  setActiveSlideIndex: (index) => set({ activeSlideIndex: Math.max(0, index) }),
+  setViewMode: (mode) => set({ viewMode: mode }),
 
-  nextSlide: () => set((state) => ({ activeSlideIndex: state.activeSlideIndex + 1 })),
+  toggleViewMode: () =>
+    set((state) => ({
+      viewMode: state.viewMode === 'trainer' ? 'student' : 'trainer',
+      showTrainerNotes: false,
+    })),
+
+  setPresentationTheme: (theme) => set({ presentationTheme: theme }),
+
+  togglePresentationTheme: () =>
+    set((state) => ({
+      presentationTheme: state.presentationTheme === 'dark' ? 'light' : 'dark',
+    })),
+
+  setActiveSlideIndex: (index) =>
+    set({ activeSlideIndex: Math.max(0, index), revealedStepIndex: 0 }),
+
+  setRevealedStepIndex: (step) => set({ revealedStepIndex: Math.max(0, step) }),
+
+  incrementRevealedStep: () =>
+    set((state) => ({ revealedStepIndex: state.revealedStepIndex + 1 })),
+
+  resetRevealedStep: () => set({ revealedStepIndex: 0 }),
+
+  nextSlide: () =>
+    set((state) => ({
+      activeSlideIndex: state.activeSlideIndex + 1,
+      revealedStepIndex: 0,
+    })),
 
   prevSlide: () =>
-    set((state) => ({ activeSlideIndex: Math.max(0, state.activeSlideIndex - 1) })),
+    set((state) => ({
+      activeSlideIndex: Math.max(0, state.activeSlideIndex - 1),
+      revealedStepIndex: 0,
+    })),
 
   setTimer: (minutes, seconds) =>
     set({ timerMinutes: minutes, timerSeconds: seconds }),

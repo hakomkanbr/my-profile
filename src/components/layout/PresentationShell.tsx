@@ -1,10 +1,9 @@
-'use client';
+"use client";
 
-import React, { useEffect } from 'react';
-import Link from 'next/link';
-import { usePreferencesStore, useTrainerStore } from '@/store';
-import { X, ChevronLeft, ChevronRight, Moon, Sun } from './IconMapper';
-
+import React, { useEffect } from "react";
+import Link from "next/link";
+import { usePreferencesStore, useTrainerStore } from "@/store";
+import { X, ChevronLeft, ChevronRight, Moon, Sun } from "./IconMapper";
 
 export interface PresentationShellProps {
   children: React.ReactNode;
@@ -19,7 +18,7 @@ export interface PresentationShellProps {
 
 export const PresentationShell: React.FC<PresentationShellProps> = ({
   children,
-  title = 'عرض الشرح التقديمي',
+  title = "عرض الشرح التقديمي",
   stageCode,
   currentSlide = 1,
   totalSlides = 1,
@@ -29,25 +28,26 @@ export const PresentationShell: React.FC<PresentationShellProps> = ({
 }) => {
   const { language, theme, setTheme } = usePreferencesStore();
   const { toggleTrainerNotes } = useTrainerStore();
-  const isRtl = language === 'ar';
-
-
+  const isRtl = language === "ar";
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && onExit) {
+      if (e.key === "Escape" && onExit) {
         onExit();
-      } else if ((e.key === 'ArrowRight' || e.key === 'PageDown') && onNextSlide) {
+      } else if (
+        (e.key === "ArrowRight" || e.key === "PageDown") &&
+        onNextSlide
+      ) {
         if (isRtl) onPrevSlide?.();
         else onNextSlide();
-      } else if ((e.key === 'ArrowLeft' || e.key === 'PageUp') && onPrevSlide) {
+      } else if ((e.key === "ArrowLeft" || e.key === "PageUp") && onPrevSlide) {
         if (isRtl) onNextSlide?.();
         else onPrevSlide();
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isRtl, onNextSlide, onPrevSlide, onExit]);
 
   return (
@@ -61,7 +61,7 @@ export const PresentationShell: React.FC<PresentationShellProps> = ({
             className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold bg-[var(--color-surface-sunken)] border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
           >
             <X className="w-3.5 h-3.5" />
-            <span>{isRtl ? 'إنهاء العرض (Esc)' : 'Exit (Esc)'}</span>
+            <span>{isRtl ? "إنهاء العرض (Esc)" : "Exit (Esc)"}</span>
           </Link>
 
           {stageCode && (
@@ -84,7 +84,11 @@ export const PresentationShell: React.FC<PresentationShellProps> = ({
             disabled={currentSlide <= 1}
             aria-label="الشريحة السابقة"
           >
-            {isRtl ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+            {isRtl ? (
+              <ChevronRight className="w-4 h-4" />
+            ) : (
+              <ChevronLeft className="w-4 h-4" />
+            )}
           </button>
 
           <span className="font-mono text-xs font-bold px-2 py-0.5 rounded bg-[var(--color-surface-sunken)] border border-[var(--color-border)]">
@@ -98,7 +102,11 @@ export const PresentationShell: React.FC<PresentationShellProps> = ({
             disabled={currentSlide >= totalSlides}
             aria-label="الشريحة التالية"
           >
-            {isRtl ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+            {isRtl ? (
+              <ChevronLeft className="w-4 h-4" />
+            ) : (
+              <ChevronRight className="w-4 h-4" />
+            )}
           </button>
         </div>
 
@@ -109,24 +117,27 @@ export const PresentationShell: React.FC<PresentationShellProps> = ({
             onClick={toggleTrainerNotes}
             className="px-2.5 py-1 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-sunken)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] font-semibold"
           >
-            {isRtl ? 'ملاحظات المدرب' : 'Speaker Notes'}
+            {isRtl ? "ملاحظات المدرب" : "Speaker Notes"}
           </button>
-
 
           <button
             type="button"
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="p-1.5 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-sunken)]"
             aria-label="تبديل المظهر"
           >
-            {theme === 'dark' ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
+            {theme === "dark" ? (
+              <Sun className="w-3.5 h-3.5" />
+            ) : (
+              <Moon className="w-3.5 h-3.5" />
+            )}
           </button>
         </div>
       </header>
 
       {/* Main Canvas Area */}
       <main className="flex-1 overflow-auto flex items-center justify-center p-6 sm:p-10">
-        <div className="w-full max-w-5xl h-full flex flex-col justify-center">
+        <div className="w-full  h-full flex flex-col justify-center">
           {children}
         </div>
       </main>

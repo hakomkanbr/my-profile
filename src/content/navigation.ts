@@ -50,13 +50,24 @@ export const PORTFOLIO_NAVIGATION_ITEMS: NavigationItem[] = [
 export const LEARNER_NAVIGATION_ITEMS: NavigationItem[] = [
   {
     id: "learn-overview",
-    label: { ar: "نظرة عامة", en: "Overview" },
+    label: { ar: "الرئيسية", en: "Home" },
     href: "/web-creator-ai",
     icon: "Sparkles",
   },
   {
+    id: "learn-sessions",
+    label: { ar: "الجلسات", en: "Sessions" },
+    href: "/web-creator-ai/sessions",
+    icon: "Monitor",
+    badge: { ar: "12", en: "12" },
+    description: {
+      ar: "الجلسة النشطة وفهرس الجلسات الـ 12 المباشرة",
+      en: "Live active session & 12 curriculum sessions",
+    },
+  },
+  {
     id: "learn-journey",
-    label: { ar: "رحلة التعلم (01-07)", en: "Learning Journey" },
+    label: { ar: "المراحل", en: "Roadmap" },
     href: "/web-creator-ai/journey",
     icon: "Compass",
     badge: { ar: "01-07", en: "01-07" },
@@ -67,7 +78,7 @@ export const LEARNER_NAVIGATION_ITEMS: NavigationItem[] = [
   },
   {
     id: "learn-modules",
-    label: { ar: "الوحدات التدريبية", en: "Modules" },
+    label: { ar: "الوحدات", en: "Modules" },
     href: "/web-creator-ai/modules",
     icon: "Layers",
     badge: { ar: "10", en: "10" },
@@ -78,7 +89,7 @@ export const LEARNER_NAVIGATION_ITEMS: NavigationItem[] = [
   },
   {
     id: "learn-projects",
-    label: { ar: "المشاريع التطبيقية", en: "Projects" },
+    label: { ar: "المشاريع", en: "Projects" },
     href: "/web-creator-ai/projects",
     icon: "Briefcase",
     description: {
@@ -88,7 +99,7 @@ export const LEARNER_NAVIGATION_ITEMS: NavigationItem[] = [
   },
   {
     id: "learn-ai-lab",
-    label: { ar: "مختبر الذكاء الاصطناعي", en: "AI Lab" },
+    label: { ar: "مختبر AI", en: "AI Lab" },
     href: "/web-creator-ai/ai-lab",
     icon: "Sparkles",
     badge: { ar: "PRO", en: "PRO" },
@@ -99,7 +110,7 @@ export const LEARNER_NAVIGATION_ITEMS: NavigationItem[] = [
   },
   {
     id: "learn-marketing-lab",
-    label: { ar: "مختبر التسويق والـ SEO", en: "Marketing Lab" },
+    label: { ar: "التسويق", en: "Marketing" },
     href: "/web-creator-ai/marketing-lab",
     icon: "TrendingUp",
     description: {
@@ -109,7 +120,7 @@ export const LEARNER_NAVIGATION_ITEMS: NavigationItem[] = [
   },
   {
     id: "learn-resources",
-    label: { ar: "الموارد والمراجع", en: "Resources" },
+    label: { ar: "المراجع", en: "Resources" },
     href: "/web-creator-ai/resources",
     icon: "Bookmark",
     description: {
@@ -119,7 +130,7 @@ export const LEARNER_NAVIGATION_ITEMS: NavigationItem[] = [
   },
   {
     id: "learn-progress",
-    label: { ar: "متابعة التقدم", en: "Progress" },
+    label: { ar: "التقدم", en: "Progress" },
     href: "/web-creator-ai/progress",
     icon: "Award",
     description: {
@@ -136,25 +147,25 @@ export const LEARNER_NAVIGATION_ITEMS: NavigationItem[] = [
 export const TRAINER_NAVIGATION_ITEMS: NavigationItem[] = [
   {
     id: "trainer-cockpit",
-    label: { ar: "لوحة تحكم المدرب", en: "Trainer Cockpit" },
+    label: { ar: "الرئيسية", en: "Cockpit" },
     href: "/trainer",
     icon: "Presentation",
   },
   {
     id: "trainer-curriculum",
-    label: { ar: "إدارة المنهج والدروس", en: "Curriculum" },
+    label: { ar: "المنهج", en: "Curriculum" },
     href: "/trainer/curriculum",
     icon: "Layers",
   },
   {
     id: "trainer-learners",
-    label: { ar: "متابعة المتدربين", en: "Learners" },
+    label: { ar: "المتدربون", en: "Learners" },
     href: "/trainer/learners",
     icon: "UserCheck",
   },
   {
     id: "trainer-presentation",
-    label: { ar: "وضع العرض المباشر", en: "Presentation Mode" },
+    label: { ar: "العرض الحي", en: "Live Deck" },
     href: "/trainer/presentation",
     icon: "Monitor",
     badge: { ar: "LIVE", en: "LIVE" },

@@ -4,4 +4,6 @@ export * from './progress';
 export * from './settings';
 export * from './navigation';
 export * from './presentation';
+export * from './presentation-engine';
 export * from './portfolio-project';
+export * from './session';

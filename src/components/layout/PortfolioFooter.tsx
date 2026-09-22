@@ -44,7 +44,7 @@ export const PortfolioFooter: React.FC = () => {
 
   return (
     <footer className="w-full border-t border-[var(--color-border)] bg-[var(--color-surface)] py-10 sm:py-12 px-4 sm:px-8 mt-auto text-start">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8">
+      <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8">
         {/* Trainer Personal Info */}
         <div className="flex items-center gap-3">
           {/* eslint-disable-next-line @next/next/no-img-element */}

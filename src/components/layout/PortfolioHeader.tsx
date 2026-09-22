@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { cn, getLocalizedText } from '@/lib/utils';
-import { usePreferencesStore } from '@/store';
-import { PORTFOLIO_NAVIGATION_ITEMS } from '@/content/navigation';
-import { INSTRUCTOR_PROFILE } from '@/content/instructor';
-import { Dropdown } from '../ui/Dropdown';
-import { Menu, X, Sun, Moon, Monitor, Globe } from './IconMapper';
-import { ChevronsRight, ChevronsLeft } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { cn, getLocalizedText } from "@/lib/utils";
+import { usePreferencesStore } from "@/store";
+import { PORTFOLIO_NAVIGATION_ITEMS } from "@/content/navigation";
+import { INSTRUCTOR_PROFILE } from "@/content/instructor";
+import { Dropdown } from "../ui/Dropdown";
+import { Menu, X, Sun, Moon, Monitor, Globe } from "./IconMapper";
+import { ChevronsRight, ChevronsLeft } from "lucide-react";
 
 export const PortfolioHeader: React.FC = () => {
   const pathname = usePathname();
@@ -17,23 +17,24 @@ export const PortfolioHeader: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const isRtl = language === 'ar';
+  const isRtl = language === "ar";
   const name = getLocalizedText(INSTRUCTOR_PROFILE.name, language);
+  const isHomePage = pathname === "/";
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && mobileMenuOpen) setMobileMenuOpen(false);
+      if (e.key === "Escape" && mobileMenuOpen) setMobileMenuOpen(false);
     };
     if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [mobileMenuOpen]);
 
@@ -43,28 +44,28 @@ export const PortfolioHeader: React.FC = () => {
       setIsScrolled(window.scrollY > 80);
     };
     handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const themeOptions = [
     {
-      id: 'theme-light',
-      label: isRtl ? 'نهاري' : 'Light',
+      id: "theme-light",
+      label: isRtl ? "نهاري" : "Light",
       icon: <Sun className="w-4 h-4" />,
-      onClick: () => setTheme('light'),
+      onClick: () => setTheme("light"),
     },
     {
-      id: 'theme-dark',
-      label: isRtl ? 'داكن' : 'Dark',
+      id: "theme-dark",
+      label: isRtl ? "داكن" : "Dark",
       icon: <Moon className="w-4 h-4" />,
-      onClick: () => setTheme('dark'),
+      onClick: () => setTheme("dark"),
     },
     {
-      id: 'theme-system',
-      label: isRtl ? 'تلقائي' : 'System',
+      id: "theme-system",
+      label: isRtl ? "تلقائي" : "System",
       icon: <Monitor className="w-4 h-4" />,
-      onClick: () => setTheme('system'),
+      onClick: () => setTheme("system"),
     },
   ];
 
@@ -78,16 +79,17 @@ export const PortfolioHeader: React.FC = () => {
           ========================================================================= */}
       <header
         className={cn(
-          'header-section hidden lg:block w-full z-50 transition-all duration-500',
-          isScrolled
-            ? 'sticky-header fixed top-0 inset-x-0 bg-[#252734] shadow-md shadow-black/20 py-0 animate-in fade-in-down duration-500'
-            : 'absolute top-0 inset-x-0 bg-transparent py-[15px]'
+          "header-section hidden lg:block w-full z-50 transition-all duration-500",
+          isHomePage
+            ? isScrolled
+              ? "sticky-header fixed top-0 inset-x-0 bg-[#252734] shadow-md shadow-black/20 py-0 animate-in fade-in-down duration-500"
+              : "absolute top-0 inset-x-0 bg-transparent py-[15px]"
+            : "sticky top-0 inset-x-0 bg-[#252734] border-b border-white/10 shadow-md shadow-black/20 py-0",
         )}
       >
         <div className="header-wrapper w-full">
           <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between">
-              
               {/* Start Header Logo / Personal Brand Identity */}
               <div className="header-logo shrink-0">
                 <Link
@@ -96,12 +98,6 @@ export const PortfolioHeader: React.FC = () => {
                   aria-label={name}
                 >
                   {/* Distinctive Monogram Emblem */}
-                  <div className="relative w-11 h-11 rounded-2xl bg-gradient-to-br from-white/10 to-white/[0.02] border border-white/15 group-hover:border-blue-400/50 flex items-center justify-center transition-all duration-300 group-hover:scale-105 shadow-md shadow-black/20 shrink-0">
-                    <span className="font-editorial text-2xl font-bold tracking-tight text-white group-hover:text-blue-400 transition-colors">
-                      {isRtl ? 'ق' : 'K'}
-                    </span>
-                    <span className="absolute -top-1 -end-1 w-2.5 h-2.5 rounded-full bg-emerald-400 ring-2 ring-[#252734] animate-pulse" title={isRtl ? 'متاح للعمل' : 'Available'} />
-                  </div>
 
                   {/* Typographic Name Wordmark */}
                   <div className="flex flex-col text-start justify-center">
@@ -110,7 +106,7 @@ export const PortfolioHeader: React.FC = () => {
                       <span className="text-blue-400 font-sans ms-0.5">.</span>
                     </span>
                     <span className="text-[11px] font-mono tracking-wider text-[#858792] group-hover:text-slate-400 transition-colors font-medium mt-0.5 leading-none">
-                      {isRtl ? 'مهندس برمجيات' : 'Software Engineer'}
+                      {isRtl ? "مهندس برمجيات" : "Software Engineer"}
                     </span>
                   </div>
                 </Link>
@@ -122,22 +118,34 @@ export const PortfolioHeader: React.FC = () => {
                 <ul className="header-nav flex items-center m-0 p-0 list-none">
                   {PORTFOLIO_NAVIGATION_ITEMS.map((item) => {
                     const isActive =
-                      item.href === '/'
-                        ? pathname === '/'
-                        : pathname === item.href || (item.href !== '/' && !item.href.startsWith('/#') && pathname.startsWith(`${item.href}/`));
+                      item.href === "/"
+                        ? pathname === "/"
+                        : item.href === "/#projects"
+                          ? pathname.startsWith("/projects")
+                          : item.href === "/#about"
+                            ? pathname.startsWith("/about")
+                            : item.href === "/#contact"
+                              ? pathname.startsWith("/contact")
+                              : pathname === item.href ||
+                                (item.href !== "/" &&
+                                  !item.href.startsWith("/#") &&
+                                  pathname.startsWith(`${item.href}/`));
                     const label = getLocalizedText(item.label, language);
 
                     return (
-                      <li
-                        key={item.id}
-                        className="relative px-3.5 xl:px-7"
-                      >
+                      <li key={item.id} className="relative px-3.5 xl:px-7">
                         <Link
                           href={item.href}
                           className={cn(
-                            'group relative inline-block text-[18px] font-medium transition-colors duration-500',
-                            isScrolled ? 'h-[90px] leading-[90px]' : 'h-[120px] leading-[120px]',
-                            isActive ? 'text-white' : 'text-[#858792] hover:text-white'
+                            "group relative inline-block text-[18px] font-medium transition-colors duration-500",
+                            isHomePage
+                              ? isScrolled
+                                ? "h-[90px] leading-[90px]"
+                                : "h-[120px] leading-[120px]"
+                              : "h-[90px] leading-[90px]",
+                            isActive
+                              ? "text-white"
+                              : "text-[#858792] hover:text-white",
                           )}
                         >
                           <span className="relative z-10">{label}</span>
@@ -146,13 +154,14 @@ export const PortfolioHeader: React.FC = () => {
                           <span
                             aria-hidden="true"
                             className={cn(
-                              'pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120px] h-[60px] bg-contain bg-center bg-no-repeat transition-all duration-500 z-0',
+                              "pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120px] h-[60px] bg-contain bg-center bg-no-repeat transition-all duration-500 z-0",
                               isActive
-                                ? 'opacity-100 scale-100'
-                                : 'opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100'
+                                ? "opacity-100 scale-100"
+                                : "opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100",
                             )}
                             style={{
-                              backgroundImage: "url('/images/icon/menu-hover-shape.png')",
+                              backgroundImage:
+                                "url('/images/icon/menu-hover-shape.png')",
                             }}
                           />
                         </Link>
@@ -168,13 +177,13 @@ export const PortfolioHeader: React.FC = () => {
                 {/* Language Switcher Button (Subtle pill matching Lendex palette) */}
                 <button
                   type="button"
-                  onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
+                  onClick={() => setLanguage(language === "ar" ? "en" : "ar")}
                   className="inline-flex items-center gap-1.5 h-10 px-3.5 rounded-full border border-[#3b3d49] hover:border-white/40 text-xs font-mono font-bold text-[#858792] hover:text-white transition-all cursor-pointer"
                   aria-label="تبديل لغة الواجهة"
-                  title={isRtl ? 'Switch to English' : 'التحويل للعربية'}
+                  title={isRtl ? "Switch to English" : "التحويل للعربية"}
                 >
                   <Globe className="w-3.5 h-3.5 text-[#858792]" />
-                  <span>{isRtl ? 'EN' : 'عربي'}</span>
+                  <span>{isRtl ? "EN" : "عربي"}</span>
                 </button>
 
                 {/* Theme Switcher Dropdown */}
@@ -187,9 +196,9 @@ export const PortfolioHeader: React.FC = () => {
                       className="w-10 h-10 rounded-full flex items-center justify-center border border-[#3b3d49] hover:border-white/40 text-[#858792] hover:text-white transition-all cursor-pointer"
                       aria-label="تغيير المظهر"
                     >
-                      {theme === 'dark' ? (
+                      {theme === "dark" ? (
                         <Moon className="w-4 h-4 text-blue-400" />
-                      ) : theme === 'light' ? (
+                      ) : theme === "light" ? (
                         <Sun className="w-4 h-4 text-amber-400" />
                       ) : (
                         <Monitor className="w-4 h-4 text-[#858792]" />
@@ -203,7 +212,7 @@ export const PortfolioHeader: React.FC = () => {
                   href="/contact"
                   className="btn btn-sm btn-outline-one group inline-flex items-center justify-center gap-2.5 h-[65px] px-[40px] rounded-[32.5px] border border-[#3b3d49] hover:border-[#2e303d] bg-transparent hover:bg-[#2e303d] text-white text-[16px] xl:text-[18px] font-medium leading-[60px] transition-all duration-500 shadow-md"
                 >
-                  <span>{isRtl ? 'تواصل معي' : "Let's Talk"}</span>
+                  <span>{isRtl ? "تواصل معي" : "Let's Talk"}</span>
                   {isRtl ? (
                     <ChevronsLeft className="w-5 h-5 text-white transition-transform group-hover:-translate-x-1" />
                   ) : (
@@ -212,7 +221,6 @@ export const PortfolioHeader: React.FC = () => {
                 </Link>
               </div>
               {/* End Header Action Link */}
-
             </div>
           </div>
         </div>
@@ -224,20 +232,25 @@ export const PortfolioHeader: React.FC = () => {
           ========================================================================= */}
       <div
         className={cn(
-          'mobile-header lg:hidden w-full z-50 transition-all duration-300',
-          isScrolled
-            ? 'fixed top-0 inset-x-0 bg-[#252734]/95 backdrop-blur-md border-b border-white/10 shadow-md py-3.5'
-            : 'absolute top-0 inset-x-0 bg-[#2a2c39] py-5'
+          "mobile-header lg:hidden w-full z-50 transition-all duration-300",
+          isHomePage
+            ? isScrolled
+              ? "fixed top-0 inset-x-0 bg-[#252734]/95 backdrop-blur-md border-b border-white/10 shadow-md py-3.5"
+              : "absolute top-0 inset-x-0 bg-[#2a2c39] py-5"
+            : "sticky top-0 inset-x-0 bg-[#252734] border-b border-white/10 shadow-md py-3.5",
         )}
       >
         <div className="container max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between">
             {/* Mobile Logo / Personal Brand Identity */}
             <div className="mobile-logo shrink-0">
-              <Link href="/" className="inline-flex items-center gap-2.5 focus:outline-none select-none">
+              <Link
+                href="/"
+                className="inline-flex items-center gap-2.5 focus:outline-none select-none"
+              >
                 <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-white shrink-0">
                   <span className="font-editorial text-lg font-bold text-white">
-                    {isRtl ? 'ق' : 'K'}
+                    {isRtl ? "ق" : "K"}
                   </span>
                 </div>
                 <div className="flex flex-col text-start justify-center leading-tight">
@@ -246,7 +259,7 @@ export const PortfolioHeader: React.FC = () => {
                     <span className="text-blue-400 font-sans ms-0.5">.</span>
                   </span>
                   <span className="text-[10px] font-mono text-[#858792]">
-                    {isRtl ? 'مهندس برمجيات' : 'Software Eng'}
+                    {isRtl ? "مهندس برمجيات" : "Software Eng"}
                   </span>
                 </div>
               </Link>
@@ -257,22 +270,22 @@ export const PortfolioHeader: React.FC = () => {
               {/* Quick Language Toggle */}
               <button
                 type="button"
-                onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
+                onClick={() => setLanguage(language === "ar" ? "en" : "ar")}
                 className="inline-flex items-center gap-1 h-9 px-2.5 rounded-full border border-white/15 text-xs font-mono font-bold text-slate-300 hover:text-white"
                 aria-label="تبديل اللغة"
               >
                 <Globe className="w-3 h-3 text-slate-300" />
-                <span>{isRtl ? 'EN' : 'عربي'}</span>
+                <span>{isRtl ? "EN" : "عربي"}</span>
               </button>
 
               {/* Theme Toggle Button */}
               <button
                 type="button"
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 className="w-9 h-9 rounded-full flex items-center justify-center border border-white/15 text-slate-300 hover:text-white"
                 aria-label="تبديل المظهر"
               >
-                {theme === 'dark' ? (
+                {theme === "dark" ? (
                   <Moon className="w-3.5 h-3.5 text-blue-400" />
                 ) : (
                   <Sun className="w-3.5 h-3.5 text-amber-400" />
@@ -306,8 +319,8 @@ export const PortfolioHeader: React.FC = () => {
         >
           <div
             className={cn(
-              'offcanvas w-[300px] sm:w-[380px] h-full bg-[#2a2c39] text-white p-6 sm:p-8 flex flex-col justify-between overflow-y-auto shadow-2xl animate-in duration-300',
-              isRtl ? 'slide-in-from-left' : 'slide-in-from-right'
+              "offcanvas w-[300px] sm:w-[380px] h-full bg-[#2a2c39] text-white p-6 sm:p-8 flex flex-col justify-between overflow-y-auto shadow-2xl animate-in duration-300",
+              isRtl ? "slide-in-from-left" : "slide-in-from-right",
             )}
             onClick={(e) => e.stopPropagation()}
           >
@@ -321,7 +334,7 @@ export const PortfolioHeader: React.FC = () => {
                 >
                   <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-white shrink-0">
                     <span className="font-editorial text-lg font-bold text-white">
-                      {isRtl ? 'ق' : 'K'}
+                      {isRtl ? "ق" : "K"}
                     </span>
                   </div>
                   <div className="flex flex-col text-start justify-center leading-tight">
@@ -330,7 +343,7 @@ export const PortfolioHeader: React.FC = () => {
                       <span className="text-blue-400 font-sans ms-0.5">.</span>
                     </span>
                     <span className="text-[10px] font-mono text-[#858792]">
-                      {isRtl ? 'مهندس برمجيات' : 'Software Eng'}
+                      {isRtl ? "مهندس برمجيات" : "Software Eng"}
                     </span>
                   </div>
                 </Link>
@@ -350,9 +363,18 @@ export const PortfolioHeader: React.FC = () => {
                 <ul className="space-y-1 list-none p-0 m-0">
                   {PORTFOLIO_NAVIGATION_ITEMS.map((item) => {
                     const isActive =
-                      item.href === '/'
-                        ? pathname === '/'
-                        : pathname === item.href || (item.href !== '/' && !item.href.startsWith('/#') && pathname.startsWith(`${item.href}/`));
+                      item.href === "/"
+                        ? pathname === "/"
+                        : item.href === "/#projects"
+                          ? pathname.startsWith("/projects")
+                          : item.href === "/#about"
+                            ? pathname.startsWith("/about")
+                            : item.href === "/#contact"
+                              ? pathname.startsWith("/contact")
+                              : pathname === item.href ||
+                                (item.href !== "/" &&
+                                  !item.href.startsWith("/#") &&
+                                  pathname.startsWith(`${item.href}/`));
                     const label = getLocalizedText(item.label, language);
 
                     return (
@@ -361,10 +383,10 @@ export const PortfolioHeader: React.FC = () => {
                           href={item.href}
                           onClick={() => setMobileMenuOpen(false)}
                           className={cn(
-                            'block py-3.5 text-base font-semibold uppercase tracking-wider transition-colors',
+                            "block py-3.5 text-base font-semibold uppercase tracking-wider transition-colors",
                             isActive
-                              ? 'text-white'
-                              : 'text-[#858792] hover:text-white'
+                              ? "text-white"
+                              : "text-[#858792] hover:text-white",
                           )}
                         >
                           {label}
@@ -382,7 +404,7 @@ export const PortfolioHeader: React.FC = () => {
                   onClick={() => setMobileMenuOpen(false)}
                   className="btn btn-sm btn-outline-one flex items-center justify-center gap-2.5 w-full h-[56px] px-6 rounded-full border border-[#3b3d49] hover:border-white/40 bg-transparent hover:bg-[#2e303d] text-white text-base font-medium transition-all duration-300"
                 >
-                  <span>{isRtl ? 'تواصل معي' : "Let's Talk"}</span>
+                  <span>{isRtl ? "تواصل معي" : "Let's Talk"}</span>
                   {isRtl ? (
                     <ChevronsLeft className="w-4 h-4" />
                   ) : (
@@ -395,7 +417,7 @@ export const PortfolioHeader: React.FC = () => {
             {/* Bottom Section: Social Links */}
             <div className="mobile-contact-info pt-8 border-t border-white/10 text-center">
               <p className="text-xs text-[#858792] mb-3">
-                {isRtl ? 'تابعني على الشبكات المهنية' : 'Connect with me'}
+                {isRtl ? "تابعني على الشبكات المهنية" : "Connect with me"}
               </p>
               <div className="flex items-center justify-center gap-3">
                 {INSTRUCTOR_PROFILE.socialLinks.map((s) => (
@@ -412,7 +434,6 @@ export const PortfolioHeader: React.FC = () => {
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       )}

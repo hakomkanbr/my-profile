@@ -4,10 +4,10 @@
  */
 
 :root {
-  --font-arabic: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-latin: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-arabic: var(--font-cairo), 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-latin: var(--font-cairo), 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-serif: 'Cormorant Garamond', 'Amiri', Georgia, Cambria, 'Times New Roman', serif;
-  --font-code: 'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', Menlo, monospace;
+  --font-code: 'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', var(--font-cairo), 'Cairo', monospace;
 }
 
 .font-editorial {
@@ -17,7 +17,24 @@
 [dir="rtl"],
 [dir="ltr"],
 body {
-  font-family: var(--font-arabic);
+  font-family: var(--font-cairo), 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Ensure code and monospace preserve Arabic readability without broken glyphs */
+code,
+pre,
+kbd,
+samp,
+.font-mono {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', var(--font-cairo), 'Cairo', monospace;
+}
+
+[dir="rtl"] code,
+[dir="rtl"] pre,
+[dir="rtl"] kbd,
+[dir="rtl"] samp,
+[dir="rtl"] .font-mono {
+  letter-spacing: normal;
 }
 
 /* Typography Token Utility Classes */
@@ -89,3 +106,18 @@ body {
   direction: ltr;
   text-align: left;
 }
+
+/* RTL Typography Refinement for Arabic script */
+[dir="rtl"] .text-display,
+[dir="rtl"] .text-h1,
+[dir="rtl"] .text-h2,
+[dir="rtl"] .text-h3,
+[dir="rtl"] .text-h4 {
+  letter-spacing: normal;
+  line-height: 1.35;
+}
+
+[dir="rtl"] .font-editorial {
+  letter-spacing: normal;
+}
+

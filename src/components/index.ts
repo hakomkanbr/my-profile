@@ -6,4 +6,5 @@ export * from './portfolio';
 export * from './progress';
 export * from './home';
 export * from './presentation';
+export * from './presentation-engine';
 export * from './motion';

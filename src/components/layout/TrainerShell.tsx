@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn, getLocalizedText } from '@/lib/utils';
 import { TRAINER_NAVIGATION_ITEMS } from '@/content/navigation';
-import { usePreferencesStore } from '@/store';
-import { IconMapper, Sun, Moon, Monitor, Globe, MonitorPlay } from './IconMapper';
+import { usePreferencesStore, useTrainerAuthStore, useSessionStore } from '@/store';
+import { IconMapper, Sun, Moon, Monitor, Globe, MonitorPlay, LogOut } from './IconMapper';
 import { Dropdown } from '../ui/Dropdown';
 
 export interface TrainerShellProps {
@@ -20,7 +20,12 @@ export const TrainerShell: React.FC<TrainerShellProps> = ({
 }) => {
   const pathname = usePathname();
   const { language, theme, setLanguage, setTheme } = usePreferencesStore();
+  const { isAuthenticated, logout } = useTrainerAuthStore();
+  const { initializeSessions } = useSessionStore();
 
+  React.useEffect(() => {
+    initializeSessions();
+  }, [initializeSessions]);
 
   const isRtl = language === 'ar';
 
@@ -52,35 +57,37 @@ export const TrainerShell: React.FC<TrainerShellProps> = ({
       <header className="sticky top-0 z-40 w-full bg-[var(--color-surface)]/95 backdrop-blur-md border-b-2 border-[var(--color-primary)] px-4 sm:px-6 py-3 transition-colors">
         <div className="flex items-center justify-between gap-3 max-w-7xl mx-auto">
           {/* Left: Brand + Cockpit Tag */}
-          <div className="flex items-center gap-3">
-            <Link href="/trainer" className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-[var(--color-primary)] text-white flex items-center justify-center font-extrabold text-xs shadow-xs">
+          {/* Left: Brand + Cockpit Context */}
+          <div className="flex items-center gap-3 shrink-0">
+            <Link href="/trainer" className="flex items-center gap-2.5 group select-none shrink-0">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-700 text-white flex items-center justify-center font-extrabold text-xs shadow-xs group-hover:scale-105 transition-transform">
                 TR
               </div>
-              <div className="flex flex-col text-start">
+              <div className="flex flex-col text-start leading-tight">
                 <div className="flex items-center gap-2">
-                  <span className="font-extrabold text-sm tracking-tight text-[var(--color-text)] leading-none">
+                  <span className="font-extrabold text-sm tracking-tight text-[var(--color-text)]">
                     TRAINER COCKPIT
                   </span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[var(--color-primary-subtle)] text-[var(--color-primary)] font-bold">
-                    INSTRUCTOR ONLY
+                  <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-[var(--color-primary-subtle)] text-[var(--color-primary)] font-bold">
+                    INSTRUCTOR
                   </span>
                 </div>
-                <span className="text-[10px] text-[var(--color-text-subtle)] font-medium mt-0.5">
-                  WEB CREATOR AI — نظام إدارة الشرح والعرض الحي
+                <span className="text-[10px] text-[var(--color-text-subtle)] font-medium">
+                  {isRtl ? 'لوحة تحكم المدرب' : 'Trainer Control Hub'}
                 </span>
               </div>
             </Link>
 
             {headerTitle && (
-              <div className="hidden md:flex items-center gap-2 ps-3 border-s border-[var(--color-border)]">
-                <span className="text-body-sm font-semibold text-[var(--color-text)]">{headerTitle}</span>
+              <div className="hidden 2xl:flex items-center gap-2 ps-3 border-s border-[var(--color-border)] max-w-[200px] shrink-0">
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-secondary)] inline-block shrink-0" />
+                <span className="text-xs font-semibold text-[var(--color-text-muted)] truncate" title={headerTitle}>{headerTitle}</span>
               </div>
             )}
           </div>
 
           {/* Center Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1.5">
+          <nav className="hidden md:flex items-center gap-1 bg-[var(--color-surface-sunken)]/70 p-1 rounded-xl border border-[var(--color-border-subtle)]">
             {TRAINER_NAVIGATION_ITEMS.map((item) => {
               const isActive =
                 item.href === '/trainer'
@@ -93,10 +100,10 @@ export const TrainerShell: React.FC<TrainerShellProps> = ({
                   key={item.id}
                   href={item.href}
                   className={cn(
-                    'inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors',
+                    'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap shrink-0 transition-all select-none',
                     isActive
-                      ? 'bg-[var(--color-primary)] text-white font-bold'
-                      : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface-sunken)]'
+                      ? 'bg-[var(--color-surface)] text-[var(--color-primary)] shadow-xs'
+                      : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface)]/50'
                   )}
                 >
                   <IconMapper name={item.icon} className="w-3.5 h-3.5" />
@@ -107,28 +114,28 @@ export const TrainerShell: React.FC<TrainerShellProps> = ({
           </nav>
 
           {/* Right Controls: Fullscreen Presentation Launch + Return Links */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             <Link
               href="/trainer/presentation"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-[var(--color-primary)] text-white shadow-xs hover:bg-[var(--color-primary-hover)] transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap shrink-0 bg-[var(--color-primary)] text-white shadow-xs hover:bg-[var(--color-primary-hover)] transition-colors"
             >
               <MonitorPlay className="w-4 h-4" />
-              <span className="hidden sm:inline">{isRtl ? 'بدء العرض التقديمي' : 'Launch Presentation'}</span>
+              <span className="hidden sm:inline">{isRtl ? 'العرض الحي' : 'Live Deck'}</span>
             </Link>
 
             <Link
               href="/web-creator-ai"
-              className="hidden lg:inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-surface-sunken)] border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
+              className="hidden lg:inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 bg-[var(--color-surface-sunken)] border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
               title="العودة لتجربة المتدرب"
             >
-              <span>{isRtl ? 'عرض كمتدرب' : 'Trainee View'}</span>
+              <span>{isRtl ? 'عرض كمتدرب' : 'Trainee'}</span>
             </Link>
 
             {/* Language */}
             <button
               type="button"
               onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
-              className="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs font-bold border bg-[var(--color-surface-sunken)] border-[var(--color-border)] text-[var(--color-text)] hover:bg-[var(--color-border-subtle)] cursor-pointer"
+              className="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs font-bold border whitespace-nowrap shrink-0 bg-[var(--color-surface-sunken)] border-[var(--color-border)] text-[var(--color-text)] hover:bg-[var(--color-border-subtle)] cursor-pointer"
             >
               <Globe className="w-3.5 h-3.5 text-[var(--color-secondary)]" />
               <span>{isRtl ? 'EN' : 'عربي'}</span>
@@ -154,6 +161,19 @@ export const TrainerShell: React.FC<TrainerShellProps> = ({
                 </button>
               }
             />
+
+            {/* Logout button */}
+            {isAuthenticated && (
+              <button
+                type="button"
+                onClick={() => logout()}
+                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-[var(--color-surface-sunken)] border border-[var(--color-border)] text-red-500 hover:bg-red-500/10 transition-colors cursor-pointer"
+                title={isRtl ? 'تسجيل الخروج' : 'Logout'}
+              >
+                <LogOut className="w-3.5 h-3.5" />
+                <span className="hidden md:inline">{isRtl ? 'خروج' : 'Logout'}</span>
+              </button>
+            )}
           </div>
         </div>
       </header>

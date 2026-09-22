@@ -1,17 +1,26 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { usePreferencesStore, useProgressStore } from '@/store';
-import { getLocalizedText } from '@/lib/utils';
-import { getNextActionStep, getCurrentStageComputed } from '@/lib/progress-selectors';
-import { Badge, Button } from '@/components/ui';
-import { Sparkles, ArrowLeft, ArrowRight, Compass, ShieldCheck } from 'lucide-react';
+import React from "react";
+import Link from "next/link";
+import { usePreferencesStore, useProgressStore } from "@/store";
+import { getLocalizedText } from "@/lib/utils";
+import {
+  getNextActionStep,
+  getCurrentStageComputed,
+} from "@/lib/progress-selectors";
+import { Badge, Button } from "@/components/ui";
+import {
+  Sparkles,
+  ArrowLeft,
+  ArrowRight,
+  Compass,
+  ShieldCheck,
+} from "lucide-react";
 
 export const JourneyHero: React.FC = () => {
   const { language } = usePreferencesStore();
   const { progress } = useProgressStore();
-  const isRtl = language === 'ar';
+  const isRtl = language === "ar";
 
   const nextAction = getNextActionStep(progress);
   const currentStageComputed = getCurrentStageComputed(progress);
@@ -24,11 +33,17 @@ export const JourneyHero: React.FC = () => {
         className="pointer-events-none absolute -top-24 start-1/2 -translate-x-1/2 w-[700px] h-[380px] bg-[var(--color-primary)]/10 blur-[120px] rounded-full"
       />
 
-      <div className="relative max-w-5xl mx-auto space-y-8">
+      <div className="relative  mx-auto space-y-8">
         {/* Journey Badge */}
         <div className="flex flex-wrap items-center gap-2">
-          <Badge variant="primary" size="md" icon={<Compass className="w-3.5 h-3.5" />}>
-            {isRtl ? 'خارطة الطريق الهندسية الشاملة' : 'The End-to-End Engineering Journey'}
+          <Badge
+            variant="primary"
+            size="md"
+            icon={<Compass className="w-3.5 h-3.5" />}
+          >
+            {isRtl
+              ? "خارطة الطريق الهندسية الشاملة"
+              : "The End-to-End Engineering Journey"}
           </Badge>
           <span className="text-caption font-mono font-bold text-[var(--color-secondary)]">
             WEB CREATOR AI
@@ -41,20 +56,28 @@ export const JourneyHero: React.FC = () => {
             {isRtl ? (
               <>
                 من أول فكرة <br className="hidden sm:inline" />
-                إلى <span className="text-[var(--color-primary)]">منتج ويب حقيقي</span> يراه العالم.
+                إلى{" "}
+                <span className="text-[var(--color-primary)]">
+                  منتج ويب حقيقي
+                </span>{" "}
+                يراه العالم.
               </>
             ) : (
               <>
                 From your very first idea <br className="hidden sm:inline" />
-                to a <span className="text-[var(--color-primary)]">real live web product</span> in the market.
+                to a{" "}
+                <span className="text-[var(--color-primary)]">
+                  real live web product
+                </span>{" "}
+                in the market.
               </>
             )}
           </h1>
 
           <p className="text-body sm:text-h4 text-[var(--color-text-muted)] max-w-3xl leading-relaxed">
             {isRtl
-              ? 'رحلة متدرجة من 7 مراحل مترابطة تقودك من التفكير المعماري، إلى تصميم الواجهات، كتابة الكود النظيف، الاستعانة بالذكاء الاصطناعي كمضاعف إنتاجي، وحتى النشر الحي والتسويق واقتناص العملاء.'
-              : 'A continuous 7-stage architectural journey leading you from mental frameworks, UI design, clean modern code, AI-augmented workflows, to live deployment and client acquisition.'}
+              ? "رحلة متدرجة من 7 مراحل مترابطة تقودك من التفكير المعماري، إلى تصميم الواجهات، كتابة الكود النظيف، الاستعانة بالذكاء الاصطناعي كمضاعف إنتاجي، وحتى النشر الحي والتسويق واقتناص العملاء."
+              : "A continuous 7-stage architectural journey leading you from mental frameworks, UI design, clean modern code, AI-augmented workflows, to live deployment and client acquisition."}
           </p>
         </div>
 
@@ -66,10 +89,11 @@ export const JourneyHero: React.FC = () => {
             </div>
             <div>
               <span className="text-[11px] font-mono font-bold text-[var(--color-secondary)] uppercase">
-                {isRtl ? 'موقعك النشط في المسار' : 'Your Current Position'}
+                {isRtl ? "موقعك النشط في المسار" : "Your Current Position"}
               </span>
               <h2 className="text-body-sm font-bold text-[var(--color-text)]">
-                {currentStageComputed.stage.code} — {getLocalizedText(currentStageComputed.stage.title, language)}
+                {currentStageComputed.stage.code} —{" "}
+                {getLocalizedText(currentStageComputed.stage.title, language)}
               </h2>
             </div>
           </div>
@@ -80,15 +104,24 @@ export const JourneyHero: React.FC = () => {
                 variant="primary"
                 size="md"
                 className="w-full sm:w-auto"
-                rightIcon={isRtl ? <ArrowLeft className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
+                rightIcon={
+                  isRtl ? (
+                    <ArrowLeft className="w-4 h-4" />
+                  ) : (
+                    <ArrowRight className="w-4 h-4" />
+                  )
+                }
               >
                 {getLocalizedText(nextAction.ctaText, language)}
               </Button>
             </Link>
 
-            <Link href="/web-creator-ai/progress" className="shrink-0 hidden md:inline-block">
+            <Link
+              href="/web-creator-ai/progress"
+              className="shrink-0 hidden md:inline-block"
+            >
               <Button variant="ghost" size="md">
-                {isRtl ? 'عرض سجل التقدم' : 'View Progress'}
+                {isRtl ? "عرض سجل التقدم" : "View Progress"}
               </Button>
             </Link>
           </div>
@@ -98,11 +131,17 @@ export const JourneyHero: React.FC = () => {
         <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-caption font-semibold pt-1">
           <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border-subtle)] shadow-xs">
             <ShieldCheck className="w-3.5 h-3.5 text-[var(--color-primary)]" />
-            <span>{isRtl ? 'كل مرحلة تبني على سابقتها' : 'Cumulative Progression'}</span>
+            <span>
+              {isRtl ? "كل مرحلة تبني على سابقتها" : "Cumulative Progression"}
+            </span>
           </div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border-subtle)] shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-[var(--color-secondary)]" />
-            <span>{isRtl ? 'الذكاء الاصطناعي أداة تمكين وليس بديلاً' : 'AI as an Amplifier, Not a Crutch'}</span>
+            <span>
+              {isRtl
+                ? "الذكاء الاصطناعي أداة تمكين وليس بديلاً"
+                : "AI as an Amplifier, Not a Crutch"}
+            </span>
           </div>
         </div>
       </div>

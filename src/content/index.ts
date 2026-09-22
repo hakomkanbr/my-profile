@@ -18,6 +18,7 @@ export * from './ai-lab';
 export * from './resources';
 export * from './presentation';
 export * from './portfolio-projects';
+export * from './sessions-data';
 
 export function getStageById(stageId: JourneyStageId): JourneyStage | undefined {
   return JOURNEY_STAGES.find((s) => s.id === stageId);

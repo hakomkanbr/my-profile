@@ -82,12 +82,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileNav, title }) => {
         </div>
 
         {/* Right Side: Progress Shortcut + Mode + Lang + Theme */}
-        <div className="flex items-center gap-2 sm:gap-2.5">
+        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
           {/* Progress Shortcut Pill */}
           <Link
             href="/journey"
             className={cn(
-              'hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full',
+              'hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full whitespace-nowrap shrink-0',
               'bg-[var(--color-surface-sunken)] border border-[var(--color-border)]',
               'hover:border-[var(--color-secondary)] transition-all cursor-pointer text-xs font-semibold'
             )}
@@ -111,7 +111,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileNav, title }) => {
               if (newMode === 'trainer') togglePresenter();
             }}
             className={cn(
-              'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-caption font-semibold transition-all border cursor-pointer',
+              'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-caption font-semibold whitespace-nowrap shrink-0 transition-all border cursor-pointer',
               mode === 'trainer'
                 ? 'bg-[var(--color-primary)] text-white border-[var(--color-primary)] shadow-xs'
                 : 'bg-[var(--color-surface-sunken)] text-[var(--color-text-muted)] border-[var(--color-border)] hover:text-[var(--color-text)]'
@@ -144,7 +144,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileNav, title }) => {
             type="button"
             onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
             className={cn(
-              'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-caption font-bold transition-colors border',
+              'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-caption font-bold whitespace-nowrap shrink-0 transition-colors border',
               'bg-[var(--color-surface-sunken)] border-[var(--color-border)] text-[var(--color-text)] hover:bg-[var(--color-border-subtle)]'
             )}
             aria-label="تبديل لغة الواجهة"

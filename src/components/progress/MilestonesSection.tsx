@@ -1,33 +1,37 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { usePreferencesStore, useProgressStore } from '@/store';
-import { getLocalizedText } from '@/lib/utils';
-import { getLearnerMilestones } from '@/lib/progress-selectors';
-import { Badge } from '@/components/ui';
-import { Award, CheckCircle2, Circle } from 'lucide-react';
+import React from "react";
+import { usePreferencesStore, useProgressStore } from "@/store";
+import { getLocalizedText } from "@/lib/utils";
+import { getLearnerMilestones } from "@/lib/progress-selectors";
+import { Badge } from "@/components/ui";
+import { Award, CheckCircle2, Circle } from "lucide-react";
 
 export const MilestonesSection: React.FC = () => {
   const { language } = usePreferencesStore();
   const { progress } = useProgressStore();
-  const isRtl = language === 'ar';
+  const isRtl = language === "ar";
 
   const milestones = getLearnerMilestones(progress);
 
   return (
     <section className="py-12 sm:py-16 border-b border-[var(--color-border)] text-start">
-      <div className="max-w-5xl mx-auto space-y-8">
+      <div className=" mx-auto space-y-8">
         <div className="space-y-2">
-          <Badge variant="primary" size="md" icon={<Award className="w-3.5 h-3.5" />}>
-            {isRtl ? 'محطات الإنجاز والاعتماد' : 'Core Milestones'}
+          <Badge
+            variant="primary"
+            size="md"
+            icon={<Award className="w-3.5 h-3.5" />}
+          >
+            {isRtl ? "محطات الإنجاز والاعتماد" : "Core Milestones"}
           </Badge>
           <h2 className="text-display sm:text-h1 font-extrabold text-[var(--color-text)]">
-            {isRtl ? 'محطات التحول في مسيرتك' : 'Transformation Milestones'}
+            {isRtl ? "محطات التحول في مسيرتك" : "Transformation Milestones"}
           </h2>
           <p className="text-body text-[var(--color-text-muted)] max-w-2xl">
             {isRtl
-              ? 'معايير إنجاز واضحة تقيس تحولك التدريجي من متعلم إلى مطور واجهات وصانع ويب محترف.'
-              : 'Measurable checkpoints celebrating your growth into an end-to-end web engineer.'}
+              ? "معايير إنجاز واضحة تقيس تحولك التدريجي من متعلم إلى مطور واجهات وصانع ويب محترف."
+              : "Measurable checkpoints celebrating your growth into an end-to-end web engineer."}
           </p>
         </div>
 
@@ -49,11 +53,17 @@ export const MilestonesSection: React.FC = () => {
                   <span
                     className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full ${
                       m.isAchieved
-                        ? 'bg-[var(--color-primary-subtle)] text-[var(--color-primary)]'
-                        : 'bg-[var(--color-surface-sunken)] text-[var(--color-text-subtle)]'
+                        ? "bg-[var(--color-primary-subtle)] text-[var(--color-primary)]"
+                        : "bg-[var(--color-surface-sunken)] text-[var(--color-text-subtle)]"
                     }`}
                   >
-                    {m.isAchieved ? (isRtl ? 'تم التحقيق' : 'Achieved') : (isRtl ? 'قيد الوصول' : 'Locked')}
+                    {m.isAchieved
+                      ? isRtl
+                        ? "تم التحقيق"
+                        : "Achieved"
+                      : isRtl
+                        ? "قيد الوصول"
+                        : "Locked"}
                   </span>
                 </div>
 

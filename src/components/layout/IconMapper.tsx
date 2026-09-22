@@ -30,6 +30,7 @@ import {
   Minimize2,
   FileText,
   FolderGit2,
+  LogOut,
 } from 'lucide-react';
 
 interface IconMapperProps {
@@ -96,5 +97,6 @@ export {
   Minimize2,
   FileText,
   FolderGit2,
+  LogOut,
 };
 

@@ -208,3 +208,40 @@
     0 12px 24px -4px rgba(0, 0, 0, 0.7), 0 4px 10px -2px rgba(0, 0, 0, 0.5);
   --shadow-card-hover: 0 12px 28px -5px rgba(0, 0, 0, 0.7);
 }
+
+/* Presentation Engine Brand Design Tokens (Warm Terracotta, Espresso, Cream) */
+[data-pres-theme='dark'] {
+  --pres-primary: #e38665;
+  --pres-primary-deep: #641a01;
+  --pres-secondary: #ffc4b4;
+  --pres-accent: #e38665;
+  --pres-bg: #140905;
+  --pres-surface: #1f110c;
+  --pres-surface-sunken: #180c08;
+  --pres-border: #381d14;
+  --pres-border-subtle: #29150e;
+  --pres-text: #fff8f5;
+  --pres-text-muted: #d6b8ad;
+  --pres-text-subtle: #9c7b6f;
+  --pres-watermark: rgba(227, 134, 101, 0.08);
+  --pres-code-bg: #100603;
+  --pres-code-border: #2e160e;
+}
+
+[data-pres-theme='light'] {
+  --pres-primary: #641a01;
+  --pres-primary-deep: #431100;
+  --pres-secondary: #a8421c;
+  --pres-accent: #e38665;
+  --pres-bg: #fff8f5;
+  --pres-surface: #ffffff;
+  --pres-surface-sunken: #fbf0ea;
+  --pres-border: #ebd3ca;
+  --pres-border-subtle: #f5e4dc;
+  --pres-text: #140905;
+  --pres-text-muted: #5c3525;
+  --pres-text-subtle: #8a5845;
+  --pres-watermark: rgba(100, 26, 1, 0.06);
+  --pres-code-bg: #21110a;
+  --pres-code-border: #ebd3ca;
+}

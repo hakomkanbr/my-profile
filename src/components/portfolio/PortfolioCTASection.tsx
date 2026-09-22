@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { usePreferencesStore } from '@/store';
-import { Button } from '@/components/ui';
-import { Mail, ArrowLeft, ArrowRight } from 'lucide-react';
-import { Reveal } from '@/components/motion';
+import React from "react";
+import Link from "next/link";
+import { usePreferencesStore } from "@/store";
+import { Button } from "@/components/ui";
+import { Mail, ArrowLeft, ArrowRight } from "lucide-react";
+import { Reveal } from "@/components/motion";
 
 export const PortfolioCTASection: React.FC = () => {
   const { language } = usePreferencesStore();
-  const isRtl = language === 'ar';
+  const isRtl = language === "ar";
 
   return (
     <section id="contact" className="py-10 sm:py-20 text-start">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal direction="up" delay={50}>
           <div className="relative overflow-hidden p-6 sm:p-12 rounded-2xl sm:rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-xs space-y-5 sm:space-y-6">
             {/* Subtle background gradient glow */}
@@ -24,17 +24,17 @@ export const PortfolioCTASection: React.FC = () => {
 
             <div className="relative space-y-2 z-10">
               <span className="text-xs font-mono font-bold text-[var(--color-secondary)] uppercase tracking-wider">
-                {isRtl ? 'تواصل معي' : 'Get in Touch'}
+                {isRtl ? "تواصل معي" : "Get in Touch"}
               </span>
-              <h2 className="text-h1 font-extrabold text-[var(--color-text)] tracking-tight">
+              <h2 className="text-h1 font-extrabold text-[var(--color-text)] tracking-tight rtl:tracking-normal">
                 {isRtl
-                  ? 'لديك مشروع، فرصة عمل، أو ترغب في التواصل؟'
-                  : 'Have a project, work inquiry, or simply want to connect?'}
+                  ? "لديك مشروع، فرصة عمل، أو ترغب في استشارة تقنية؟"
+                  : "Have a project, work inquiry, or simply want to connect?"}
               </h2>
               <p className="text-body text-[var(--color-text-muted)] font-normal leading-relaxed max-w-2xl">
                 {isRtl
-                  ? 'متاح للعمل على مشاريع الويب، التعاون البرمجي، والاستشارات التقنية والتدريب. لا تتردد في مراسلتي وسأكون سعيداً بالتواصل.'
-                  : 'Have a project, work inquiry, or simply want to connect? Feel free to reach out. Open for web engineering engagements, architectural consultations, and technical training.'}
+                  ? "متاح للعمل على مشاريع الويب، التعاون البرمجي، والاستشارات التقنية والتدريب. لا تتردد في مراسلتي وسأكون سعيداً بالتواصل."
+                  : "Have a project, work inquiry, or simply want to connect? Feel free to reach out. Open for web engineering engagements, architectural consultations, and technical training."}
               </p>
             </div>
 
@@ -53,7 +53,7 @@ export const PortfolioCTASection: React.FC = () => {
                     )
                   }
                 >
-                  <span>{isRtl ? 'تواصل معي' : 'Contact Me'}</span>
+                  <span>{isRtl ? "تواصل معي" : "Contact Me"}</span>
                 </Button>
               </Link>
 
@@ -63,7 +63,7 @@ export const PortfolioCTASection: React.FC = () => {
                   variant="outline"
                   className="w-full sm:w-auto font-semibold hover:border-[var(--color-secondary)]/60"
                 >
-                  {isRtl ? 'عرض المشاريع' : 'View Projects'}
+                  {isRtl ? "عرض المشاريع" : "View Projects"}
                 </Button>
               </Link>
             </div>
@@ -73,4 +73,3 @@ export const PortfolioCTASection: React.FC = () => {
     </section>
   );
 };
-
