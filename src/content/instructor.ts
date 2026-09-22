@@ -13,16 +13,16 @@ export const INSTRUCTOR_PROFILE: InstructorProfile = {
     en: "Abdulhakim Kanbr",
   },
   roleTitle: {
-    ar: "Software Engineer · System Designer · Technical Mentor",
-    en: "Software Engineer · System Designer · Technical Mentor",
+    ar: "Senior Software Architect · Full Stack Engineer",
+    en: "Senior Software Architect · Full Stack Engineer",
   },
   coreMessage: {
-    ar: "أبني تطبيقات ويب موثوقة وواجهات برمجية وأنظمة قابلة للتوسع، مع خبرة تتجاوز 8 سنوات في تطوير البرمجيات، إدارة الخوادم، وتصميم الأنظمة.",
-    en: "I build reliable web applications, APIs, and scalable systems, with more than 8 years of experience in software development, server management, and system design.",
+    ar: "أصمم وأهندس معماريات برمجية متينة، أنظمة موزعة عالية الأداء، وتطبيقات ويب حديثة قابلة للتوسع، مع خبرة تتجاوز 8 سنوات في هندسة البرمجيات، إدارة السحابة، وتصميم النظم.",
+    en: "I architect resilient software systems, high-performance distributed platforms, and scalable modern web applications, with 8+ years of expertise in software architecture, cloud infrastructure, and system design.",
   },
   briefIntro: {
-    ar: "مهندس برمجيات وموجه تقني بخبرة تزيد عن 8 سنوات في تطوير البرمجيات، إدارة الخوادم، وتصميم الأنظمة. أركز على بناء حلول برمجية عملية وبنية تحتية مستقرة تدعم نمو الأعمال.",
-    en: "Software engineer and technical mentor with more than 8 years of experience across software development, server management, and system design. My focus is on building practical web applications, structured APIs, and reliable infrastructure.",
+    ar: "مهندس معماري أول للبرمجيات ومطور شامل (Senior Software Architect & Full Stack Engineer) بخبرة تزيد عن 8 سنوات في تصميم النظم الموزعة، هندسة السحابة، وتطوير أطر الويب الحديثة. أركز على بناء حلول برمجية مستدامة، بنية تحتية عالية التوافر، وهندسة أنظمة قوية تدعم نمو الأعمال.",
+    en: "Senior Software Architect and Full Stack Engineer with 8+ years of experience across distributed systems design, cloud engineering, and modern web frameworks. Focused on crafting sustainable software architectures, high-availability infrastructure, and pragmatic engineering workflows.",
   },
   story: {
     title: {

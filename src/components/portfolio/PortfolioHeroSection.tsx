@@ -219,15 +219,15 @@ export const PortfolioHeroSection: React.FC = () => {
             {/* Professional Title */}
             <div className="mt-3 sm:mt-4">
               <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-blue-400">
-                {isRtl ? "مهندس برمجيات · مصمم نظم · موجه تقني" : "Software Engineer · System Designer · Technical Mentor"}
+                {isRtl ? "مهندس معماري أول للبرمجيات · مطور شامل · مصمم نظم" : "Senior Software Architect · Full Stack Engineer · System Designer"}
               </span>
             </div>
 
             {/* 3. Description Subtitle / Value Proposition */}
             <p className="mt-4 sm:mt-5 mb-7 sm:mb-9 text-base sm:text-lg lg:text-xl text-[#858792] font-normal leading-relaxed max-w-xl">
               {isRtl
-                ? "أبني تطبيقات ويب موثوقة، واجهات برمجية، وأنظمة عملية، مع أكثر من 8 سنوات من الخبرة العملية في تطوير البرمجيات، إدارة الخوادم، وتصميم الأنظمة."
-                : "I build reliable web applications, APIs, and practical systems, with more than 8 years of experience in software development, server administration, and system design."}
+                ? "أصمم وأهندس معماريات برمجية متينة، أنظمة موزعة عالية الأداء، وتطبيقات ويب حديثة قابلة للتوسع، مع أكثر من 8 سنوات من الخبرة العملية في هندسة البرمجيات، إدارة السحابة، وتصميم النظم."
+                : "I architect resilient software systems, high-performance distributed platforms, and scalable modern web applications, with 8+ years of expertise in software architecture, cloud infrastructure, and system design."}
             </p>
 
             {/* 4. Action Buttons: Primary CTA & Secondary Portfolio CTA */}

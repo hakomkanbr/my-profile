@@ -8,6 +8,7 @@ import {
   EngineeringFocusSection,
   ExperienceTimelineSection,
   FeaturedProjectsSection,
+  EngineeringWritingsSection,
   CoursesSection,
   PortfolioCTASection,
 } from '@/components/portfolio';
@@ -30,10 +31,13 @@ export default function HomePage() {
       {/* 05 — FEATURED PROJECTS: What I have built (Case study depth, architecture) */}
       <FeaturedProjectsSection />
 
-      {/* 06 — TRAINING: What I teach (Extensible courses architecture) */}
+      {/* 06 — WRITINGS: Architectural insights & engineering notes */}
+      <EngineeringWritingsSection />
+
+      {/* 07 — TRAINING: What I teach (Extensible courses architecture) */}
       <CoursesSection />
 
-      {/* 07 — CONTACT: Direct, calm communication & inquiries */}
+      {/* 08 — CONTACT: Direct, calm communication & inquiries */}
       <PortfolioCTASection />
     </PortfolioShell>
   );

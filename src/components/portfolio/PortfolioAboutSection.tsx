@@ -47,7 +47,7 @@ export const PortfolioAboutSection: React.FC = () => {
                     {name}
                   </span>
                   <span className="text-xs text-[var(--color-text-subtle)] font-mono">
-                    Software Engineer
+                    {isRtl ? "مهندس معماري أول للبرمجيات" : "Senior Software Architect"}
                   </span>
                 </div>
               </div>
@@ -59,16 +59,16 @@ export const PortfolioAboutSection: React.FC = () => {
             <Reveal direction="up" delayMs={150} distance={18}>
               <p className="text-lg sm:text-xl font-semibold text-[var(--color-text)] leading-relaxed">
                 {isRtl
-                  ? "مهندس برمجيات وموجه تقني مع أكثر من 8 سنوات من الخبرة العملية في تطوير البرمجيات، إدارة الخوادم، وتصميم الأنظمة."
-                  : "Software engineer and technical mentor with more than 8 years of experience working across software development, server management, and system design."}
+                  ? "مهندس معماري أول للبرمجيات ومطور شامل (Senior Software Architect & Full Stack Engineer) مع أكثر من 8 سنوات من الخبرة العملية في هندسة النظم، إدارة السحابة، وتصميم المعماريات الموزعة."
+                  : "Senior Software Architect and Full Stack Engineer with 8+ years of experience architecting resilient software systems, cloud infrastructure, and distributed platforms."}
               </p>
             </Reveal>
 
             <Reveal direction="up" delayMs={220} distance={18}>
               <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
                 {isRtl
-                  ? "يركز عملي على بناء تطبيقات الويب العملية، الواجهات البرمجية (APIs)، الأنظمة الخلفية، والبنية التحتية الموثوقة. أهتم بفهم كيف تعمل المنظومة ككل متكامل — بدءاً من المعمارية البرمجية وقواعد البيانات، وحتى الخوادم، النشر، وتجربة المطور."
-                  : "My work focuses on building practical web applications, APIs, backend systems, and reliable infrastructure. I enjoy understanding how systems operate as an integrated whole — from application architecture and databases to deployment, servers, and the developer experience."}
+                  ? "يركز عملي على معمارية النظم الموزعة عالية الأداء، الواجهات البرمجية المرنة، والبنية التحتية السحابية الموثوقة. أهتم بهندسة المنظومة كبناء متكامل يبدأ من نقاء مجال العمل (Domain Purity) وأفضل ممارسات Clean Architecture، وصولاً إلى أمان الحاويات وتجربة المستخدم الفائقة."
+                  : "My work centers on high-throughput distributed architectures, resilient APIs, and mission-critical cloud infrastructure. I approach systems holistically — from domain modeling and clean architecture patterns to container security and peak web vitals."}
               </p>
             </Reveal>
 

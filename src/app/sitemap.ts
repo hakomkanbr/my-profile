@@ -1,84 +1,128 @@
 import type { MetadataRoute } from 'next';
-import { PORTFOLIO_PROJECTS } from '@/content';
+import { PORTFOLIO_PROJECTS, ALL_WRITINGS } from '@/content';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://abdulhakimkanbr.dev';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://abdulhakimkanbr.com';
+  const currentDate = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
+      lastModified: currentDate,
+      changeFrequency: 'daily',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/projects`,
-      lastModified: new Date(),
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/writings`,
+      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/instructor`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/trainer`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/teaching`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/final-project`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/web-creator-ai`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/web-creator-ai/journey`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.75,
     },
     {
       url: `${baseUrl}/web-creator-ai/modules`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.75,
     },
     {
       url: `${baseUrl}/web-creator-ai/projects`,
-      lastModified: new Date(),
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/web-creator-ai/ai-lab`,
+      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/web-creator-ai/ai-lab`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
       url: `${baseUrl}/web-creator-ai/marketing-lab`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/web-creator-ai/resources`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/web-creator-ai/sessions`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
   ];
 
   const projectRoutes: MetadataRoute.Sitemap = PORTFOLIO_PROJECTS.map((project) => ({
     url: `${baseUrl}/projects/${project.slug}`,
-    lastModified: new Date(),
+    lastModified: currentDate,
     changeFrequency: 'monthly',
     priority: project.featured ? 0.85 : 0.75,
   }));
 
-  return [...staticRoutes, ...projectRoutes];
+  const writingRoutes: MetadataRoute.Sitemap = ALL_WRITINGS.map((writing) => ({
+    url: `${baseUrl}/writings/${writing.slug}`,
+    lastModified: new Date(writing.publishedAt),
+    changeFrequency: 'monthly',
+    priority: writing.featured ? 0.85 : 0.75,
+  }));
+
+  return [...staticRoutes, ...projectRoutes, ...writingRoutes];
 }

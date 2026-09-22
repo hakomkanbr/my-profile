@@ -8,3 +8,4 @@ export * from './home';
 export * from './presentation';
 export * from './presentation-engine';
 export * from './motion';
+export * from './pwa-register';

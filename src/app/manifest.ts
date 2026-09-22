@@ -1,11 +1,11 @@
-﻿import type { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Abdulhakim Kanbr | Software Engineer & System Designer',
-    short_name: 'Abdulhakim K.',
+    name: 'Abdulhakim Kanbr | Senior Software Architect & Full Stack Engineer',
+    short_name: 'Abdulhakim Kanbr',
     description:
-      'Abdulhakim Kanbr is a software engineer and technical mentor with 8+ years of experience in software development, server management, and system design.',
+      'Official portfolio, systems design architecture, and engineering practice of Abdulhakim Kanbr (عبدالحكيم قنبر), Senior Software Architect & Full Stack Engineer.',
     start_url: '/',
     display: 'standalone',
     background_color: '#0b0f19',
@@ -14,7 +14,7 @@ export default function manifest(): MetadataRoute.Manifest {
     scope: '/',
     lang: 'ar',
     dir: 'rtl',
-    categories: ['education', 'productivity', 'portfolio'],
+    categories: ['productivity', 'portfolio', 'developer-tools'],
     icons: [
       {
         src: '/icons/icon-192x192.png',
@@ -36,6 +36,30 @@ export default function manifest(): MetadataRoute.Manifest {
       },
       {
         src: '/icons/icon-maskable-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'maskable',
+      },
+      {
+        src: '/icon-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: '/icon-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: '/icon-maskable-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'maskable',
+      },
+      {
+        src: '/icon-maskable-512x512.png',
         sizes: '512x512',
         type: 'image/png',
         purpose: 'maskable',

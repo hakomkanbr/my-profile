@@ -7,3 +7,4 @@ export * from './presentation';
 export * from './presentation-engine';
 export * from './portfolio-project';
 export * from './session';
+export * from './writing';

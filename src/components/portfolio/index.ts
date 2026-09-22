@@ -7,3 +7,4 @@ export * from './CoursesSection';
 export * from './PortfolioCTASection';
 export * from './FlagshipProductSection';
 export * from './TeachingPillarsSection';
+export * from './EngineeringWritingsSection';

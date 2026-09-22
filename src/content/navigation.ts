@@ -30,6 +30,12 @@ export const PORTFOLIO_NAVIGATION_ITEMS: NavigationItem[] = [
     icon: "FolderGit2",
   },
   {
+    id: "port-writings",
+    label: { ar: "الكتابات", en: "Writings" },
+    href: "/writings",
+    icon: "BookOpen",
+  },
+  {
     id: "port-training",
     label: { ar: "التدريب", en: "Training" },
     href: "/#training",
