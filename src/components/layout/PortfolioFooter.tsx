@@ -71,22 +71,22 @@ export const PortfolioFooter: React.FC = () => {
           </div>
         </div>
 
-        {/* Essential Navigation Links (Rule 19) */}
+        {/* Essential Navigation Links */}
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2.5 text-xs font-bold text-[var(--color-text-muted)]">
           <Link href="/" className="hover:text-[var(--color-secondary)] transition-colors">
             {isRtl ? 'الرئيسية' : 'Home'}
           </Link>
-          <Link href="/about" className="hover:text-[var(--color-secondary)] transition-colors">
-            {isRtl ? 'عنّي' : 'About'}
-          </Link>
-          <Link href="/#experience" className="hover:text-[var(--color-secondary)] transition-colors">
-            {isRtl ? 'الخبرات' : 'Experience'}
-          </Link>
           <Link href="/projects" className="hover:text-[var(--color-secondary)] transition-colors">
             {isRtl ? 'المشاريع' : 'Projects'}
           </Link>
-          <Link href="/#training" className="hover:text-[var(--color-secondary)] transition-colors">
-            {isRtl ? 'التدريب' : 'Training'}
+          <Link href="/writings" className="hover:text-[var(--color-secondary)] transition-colors">
+            {isRtl ? 'المقالات' : 'Articles'}
+          </Link>
+          <Link href="/resources" className="hover:text-[var(--color-secondary)] transition-colors">
+            {isRtl ? 'الموارد' : 'Resources'}
+          </Link>
+          <Link href="/about" className="hover:text-[var(--color-secondary)] transition-colors">
+            {isRtl ? 'عنّي' : 'About'}
           </Link>
           <Link href="/contact" className="hover:text-[var(--color-secondary)] transition-colors">
             {isRtl ? 'تواصل' : 'Contact'}

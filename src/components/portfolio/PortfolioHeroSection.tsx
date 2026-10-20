@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePreferencesStore } from "@/store";
 import { INSTRUCTOR_PROFILE } from "@/content/instructor";
 import { getLocalizedText } from "@/lib/utils";
-import { Play, X, ExternalLink } from "lucide-react";
 
 /* =========================================================================
    LENDEX AUTHENTIC ORBITAL ICONS (Facebook, Dribbble, Behance, LinkedIn)
@@ -52,9 +51,6 @@ export const PortfolioHeroSection: React.FC = () => {
   const { language } = usePreferencesStore();
   const isRtl = language === "ar";
 
-  // Video Modal State
-  const [videoModalOpen, setVideoModalOpen] = useState(false);
-
   // Desktop subtle parallax tracking
   const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
   const [isDesktop, setIsDesktop] = useState(false);
@@ -86,23 +82,6 @@ export const PortfolioHeroSection: React.FC = () => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
   }, [isDesktop]);
-
-  // Close modal on Escape
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setVideoModalOpen(false);
-    };
-    if (videoModalOpen) {
-      window.addEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "";
-    };
-  }, [videoModalOpen]);
 
   // =========================================================================
   // SEMICIRCLE OUTSIDE COORDINATES (Radius = 48.00%)
@@ -188,20 +167,20 @@ export const PortfolioHeroSection: React.FC = () => {
           {/* ============================================================= */}
           <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center pt-10 sm:pt-12 lg:pt-14 sm:pb-16 lg:pb-24 xl:pb-28 z-20">
             {/* 1. "Hello! I’m" / "مرحباً! أنا" */}
-            <h3 className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-normal leading-tight">
+            <span className="text-base sm:text-lg font-mono font-medium text-slate-400 mb-2">
               {isRtl ? "مرحباً! أنا" : "Hello! I’m"}
-            </h3>
+            </span>
 
-            {/* 2. Display Name - Grand & Balanced */}
-            <div className="mt-2 relative inline-block">
-              <h1 className="font-editorial text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold text-white tracking-tight leading-[1.04]">
+            {/* 2. Display Name */}
+            <div className="relative inline-block mb-4 sm:mb-5">
+              <h1 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.08]">
                 {isRtl ? "عبد الحكيم قنبر" : "Abdulhakim Kanbr"}
               </h1>
 
               {/* Signature Hand-drawn Wavy Squiggle Underline */}
-              <div className="mt-3 text-[#858792]" aria-hidden="true">
+              <div className="mt-2 text-[#858792]" aria-hidden="true">
                 <svg
-                  className="w-44 sm:w-56 lg:w-64 h-4 sm:h-5 stroke-current"
+                  className="w-36 sm:w-44 lg:w-52 h-3 sm:h-4 stroke-current"
                   viewBox="0 0 180 18"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -216,63 +195,34 @@ export const PortfolioHeroSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Professional Title */}
-            <div className="mt-3 sm:mt-4">
-              <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-blue-400">
-                {isRtl ? "مهندس معماري أول للبرمجيات · مطور شامل · مصمم نظم" : "Senior Software Architect · Full Stack Engineer · System Designer"}
-              </span>
-            </div>
-
-            {/* 3. Description Subtitle / Value Proposition */}
-            <p className="mt-4 sm:mt-5 mb-7 sm:mb-9 text-base sm:text-lg lg:text-xl text-[#858792] font-normal leading-relaxed max-w-xl">
+            {/* 3. Main Headline (Human, Grounded, Problem-Focused) */}
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-snug mb-5 max-w-xl">
               {isRtl
-                ? "أصمم وأهندس معماريات برمجية متينة، أنظمة موزعة عالية الأداء، وتطبيقات ويب حديثة قابلة للتوسع، مع أكثر من 8 سنوات من الخبرة العملية في هندسة البرمجيات، إدارة السحابة، وتصميم النظم."
-                : "I architect resilient software systems, high-performance distributed platforms, and scalable modern web applications, with 8+ years of expertise in software architecture, cloud infrastructure, and system design."}
+                ? "أعمل على تصميم وبناء تطبيقات ويب وأنظمة برمجية متينة وقابلة للتوسع."
+                : "I design and build resilient, scalable web applications and software systems."}
+            </h2>
+
+            {/* 4. Short Description Subtitle */}
+            <p className="text-base sm:text-lg text-[#858792] font-normal leading-relaxed max-w-xl mb-8 sm:mb-9">
+              {isRtl
+                ? "أنا عبد الحكيم قنبر، مهندس برمجيات ومطور ويب، لدي أكثر من 8 سنوات من الخبرة العملية في تطوير البرمجيات وتصميم الأنظمة. أشارك هنا مشاريعي، وما أتعلمه من العمل الهندسي، والأفكار التي أجدها مفيدة للمطورين وأصحاب المنتجات التقنية."
+                : "I'm Abdulhakim Kanbr, a software engineer and web developer with over 8 years of practical experience in software development and system design. Here I share my projects, engineering learnings, and ideas useful for developers and technical product owners."}
             </p>
 
-            {/* 4. Action Buttons: Primary CTA & Secondary Portfolio CTA */}
+            {/* 5. Primary Action Buttons */}
             <div className="flex flex-wrap items-center gap-3.5">
               <Link
-                href="/contact"
-                className="inline-flex items-center justify-center h-13 sm:h-14 px-8 sm:px-9 rounded-full bg-white text-[#252734] hover:bg-slate-200 font-bold text-base transition-all duration-300 shadow-xl"
+                href="/projects"
+                className="inline-flex items-center justify-center h-12 sm:h-13 px-7 sm:px-8 rounded-full bg-white text-[#252734] hover:bg-slate-200 font-bold text-sm sm:text-base transition-all duration-300 shadow-xl"
               >
-                <span>{isRtl ? "تواصل معي" : "Let's Talk"}</span>
+                <span>{isRtl ? "استكشف مشاريعي" : "Explore My Projects"}</span>
               </Link>
               <Link
-                href="/projects"
-                className="inline-flex items-center justify-center gap-2 h-13 sm:h-14 px-7 sm:px-8 rounded-full border border-[#3b3d49] hover:border-white hover:bg-[#2e303d] text-white font-medium text-base transition-all duration-300 shadow-xl group"
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 h-12 sm:h-13 px-7 sm:px-8 rounded-full border border-[#3b3d49] hover:border-white hover:bg-[#2e303d] text-white font-medium text-sm sm:text-base transition-all duration-300 shadow-xl group"
               >
-                <span>{isRtl ? "استكشف أعمالي" : "View My Work"}</span>
+                <span>{isRtl ? "تواصل معي بشأن مشروع" : "Let's Discuss a Project"}</span>
               </Link>
-            </div>
-
-            {/* 5. Lendex Signature Ripple Video Button */}
-            <div className="mt-10 sm:mt-12 lg:mt-14 flex items-center">
-              <button
-                type="button"
-                onClick={() => setVideoModalOpen(true)}
-                className="group inline-flex items-center focus:outline-none cursor-pointer"
-                aria-label={isRtl ? "مشاهدة الفيديو التعريفي" : "Watch Video"}
-              >
-                {/* Concentric Ripple Play Circle */}
-                <div className="relative flex items-center justify-center w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 rounded-full bg-[#2a2c39] border border-white/10 group-hover:border-white/40 transition-all duration-300 shadow-xl">
-                  {/* Pulsing Ripple Wave */}
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-0 rounded-full border border-white/30 animate-ping opacity-25"
-                    style={{ animationDuration: "2.8s" }}
-                  />
-                  {/* Center Circle */}
-                  <div className="relative z-10 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 group-hover:bg-white group-hover:text-[#252734] border border-white/20 flex items-center justify-center text-white transition-all duration-300 shadow-sm">
-                    <Play className="w-4 h-4 sm:w-4.5 sm:h-4.5 fill-current translate-x-0.5" />
-                  </div>
-                </div>
-
-                {/* Video Label Text */}
-                <span className="ps-4 sm:ps-5 text-base sm:text-lg font-medium text-white group-hover:text-slate-300 transition-colors">
-                  {isRtl ? "شاهد الفيديو التعريفي" : "Watch Video"}
-                </span>
-              </button>
             </div>
           </div>
 
@@ -410,94 +360,6 @@ export const PortfolioHeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* ================================================================= */}
-      {/* INTERACTIVE VIDEO MODAL                                           */}
-      {/* ================================================================= */}
-      {videoModalOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
-          onClick={() => setVideoModalOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-3xl bg-[#252734] border border-white/20 rounded-2xl shadow-2xl overflow-hidden text-start"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-white/5">
-              <div className="flex items-center gap-2.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                <h3 className="text-base sm:text-lg font-bold text-white font-editorial">
-                  {isRtl
-                    ? "الفيديو التعريفي ونظرة عامة على الدورة"
-                    : "Introductory Video & Overview"}
-                </h3>
-              </div>
-              <button
-                type="button"
-                onClick={() => setVideoModalOpen(false)}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
-                aria-label={isRtl ? "إغلاق النافذة" : "Close modal"}
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Video Player Display */}
-            <div className="relative aspect-video w-full bg-black flex items-center justify-center overflow-hidden">
-              <div className="absolute inset-0 bg-radial from-slate-900 to-black flex flex-col items-center justify-center p-6 text-center">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-white/30 bg-white/10 flex items-center justify-center mb-4 text-white shadow-xl">
-                  <Play className="w-6 h-6 sm:w-8 sm:h-8 fill-white text-white translate-x-1" />
-                </div>
-                <h4 className="text-lg sm:text-2xl font-bold text-white mb-2 font-editorial">
-                  {isRtl
-                    ? "منصة WEB CREATOR AI للتدريب البرمجي"
-                    : "WEB CREATOR AI Platform Overview"}
-                </h4>
-                <p className="text-xs sm:text-base text-[#858792] max-w-md font-sans">
-                  {isRtl
-                    ? "عرض تقديمي تفاعلي لرحلة التعلم وبناء التطبيقات من الفكرة إلى الإنتاج والتسويق."
-                    : "An interactive engineering tour covering modern web development, architecture, and deployment."}
-                </p>
-                <div className="mt-5 sm:mt-6 flex gap-3">
-                  <Link
-                    href="/journey"
-                    onClick={() => setVideoModalOpen(false)}
-                    className="inline-flex items-center gap-2 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-white text-[#252734] font-bold text-xs sm:text-sm hover:bg-slate-200 transition-colors shadow-lg"
-                  >
-                    <span>
-                      {isRtl ? "استكشف خارطة الطريق" : "Explore Journey"}
-                    </span>
-                    <ExternalLink className="w-4 h-4" />
-                  </Link>
-                  <Link
-                    href="/web-creator-ai/presentation"
-                    onClick={() => setVideoModalOpen(false)}
-                    className="inline-flex items-center gap-2 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-white/10 border border-white/20 text-white font-medium text-xs sm:text-sm hover:bg-white/20 transition-colors"
-                  >
-                    <span>
-                      {isRtl ? "العرض التقديمي الكامل" : "Full Presentation"}
-                    </span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Modal Footer */}
-            <div className="px-6 py-3 bg-black/40 border-t border-white/10 flex items-center justify-between text-xs text-[#858792]">
-              <span>
-                {isRtl
-                  ? "اضغط ESC أو في أي مكان للإغلاق"
-                  : "Press ESC or click anywhere outside to close"}
-              </span>
-              <span className="font-mono">
-                WEB CREATOR AI · {new Date().getFullYear()}
-              </span>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 };

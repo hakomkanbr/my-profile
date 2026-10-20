@@ -93,12 +93,12 @@ export const SESSION_10: PresentationSession = {
       id: 's10-slide-01',
       sessionNumber: 10,
       slideNumber: 1,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'title',
-      title: { ar: 'الذكاء الاصطناعي كمسار عمل مهني', en: 'AI as a Professional SDLC' },
+      title: { ar: "الذكاء الاصطناعي كمسار عمل مهني", en: "AI as a Professional SDLC" },
       estimatedMinutes: 2,
       teachingGoal: { ar: 'افتتاح الجلسة وإعلان الانتقال من كتابة الأكواد إلى إدارة دورة حياة البرمجيات بالكامل.', en: 'Open session: ascending from isolated coding to full lifecycle software engineering.' },
-      speakerNotes: { ar: 'رحب بالطلاب: "اليوم نتعلم كيف يعمل كبار مهندسي الشركات العالمية مع AI: لا نطلب منه فقط توليد أزرار، بل نوظفه في الاختبار والمراجعة والتوثيق!".', en: 'Welcome learners: "Today we discover how enterprise leads pair with AI across testing, security, and audits!"' },
+      speakerNotes: { ar: "نفّذ: رحب بالطلاب: \"اليوم نتعلم كيف يعمل كبار مهندسي الشركات العالمية مع AI: لا نطلب منه فقط توليد أزرار، بل نوظفه في الاختبار والمراجعة والتوثيق!\".\nاسأل: ما الهدف الذي تتوقع تحقيقه في جلسة «الذكاء الاصطناعي كمسار عمل مهني»؟\nتحقق: افتتاح الجلسة وإعلان الانتقال من كتابة الأكواد إلى إدارة دورة حياة البرمجيات بالكامل.", en: "Cue: Welcome learners: \"Today we discover how enterprise leads pair with AI across testing, security, and audits!\"\nAsk: What outcome do you expect from “AI as a Professional SDLC”?\nCheck: Open session: ascending from isolated coding to full lifecycle software engineering." },
       payload: {
         type: 'title',
         data: {
@@ -118,13 +118,13 @@ export const SESSION_10: PresentationSession = {
       id: 's10-slide-02',
       sessionNumber: 10,
       slideNumber: 2,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'context',
-      title: { ar: 'الذكاء الاصطناعي أكثر بكثير من مجرد "Generate Code"', en: 'AI is Vastly More Than Code Generation' },
-      subtitle: { ar: 'لماذا يمثل توليد الكود 20% فقط من القيمة الحقيقية للذكاء الاصطناعي في هندسة البرمجيات؟', en: 'Why code generation represents barely 20% of the true value of AI in software engineering' },
+      title: { ar: "استخدم AI عبر دورة العمل", en: "Use AI Across the Workflow" },
+      subtitle: { ar: 'كيف يدعم الذكاء الاصطناعي مراحل هندسة البرمجيات؟', en: 'How AI can support the software engineering workflow' },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'توسيع مدارك الطلاب لاستخدام الذكاء الاصطناعي في المراحل التسع الأخرى من المشروع.', en: 'Broaden student horizons to deploy AI across the other 9 phases of software delivery.' },
-      speakerNotes: { ar: 'وضح: كتابة الكود سهلة وسريعة؛ التحدي الأكبر هو التفكير في حالات الفشل، كتابة الاختبارات، توثيق النظام، وضمان عدم وجود ثغرات.', en: 'Generating code is fast; the true bottleneck is edge-case testing, system documentation, and security verification.' },
+      speakerNotes: { ar: "نفّذ: وضح: كتابة الكود سهلة وسريعة؛ التحدي الأكبر هو التفكير في حالات الفشل، كتابة الاختبارات، توثيق النظام، وضمان عدم وجود ثغرات.\nاسأل: ما المشكلة التي توضّحها «استخدم AI عبر دورة العمل»؟\nتحقق: الاعتماد الأعمى على الكود المتولد دون اختبارات وتدقيق أمني يتسبب في تسريب بيانات العملاء وتوقف الخوادم.", en: "Cue: Generating code is fast; the true bottleneck is edge-case testing, system documentation, and security verification.\nAsk: What problem does “Use AI Across the Workflow” point to?\nCheck: Blind reliance on unverified AI code leads directly to data leaks, performance regressions, and downtime." },
       payload: {
         type: 'context',
         data: {
@@ -149,13 +149,13 @@ export const SESSION_10: PresentationSession = {
       id: 's10-slide-03',
       sessionNumber: 10,
       slideNumber: 3,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'visual',
-      title: { ar: 'مسار دورة حياة البرمجيات المتكامل (The 10-Stage SDLC)', en: 'The 10-Stage Engineering SDLC Pipeline' },
+      title: { ar: "مراحل بناء البرمجيات", en: "The Software Delivery Stages" },
       subtitle: { ar: 'الرحلة الكاملة لكل ميزة برمجية من الفكرة والبحث وحتى الاختبار والشحن', en: 'The comprehensive lifecycle of every production feature from research to deployment' },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'رسم المسار المكتمل المكون من 10 مراحل وتوضيح دور AI في كل منها.', en: 'Map the complete 10-phase engineering lifecycle and highlight AI role in each.' },
-      speakerNotes: { ar: 'استعرض المراحل: 1. البحث -> 2. المتطلبات -> 3. التخطيط -> 4. المعمارية -> 5. الكود -> 6. التصحيح -> 7. إعادة الهيكلة -> 8. الاختبار -> 9. التوثيق -> 10. الشحن.', en: 'Walk through: Research -> Specs -> Planning -> Architecture -> Code -> Debug -> Refactor -> Test -> Docs -> Ship.' },
+      speakerNotes: { ar: "نفّذ: استعرض المراحل: 1. البحث -> 2. المتطلبات -> 3. التخطيط -> 4. المعمارية -> 5. الكود -> 6. التصحيح -> 7. إعادة الهيكلة -> 8. الاختبار -> 9. التوثيق -> 10. الشحن.\nاسأل: اشرح ترتيب المراحل في «مراحل بناء البرمجيات» بصوتك.\nتحقق: البحث والاستكشاف ← تحديد المتطلبات ← المعمارية والتخطيط ← التنفيذ البرمجي ← الاختبار والتوثيق ← المراجعة والشحن", en: "Cue: Walk through: Research -> Specs -> Planning -> Architecture -> Code -> Debug -> Refactor -> Test -> Docs -> Ship.\nAsk: Ask learners to walk through the stages in “The Software Delivery Stages”.\nCheck: Research → Requirements → Architecture → Coding → Test & Docs → Review & Ship" },
       payload: {
         type: 'visual',
         data: {
@@ -178,13 +178,13 @@ export const SESSION_10: PresentationSession = {
       id: 's10-slide-04',
       sessionNumber: 10,
       slideNumber: 4,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'comparison',
-      title: { ar: 'مخاطر الذكاء الاصطناعي: أين يخطئ وكيف تحمي مشروعك؟', en: 'AI Failure Modes & The Human Shield' },
+      title: { ar: "تحقق من مخرجات AI", en: "Verify AI Output" },
       subtitle: { ar: 'فحص موضوعي للثغرات والافتراضات الخاطئة الشائعة التي تنتجها النماذج اللغوية', en: 'An objective audit of common LLM failure modes, hallucinations, and security flaws' },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'توعية الطلاب بالثغرات الخفية للـ AI مثل اقتراح مكتبات غير موجودة أو تجاهل التحقق من المدخلات.', en: 'Educate students on phantom package hallucinations and missing input sanitization.' },
-      speakerNotes: { ar: 'اشرح ظاهرة الهلوسة وحزم الشبح (Phantom Packages) وثغرات SQL Injection أو XSS التي قد يولدها AI إذا لم تفحصها.', en: 'Explain hallucinated dependencies, XSS injection risks, and over-engineered abstractions.' },
+      speakerNotes: { ar: "نفّذ: اشرح ظاهرة الهلوسة وحزم الشبح (Phantom Packages) وثغرات SQL Injection أو XSS التي قد يولدها AI إذا لم تفحصها.\nاسأل: ما معيارك للاختيار بين جانبي «تحقق من مخرجات AI»؟\nتحقق: القاعدة الذهبية الأبدية: الذكاء الاصطناعي يولد المقترحات — والمهندس البشري يملك الفحص والمسؤولية.", en: "Cue: Explain hallucinated dependencies, XSS injection risks, and over-engineered abstractions.\nAsk: What would guide your choice between the two sides of “Verify AI Output”?\nCheck: The inviolable golden rule: AI Generates Proposals — Human Engineers Validate & Own Responsibility." },
       payload: {
         type: 'comparison',
         data: {
@@ -203,7 +203,7 @@ export const SESSION_10: PresentationSession = {
             },
             {
               dimension: { ar: 'التضخيم البرمجي (Over-Engineering)', en: 'Over-Engineering Bloat' },
-              left: { ar: 'إنشاء 10 ملفات ومئات الأسطر لحل مشكلة تتطلب 5 أسطر', en: 'Generating 10 files and hundreds of lines for a 5-line problem' },
+              left: { ar: 'إنشاء ملفات وأسطر أكثر مما تتطلبه المشكلة', en: 'Generating more files and code than the problem requires' },
               right: { ar: 'الحذف الصارم وتطبيق مبدأ البساطة الهندسية (KISS Principle)', en: 'Pruning ruthlessly and mandating architectural simplicity (KISS)' },
             },
             {
@@ -225,12 +225,12 @@ export const SESSION_10: PresentationSession = {
       id: 's10-slide-05',
       sessionNumber: 10,
       slideNumber: 5,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'code',
-      title: { ar: 'الكود كأثر بصري: اختبار آلي مولد بـ AI يحمي المكون من الانهيار', en: 'Code Artifact: Automated Component Test' },
+      title: { ar: "اختبار آلي مولد بـ AI يحمي المكون من الانهيار", en: "Code Artifact — Automated Component Test" },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'إظهار كيف يكتب الذكاء الاصطناعي اختبارات نقية وسريعة تتحقق من صحة عمل المكونات.', en: 'Demonstrate AI scaffolding clean automated test suites verifying component correctness.' },
-      speakerNotes: { ar: 'اشرح كيف يختبر هذا الكود أطباق المطعم: هل يتم عرض الاسم والسعر؟ هل يعمل زر الطلب؟ إذا انكسر الكود مستقبلاً سينبهنا الاختبار فوراً.', en: 'Explain: test verifies item name, price, and click trigger. If future code breaks, tests catch it instantly.' },
+      speakerNotes: { ar: "نفّذ: اشرح كيف يختبر هذا الكود أطباق المطعم: هل يتم عرض الاسم والسعر؟ هل يعمل زر الطلب؟ إذا انكسر الكود مستقبلاً سينبهنا الاختبار فوراً.\nاسأل: ما وظيفة المثال في «اختبار آلي مولد بـ AI يحمي المكون من الانهيار»؟\nتحقق: اختبار برمجي آلي يتحقق من ظهور اسم الوجبة وسعرها واستجابة زر الطلب للنقر. وجود الاختبارات الآلية يتيح لك إعادة كتابة أو تحسين الكود مستقبلاً دون خوف من كسر أي ميزة سابقة.", en: "Cue: Explain: test verifies item name, price, and click trigger. If future code breaks, tests catch it instantly.\nAsk: What does the example in “Code Artifact — Automated Component Test” do?\nCheck: Automated unit test verifying component rendering, price formatting, and click dispatch. Automated tests grant fearless refactoring confidence by preventing silent regression bugs." },
       payload: {
         type: 'code',
         data: {
@@ -276,13 +276,13 @@ describe('DishCard Component Invariants', () => {
       id: 's10-slide-06',
       sessionNumber: 10,
       slideNumber: 6,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'ai',
-      title: { ar: 'برومبت مراجعة الكود وفحص الأمان (Adversarial Review)', en: 'Adversarial Code Review & Security Prompt' },
+      title: { ar: "مراجعة الكود والأمان", en: "Code & Security Review" },
       subtitle: { ar: 'أمر تشغيل الذكاء الاصطناعي كمهندس أمني معارض يبحث عن أدق الثغرات في مشروعك', en: 'Commanding AI as an adversarial security engineer hunting for vulnerabilities' },
       estimatedMinutes: 6,
       teachingGoal: { ar: 'تدريب الطلاب على استخدام نبرة المراجع المعارض لاستخراج الثغرات بدلاً من المجاملات.', en: 'Train students to mandate adversarial critique over superficial model flattery.' },
-      speakerNotes: { ar: 'اقرأ عبارة: "Be ruthlessly critical. Do not praise the code". هذه العبارة تجعل الذكاء الاصطناعي يركز 100% على اكتشاف الأخطاء.', en: 'Highlight: "Be ruthlessly critical". This removes conversational pleasantries and surfaces real vulnerabilities.' },
+      speakerNotes: { ar: "نفّذ: اقرأ عبارة: \"Be ruthlessly critical. Do not praise the code\". هذه العبارة توجّه الذكاء الاصطناعي للتركيز على اكتشاف الأخطاء.\nاسأل: أي قيد أو معيار قبول سيحمي الناتج من التخمين؟\nتحقق: معيار قابل للفحص: All security risks flagged with explicit remediation", en: "Cue: Highlight: \"Be ruthlessly critical\". This removes conversational pleasantries and surfaces real vulnerabilities.\nAsk: Which constraint or acceptance criterion will guard against guesswork?\nCheck: A verifiable criterion: All security risks flagged with explicit remediation" },
       payload: {
         type: 'ai',
         data: {
@@ -315,13 +315,13 @@ describe('DishCard Component Invariants', () => {
     {
       id: 's10-slide-07',
       sessionNumber: 10,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 7,
+      totalSlides: 10,
       type: 'challenge',
-      title: { ar: 'تحدي الطلاب: فحص الأمان وتوثيق README لمشروعك', en: 'Student Challenge: Security Audit & Project README' },
+      title: { ar: "فحص الأمان وتوثيق README لمشروعك", en: "Student Challenge — Security Audit & Project README" },
       estimatedMinutes: 8,
       teachingGoal: { ar: 'قيام كل طالب بتوليد ملف README احترافي وإجراء فحص أمني لكود مشروعه.', en: 'Every student runs a security scan and authors an executive README for their capstone.' },
-      speakerNotes: { ar: 'أطلق مؤقت الـ 5 دقائق. اطلب منهم إرسال برومبت المراجعة الأمنية وتوليد وثيقة README تشرح المشروع وكيفية تشغيله.', en: 'Start 5-minute timer. Instruct students to run adversarial review and draft their project README.' },
+      speakerNotes: { ar: "نفّذ: أطلق مؤقت الـ 5 دقائق. اطلب منهم إرسال برومبت المراجعة الأمنية وتوليد وثيقة README تشرح المشروع وكيفية تشغيله.\nاسأل: ما الناتج الذي ستسلّمه؟ إجراء فحص أمني معارض لكود مشروعك وتوليد ملف توثيق README.md احترافي.\nتحقق: ملف README.md احترافي مع تقرير فحص أمني يؤكد جاهزية المشروع.", en: "Cue: Start 5-minute timer. Instruct students to run adversarial review and draft their project README.\nAsk: What will you submit? Execute an adversarial security audit and author a comprehensive README.md specification.\nCheck: Professional README.md specification and verified clean security audit report." },
       payload: {
         type: 'challenge',
         data: {
@@ -353,13 +353,13 @@ describe('DishCard Component Invariants', () => {
     {
       id: 's10-slide-08',
       sessionNumber: 10,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 8,
+      totalSlides: 10,
       type: 'project',
-      title: { ar: 'محطة المشروع: الحصانة الهندسية والتوثيق المكتمل', en: 'Project Milestone: Hardened & Documented Repository' },
+      title: { ar: "الحصانة الهندسية والتوثيق المكتمل", en: "Project Milestone — Hardened & Documented Repository" },
       estimatedMinutes: 4,
-      teachingGoal: { ar: 'تثبيت أن المشروع البرمجي قد اكتمل هندسياً وأمنياً بنسبة 100%.', en: 'Confirm capstone codebase is now 100% architecturally hardened, tested, and documented.' },
-      speakerNotes: { ar: 'هنئ الطلاب: "مشروعك الآن ليس مجرد واجهة؛ إنه منتج برمجي مكتمل المعالم، مفحوص أمنياً، وموثق بأعلى معايير الصناعة!".', en: 'Congratulate learners: "Your codebase is now an enterprise-grade asset: tested, documented, and secure!"' },
+      teachingGoal: { ar: 'تثبيت أن المشروع البرمجي اجتاز مراجعات الجودة والأمان التي طبقناها.', en: 'Confirm capstone codebase has passed the quality, security, and documentation checks we performed.' },
+      speakerNotes: { ar: "نفّذ: هنئ الطلاب: \"مشروعك الآن ليس مجرد واجهة؛ إنه منتج برمجي مكتمل المعالم، مفحوص أمنياً، وموثق بأعلى معايير الصناعة!\".\nاسأل: أي مخرج من هذه المرحلة يحتاج إلى استكمال؟\nتحقق: تقرير فحص أمني يؤكد خلو المشروع من الثغرات وحزم الشبح؛ ملف README.md احترافي يشرح معمارية المشروع وكيفية تشغيله؛ مستودع كود نظيف وخالٍ من الأخطاء والتحذيرات جاهز للنشر النهائي", en: "Cue: Congratulate learners: \"Your codebase is now an enterprise-grade asset: tested, documented, and secure!\"\nAsk: Which deliverable from this phase still needs work?\nCheck: Clean security audit report confirming zero vulnerable dependencies; Production-grade README.md explaining architecture and setup; Pristine repository tree ready for production cloud deployment" },
       payload: {
         type: 'project',
         data: {
@@ -386,13 +386,13 @@ describe('DishCard Component Invariants', () => {
     {
       id: 's10-slide-09',
       sessionNumber: 10,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 9,
+      totalSlides: 10,
       type: 'takeaway',
-      title: { ar: 'الخلاصة الهندسية للجلسة العاشرة', en: 'Session 10 Engineering Takeaways' },
+      title: { ar: "خلاصة: الجودة والأمان", en: "Recap: Quality & Security" },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'تثبيت مبدأ المسؤولية الهندسية الصارمة وقاعدة التحقق البشري الدائم.', en: 'Cement engineering accountability and the immutable human validation contract.' },
-      speakerNotes: { ar: 'اقرأ النقاط الثلاث. أكد: "أنت كمهندس لست مجرد مستخدم للأداة؛ أنت المراجع النهائي الذي يضمن أمان وسلامة المنتج أمام العميل والعالم".', en: 'Review takeaways: You are the ultimate reviewer guaranteeing safety, uptime, and integrity.' },
+      speakerNotes: { ar: "نفّذ: اقرأ النقاط الثلاث. أكد: \"أنت كمهندس لست مجرد مستخدم للأداة؛ أنت المراجع النهائي الذي يضمن أمان وسلامة المنتج أمام العميل والعالم\".\nاسأل: أي مبدأ من «خلاصة: الجودة والأمان» ستستخدمه في مشروعك؟\nتحقق: السرعة دون انضباط هندسي هي دين تقني مؤجل؛ السرعة مع الانضباط هي قمة الاحتراف.", en: "Cue: Review takeaways: You are the ultimate reviewer guaranteeing safety, uptime, and integrity.\nAsk: Which principle from “Recap: Quality & Security” will you use in your project?\nCheck: Speed without engineering discipline is deferred technical debt; speed with discipline is pure mastery." },
       payload: {
         type: 'takeaway',
         data: {
@@ -434,13 +434,13 @@ describe('DishCard Component Invariants', () => {
     {
       id: 's10-slide-10',
       sessionNumber: 10,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 10,
+      totalSlides: 10,
       type: 'next',
-      title: { ar: 'المحطة القادمة: التسويق وجلب العملاء — تحويل المهارة لخدمة', en: 'Next Waypoint: Marketing & Clients — Monetizing Skill' },
+      title: { ar: "التالي: تسويق خدمتك", en: "Next: Market Your Service" },
       estimatedMinutes: 2,
       teachingGoal: { ar: 'تشويق الطلاب للجلسة 11 لدخول الجانب التجاري والمهني وصناعة البورتفوليو.', en: 'Build intense anticipation for Session 11: business acquisition, portfolios, and freelancing.' },
-      speakerNotes: { ar: 'اختم الجلسة: "في الجلسة 11 سنتعلم كيف تحول هذا الكود الرائع إلى خدمة تجارية: كيف تبني بورتفوليو، تصيغ العروض، وتجلب أول عميل!".', en: 'Closing: "In Session 11 we learn how to commercialize your skill: packaging portfolios, proposals, and landing clients!"' },
+      speakerNotes: { ar: "نفّذ: اختم الجلسة: \"في الجلسة 11 سنتعلم كيف تحول هذا الكود الرائع إلى خدمة تجارية: كيف تبني بورتفوليو، تصيغ العروض، وتجلب أول عميل!\".\nاسأل: ما الذي ستجهزه قبل الجلسة القادمة؟\nتحقق: فكر في القطاع التجاري الذي تريد التخصص فيه لخدمة عملائه (مطاعم، عيادات، متاجر، شركات ناشئة).", en: "Cue: Closing: \"In Session 11 we learn how to commercialize your skill: packaging portfolios, proposals, and landing clients!\"\nAsk: What will you prepare before the next session?\nCheck: Consider the commercial niche you wish to specialize in (dining, healthcare, e-commerce, startups)." },
       payload: {
         type: 'next',
         data: {

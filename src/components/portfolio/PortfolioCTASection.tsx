@@ -53,7 +53,7 @@ export const PortfolioCTASection: React.FC = () => {
                     )
                   }
                 >
-                  <span>{isRtl ? "تواصل معي" : "Contact Me"}</span>
+                  <span>{isRtl ? "تواصل معي بشأن مشروع" : "Discuss a Project"}</span>
                 </Button>
               </Link>
 
@@ -63,8 +63,24 @@ export const PortfolioCTASection: React.FC = () => {
                   variant="outline"
                   className="w-full sm:w-auto font-semibold hover:border-[var(--color-secondary)]/60"
                 >
-                  {isRtl ? "عرض المشاريع" : "View Projects"}
+                  {isRtl ? "استكشف المشاريع" : "View Projects"}
                 </Button>
+              </Link>
+            </div>
+
+            {/* 7. Brief link to About page */}
+            <div className="relative z-10 pt-4 border-t border-[var(--color-border-subtle)] flex items-center justify-between text-xs sm:text-sm text-[var(--color-text-muted)]">
+              <span>
+                {isRtl
+                  ? "ترغب في معرفة المزيد عن خلفيتي وطريقة تفكيري الهندسية؟"
+                  : "Want to know more about my background and engineering approach?"}
+              </span>
+              <Link
+                href="/about"
+                className="font-bold text-[var(--color-secondary)] hover:text-[var(--color-primary)] inline-flex items-center gap-1 transition-colors"
+              >
+                <span>{isRtl ? "اقرأ صفحة عنّي" : "Read About Me"}</span>
+                {isRtl ? <ArrowLeft className="w-3.5 h-3.5" /> : <ArrowRight className="w-3.5 h-3.5" />}
               </Link>
             </div>
           </div>

@@ -44,8 +44,8 @@ export const SESSION_07: PresentationSession = {
     en: 'Algorithmic advisor proposing interaction patterns and debugging asynchronous race conditions.',
   },
   marketConnection: {
-    ar: 'المواقع التفاعلية السلسة تزيد من بقاء الزائر ومعدل التحويل (Conversion Rate) بنسبة تزيد عن 200%.',
-    en: 'Frictionless client interactions and instant feedback elevate web conversion rates by over 200%.',
+    ar: 'المواقع التفاعلية السلسة قد تجعل التفاعل أوضح وأسهل للزوار، ما يدعم تجربة الاستخدام.',
+    en: 'Frictionless client interactions and instant feedback can make interactions clearer and easier for visitors.',
   },
   startScreen: {
     badge: 'SESSION 07 / 12 • INTERACTION & DOM',
@@ -93,12 +93,12 @@ export const SESSION_07: PresentationSession = {
       id: 's07-slide-01',
       sessionNumber: 7,
       slideNumber: 1,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'title',
-      title: { ar: 'JavaScript: بث الحياة في الموقع', en: 'JavaScript: Interactive Web' },
+      title: { ar: "JavaScript — بث الحياة في الموقع", en: "JavaScript — Interactive Web" },
       estimatedMinutes: 2,
       teachingGoal: { ar: 'افتتاح الجلسة وإعلان الانتقال من الواجهات الساكنة إلى عالم البرمجة التفاعلية الحية.', en: 'Open session: entering dynamic stateful client-side programming.' },
-      speakerNotes: { ar: 'رحب بالطلاب: "اليوم يتحول موقعنا من مجرد مجلة للقراءة إلى تطبيق حي يسمع لنقرات الزائر ويستجيب له فوراً!".', en: 'Welcome learners: "Today our site transitions from a static flyer into a living app listening to user intent!"' },
+      speakerNotes: { ar: "نفّذ: رحب بالطلاب: \"اليوم يتحول موقعنا من مجرد مجلة للقراءة إلى تطبيق حي يسمع لنقرات الزائر ويستجيب له فوراً!\".\nاسأل: ما الهدف الذي تتوقع تحقيقه في جلسة «JavaScript — بث الحياة في الموقع»؟\nتحقق: افتتاح الجلسة وإعلان الانتقال من الواجهات الساكنة إلى عالم البرمجة التفاعلية الحية.", en: "Cue: Welcome learners: \"Today our site transitions from a static flyer into a living app listening to user intent!\"\nAsk: What outcome do you expect from “JavaScript — Interactive Web”?\nCheck: Open session: entering dynamic stateful client-side programming." },
       payload: {
         type: 'title',
         data: {
@@ -118,13 +118,13 @@ export const SESSION_07: PresentationSession = {
       id: 's07-slide-02',
       sessionNumber: 7,
       slideNumber: 2,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'context',
-      title: { ar: 'ما الذي يفعله JavaScript خلف الكواليس في المتصفح؟', en: 'What JS Does Behind the Browser Scenes' },
+      title: { ar: "دور JavaScript في المتصفح", en: "JavaScript in the Browser" },
       subtitle: { ar: 'كيف يفهم المتصفح ضغطة الزر ويحولها إلى تعديل فوري في الشاشة؟', en: 'How the browser engine translates a click into millisecond DOM mutations' },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'إيضاح دور JavaScript كمحرك سلوك (Behavior Engine) وليس مجرد أداة لتزيين النصوص.', en: 'Clarify JavaScript as the browser behavior engine orchestrating UX feedback.' },
-      speakerNotes: { ar: 'اشرح التشبيه الشهير: HTML هو الهيكل العظمي، CSS هو الملابس والجمال، و JavaScript هو العضلات والجهاز العصبي الذي يحرك الكائن.', en: 'Classic analogy: HTML is the skeleton, CSS is the skin and attire, JS is the muscle and neural reflexes.' },
+      speakerNotes: { ar: "نفّذ: اشرح التشبيه الشهير: HTML هو الهيكل العظمي، CSS هو الملابس والجمال، و JavaScript هو العضلات والجهاز العصبي الذي يحرك الكائن.\nاسأل: ما المشكلة التي توضّحها «دور JavaScript في المتصفح»؟\nتحقق: المواقع البطيئة في الاستجابة لنقرات المستخدم قد تربك الزوار عندما تتأخر الاستجابة؛ اجعل التفاعل سريعاً وواضحاً.", en: "Cue: Classic analogy: HTML is the skeleton, CSS is the skin and attire, JS is the muscle and neural reflexes.\nAsk: What problem does “JavaScript in the Browser” point to?\nCheck: Laggy interfaces can frustrate users when feedback is delayed; keep interactions responsive." },
       payload: {
         type: 'context',
         data: {
@@ -133,8 +133,8 @@ export const SESSION_07: PresentationSession = {
             en: 'Modern web applications never trigger full page reloads; they mutate localized DOM trees in milliseconds.',
           },
           realWorldProblem: {
-            ar: 'المواقع البطيئة في الاستجابة لنقرات المستخدم تفقد الزائرين بنسبة 53% إذا تأخر التفاعل أكثر من 100 مللي ثانية.',
-            en: 'Laggy interfaces shed 53% of users if interaction feedback delays exceed 100ms.',
+            ar: 'المواقع البطيئة في الاستجابة لنقرات المستخدم قد تربك الزوار عندما تتأخر الاستجابة؛ اجعل التفاعل سريعاً وواضحاً.',
+            en: 'Laggy interfaces can frustrate users when feedback is delayed; keep interactions responsive.',
           },
           whyItMatters: {
             ar: 'إتقان JavaScript يجعلك قادراً على بناء تجارب مستخدم تشبه تطبيقات الهاتف فائقة السرعة والسلاسة.',
@@ -149,13 +149,13 @@ export const SESSION_07: PresentationSession = {
       id: 's07-slide-03',
       sessionNumber: 7,
       slideNumber: 3,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'visual',
-      title: { ar: 'مسار عمل الذكاء الاصطناعي البرمجي (AI Workflow)', en: 'The Disciplined AI Interaction Workflow' },
+      title: { ar: "مسار عمل الذكاء الاصطناعي البرمجي (AI Workflow)", en: "The Disciplined AI Interaction Workflow" },
       subtitle: { ar: 'كيف تطلب من الذكاء الاصطناعي بناء ميزة تفاعلية معقدة دون الوقوع في أخطاء المنطق؟', en: 'How to partner with AI on dynamic logic without inheriting subtle runtime bugs' },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'تعليم مسار: المتطلب ← طلب النهج ← المراجعة ← التنفيذ ← الاختبار.', en: 'Instill the strict flow: Requirement → Ask Approach → Review → Implement → Test & Debug.' },
-      speakerNotes: { ar: 'أكد: "لا تقل للـ AI اكتب لي كود JavaScript فوراً. اطلب منه أولاً: ما هي أفضل طريقة لمعالجة هذا الحدث؟ قارن البدائل ثم نفذ".', en: 'Do not demand raw code first. Ask AI: "What architectural approach handles this event best?"' },
+      speakerNotes: { ar: "نفّذ: أكد: \"لا تقل للـ AI اكتب لي كود JavaScript فوراً. اطلب منه أولاً: ما هي أفضل طريقة لمعالجة هذا الحدث؟ قارن البدائل ثم نفذ\".\nاسأل: اشرح ترتيب المراحل في «مسار عمل الذكاء الاصطناعي البرمجي (AI Workflow)» بصوتك.\nتحقق: المتطلب التفاعلي ← طلب النهج والبدائل ← المراجعة والتدقيق ← التنفيذ البرمجي ← الاختبار وتصحيح الأخطاء", en: "Cue: Do not demand raw code first. Ask AI: \"What architectural approach handles this event best?\"\nAsk: Ask learners to walk through the stages in “The Disciplined AI Interaction Workflow”.\nCheck: Requirement → Ask AI Approach → Human Review → Implement → Test & Debug" },
       payload: {
         type: 'visual',
         data: {
@@ -177,12 +177,12 @@ export const SESSION_07: PresentationSession = {
       id: 's07-slide-04',
       sessionNumber: 7,
       slideNumber: 4,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'concept',
-      title: { ar: 'الأحداث والحالة (Events & State): قلب التفاعل', en: 'Events & State: The Dynamic Heart' },
+      title: { ar: "الأحداث والحالة (Events & State) — قلب التفاعل", en: "Events & State — The Dynamic Heart" },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'شرح مفهوم الحالة (State) وعلاقتها بالحدث (Event) بشكل مبسط.', en: 'Demystify UI State as data in memory and Events as triggers that transform it.' },
-      speakerNotes: { ar: 'وضح: الحالة هي الحقيقة (مثال: هل القائمة مفتوحة؟ true أو false). عندما ينقر المستخدم، يتغير الـ State ويعيد المتصفح رسم الشاشة.', en: 'State is data truth (isOpen: true/false). An event occurs, state flips, the UI reflects the change.' },
+      speakerNotes: { ar: "نفّذ: وضح: الحالة هي الحقيقة (مثال: هل القائمة مفتوحة؟ true أو false). عندما ينقر المستخدم، يتغير الـ State ويعيد المتصفح رسم الشاشة.\nاسأل: كيف تطبّق هذا المبدأ: الواجهة التفاعلية هي دالة تعتمد على الحالة: UI = f(State).؟\nتحقق: قاعدة ذهبية: لا تجعل كود التفاعل يعتمد على نصوص الشاشة؛ اعتمد على معرّفات البيانات (IDs & Data State).", en: "Cue: State is data truth (isOpen: true/false). An event occurs, state flips, the UI reflects the change.\nAsk: How would you apply this principle: Every interactive UI is a predictable function of state: UI = f(State).?\nCheck: Golden Rule: Never bind interaction logic to visible text; bind to immutable data IDs and state flags." },
       payload: {
         type: 'concept',
         data: {
@@ -214,12 +214,12 @@ export const SESSION_07: PresentationSession = {
       id: 's07-slide-05',
       sessionNumber: 7,
       slideNumber: 5,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'code',
-      title: { ar: 'الكود كأثر بصري: تبويبات التصفية التفاعلية (Filter Tabs)', en: 'Code Artifact: Interactive Filter Tabs' },
+      title: { ar: "تبويبات التصفية التفاعلية (Filter Tabs)", en: "Code Artifact — Interactive Filter Tabs" },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'عرض كود تطبيقي لتصفية قائمة العناصر برمجياً بناءً على نقرة المستخدم.', en: 'Inspect clean stateful filtering logic with real-time UI response.' },
-      speakerNotes: { ar: 'اشرح كيف نستخدم Array.filter لتصفية الأطباق بحسب الفئة المحددة (All, Pastas, Desserts). هذا هو الكود الذي سيبنونه اليوم.', en: 'Point out Array.filter matching dish.category against selectedCategory state.' },
+      speakerNotes: { ar: "نفّذ: اشرح كيف نستخدم Array.filter لتصفية الأطباق بحسب الفئة المحددة (All, Pastas, Desserts). هذا هو الكود الذي سيبنونه اليوم.\nاسأل: ما وظيفة المثال في «تبويبات التصفية التفاعلية (Filter Tabs)»؟\nتحقق: مكون تصفية وجبات يعتمد على useState لتغيير الفئة المحددة وإعادة تصفية القائمة فوراً. استخدام role=\"tab\" و aria-selected يمنح التفاعل وصولية كاملة لذوي الاحتياجات الخاصة.", en: "Cue: Point out Array.filter matching dish.category against selectedCategory state.\nAsk: What does the example in “Code Artifact — Interactive Filter Tabs” do?\nCheck: Stateful menu filter using useState and Array.filter for instantaneous card updates. ARIA role=\"tab\" and aria-selected ensure accessible keyboard and screen reader support." },
       payload: {
         type: 'code',
         data: {
@@ -282,12 +282,12 @@ export function InteractiveMenu({ items }) {
       id: 's07-slide-06',
       sessionNumber: 7,
       slideNumber: 6,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'demo',
-      title: { ar: 'تطبيق حي: تشغيل قائمة الهاتف والتصفية الحية في المتصفح', en: 'Live Demo: Mobile Drawer & Real-Time Filter' },
+      title: { ar: "تشغيل قائمة الهاتف والتصفية الحية في المتصفح", en: "Live Demo — Mobile Drawer & Real-Time Filter" },
       estimatedMinutes: 6,
       teachingGoal: { ar: 'مشاهدة التفاعل المباشر على الهاتف وتجربة النقر والتصفية مع الطلاب.', en: 'Observe live mobile drawer animation and category switching in real browser.' },
-      speakerNotes: { ar: 'افتح محاكي الهاتف في Chrome DevTools. انقر على زر الهامبرغر، أظهر فتح القائمة وإغلاقها بزر X وبمفتاح Esc.', en: 'Open mobile viewport in DevTools. Demonstrate drawer toggle, clicking backdrop, and pressing Escape.' },
+      speakerNotes: { ar: "نفّذ: افتح محاكي الهاتف في Chrome DevTools. انقر على زر الهامبرغر، أظهر فتح القائمة وإغلاقها بزر X وبمفتاح Esc.\nاسأل: تفعيل تفاعل فتح وإغلاق قائمة الهاتف المحمول وبرمجة تصفية الأطباق بالفئات.\nتحقق: تفاعل فوري سلس دون إعادة تحميل، وتصفية فورية للأطباق دون إعادة تحميل الصفحة.", en: "Cue: Open mobile viewport in DevTools. Demonstrate drawer toggle, clicking backdrop, and pressing Escape.\nAsk: Wire up accessible mobile drawer navigation and dynamic dish category filtering.\nCheck: Instantaneous UI feedback with zero page reloads and clean state transitions under 10ms." },
       payload: {
         type: 'demo',
         data: {
@@ -306,7 +306,7 @@ export function InteractiveMenu({ items }) {
             { ar: 'فحص الـ Console في المتصفح والتأكد من عدم وجود أي تحذيرات أو أخطاء', en: 'Inspect DevTools console to confirm zero React warnings' },
           ],
           expectedOutput: {
-            ar: 'تفاعل فوري سلس دون إعادة تحميل، وتصفية دقيقة للأطباق في أقل من 10 مللي ثانية.',
+            ar: 'تفاعل فوري سلس دون إعادة تحميل، وتصفية فورية للأطباق دون إعادة تحميل الصفحة.',
             en: 'Instantaneous UI feedback with zero page reloads and clean state transitions under 10ms.',
           },
         },
@@ -317,13 +317,13 @@ export function InteractiveMenu({ items }) {
     {
       id: 's07-slide-07',
       sessionNumber: 7,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 7,
+      totalSlides: 10,
       type: 'challenge',
-      title: { ar: 'تحدي الطلاب: برمجة تبويبات التصفية في مشروعك', en: 'Student Challenge: Code Interactive Tabs in Your Project' },
+      title: { ar: "برمجة تبويبات التصفية في مشروعك", en: "Student Challenge — Code Interactive Tabs in Your Project" },
       estimatedMinutes: 8,
       teachingGoal: { ar: 'قيام كل طالب بكتابة تفاعل التصفية أو قائمة الهاتف في مشروعه وتجربتها حياً.', en: 'Every student wires up interactive filter tabs or mobile menu in their workspace.' },
-      speakerNotes: { ar: 'أطلق مؤقت الـ 5 دقائق. اطلب منهم إضافة زرين للتصفية (مثل: "الكل" و "الأكثر طلباً") واختبار النقر عليها.', en: 'Start 5-minute timer. Instruct students to code at least 2 filter tabs and test state updates.' },
+      speakerNotes: { ar: "نفّذ: أطلق مؤقت الـ 5 دقائق. اطلب منهم إضافة زرين للتصفية (مثل: \"الكل\" و \"الأكثر طلباً\") واختبار النقر عليها.\nاسأل: ما الناتج الذي ستسلّمه؟ برمجة تبويبات تصفية تفاعلية (Filter Tabs) لقسم الخدمات أو المنتجات في مشروعك.\nتحقق: مكون خدمات أو منتجات تفاعلي يصفّي البيانات فورياً عند نقر المستخدم.", en: "Cue: Start 5-minute timer. Instruct students to code at least 2 filter tabs and test state updates.\nAsk: What will you submit? Code interactive category filter tabs for the service/product grid in your project.\nCheck: Live interactive catalog component filtering cards instantaneously upon user click." },
       payload: {
         type: 'challenge',
         data: {
@@ -355,13 +355,13 @@ export function InteractiveMenu({ items }) {
     {
       id: 's07-slide-08',
       sessionNumber: 7,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 8,
+      totalSlides: 10,
       type: 'project',
-      title: { ar: 'محطة المشروع: التفاعل الحي أصبح مكتملاً', en: 'Project Milestone: Dynamic Interaction Live' },
+      title: { ar: "التفاعل الحي أصبح مكتملاً", en: "Project Milestone — Dynamic Interaction Live" },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'تثبيت أن مشروع التخرج أصبح الآن موقعاً تفاعلياً حقيقياً وليس مجرد صفحة ساكنة.', en: 'Celebrate that the capstone repository is now a fully interactive web application.' },
-      speakerNotes: { ar: 'هنئ الطلاب: "مشروعك الآن ليس مجرد تصميم جميل؛ أصبح تطبيقاً حقيقياً يستجيب للمستخدم، يفتح القوائم، ويصفّي المحتوى!".', en: 'Congratulate learners: "Your project is now a living dynamic app responding to real clicks!"' },
+      speakerNotes: { ar: "نفّذ: هنئ الطلاب: \"مشروعك الآن ليس مجرد تصميم جميل؛ أصبح تطبيقاً حقيقياً يستجيب للمستخدم، يفتح القوائم، ويصفّي المحتوى!\".\nاسأل: أي مخرج من هذه المرحلة يحتاج إلى استكمال؟\nتحقق: قائمة هاتف متجاوبة تفتح وتغلق بسلاسة مع دعم مفتاح Esc؛ نظام تصفية فئات حي يعتمد على State ومصفوفات البيانات؛ كود JavaScript نقي خالٍ من الأخطاء والتحذيرات في المتصفح", en: "Cue: Congratulate learners: \"Your project is now a living dynamic app responding to real clicks!\"\nAsk: Which deliverable from this phase still needs work?\nCheck: Accessible mobile drawer with Escape key listener; Stateful category filter matrix updating cards in real time; Clean JavaScript/TypeScript build with zero runtime console errors" },
       payload: {
         type: 'project',
         data: {
@@ -388,13 +388,13 @@ export function InteractiveMenu({ items }) {
     {
       id: 's07-slide-09',
       sessionNumber: 7,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 9,
+      totalSlides: 10,
       type: 'takeaway',
-      title: { ar: 'الخلاصة الهندسية للجلسة السابعة', en: 'Session 07 Engineering Takeaways' },
+      title: { ar: "خلاصة: JavaScript", en: "Recap: JavaScript" },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'تثبيت مبادئ الحالة (State) ومسار الاستشارة الواعية مع الذكاء الاصطناعي.', en: 'Solidify State principles and deliberate architectural consultation with AI.' },
-      speakerNotes: { ar: 'اقرأ النقاط الثلاث. أكد: "التفاعل الممتاز هو الذي يشعر المستخدم بأنه طبيعي وسريع، ولا يعطل تجربة التصفح أبداً".', en: 'Review takeaways: Premium interaction feels natural, instantaneous, and accessible.' },
+      speakerNotes: { ar: "نفّذ: اقرأ النقاط الثلاث. أكد: \"التفاعل الممتاز هو الذي يشعر المستخدم بأنه طبيعي وسريع، ولا يعطل تجربة التصفح أبداً\".\nاسأل: أي مبدأ من «خلاصة: JavaScript» ستستخدمه في مشروعك؟\nتحقق: التفاعل السلس هو اللمسة السحرية التي تحول الموقع من مجرد وثيقة إلى منتج رقمي متكامل.", en: "Cue: Review takeaways: Premium interaction feels natural, instantaneous, and accessible.\nAsk: Which principle from “Recap: JavaScript” will you use in your project?\nCheck: Fluid interaction is the definitive touch transforming static documents into engaging digital products." },
       payload: {
         type: 'takeaway',
         data: {
@@ -436,13 +436,13 @@ export function InteractiveMenu({ items }) {
     {
       id: 's07-slide-10',
       sessionNumber: 7,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 10,
+      totalSlides: 10,
       type: 'next',
-      title: { ar: 'المحطة القادمة: React — كيف تفكر بالمكونات؟', en: 'Next Waypoint: React — Think in Components' },
+      title: { ar: "المحطة القادمة — React — كيف تفكر بالمكونات؟", en: "Next Waypoint — React — Think in Components" },
       estimatedMinutes: 2,
       teachingGoal: { ar: 'تشويق الطلاب للجلسة 08 لدخول عالم React والـ Component Mental Model.', en: 'Build excitement for Session 08: mastering the React component mental model.' },
-      speakerNotes: { ar: 'اختم الجلسة: "في الجلسة 08 سننتقل إلى المكتبة الأكثر طلباً في العالم: React! سنتعلم كيف نفكر بالمكونات ونعيد استخدامها باحترافية!".', en: 'Closing: "In Session 08 we master the most in-demand frontend library: React and declarative component thinking!"' },
+      speakerNotes: { ar: "نفّذ: اختم الجلسة: \"في الجلسة 08 سننتقل إلى مكتبة React ومكونات الواجهة! سنتعلم كيف نفكر بالمكونات ونعيد استخدامها باحترافية!\".\nاسأل: ما الذي ستجهزه قبل الجلسة القادمة؟\nتحقق: تأكد من أن كود التفاعل الذي كتبته اليوم يعمل بسلاسة في متصفحك.", en: "Cue: Closing: \"In Session 08 we master the React library and reusable interface components and declarative component thinking!\"\nAsk: What will you prepare before the next session?\nCheck: Ensure your current interactive filtering code runs smoothly without errors in your local browser." },
       payload: {
         type: 'next',
         data: {

@@ -12,7 +12,7 @@ export const EngineeringWritingsSection: React.FC = () => {
   const { language } = usePreferencesStore();
   const isRtl = language === "ar";
 
-  const featuredWritings = ALL_WRITINGS.filter((w) => w.featured);
+  const featuredWritings = ALL_WRITINGS.slice(0, 3);
 
   return (
     <section
@@ -26,15 +26,15 @@ export const EngineeringWritingsSection: React.FC = () => {
             <div className="space-y-2">
               <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-secondary)] flex items-center gap-1.5">
                 <BookOpen className="w-4 h-4" />
-                {isRtl ? "الكتابات الهندسية" : "Engineering Writings"}
+                {isRtl ? "المقالات والمحتوى التقني" : "Articles & Notes"}
               </span>
               <h2 className="text-h1 font-extrabold text-[var(--color-text)] tracking-tight rtl:tracking-normal">
-                {isRtl ? "مقالات وتدوينات معمارية" : "Architecture & Tech Insights"}
+                {isRtl ? "أحدث المقالات والتجارب الهندسية" : "Latest Engineering Articles"}
               </h2>
               <p className="text-body text-[var(--color-text-muted)] max-w-2xl">
                 {isRtl
-                  ? "تحليلات معمارية عميقة، أنماط تصميم النظم الموزعة، وملاحظات تطبيقية من واقع هندسة البرمجيات الإنتاجية."
-                  : "In-depth architectural analysis, distributed systems patterns, and actionable notes from production engineering practice."}
+                  ? "شروحات عملية وملاحظات معمارية مستخلصة من بناء وصيانة الأنظمة البرمجية ومشاركتها مع المطورين."
+                  : "Practical write-ups and architectural notes drawn from real-world engineering and shared with the dev community."}
               </p>
             </div>
           </Reveal>
@@ -44,13 +44,13 @@ export const EngineeringWritingsSection: React.FC = () => {
               href="/writings"
               className="inline-flex items-center gap-2 text-sm font-bold text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors shrink-0"
             >
-              <span>{isRtl ? "تصفح كل الكتابات" : "View all writings"}</span>
+              <span>{isRtl ? "استكشف كل المقالات" : "View all articles"}</span>
               {isRtl ? <ArrowLeft className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
             </Link>
           </Reveal>
         </div>
 
-        {/* Writings Cards Grid */}
+        {/* Writings Cards Grid (3 cards) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {featuredWritings.map((writing, idx) => (
             <Reveal key={writing.slug} direction="up" delayMs={150 + idx * 80} distance={18}>

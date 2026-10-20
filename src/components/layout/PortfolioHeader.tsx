@@ -120,16 +120,7 @@ export const PortfolioHeader: React.FC = () => {
                     const isActive =
                       item.href === "/"
                         ? pathname === "/"
-                        : item.href === "/#projects"
-                          ? pathname.startsWith("/projects")
-                          : item.href === "/#about"
-                            ? pathname.startsWith("/about")
-                            : item.href === "/#contact"
-                              ? pathname.startsWith("/contact")
-                              : pathname === item.href ||
-                                (item.href !== "/" &&
-                                  !item.href.startsWith("/#") &&
-                                  pathname.startsWith(`${item.href}/`));
+                        : pathname === item.href || pathname.startsWith(`${item.href}/`);
                     const label = getLocalizedText(item.label, language);
 
                     return (
@@ -365,16 +356,7 @@ export const PortfolioHeader: React.FC = () => {
                     const isActive =
                       item.href === "/"
                         ? pathname === "/"
-                        : item.href === "/#projects"
-                          ? pathname.startsWith("/projects")
-                          : item.href === "/#about"
-                            ? pathname.startsWith("/about")
-                            : item.href === "/#contact"
-                              ? pathname.startsWith("/contact")
-                              : pathname === item.href ||
-                                (item.href !== "/" &&
-                                  !item.href.startsWith("/#") &&
-                                  pathname.startsWith(`${item.href}/`));
+                        : pathname === item.href || pathname.startsWith(`${item.href}/`);
                     const label = getLocalizedText(item.label, language);
 
                     return (

@@ -13,62 +13,66 @@ export const INSTRUCTOR_PROFILE: InstructorProfile = {
     en: "Abdulhakim Kanbr",
   },
   roleTitle: {
-    ar: "Senior Software Architect · Full Stack Engineer",
-    en: "Senior Software Architect · Full Stack Engineer",
+    ar: "مهندس برمجيات ومطور ويب",
+    en: "Software Engineer & Web Developer",
   },
   coreMessage: {
-    ar: "أصمم وأهندس معماريات برمجية متينة، أنظمة موزعة عالية الأداء، وتطبيقات ويب حديثة قابلة للتوسع، مع خبرة تتجاوز 8 سنوات في هندسة البرمجيات، إدارة السحابة، وتصميم النظم.",
-    en: "I architect resilient software systems, high-performance distributed platforms, and scalable modern web applications, with 8+ years of expertise in software architecture, cloud infrastructure, and system design.",
+    ar: "أعمل على تصميم وبناء تطبيقات ويب وأنظمة برمجية متينة وقابلة للتوسع.",
+    en: "I design and build resilient, scalable web applications and software systems.",
   },
   briefIntro: {
-    ar: "مهندس معماري أول للبرمجيات ومطور شامل (Senior Software Architect & Full Stack Engineer) بخبرة تزيد عن 8 سنوات في تصميم النظم الموزعة، هندسة السحابة، وتطوير أطر الويب الحديثة. أركز على بناء حلول برمجية مستدامة، بنية تحتية عالية التوافر، وهندسة أنظمة قوية تدعم نمو الأعمال.",
-    en: "Senior Software Architect and Full Stack Engineer with 8+ years of experience across distributed systems design, cloud engineering, and modern web frameworks. Focused on crafting sustainable software architectures, high-availability infrastructure, and pragmatic engineering workflows.",
+    ar: "أنا عبد الحكيم قنبر، مهندس برمجيات ومطور ويب، لدي أكثر من 8 سنوات من الخبرة العملية في تطوير البرمجيات وتصميم الأنظمة. أشارك هنا مشاريعي، وما أتعلمه من العمل الهندسي، والأفكار التي أجدها مفيدة للمطورين وأصحاب المنتجات التقنية.",
+    en: "I'm Abdulhakim Kanbr, a software engineer and web developer with over 8 years of practical experience in software development and system design. Here I share my projects, engineering learnings, and ideas useful for developers and technical product owners.",
   },
   story: {
     title: {
-      ar: "قصتي مع الويب والتعليم البرمجي",
-      en: "My Journey in Web Engineering & Teaching",
+      ar: "عن عبد الحكيم",
+      en: "About Abdulhakim",
     },
     paragraphs: [
       {
-        ar: "بدأت رحلتي في عالم الويب من شغف عميق بفهم كيف تتحول الأفكار والمخططات إلى أدوات رقمية حية يلمسها الناس يومياً. هذا الشغف قادني إلى الغوص عميقاً في معمارية النظم البرمجية، وتطوير واجهات المستخدم المعقدة، والعمل على بناء حلول ويب متينة وسريعة.",
-        en: "My journey began with a deep curiosity about how concepts transform into living digital experiences used by real people. That passion led me into web software architecture, complex user interfaces, and robust systems engineering.",
+        ar: "أعمل في مجال تطوير البرمجيات وهندسة الويب وتصميم الأنظمة منذ أكثر من 8 سنوات. بنيت خلال هذه الفترة تطبيقات ويب، ومنصات رقمية، وواجهات برمجية تخدم احتياجات فعلية وتتعامل مع متطلبات نمو متفاوتة.",
+        en: "I have been working in software engineering, web development, and system design for over 8 years. Over this time, I have built web applications, digital platforms, and backend APIs that solve real problems and handle varying scale requirements.",
       },
       {
-        ar: "خلال مسيرتي، أدركت أن الفجوة الكبرى في التعليم التقني ليست في ندرة المعلومات، بل في غياب المنهجية التطبيقية المتكاملة التي تربط بين التصميم، والكتابة النظيفة للكود، واستثمار أدوات الذكاء الاصطناعي، ثم الوصول إلى منتج حقيقي قابل للتسويق والعمل الحر.",
-        en: "Throughout my work, I realized the primary challenge in tech education is not the lack of tutorials, but the missing bridge connecting modern design, clean code architecture, AI leverage, and practical launch to market.",
+        ar: "ينصب تركيزي على بناء تطبيقات ويب حديثة تتسم بالسرعة وسهولة الاستخدام، إلى جانب تطوير الأنظمة الخلفية التي تركز على سلامة البيانات، والمصادقة، واستقرار الخدمات. أهتم بأن يكون النظام البرمجي متماسكاً من قاعدة البيانات وحتى واجهة المستخدم.",
+        en: "My focus is on crafting modern web applications combining responsiveness and intuitive UX, alongside backend services centered around data integrity, authentication, and service reliability. I strive to make the software cohesive from the database to the frontend.",
       },
       {
-        ar: "لهذا السبب ولدت منصة WEB CREATOR AI: تجربة تعليمية مصممة لتكون الدليل العملي الذي كنت أتمنى لو بدأته في انطلاقتي.",
-        en: "That conviction inspired WEB CREATOR AI: an interactive kit crafted to be the hands-on engineering platform I wished I had at the start.",
+        ar: "في القرارات الهندسية، أعتمد مبدأ البساطة والوضوح قبل التعقيد. أفهم المشكلة والاحتياج بدقة قبل كتابة الكود، وأفضل المعمارية المعيارية القابلة للصيانة على استخدام أنماط معقدة بلا داعٍ. أحرص على كتابة كود نظيف يسهل على المطورين قراءته ومراجعته وتطويره باطمئنان.",
+        en: "In engineering decisions, I prioritize simplicity and clarity over premature complexity. I make sure to understand the core problem before coding, preferring clean, maintainable modular architectures over unnecessary abstractions. I strive to write readable code that teams can inspect and evolve with confidence.",
+      },
+      {
+        ar: "أشارك في هذا الموقع دراسات حالة لمشاريع عملت عليها، ومقالات تقنية عملية تتناول المعمارية وتطوير الويب، بالإضافة إلى أدوات وموارد وقوالب أسعى أن تكون مفيدة للمطورين وأصحاب المنتجات التقنية.",
+        en: "On this site, I share case studies of projects I have built, practical articles covering architecture and web development, along with tools, checklists, and templates designed to be genuinely useful for developers and technical product owners.",
       },
     ],
   },
   whatIBuild: {
     title: {
-      ar: "ماذا أبني كمهندس برمجيات؟",
-      en: "What I Build as an Engineer",
+      ar: "مجالات العمل والاهتمام الهندسي",
+      en: "Areas of Engineering Focus",
     },
     description: {
-      ar: "تركيزي ينصب على الحلول التقنية الحديثة التي تجمع بين الأداء العالي، سهولة الاستخدام، والقابلية للتوسع.",
-      en: "My focus centers on modern technical solutions combining performance, ergonomics, and modular scalability.",
+      ar: "أركز على الحلول البرمجية العملية التي تجمع بين الاستقرار، سهولة الصيانة، والأداء الجيد.",
+      en: "Practical software solutions combining stability, maintainability, and reliable performance.",
     },
     focusAreas: [
       {
-        ar: "تطبيقات الويب التفاعلية المتقدمة المبنية على Next.js و React.",
-        en: "Full-stack interactive web applications powered by Next.js and React.",
+        ar: "تطبيقات الويب الحديثة المبنية على Next.js و React مع معمارية واجهات متجاوبة.",
+        en: "Modern web applications built with Next.js and React with responsive UI architectures.",
       },
       {
-        ar: "أنظمة التصميم (Design Systems) ومكونات الواجهات القابلة لإعادة الاستخدام.",
-        en: "Scalable Design Systems and reusable UI component architectures.",
+        ar: "الأنظمة الخلفية وتطوير واجهات البرمجة (REST APIs) وقواعد البيانات الموثوقة.",
+        en: "Backend systems, structured REST APIs, and reliable database architectures.",
       },
       {
-        ar: "دمج أدوات الذكاء الاصطناعي ونماذج اللغة الكبيرة في سير عمل تطوير الويب.",
-        en: "AI-assisted dev tooling and LLM integration into frontend engineering workflows.",
+        ar: "إدارة الخوادم، بيئات Docker، والبنية التحتية واستقرار تشغيل الخدمات.",
+        en: "Server environments, Docker containerization, and production deployment stability.",
       },
       {
-        ar: "بنى تحتية سريعة مُحسنة لمحركات البحث وسهلة الفهرسة (SEO-Driven Architecture).",
-        en: "High-performance, SEO-optimized web infrastructures with optimal Core Web Vitals.",
+        ar: "أدوات وموجهات الذكاء الاصطناعي لتسريع سير العمل الهندسي وجودة الكود.",
+        en: "AI-assisted tooling to accelerate engineering workflows and code quality.",
       },
     ],
   },

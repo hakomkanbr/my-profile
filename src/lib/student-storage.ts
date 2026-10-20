@@ -13,6 +13,36 @@ export interface StudentSubmission {
 }
 
 const STORAGE_KEY = 'web_creator_ai_student_submissions_v1';
+const DRAFTS_STORAGE_KEY = 'web_creator_ai_student_drafts_v1';
+
+function getAllDrafts(): Record<string, string> {
+  if (typeof window === 'undefined') return {};
+  try {
+    const raw = window.localStorage.getItem(DRAFTS_STORAGE_KEY);
+    return raw ? JSON.parse(raw) as Record<string, string> : {};
+  } catch (err) {
+    console.error('Failed to parse student drafts from localStorage:', err);
+    return {};
+  }
+}
+
+export function getStudentDraft(activityId: string): string {
+  return getAllDrafts()[activityId] || '';
+}
+
+export function saveStudentDraft(activityId: string, answer: string): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    const drafts = getAllDrafts();
+    if (answer) drafts[activityId] = answer;
+    else delete drafts[activityId];
+    window.localStorage.setItem(DRAFTS_STORAGE_KEY, JSON.stringify(drafts));
+    return true;
+  } catch (err) {
+    console.error('Failed to save student draft to localStorage:', err);
+    return false;
+  }
+}
 
 /**
  * Safely read all submissions from localStorage
@@ -47,6 +77,9 @@ export function saveStudentSubmission(
   };
 
   current[activityId] = submission;
+
+  // A submitted answer supersedes its draft; submissions remain in their original store.
+  saveStudentDraft(activityId, '');
 
   if (typeof window !== 'undefined') {
     try {

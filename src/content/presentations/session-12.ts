@@ -92,12 +92,12 @@ export const SESSION_12: PresentationSession = {
       id: 's12-slide-01',
       sessionNumber: 12,
       slideNumber: 1,
-      totalSlides: 16,
+      totalSlides: 9,
       type: 'title',
-      title: { ar: 'المشروع النهائي وحفل التخرج', en: 'Final Project Capstone' },
+      title: { ar: "المشروع النهائي وحفل التخرج", en: "Final Project Capstone" },
       estimatedMinutes: 2,
       teachingGoal: { ar: 'افتتاح الجلسة الختامية بطاقة احتفالية وفخر كبير بإنجاز الطلاب.', en: 'Open the grand finale session with celebration, pride, and executive energy.' },
-      speakerNotes: { ar: 'رحب بالطلاب بحرارة بالغة: "اليوم هو يوم التتويج! 12 جلسة، 18 ساعة، ومشاريع حقيقية حية بنيتموها بأيديكم وعقولكم!".', en: 'Give an inspiring opening: "Today crowns 18 hours of dedicated craftsmanship: real live web products built by your hands!"' },
+      speakerNotes: { ar: "نفّذ: رحب بالطلاب بحرارة بالغة: \"اليوم هو يوم التتويج! 12 جلسة، 18 ساعة، ومشاريع حقيقية حية بنيتموها بأيديكم وعقولكم!\".\nاسأل: ما الهدف الذي تتوقع تحقيقه في جلسة «المشروع النهائي وحفل التخرج»؟\nتحقق: افتتاح الجلسة الختامية بطاقة احتفالية وفخر كبير بإنجاز الطلاب.", en: "Cue: Give an inspiring opening: \"Today crowns 18 hours of dedicated craftsmanship: real live web products built by your hands!\"\nAsk: What outcome do you expect from “Final Project Capstone”?\nCheck: Open the grand finale session with celebration, pride, and executive energy." },
       payload: {
         type: 'title',
         data: {
@@ -117,13 +117,13 @@ export const SESSION_12: PresentationSession = {
       id: 's12-slide-02',
       sessionNumber: 12,
       slideNumber: 2,
-      totalSlides: 16,
+      totalSlides: 9,
       type: 'context',
-      title: { ar: 'تأمل الرحلة: من أين بدأنا وأين نقف اليوم؟', en: 'Reflecting on the 18-Hour Transformation' },
+      title: { ar: "تأمل الرحلة — من أين بدأنا وأين نقف اليوم؟", en: "Reflecting on the 18-Hour Transformation" },
       subtitle: { ar: 'التحول المذهل من متلقٍ ومتردد أمام الكود إلى مهندس يقود الذكاء الاصطناعي باقتدار', en: 'The radical shift from passive coding hesitancy to confident, AI-augmented engineering leadership' },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'مراجعة نقطة البداية في الجلسة 01 ومقارنتها بالمستوى المعماري الرفيع الذي وصل إليه الطلاب اليوم.', en: 'Compare the initial hesitancy of Session 01 with the formidable architectural confidence mastered today.' },
-      speakerNotes: { ar: 'ذكرهم بالجلسة الأولى عندما تساءلنا: "ماذا يعني أن تكون مطور ويب اليوم؟". اليوم يملك كل طالب الإجابة العملية في مشروعه.', en: 'Remind them of Session 01 question: "What does it mean to be a web developer today?" Today everyone holds the tangible answer in code.' },
+      speakerNotes: { ar: "نفّذ: ذكرهم بالجلسة الأولى عندما تساءلنا: \"ماذا يعني أن تكون مطور ويب اليوم؟\". اليوم يملك كل طالب الإجابة العملية في مشروعه.\nاسأل: ما المشكلة التي توضّحها «تأمل الرحلة — من أين بدأنا وأين نقف اليوم؟»؟\nتحقق: تنتهي هذه الدورة بمشروع حي يمكن عرضه ومراجعته؛ استخدمه لتوضيح ما تعلمته عملياً.", en: "Cue: Remind them of Session 01 question: \"What does it mean to be a web developer today?\" Today everyone holds the tangible answer in code.\nAsk: What problem does “Reflecting on the 18-Hour Transformation” point to?\nCheck: This course concludes with a live project learners can present and review as evidence of their work." },
       payload: {
         type: 'context',
         data: {
@@ -132,8 +132,8 @@ export const SESSION_12: PresentationSession = {
             en: 'We started with a speculative idea; today you command an enterprise Next.js 16 web application.',
           },
           realWorldProblem: {
-            ar: 'معظم الدورات تنتهي بكود نظري غير قابل للعرض؛ دورتنا تنتهي بمشروع حي منشور يراه العميل والعالم بالأرقام.',
-            en: 'Most courses culminate in forgotten code tutorials; our curriculum concludes with an active deployed business asset.',
+            ar: 'تنتهي هذه الدورة بمشروع حي يمكن عرضه ومراجعته؛ استخدمه لتوضيح ما تعلمته عملياً.',
+            en: 'This course concludes with a live project learners can present and review as evidence of their work.',
           },
           whyItMatters: {
             ar: 'أصبحت تملك المنهجية الكاملة: لم تعد خائفاً من أي فكرة أو مشروع جديد، لأنك تعرف بالضبط كيف تفككه، تطلب من AI تحليله، وتبنيه باحتراف.',
@@ -148,13 +148,13 @@ export const SESSION_12: PresentationSession = {
       id: 's12-slide-03',
       sessionNumber: 12,
       slideNumber: 3,
-      totalSlides: 16,
+      totalSlides: 9,
       type: 'visual',
-      title: { ar: 'المسار المعماري الكامل للدورة (The Grand Pipeline)', en: 'The Grand Curriculum Pipeline' },
+      title: { ar: "رحلة المشروع من البداية للنهاية", en: "The Project Journey, Start to Finish" },
       subtitle: { ar: 'الرحلة المتصلة من الفكرة والبرومبت وحتى التصميم والكود والـ SEO والتسويق والإطلاق', en: 'The unbroken chain: Idea → Prompt → Stitch → Scaffolding → Antigravity → Foundations → JS → React → Next.js → SEO → Market' },
       estimatedMinutes: 6,
       teachingGoal: { ar: 'استعراض كل محطة في الرحلة كلوحة شرف تلخص المهارات المكتسبة.', en: 'Review every waypoint in the journey as a testament to mastered competencies.' },
-      speakerNotes: { ar: 'استعرض المحطات الاثنتي عشرة واطلب من الطلاب تذكر كيف أضافت كل جلسة قطعة جديدة لبناء مشروعهم.', en: 'Walk through all 12 stations, highlighting how each session contributed an essential building block.' },
+      speakerNotes: { ar: "نفّذ: استعرض المحطات الاثنتي عشرة واطلب من الطلاب تذكر كيف أضافت كل جلسة قطعة جديدة لبناء مشروعهم.\nاسأل: اشرح ترتيب المراحل في «رحلة المشروع من البداية للنهاية» بصوتك.\nتحقق: الفكرة والمعمارية ← التصميم بـ Stitch ← تحليل Antigravity ← HTML + CSS ← مكونات React ← Next.js + SEO ← دراسة الحالة والتسويق ← الإطلاق والعرض الحي", en: "Cue: Walk through all 12 stations, highlighting how each session contributed an essential building block.\nAsk: Ask learners to walk through the stages in “The Project Journey, Start to Finish”.\nCheck: Idea & Mindset → UI Prototype → Analysis First → Semantic Core → React Tree → Production SEO → Case Study → Live Launch" },
       payload: {
         type: 'visual',
         data: {
@@ -179,12 +179,12 @@ export const SESSION_12: PresentationSession = {
       id: 's12-slide-04',
       sessionNumber: 12,
       slideNumber: 4,
-      totalSlides: 16,
+      totalSlides: 9,
       type: 'concept',
-      title: { ar: 'هيكل العرض التقديمي الختامي (The 10-Point Pitch)', en: 'The 10-Point Capstone Pitch Structure' },
+      title: { ar: "هيكل العرض التقديمي الختامي (The 10-Point Pitch)", en: "The 10-Point Capstone Pitch Structure" },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'تحديد النقاط الـ 10 التي يجب أن يغطيها كل طالب أثناء استعراض مشروعه أمام الزملاء.', en: 'Provide the structured 10-point roadmap for student graduation presentations.' },
-      speakerNotes: { ar: 'اشرح النقاط العشر التي سيتحدث فيها كل طالب خلال دقيقتين إلى 3 دقائق أثناء مشاركة شاشته في Zoom.', en: 'Explain the 10 points students will present in their 2-3 minute live Zoom screen share.' },
+      speakerNotes: { ar: "نفّذ: اشرح النقاط العشر التي سيتحدث فيها كل طالب خلال دقيقتين إلى 3 دقائق أثناء مشاركة شاشته في Zoom.\nاسأل: كيف تطبّق هذا المبدأ: العرض الهندسي المحترف يشرح: المشكلة، الفكرة، المعمارية، الكود الحي، والأثر التجاري في 3 دقائق.؟\nتحقق: قاعدة العرض: ابدأ دائماً بالمشكلة التي تحلها قبل أن تعرض أي سطر كود أو واجهة.", en: "Cue: Explain the 10 points students will present in their 2-3 minute live Zoom screen share.\nAsk: How would you apply this principle: Professional technical pitches articulate problem, architecture, live code, and business ROI in 3 minutes.?\nCheck: Presentation Rule: Always ground your presentation in the commercial problem before opening code." },
       payload: {
         type: 'concept',
         data: {
@@ -216,12 +216,12 @@ export const SESSION_12: PresentationSession = {
       id: 's12-slide-05',
       sessionNumber: 12,
       slideNumber: 5,
-      totalSlides: 16,
+      totalSlides: 9,
       type: 'demo',
-      title: { ar: 'نموذج تطبيقي: استعراض مشروع Trattoria Roma بالكامل', en: 'Model Showcase: The Trattoria Roma Capstone' },
+      title: { ar: "عرض مشروع Trattoria Roma", en: "Trattoria Roma Walkthrough" },
       estimatedMinutes: 6,
       teachingGoal: { ar: 'تقديم المدرب لعرض نموذجي يطبق النقاط الـ 10 أمام الطلاب قبل أن يبدأ دورهم.', en: 'Instructor models the 10-point showcase live as an inspirational benchmark for students.' },
-      speakerNotes: { ar: 'قم بعرض مشروع Trattoria Roma كاملاً في 3 دقائق: المشكلة، التصميم في Stitch، شجرة المكونات، تجاوب الموقع، وفحص الـ SEO.', en: 'Deliver a punchy 3-minute showcase of Trattoria Roma demonstrating problem, components, mobile responsiveness, and SEO.' },
+      speakerNotes: { ar: "نفّذ: قم بعرض مشروع Trattoria Roma كاملاً في 3 دقائق: المشكلة، التصميم في Stitch، شجرة المكونات، تجاوب الموقع، وفحص الـ SEO.\nاسأل: نمذجة العرض الهندسي المكتمل في 3 دقائق ليكون دليلاً استرشادياً لعروض الطلاب.\nتحقق: عرض هندسي احترافي يربط الأكواد بالأثر التجاري ويثبت تمكن صانع الويب.", en: "Cue: Deliver a punchy 3-minute showcase of Trattoria Roma demonstrating problem, components, mobile responsiveness, and SEO.\nAsk: Model a punchy, senior-level 3-minute capstone showcase anchoring student presentations.\nCheck: Masterful 3-minute pitch fusing code elegance with tangible business value." },
       payload: {
         type: 'demo',
         data: {
@@ -253,12 +253,12 @@ export const SESSION_12: PresentationSession = {
       id: 's12-slide-06',
       sessionNumber: 12,
       slideNumber: 6,
-      totalSlides: 16,
+      totalSlides: 9,
       type: 'challenge',
-      title: { ar: 'منصة عروض الطلاب: استعراض مشاريع التخرج الحية', en: 'Student Showcase Stage: Live Capstone Presentations' },
+      title: { ar: "منصة عروض الطلاب — استعراض مشاريع التخرج الحية", en: "Student Showcase Stage — Live Capstone Presentations" },
       estimatedMinutes: 30,
       teachingGoal: { ar: 'إتاحة الفرصة لكل طالب لمشاركة شاشته وتقديم مشروعه بثقة أمام زملائه والمدرب.', en: 'Facilitate live student screen shares and capstone pitches with celebratory constructive feedback.' },
-      speakerNotes: { ar: 'هذا هو الجزء الأهم في الجلسة. ادعُ الطلاب بالاسم لمشاركة شاشاتهم، واستمع باهتمام، واحتفِ بتميز كل مشروع ونقاط قوته.', en: 'The heart of Session 12. Invite students to share screens, celebrate their wins, and applaud their milestones.' },
+      speakerNotes: { ar: "نفّذ: هذا هو الجزء الأهم في الجلسة. ادعُ الطلاب بالاسم لمشاركة شاشاتهم، واستمع باهتمام، واحتفِ بتميز كل مشروع ونقاط قوته.\nاسأل: ما الناتج الذي ستسلّمه؟ مشاركة شاشتك عبر Zoom وتقديم مشروع تخرجك في 3 دقائق وفق هيكل النقاط الـ 10.\nتحقق: تقديم عرض التخرج الفني لمشروعك واعتماده رسمياً في سجل خريجي WEB CREATOR AI.", en: "Cue: The heart of Session 12. Invite students to share screens, celebrate their wins, and applaud their milestones.\nAsk: What will you submit? Share your screen on Zoom and deliver your 3-minute capstone graduation presentation.\nCheck: Successful live graduation showcase and formal milestone certification as a Web Creator." },
       payload: {
         type: 'challenge',
         data: {
@@ -290,13 +290,13 @@ export const SESSION_12: PresentationSession = {
     {
       id: 's12-slide-07',
       sessionNumber: 12,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 7,
+      totalSlides: 9,
       type: 'project',
-      title: { ar: 'محطة المشروع: الإطلاق الكامل والاعتماد النهائي', en: 'Project Milestone: Certified Capstone Deployment' },
+      title: { ar: "الإطلاق الكامل والاعتماد النهائي", en: "Project Milestone — Certified Capstone Deployment" },
       estimatedMinutes: 4,
-      teachingGoal: { ar: 'الاحتفال باكتمال المشروع بنسبة 100% واعتماده في بورتفوليو كل طالب.', en: 'Formally certify 100% capstone completion across all 12 modules.' },
-      speakerNotes: { ar: 'أكد للجميع: "مشروعك الآن أصل رقمي حقيقي. ضعه في سيرتك الذاتية، انشره على لينكدإن، واستخدمه كدليل قاطع على قدرتك!".', en: 'Remind learners: "Your project is an authentic digital asset. Anchor it on your CV, LinkedIn, and portfolio!"' },
+      teachingGoal: { ar: 'الاحتفال باكتمال المشروع ومراجعته لاعتماده في بورتفوليو كل طالب.', en: 'Formally review and celebrate the capstone built across all 12 modules.' },
+      speakerNotes: { ar: "نفّذ: أكد للجميع: \"مشروعك الآن أصل رقمي حقيقي. ضعه في سيرتك الذاتية، انشره على لينكدإن، واستخدمه كدليل قاطع على قدرتك!\".\nاسأل: أي مخرج من هذه المرحلة يحتاج إلى استكمال؟\nتحقق: موقع ويب متكامل الميزات يعمل بأحدث معايير Next.js و React؛ معمارية دلالية مراجعة أمنياً ومحسنة لمحركات البحث وفق قائمة التحقق؛ دراسة حالة تجارية وعرض خدمات جاهز للتقديم للعملاء", en: "Cue: Remind learners: \"Your project is an authentic digital asset. Anchor it on your CV, LinkedIn, and portfolio!\"\nAsk: Which deliverable from this phase still needs work?\nCheck: Fully featured production web application built on Next.js 16; Semantic, hardened, SEO-optimized architecture; Documented case study and commercial proposal ready for client outreach" },
       payload: {
         type: 'project',
         data: {
@@ -308,7 +308,7 @@ export const SESSION_12: PresentationSession = {
           },
           deliverables: [
             { ar: 'موقع ويب متكامل الميزات يعمل بأحدث معايير Next.js و React', en: 'Fully featured production web application built on Next.js 16' },
-            { ar: 'معمارية دلالية محصنة أمنياً ومحسنة لمحركات البحث بنسبة 100%', en: 'Semantic, hardened, SEO-optimized architecture' },
+            { ar: 'معمارية دلالية مراجعة أمنياً ومحسنة لمحركات البحث وفق قائمة التحقق', en: 'Semantic, hardened, SEO-optimized architecture' },
             { ar: 'دراسة حالة تجارية وعرض خدمات جاهز للتقديم للعملاء', en: 'Documented case study and commercial proposal ready for client outreach' },
           ],
           connectionToFinalProject: {
@@ -323,13 +323,13 @@ export const SESSION_12: PresentationSession = {
     {
       id: 's12-slide-08',
       sessionNumber: 12,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 8,
+      totalSlides: 9,
       type: 'takeaway',
-      title: { ar: 'ميثاق صانع الويب الدائم (The Creator Creed)', en: 'The Web Creator Permanent Creed' },
+      title: { ar: "ميثاق صانع الويب الدائم (The Creator Creed)", en: "The Web Creator Permanent Creed" },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'تثبيت المبادئ الثلاثة الكبرى التي يجب أن ترافق الطالب طوال حياته المهنية.', en: 'Engrave the 3 supreme principles governing the student career indefinitely.' },
-      speakerNotes: { ar: 'اقرأ الميثاق بكل هيبة وثقة: "1. الذكاء الاصطناعي أداتك وعقلك هو القائد، 2. ابنِ حلولاً تحل مشاكل حقيقية، 3. لا تتوقف عن التعلم والتجربة".', en: 'Deliver the creed with profound conviction: AI is your instrument, build solutions that solve real problems, never stop growing.' },
+      speakerNotes: { ar: "نفّذ: اقرأ الميثاق بكل هيبة وثقة: \"1. الذكاء الاصطناعي أداتك وعقلك هو القائد، 2. ابنِ حلولاً تحل مشاكل حقيقية، 3. لا تتوقف عن التعلم والتجربة\".\nاسأل: أي مبدأ من «ميثاق صانع الويب الدائم (The Creator Creed)» ستستخدمه في مشروعك؟\nتحقق: فكر كمهندس، صمم كفنان، ابنِ بالذكاء الاصطناعي، وأطلق حلولاً تغير العالم الرقمي.", en: "Cue: Deliver the creed with profound conviction: AI is your instrument, build solutions that solve real problems, never stop growing.\nAsk: Which principle from “The Web Creator Permanent Creed” will you use in your project?\nCheck: Think like an architect, design like an artist, build with AI, and ship solutions that reshape the web." },
       payload: {
         type: 'takeaway',
         data: {
@@ -371,13 +371,13 @@ export const SESSION_12: PresentationSession = {
     {
       id: 's12-slide-09',
       sessionNumber: 12,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 9,
+      totalSlides: 9,
       type: 'next',
-      title: { ar: 'إلى الأمام: انطلق وابنِ مشروعك القادم!', en: 'Forward Waypoints: Build Your Next Great Web Asset' },
+      title: { ar: "إلى الأمام — انطلق وابنِ مشروعك القادم!", en: "Forward Waypoints — Build Your Next Great Web Asset" },
       estimatedMinutes: 2,
       teachingGoal: { ar: 'ختام الدورة بتصفيق حار وتوجيه الطلاب نحو خطواتهم المهنية القادمة في سوق العمل.', en: 'Conclude curriculum with standing ovation and direct students toward active client freelancing.' },
-      speakerNotes: { ar: 'اختم الدورة بكلمة مؤثرة وتصفيق حار: "أهنئكم جميعاً من أعماق قلبي! لقد أصبحتم اليوم صناع ويب معاصرين مؤهلين للريادة. انطلقوا واصنعوا المستقبل!".', en: 'Final heartfelt words: "Congratulations to every single creator! You conquered the journey. Step forward and shape the digital future!"' },
+      speakerNotes: { ar: "نفّذ: اختم الدورة بكلمة مؤثرة وتصفيق حار: \"أهنئكم جميعاً من أعماق قلبي! لقد أصبحتم اليوم صناع ويب معاصرين مؤهلين للريادة. انطلقوا واصنعوا المستقبل!\".\nاسأل: ما الذي ستجهزه قبل الجلسة القادمة؟\nتحقق: شارك شهادة إنجازك ورابط مشروعك على لينكدإن وابدأ بالتواصل مع أول 5 عملاء هذا الأسبوع!", en: "Cue: Final heartfelt words: \"Congratulations to every single creator! You conquered the journey. Step forward and shape the digital future!\"\nAsk: What will you prepare before the next session?\nCheck: Publish your capstone case study on LinkedIn and initiate your first client outreach dialogues this week!" },
       payload: {
         type: 'next',
         data: {

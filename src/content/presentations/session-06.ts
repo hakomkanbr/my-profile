@@ -44,8 +44,8 @@ export const SESSION_06: PresentationSession = {
     en: 'Accessibility and semantics auditor reviewing DOM markup against WCAG AA standards.',
   },
   marketConnection: {
-    ar: 'المواقع ذات الهيكل الدلالي النظيف تتصدر نتائج بحث Google بنسبة أسرع بـ 3 أضعاف مقارنة بالمواقع المبنية بفوضى الـ divs.',
-    en: 'Semantic markup indexes 3x faster on Google search algorithms than unstructured div soup.',
+    ar: 'المواقع ذات يساعد الهيكل الدلالي محركات البحث وأدوات الوصول على فهم محتوى الصفحة.',
+    en: 'Semantic markup helps search engines and assistive technologies understand a page structure.',
   },
   startScreen: {
     badge: 'SESSION 06 / 12 • WEB FOUNDATIONS',
@@ -93,12 +93,12 @@ export const SESSION_06: PresentationSession = {
       id: 's06-slide-01',
       sessionNumber: 6,
       slideNumber: 1,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'title',
-      title: { ar: 'HTML + CSS: الأساس المتين للويب', en: 'HTML + CSS: The Web Bedrock' },
+      title: { ar: "HTML + CSS — الأساس المتين للويب", en: "HTML + CSS — The Web Bedrock" },
       estimatedMinutes: 2,
       teachingGoal: { ar: 'افتتاح الجلسة وربطها المباشر بتنفيذ خطة المشروع المعتمدة في الجلسة 05.', en: 'Open session: executing the audited implementation plan in raw code.' },
-      speakerNotes: { ar: 'رحب بالطلاب: "اليوم نبدأ بناء الأكواد التأسيسية. كل وسم HTML وكل فئة CSS سنكتبها اليوم تذهب مباشرة إلى ملفات مشروعك!".', en: 'Welcome learners: "Today we build real markup and styles feeding directly into your project repo!"' },
+      speakerNotes: { ar: "نفّذ: رحب بالطلاب: \"اليوم نبدأ بناء الأكواد التأسيسية. كل وسم HTML وكل فئة CSS سنكتبها اليوم تذهب مباشرة إلى ملفات مشروعك!\".\nاسأل: ما الهدف الذي تتوقع تحقيقه في جلسة «HTML + CSS — الأساس المتين للويب»؟\nتحقق: افتتاح الجلسة وربطها المباشر بتنفيذ خطة المشروع المعتمدة في الجلسة 05.", en: "Cue: Welcome learners: \"Today we build real markup and styles feeding directly into your project repo!\"\nAsk: What outcome do you expect from “HTML + CSS — The Web Bedrock”?\nCheck: Open session: executing the audited implementation plan in raw code." },
       payload: {
         type: 'title',
         data: {
@@ -118,18 +118,18 @@ export const SESSION_06: PresentationSession = {
       id: 's06-slide-02',
       sessionNumber: 6,
       slideNumber: 2,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'context',
-      title: { ar: 'فوضى الـ Div Soup مقابل الهيكل الدلالي (Semantic HTML)', en: 'Div Soup Chaos vs Semantic Order' },
-      subtitle: { ar: 'لماذا تدفع الشركات الكبرى آلاف الدولارات لإعادة هيكلة أكوادها بطريقة دلالية؟', en: 'Why top tech companies invest heavily in semantic markup over generic nested divs' },
+      title: { ar: "من div soup إلى HTML دلالي", en: "From Div Soup to Semantic HTML" },
+      subtitle: { ar: 'لماذا نستخدم HTML الدلالي بدلًا من divs عامة؟', en: 'Why top tech companies invest heavily in semantic markup over generic nested divs' },
       estimatedMinutes: 4,
-      teachingGoal: { ar: 'إيضاح الضرر الفادح لاستبدال وسوم HTML الدلالية بآلاف الـ divs العشوائية.', en: 'Expose the architectural, SEO, and accessibility costs of mindless nested div soups.' },
-      speakerNotes: { ar: 'اعرض الفارق: عندما تكتب <section> يعرف المتصفح ومحرك البحث أن هذا قسم مستقل. عندما تكتب <div> فهو مجرد وعاء بلا معنى.', en: 'Explain: <section> has structural meaning for search crawlers; <div> is just a dumb semantic-free box.' },
+      teachingGoal: { ar: 'إيضاح صعوبة فهم البنية عند استبدال وسوم HTML الدلالية بـ divs عامة.', en: 'Expose the architectural, SEO, and accessibility costs of mindless nested div soups.' },
+      speakerNotes: { ar: "نفّذ: اعرض الفارق: عندما تكتب <section> يعرف المتصفح ومحرك البحث أن هذا قسم مستقل. عندما تكتب <div> فهو مجرد وعاء بلا معنى.\nاسأل: ما المشكلة التي توضّحها «من div soup إلى HTML دلالي»؟\nتحقق: المواقع غير الدلالية تصبح مستحيلة القراءة لـ 1.3 مليار مستخدم حول العالم يعتمدون على تقنيات الوصولية وقارئات الشاشة.", en: "Cue: Explain: <section> has structural meaning for search crawlers; <div> is just a dumb semantic-free box.\nAsk: What problem does “From Div Soup to Semantic HTML” point to?\nCheck: Non-semantic sites exclude 1.3 billion users globally reliant on screen readers and accessibility tools." },
       payload: {
         type: 'context',
         data: {
           industryShift: {
-            ar: 'محركات البحث الحديثة تعاقب المواقع المليئة بفوضى الـ divs وتكافئ المواقع ذات الهيكل الدلالي النظيف بترتيب أعلى وسرعة أرشفة مضاعفة.',
+            ar: 'قد يصعب على محركات البحث وأدوات الوصول فهم البنية غير الدلالية؛ استخدم وسوماً تصف وظيفة كل جزء.',
             en: 'Search algorithms penalize div soups and grant top index priority to clean semantic DOM trees.',
           },
           realWorldProblem: {
@@ -149,12 +149,12 @@ export const SESSION_06: PresentationSession = {
       id: 's06-slide-03',
       sessionNumber: 6,
       slideNumber: 3,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'concept',
-      title: { ar: 'خريطة الوسوم الدلالية الأساسية لصفحة الهبوط', en: 'The Core Semantic Elements Map' },
+      title: { ar: "خريطة الوسوم الدلالية الأساسية لصفحة الهبوط", en: "The Core Semantic Elements Map" },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'حفظ خريطة الوسوم الستة الأساسية وموضع كل منها في الواجهة.', en: 'Map the 6 essential semantic structural elements to their exact page roles.' },
-      speakerNotes: { ar: 'استعرض الوسوم: header للترويسة، nav للقوائم، main للمحتوى الأساسي، section للأقسام الرئيسية، article للبطاقات المستقلة، footer للتذييل.', en: 'Walk through: <header>, <nav>, <main>, <section>, <article>, and <footer>. Every element has an unambiguous job.' },
+      speakerNotes: { ar: "نفّذ: استعرض الوسوم: header للترويسة، nav للقوائم، main للمحتوى الأساسي، section للأقسام الرئيسية، article للبطاقات المستقلة، footer للتذييل.\nاسأل: كيف تطبّق هذا المبدأ: كل جزء من الصفحة له وسم دلالي صريح خلقه معيار W3C؛ استخدم الوسم المناسب في مكانه الصحيح.؟\nتحقق: قاعدة ذهبية: لا تستخدم <div> إلا إذا كان الغرض الوحيد منه هو التنسيق الجمالي أو التجميع البصري فقط.", en: "Cue: Walk through: <header>, <nav>, <main>, <section>, <article>, and <footer>. Every element has an unambiguous job.\nAsk: How would you apply this principle: Every section of a web page has an explicit W3C semantic element; use each in its intended role.?\nCheck: Golden Rule: Only deploy <div> when its sole, pure purpose is visual grouping or styling layout." },
       payload: {
         type: 'concept',
         data: {
@@ -186,13 +186,13 @@ export const SESSION_06: PresentationSession = {
       id: 's06-slide-04',
       sessionNumber: 6,
       slideNumber: 4,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'comparison',
-      title: { ar: 'معمارية التنسيق الحديث: Flexbox مقابل CSS Grid', en: 'Modern Layout: Flexbox vs CSS Grid' },
+      title: { ar: "معمارية التنسيق الحديث — Flexbox مقابل CSS Grid", en: "Modern Layout — Flexbox vs CSS Grid" },
       subtitle: { ar: 'متى تستخدم التنسيق الأحادي (1D) ومتى تستخدم التنسيق الثنائي (2D)؟', en: 'When to deploy 1D linear alignment vs 2D spatial matrices' },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'القضاء التام على حيرة الطلاب بين Flexbox و Grid بقاعدة معمارية واضحة.', en: 'Eliminate confusion between Flexbox and Grid with a permanent mental model.' },
-      speakerNotes: { ar: 'لخص القاعدة في جملة واحدة: "إذا كانت العناصر في صف واحد أو عمود واحد، استخدم Flexbox. إذا كانت العناصر في صفوف وأعمدة متقاطعة (شبكة)، استخدم Grid".', en: 'One sentence: "Items in a single line or column = Flexbox. Items in cross rows and columns = Grid".' },
+      speakerNotes: { ar: "نفّذ: لخص القاعدة في جملة واحدة: \"إذا كانت العناصر في صف واحد أو عمود واحد، استخدم Flexbox. إذا كانت العناصر في صفوف وأعمدة متقاطعة (شبكة)، استخدم Grid\".\nاسأل: ما معيارك للاختيار بين جانبي «معمارية التنسيق الحديث — Flexbox مقابل CSS Grid»؟\nتحقق: المواقع الاحترافية تجمع الاثنين معاً: تستخدم Grid لتخطيط الشبكة الكبرى، وتستخدم Flexbox داخل كل بطاقة لمحاذاة أزرارها ونصوصها.", en: "Cue: One sentence: \"Items in a single line or column = Flexbox. Items in cross rows and columns = Grid\".\nAsk: What would guide your choice between the two sides of “Modern Layout — Flexbox vs CSS Grid”?\nCheck: Professional architectures combine both: Grid for the outer card matrix, Flexbox inside each card for alignment." },
       payload: {
         type: 'comparison',
         data: {
@@ -233,12 +233,12 @@ export const SESSION_06: PresentationSession = {
       id: 's06-slide-05',
       sessionNumber: 6,
       slideNumber: 5,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'code',
-      title: { ar: 'الكود كأثر بصري: شبكة بطاقات المنتجات بـ Grid و Flex', en: 'Code Artifact: Semantic Card Grid' },
+      title: { ar: "شبكة بطاقات المنتجات بـ Grid و Flex", en: "Code Artifact — Semantic Card Grid" },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'عرض كود تطبيقي يجمع بين Semantic HTML و CSS Grid و Flexbox بطريقة نظيفة ومحكمة.', en: 'Showcase production component fusing semantic elements, Grid, and Flexbox.' },
-      speakerNotes: { ar: 'اشرح استخدام <section> للقسم الخارجي، و <article> لكل وجبة، و CSS Grid للشبكة الخارجية، و Flexbox لأسفل البطاقة.', en: 'Point out: <section> wraps the feature, <article> wraps each card, Grid arranges cards, Flexbox aligns price and button.' },
+      speakerNotes: { ar: "نفّذ: اشرح استخدام <section> للقسم الخارجي، و <article> لكل وجبة، و CSS Grid للشبكة الخارجية، و Flexbox لأسفل البطاقة.\nاسأل: ما وظيفة المثال في «شبكة بطاقات المنتجات بـ Grid و Flex»؟\nتحقق: مكون شبكة وجبات دلالي يستخدم <section> و <article> وشبكة Grid ثلاثية الأعمدة. الجمع بين Grid للهيكل الخارجي و Flexbox للمحاذاة الداخلية يعطي تصميماً ثابتاً لا ينكسر على الهواتف.", en: "Cue: Point out: <section> wraps the feature, <article> wraps each card, Grid arranges cards, Flexbox aligns price and button.\nAsk: What does the example in “Code Artifact — Semantic Card Grid” do?\nCheck: Semantic menu grid utilizing <section>, <article>, and 3-column responsive Grid tracks. Combining outer Grid with inner Flexbox creates rock-solid responsive card integrity." },
       payload: {
         type: 'code',
         data: {
@@ -291,13 +291,13 @@ export function MenuGrid() {
       id: 's06-slide-06',
       sessionNumber: 6,
       slideNumber: 6,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'ai',
-      title: { ar: 'فحص الذكاء الاصطناعي: تدقيق الوصولية والـ Semantic HTML', en: 'AI Audit: Accessibility & Semantic Compliance' },
+      title: { ar: "راجع الوصولية والدلالات", en: "Audit Accessibility & Semantics" },
       subtitle: { ar: 'كيف تستخدم الذكاء الاصطناعي كفاحص محترف يكشف الثغرات الدلالية والتباين اللوني؟', en: 'Directing AI as a ruthless accessibility auditor verifying WCAG contrast and ARIA contracts' },
       estimatedMinutes: 6,
       teachingGoal: { ar: 'تدريب الطلاب على استخدام الذكاء الاصطناعي كمراجع ومدقق للكود بدلاً من مجرد كاتب كود.', en: 'Train learners to deploy AI as a rigorous auditor verifying code quality and accessibility.' },
-      speakerNotes: { ar: 'انسخ هذا البرومبت واطلب من الطلاب اختباره. وضح كيف يكشف الذكاء الاصطناعي الصور التي تنقصها نصوص alt أو الأزرار الخالية من التسمية.', en: 'Show how this audit prompt flags missing image alt attributes and unlabeled icon buttons.' },
+      speakerNotes: { ar: "نفّذ: انسخ هذا البرومبت واطلب من الطلاب اختباره. وضح كيف يكشف الذكاء الاصطناعي الصور التي تنقصها نصوص alt أو الأزرار الخالية من التسمية.\nاسأل: أي قيد أو معيار قبول سيحمي الناتج من التخمين؟\nتحقق: معيار قابل للفحص: Every interactive button verified for accessible name or aria-label", en: "Cue: Show how this audit prompt flags missing image alt attributes and unlabeled icon buttons.\nAsk: Which constraint or acceptance criterion will guard against guesswork?\nCheck: A verifiable criterion: Every interactive button verified for accessible name or aria-label" },
       payload: {
         type: 'ai',
         data: {
@@ -327,13 +327,13 @@ export function MenuGrid() {
     {
       id: 's06-slide-07',
       sessionNumber: 6,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 7,
+      totalSlides: 10,
       type: 'challenge',
-      title: { ar: 'تحدي الطلاب: بناء وتنسيق شبكة بطاقات مشروعك', en: 'Student Challenge: Build Your Project Responsive Grid' },
+      title: { ar: "بناء وتنسيق شبكة بطاقات مشروعك", en: "Student Challenge — Build Your Project Responsive Grid" },
       estimatedMinutes: 8,
       teachingGoal: { ar: 'قيام كل طالب بكتابة وتنسيق شبكة البطاقات لمشروعه بـ CSS Grid والتحقق من تجاوبها على 375px.', en: 'Every student constructs a 3-card responsive Grid for their domain and validates on 375px mobile.' },
-      speakerNotes: { ar: 'أطلق مؤقت الـ 5 دقائق. اطلب منهم كتابة مكون شبكة البطاقات لمشروعهم (أطباق المطعم، خدمات العيادة، باقات الجيم).', en: 'Start 5-minute timer. Instruct students to code their 3-card grid component in their editor.' },
+      speakerNotes: { ar: "نفّذ: أطلق مؤقت الـ 5 دقائق. اطلب منهم كتابة مكون شبكة البطاقات لمشروعهم (أطباق المطعم، خدمات العيادة، باقات الجيم).\nاسأل: ما الناتج الذي ستسلّمه؟ بناء شبكة بطاقات دلالية متجاوبة (3 بطاقات على الأقل) باستخدام <article> و CSS Grid لمشروعك.\nتحقق: مكون شبكة بطاقات متجاوب دلالياً مدمج في صفحة مشروعك الرئيسية.", en: "Cue: Start 5-minute timer. Instruct students to code their 3-card grid component in their editor.\nAsk: What will you submit? Build a responsive semantic card grid (at least 3 items) using <article> and CSS Grid.\nCheck: Live responsive card grid component wired into your capstone project page." },
       payload: {
         type: 'challenge',
         data: {
@@ -365,13 +365,13 @@ export function MenuGrid() {
     {
       id: 's06-slide-08',
       sessionNumber: 6,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 8,
+      totalSlides: 10,
       type: 'project',
-      title: { ar: 'محطة المشروع: الهيكل الدلالي والتخطيط المتجاوب', en: 'Project Milestone: Semantic Layout Live' },
+      title: { ar: "الهيكل الدلالي والتخطيط المتجاوب", en: "Project Milestone — Semantic Layout Live" },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'تأكيد اكتمال قسمي الـ Hero والـ Services كودياً في مشروع التخرج.', en: 'Confirm live completion of Hero and Service Grid components in capstone repo.' },
-      speakerNotes: { ar: 'هنئ الطلاب: "الآن مشروعك يملك صفحة هبوط ذات بنية دلالية وتخطيطات متجاوبة حقيقية تظهر بشكل رائع على الهاتف والكمبيوتر!".', en: 'Congratulate students: "Your project now boasts real responsive layouts looking stellar on mobile and desktop!"' },
+      speakerNotes: { ar: "نفّذ: هنئ الطلاب: \"الآن مشروعك يملك صفحة هبوط ذات بنية دلالية وتخطيطات متجاوبة حقيقية تظهر بشكل رائع على الهاتف والكمبيوتر!\".\nاسأل: أي مخرج من هذه المرحلة يحتاج إلى استكمال؟\nتحقق: مكون ترويسة وبداية (Hero) مبني بالكامل بوسوم دلالية؛ شبكة بطاقات خدمات أو منتجات متجاوبة بـ CSS Grid؛ اجتياز فحص التدقيق الدلالي والوصولية بالذكاء الاصطناعي", en: "Cue: Congratulate students: \"Your project now boasts real responsive layouts looking stellar on mobile and desktop!\"\nAsk: Which deliverable from this phase still needs work?\nCheck: Semantic Hero component with conversion callout; Responsive 3-column service card grid using CSS Grid; Passing AI accessibility and semantic validation audit" },
       payload: {
         type: 'project',
         data: {
@@ -398,13 +398,13 @@ export function MenuGrid() {
     {
       id: 's06-slide-09',
       sessionNumber: 6,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 9,
+      totalSlides: 10,
       type: 'takeaway',
-      title: { ar: 'الخلاصة الهندسية للجلسة السادسة', en: 'Session 06 Engineering Takeaways' },
+      title: { ar: "خلاصة: HTML وCSS", en: "Recap: HTML & CSS" },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'تثبيت مبادئ الـ Semantic HTML والتكامل بين Flexbox و Grid.', en: 'Solidify semantic markup ethics and Flexbox/Grid synergy.' },
-      speakerNotes: { ar: 'اقرأ النقاط الثلاث. أكد: "الموقع السريع ذو البنية الدلالية النظيفة هو الأساس الذي تبنى عليه كل تقنيات الـ React و Next.js القادمة".', en: 'Review takeaways: Semantic HTML is the unshakeable foundation powering React and Next.js.' },
+      speakerNotes: { ar: "نفّذ: اقرأ النقاط الثلاث. أكد: \"الموقع السريع ذو البنية الدلالية النظيفة هو الأساس الذي تبنى عليه كل تقنيات الـ React و Next.js القادمة\".\nاسأل: أي مبدأ من «خلاصة: HTML وCSS» ستستخدمه في مشروعك؟\nتحقق: الأساس المتين للـ HTML و CSS هو ما يجعل موقعك سريعاً، ثابتاً، وسهل الصيانة للأبد.", en: "Cue: Review takeaways: Semantic HTML is the unshakeable foundation powering React and Next.js.\nAsk: Which principle from “Recap: HTML & CSS” will you use in your project?\nCheck: Resilient HTML and CSS foundations ensure your web products stay fast, robust, and timeless." },
       payload: {
         type: 'takeaway',
         data: {
@@ -429,8 +429,8 @@ export function MenuGrid() {
               number: '03',
               title: { ar: 'الهاتف أولاً دائماً (Mobile-First)', en: 'Mobile-First Always' },
               description: {
-                ar: 'أكثر من 70% من زوار موقعك سيتصفحونه من هواتفهم؛ صمم واختبر على شاشة 375px قبل التفكير في الشاشات الكبيرة.',
-                en: 'Over 70% of web traffic originates from phones; design and test at 375px before desktop viewports.',
+                ar: 'قد يزور المستخدمون موقعك من شاشات صغيرة؛ صمم واختبر على شاشة 375px قبل التفكير في الشاشات الكبيرة.',
+                en: 'Many visitors use phones; design and test at 375px before desktop viewports.',
               },
             },
           ],
@@ -446,13 +446,13 @@ export function MenuGrid() {
     {
       id: 's06-slide-10',
       sessionNumber: 6,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 10,
+      totalSlides: 10,
       type: 'next',
-      title: { ar: 'المحطة القادمة: JavaScript — بث الحياة والتفاعل في الموقع', en: 'Next Waypoint: JavaScript — Making the Web Alive' },
+      title: { ar: "التالي: التفاعل بـ JavaScript", en: "Next: JavaScript Interactions" },
       estimatedMinutes: 2,
       teachingGoal: { ar: 'تشويق الطلاب للجلسة 07 لتحويل موقعهم من مجرد شاشة ساكنة إلى تطبيق تفاعلي حي.', en: 'Build excitement for Session 07: turning static layouts into dynamic interactive experiences.' },
-      speakerNotes: { ar: 'اختم الجلسة: "في الجلسة 07 سنعطي موقعنا روحاً: قوائم هاتف تفتح بسلاسة، نماذج حجز تتفاعل، وبيانات حية تُجلب عبر الـ APIs!".', en: 'Closing: "In Session 07 we breathe life into our site: responsive drawers, dynamic modals, and live API fetch!"' },
+      speakerNotes: { ar: "نفّذ: اختم الجلسة: \"في الجلسة 07 سنعطي موقعنا روحاً: قوائم هاتف تفتح بسلاسة، نماذج حجز تتفاعل، وبيانات حية تُجلب عبر الـ APIs!\".\nاسأل: ما الذي ستجهزه قبل الجلسة القادمة؟\nتحقق: تأكد من أن كود الواجهة الذي بنيته اليوم محفوظ ويعمل دون أخطاء في المتصفح.", en: "Cue: Closing: \"In Session 07 we breathe life into our site: responsive drawers, dynamic modals, and live API fetch!\"\nAsk: What will you prepare before the next session?\nCheck: Confirm your current markup and stylesheet build cleanly in your local browser." },
       payload: {
         type: 'next',
         data: {

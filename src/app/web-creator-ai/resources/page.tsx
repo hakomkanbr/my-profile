@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import {
   LearningShell,
   PageContainer,
@@ -12,25 +13,38 @@ import {
   Button,
 } from '@/components';
 import { ALL_RESOURCES } from '@/content';
-import { ExternalLink, Bookmark } from 'lucide-react';
+import { usePreferencesStore } from '@/store';
+import { getLocalizedText } from '@/lib/utils';
+import { ExternalLink, Bookmark, Briefcase, Sparkles, TrendingUp } from 'lucide-react';
 
 export default function WebCreatorResourcesPage() {
+  const { language } = usePreferencesStore();
+  const isRtl = language === 'ar';
+  const shortcuts = [
+    { href: '/web-creator-ai/ai-lab', icon: Sparkles, title: isRtl ? 'مختبر الذكاء الاصطناعي' : 'AI prompt lab', description: isRtl ? 'موجهات وأدوات مساعدة لتطوير الويب.' : 'Prompts and tools for web development.' },
+    { href: '/web-creator-ai/projects', icon: Briefcase, title: isRtl ? 'المشاريع التطبيقية' : 'Applied projects', description: isRtl ? 'تطبيق المهارات في مشاريع عملية.' : 'Practice your skills through hands-on projects.' },
+    { href: '/web-creator-ai/marketing-lab', icon: TrendingUp, title: isRtl ? 'التسويق وتهيئة البحث' : 'Marketing & SEO lab', description: isRtl ? 'التسويق، تحسين الظهور، والعمل الحر.' : 'Marketing, search visibility, and freelancing.' },
+  ];
   return (
-    <LearningShell headerTitle="الموارد والمراجع">
+    <LearningShell headerTitle={isRtl ? 'الموارد والمراجع' : 'Resources & references'}>
       <PageContainer>
         <PageHeader
-          title="بنك الموارد والمراجع (Developer Bank)"
-          subtitle="أدلة الاستخدام السريع، التوثيق الرسمي، أوراق المساعدة وأدوات فحص الأداء للمطورين."
+          title={isRtl ? 'مكتبة التعلم والموارد' : 'Learning & resource library'}
+          subtitle={isRtl ? 'المختبرات والمشاريع والمراجع التي تحتاجها أثناء المسار.' : 'Labs, projects, and references to support your learning path.'}
           breadcrumbs={[
-            { id: '1', label: 'الرئيسية', href: '/' },
+            { id: '1', label: isRtl ? 'الرئيسية' : 'Home', href: '/' },
             { id: '2', label: 'WEB CREATOR AI', href: '/web-creator-ai' },
-            { id: '3', label: 'الموارد والمراجع', isCurrent: true },
+            { id: '3', label: isRtl ? 'الموارد والمراجع' : 'Resources', isCurrent: true },
           ]}
         />
 
+        <div className="mb-8 grid gap-4 sm:grid-cols-3">
+          {shortcuts.map(({ href, icon: Icon, title, description }) => <Link key={href} href={href} className="rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-primary)]"><Card className="h-full space-y-3 p-5 transition-colors hover:border-[var(--color-primary)]"><Icon className="h-5 w-5 text-[var(--color-primary)]"/><h2 className="font-bold">{title}</h2><p className="text-sm text-[var(--color-text-muted)]">{description}</p></Card></Link>)}
+        </div>
+
         <PageSection
-          title="المراجع الأساسية الموصى بها"
-          subtitle="مصادر موثوقة ومختارة بعناية لتعزيز رحلتك البرمجية"
+          title={isRtl ? 'المراجع الأساسية الموصى بها' : 'Recommended references'}
+          subtitle={isRtl ? 'مصادر موثوقة مختارة لتعزيز رحلتك البرمجية.' : 'Trusted sources selected to support your development journey.'}
         >
           <ContentGrid columns={2}>
             {ALL_RESOURCES.map((res) => (
@@ -51,10 +65,10 @@ export default function WebCreatorResourcesPage() {
                   </div>
 
                   <h3 className="text-h4 font-bold text-[var(--color-text)] mb-1">
-                    {res.title.ar}
+                    {getLocalizedText(res.title, language)}
                   </h3>
                   <p className="text-body-sm text-[var(--color-text-muted)] mb-4">
-                    {res.description.ar}
+                    {getLocalizedText(res.description, language)}
                   </p>
                 </div>
 
@@ -65,7 +79,7 @@ export default function WebCreatorResourcesPage() {
                       variant="outline"
                       rightIcon={<ExternalLink className="w-3.5 h-3.5" />}
                     >
-                      زيارة الرابط
+                      {isRtl ? 'زيارة الرابط' : 'Visit resource'}
                     </Button>
                   </a>
                 </div>

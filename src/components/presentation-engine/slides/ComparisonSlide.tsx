@@ -21,9 +21,9 @@ export const ComparisonSlide: React.FC<ComparisonSlideProps> = ({
   const isRtl = language === "ar";
 
   return (
-    <div className="w-full h-full flex flex-col justify-between p-8 sm:p-14 lg:p-20 select-none overflow-y-auto text-start">
+    <div className="w-full h-full flex flex-col justify-center px-6 py-12 sm:px-12 lg:px-20 select-none overflow-y-auto text-start">
       {/* Top Header */}
-      <div className="space-y-1 border-b border-[var(--pres-border-subtle)] pb-4">
+      <div className="max-w-5xl space-y-2 border-b border-[var(--pres-border-subtle)] pb-4">
         <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[var(--pres-accent)]">
           <Scale className="w-4 h-4" />
           <span>
@@ -32,21 +32,21 @@ export const ComparisonSlide: React.FC<ComparisonSlideProps> = ({
               : "Objective Engineering Comparison"}
           </span>
         </div>
-        <h2 className="text-3xl sm:text-5xl font-black text-[var(--pres-text)] tracking-tight">
+        <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--pres-text)] tracking-tight leading-tight">
           {getLocalizedText(title, language)}
         </h2>
         {subtitle && (
-          <p className="text-sm sm:text-base text-[var(--pres-secondary)] font-medium">
+          <p className="text-lg sm:text-xl text-[var(--pres-secondary)] font-medium">
             {getLocalizedText(subtitle, language)}
           </p>
         )}
       </div>
 
       {/* Main Comparison Table */}
-      <div className="my-auto py-6  space-y-4">
-        <div className="rounded-2xl border-2 border-[var(--pres-border)] bg-[var(--pres-surface)] overflow-hidden shadow-md">
+      <div className="max-w-6xl py-6 space-y-5">
+        <div className="border-y border-[var(--pres-border)] bg-[var(--pres-surface)] overflow-hidden">
           {/* Table Headers */}
-          <div className="grid grid-cols-12 bg-[var(--pres-surface-sunken)] border-b border-[var(--pres-border)] text-xs font-mono font-black uppercase tracking-wider py-3 px-4">
+          <div className="hidden sm:grid sm:grid-cols-12 bg-[var(--pres-surface-sunken)] border-b border-[var(--pres-border)] text-sm font-bold py-3 px-4">
             <div className="col-span-4 text-[var(--pres-text-subtle)]">
               {isRtl ? "المعيار / البُعد" : "Dimension / Practice"}
             </div>
@@ -59,19 +59,21 @@ export const ComparisonSlide: React.FC<ComparisonSlideProps> = ({
           </div>
 
           {/* Rows */}
-          <div className="divide-y divide-[var(--pres-border-subtle)] text-xs sm:text-sm">
+          <div className="divide-y divide-[var(--pres-border-subtle)] text-base sm:text-lg">
             {payload.dimensions.map((row, idx) => (
               <div
                 key={idx}
-                className="grid grid-cols-12 py-3 px-4 items-center hover:bg-[var(--pres-surface-sunken)]/50 transition-colors"
+                className="grid grid-cols-1 sm:grid-cols-12 py-4 px-4 sm:py-5 items-start sm:items-center hover:bg-[var(--pres-surface-sunken)]/50 transition-colors"
               >
-                <div className="col-span-4 font-bold text-[var(--pres-text)] pr-2">
+                <div className="sm:col-span-4 font-bold text-[var(--pres-primary)] pr-2 pb-2 sm:pb-0">
                   {getLocalizedText(row.dimension, language)}
                 </div>
-                <div className="col-span-4 text-[var(--pres-text-muted)] border-x border-[var(--pres-border)] px-3 leading-relaxed">
+                <div className="sm:col-span-4 text-[var(--pres-text-muted)] sm:border-x border-[var(--pres-border)] sm:px-3 leading-relaxed">
+                  <span className="sm:hidden font-semibold text-[var(--pres-text)]">{getLocalizedText(payload.leftHeader, language)}: </span>
                   {getLocalizedText(row.left, language)}
                 </div>
-                <div className="col-span-4 text-[var(--pres-text-muted)] px-3 leading-relaxed">
+                <div className="sm:col-span-4 text-[var(--pres-text-muted)] px-0 sm:px-3 leading-relaxed pt-2 sm:pt-0">
+                  <span className="sm:hidden font-semibold text-[var(--pres-text)]">{getLocalizedText(payload.rightHeader, language)}: </span>
                   {getLocalizedText(row.right, language)}
                 </div>
               </div>
@@ -80,15 +82,15 @@ export const ComparisonSlide: React.FC<ComparisonSlideProps> = ({
         </div>
 
         {/* Balanced Verdict Box */}
-        <div className="p-4 rounded-2xl bg-[var(--pres-surface-sunken)] border border-[var(--pres-primary)]/30 flex items-start gap-3">
+        <div className="p-4 border-s-4 border-[var(--pres-primary)] bg-[var(--pres-surface-sunken)] flex items-start gap-3">
           <ShieldCheck className="w-5 h-5 text-[var(--pres-primary)] shrink-0 mt-0.5" />
           <div className="space-y-0.5">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--pres-primary)] block">
+            <span className="text-sm font-bold text-[var(--pres-primary)] block">
               {isRtl
                 ? "الرؤية الهندسية المتزنة"
                 : "Balanced Engineering Takeaway"}
             </span>
-            <p className="text-xs sm:text-sm font-medium text-[var(--pres-text)] leading-relaxed">
+            <p className="text-base sm:text-lg font-medium text-[var(--pres-text)] leading-relaxed">
               {getLocalizedText(payload.balancedVerdict, language)}
             </p>
           </div>
@@ -96,15 +98,13 @@ export const ComparisonSlide: React.FC<ComparisonSlideProps> = ({
       </div>
 
       {/* Footer */}
-      <div className="border-t border-[var(--pres-border-subtle)] pt-4 text-xs font-mono text-[var(--pres-text-subtle)] flex items-center justify-between">
+      <div className="max-w-6xl border-t border-[var(--pres-border-subtle)] pt-4 text-sm text-[var(--pres-text-muted)] flex items-center justify-between">
         <span>
           {isRtl
             ? "الذكاء الاصطناعي يسرع التنفيذ — والمهندس يملك المسؤولية"
             : "AI Accelerates — Engineers Own Responsibility"}
         </span>
-        <span>
-          {isRtl ? "اضغط Space للمتابعة →" : "Press Space to Continue →"}
-        </span>
+        <span className="text-xs">{isRtl ? "مسافة: التالي" : "Space: next"}</span>
       </div>
     </div>
   );

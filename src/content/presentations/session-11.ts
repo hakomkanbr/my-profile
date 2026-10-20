@@ -93,12 +93,12 @@ export const SESSION_11: PresentationSession = {
       id: 's11-slide-01',
       sessionNumber: 11,
       slideNumber: 1,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'title',
-      title: { ar: 'التسويق وجلب العملاء', en: 'Marketing & Clients' },
+      title: { ar: "التسويق وجلب العملاء", en: "Marketing & Clients" },
       estimatedMinutes: 2,
       teachingGoal: { ar: 'افتتاح الجلسة وربط المهارات البرمجية بالواقع الاقتصادي والتجاري.', en: 'Open session: bridging technical mastery into economic client engagement.' },
-      speakerNotes: { ar: 'رحب بالطلاب: "اليوم ننتقل من مرحلة كيف نبني، إلى مرحلة كيف نستفيد ونقدم هذه القيمة للعالم والشركات والعملاء!".', en: 'Welcome learners: "Today we pivot from how we build to how we monetize and deliver real client value!"' },
+      speakerNotes: { ar: "نفّذ: رحب بالطلاب: \"اليوم ننتقل من مرحلة كيف نبني، إلى مرحلة كيف نستفيد ونقدم هذه القيمة للعالم والشركات والعملاء!\".\nاسأل: ما الهدف الذي تتوقع تحقيقه في جلسة «التسويق وجلب العملاء»؟\nتحقق: افتتاح الجلسة وربط المهارات البرمجية بالواقع الاقتصادي والتجاري.", en: "Cue: Welcome learners: \"Today we pivot from how we build to how we monetize and deliver real client value!\"\nAsk: What outcome do you expect from “Marketing & Clients”?\nCheck: Open session: bridging technical mastery into economic client engagement." },
       payload: {
         type: 'title',
         data: {
@@ -118,13 +118,13 @@ export const SESSION_11: PresentationSession = {
       id: 's11-slide-02',
       sessionNumber: 11,
       slideNumber: 2,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'context',
-      title: { ar: 'الحقيقة الواقعية: كيف يختار العميل مطور موقعه؟', en: 'The Realistic Client Decision Matrix' },
+      title: { ar: "الحقيقة الواقعية — كيف يختار العميل مطور موقعه؟", en: "The Realistic Client Decision Matrix" },
       subtitle: { ar: 'لماذا يفوز مطور متوسط بعقود ممتازة بينما يجلس مبرمج عبقري بلا عملاء؟', en: 'Why an average communicator wins deals while a brilliant coder remains clientless' },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'إيضاح أهمية مهارات التواصل، وفهم مشكلة العميل، وبناء الثقة التجارية.', en: 'Expose the decisive role of communication, empathy, and commercial trust over raw syntax.' },
-      speakerNotes: { ar: 'أكد بصراحة: العميل لا يعرف ما إذا كان الكود مكتوباً بـ Next.js أو بـ PHP؛ العميل يختار من يفهم أهدافه، يتواصل بوضوح، ويلتزم بالمواعيد.', en: 'Be honest: clients rarely inspect framework syntax; they hire creators who listen, articulate value, and deliver on time.' },
+      speakerNotes: { ar: "نفّذ: أكد بصراحة: العميل لا يعرف ما إذا كان الكود مكتوباً بـ Next.js أو بـ PHP؛ العميل يختار من يفهم أهدافه، يتواصل بوضوح، ويلتزم بالمواعيد.\nاسأل: ما المشكلة التي توضّحها «الحقيقة الواقعية — كيف يختار العميل مطور موقعه؟»؟\nتحقق: قد يفقد العميل اهتمامه عندما نشرح الحل بمصطلحات تقنية معقدة بدل ربطها بهدفه التجاري.", en: "Cue: Be honest: clients rarely inspect framework syntax; they hire creators who listen, articulate value, and deliver on time.\nAsk: What problem does “The Realistic Client Decision Matrix” point to?\nCheck: Clients can lose interest when we use technical jargon instead of explaining the business outcome." },
       payload: {
         type: 'context',
         data: {
@@ -133,8 +133,8 @@ export const SESSION_11: PresentationSession = {
             en: 'The market is saturated with prompt typists, but starving for strategic partners who understand business ROI.',
           },
           realWorldProblem: {
-            ar: 'معظم المطورين يتحدثون مع العملاء بمصطلحات تقنية معقدة (APIs, Server Rendering) تفقد العميل اهتمامه وثقته.',
-            en: 'Most developers alienate clients by drowning conversations in technical jargon instead of business outcomes.',
+            ar: 'قد يفقد العميل اهتمامه عندما نشرح الحل بمصطلحات تقنية معقدة بدل ربطها بهدفه التجاري.',
+            en: 'Clients can lose interest when we use technical jargon instead of explaining the business outcome.',
           },
           whyItMatters: {
             ar: 'عندما تتعلم كيف تتحدث بلغة القيمة (سرعة التحميل = مبيعات أكثر، تجربة هاتف ممتازة = زبائن أكثر)، تصبح أنت الخيار الأول للعميل دون منازع.',
@@ -149,13 +149,13 @@ export const SESSION_11: PresentationSession = {
       id: 's11-slide-03',
       sessionNumber: 11,
       slideNumber: 3,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'visual',
-      title: { ar: 'مسار العميل الواقعي (The Client Acquisition Pipeline)', en: 'The Client Acquisition Pipeline' },
+      title: { ar: "من المهارة إلى العميل", en: "From Skill to Client" },
       subtitle: { ar: 'الخطوات المنطقية العشر لتحويل المهارة البرمجية إلى عميل دائم وتوصيات مستمرة', en: 'The 10 logical stages converting raw programming skill into recurring client retainers' },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'شرح المسار المتكامل خطوة بخطوة وإثبات أنه مسار منهجي متكرر.', en: 'Map the complete systematic client pipeline from skill mastery to client testimonials.' },
-      speakerNotes: { ar: 'استعرض السلسلة: مهارة -> مشروع -> دراسة حالة -> معرض أعمال -> عرض قيمة -> تواصل مدروس -> عميل -> تسليم رائع -> شهادة ثقة -> عميل قادم.', en: 'Walk through: Skill -> Project -> Case Study -> Portfolio -> Offer -> Outreach -> Client -> Delivery -> Testimonial -> Next Deal.' },
+      speakerNotes: { ar: "نفّذ: استعرض السلسلة: مهارة -> مشروع -> دراسة حالة -> معرض أعمال -> عرض قيمة -> تواصل مدروس -> عميل -> تسليم رائع -> شهادة ثقة -> عميل قادم.\nاسأل: اشرح ترتيب المراحل في «من المهارة إلى العميل» بصوتك.\nتحقق: المهارة والمشروع ← دراسة الحالة (Case Study) ← بورتفوليو وعرض القيمة ← التواصل والاتصال ← إغلاق الصفقة والتسليم ← شهادة العميل والفرصة القادمة", en: "Cue: Walk through: Skill -> Project -> Case Study -> Portfolio -> Offer -> Outreach -> Client -> Delivery -> Testimonial -> Next Deal.\nAsk: Ask learners to walk through the stages in “From Skill to Client”.\nCheck: Skill & Project → Case Study → Portfolio & Offer → Outreach & Pitch → Close & Ship → Testimonial & Scale" },
       payload: {
         type: 'visual',
         data: {
@@ -178,12 +178,12 @@ export const SESSION_11: PresentationSession = {
       id: 's11-slide-04',
       sessionNumber: 11,
       slideNumber: 4,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'concept',
-      title: { ar: 'هندسة دراسة الحالة: كيف تشرح مشروعك للعميل؟', en: 'The Case Study Architecture' },
+      title: { ar: "هندسة دراسة الحالة — كيف تشرح مشروعك للعميل؟", en: "The Case Study Architecture" },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'تعليم الطلاب كيف يقدمون مشاريعهم كحلول لمشاكل حقيقية وليس مجرد لقطات شاشة.', en: 'Teach students to present capstone projects as commercial problem-solution case studies.' },
-      speakerNotes: { ar: 'اشرح هيكل دراسة الحالة: 1. المشكلة، 2. الفكرة والتحدي، 3. المعمارية والحل التقني، 4. النتيجة والأثر التجاري.', en: 'Explain the 4-part case study: Problem context, Strategic challenge, Technical solution, Measurable outcome.' },
+      speakerNotes: { ar: "نفّذ: اشرح هيكل دراسة الحالة: 1. المشكلة، 2. الفكرة والتحدي، 3. المعمارية والحل التقني، 4. النتيجة والأثر التجاري.\nاسأل: كيف تطبّق هذا المبدأ: دراسة الحالة المحترفة تثبت للعميل أنك لست مجرد كاتب أكواد، بل شريك يحل مشاكل الأعمال بالأرقام.؟\nتحقق: قاعدة التسويق: العميل لا يصدق الوعود النظرية؛ العميل يصدق دراسات الحالة التي يرى فيها نجاحاً مماثلاً.", en: "Cue: Explain the 4-part case study: Problem context, Strategic challenge, Technical solution, Measurable outcome.\nAsk: How would you apply this principle: A rigorous case study proves you are not a code typist, but a strategic partner solving business bottlenecks.?\nCheck: Marketing Rule: Clients never buy abstract promises; they buy proven case studies mirroring their own goals." },
       payload: {
         type: 'concept',
         data: {
@@ -199,7 +199,7 @@ export const SESSION_11: PresentationSession = {
           bulletPoints: [
             { ar: 'المشكلة وسياق العميل: ما هو التحدي التجاري الذي كان يواجهه النشاط؟', en: 'Client Problem: The specific commercial friction hindering growth' },
             { ar: 'الحل المعماري والتصميم: لماذا اخترنا Next.js و Tailwind وكيف وزعنا الأقسام؟', en: 'Architectural Solution: Why Next.js and how sections were composed' },
-            { ar: 'الأثر التجاري القابل للقياس: سرعة تحميل 98% على Lighthouse وسهولة الحجز بالهاتف', en: 'Measurable Impact: 98% Lighthouse score and effortless mobile booking' },
+            { ar: 'الأثر التجاري القابل للقياس: سرعة تحميل نتيجة Lighthouse الفعلية (أضف الدرجة بعد القياس) وسهولة الحجز بالهاتف', en: 'Measurable Impact: measured Lighthouse result (add the score after testing) and effortless mobile booking' },
             { ar: 'الدروس المستفادة: ما الذي يجعل هذا المشروع قابلاً للتطبيق في أنشطة تجارية أخرى؟', en: 'Key Takeaways: Why this solution architecture scales to other businesses' },
           ],
           architecturalRule: {
@@ -215,12 +215,12 @@ export const SESSION_11: PresentationSession = {
       id: 's11-slide-05',
       sessionNumber: 11,
       slideNumber: 5,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'code',
-      title: { ar: 'قالب دراسة الحالة كأثر بصري (Case Study Template)', en: 'Case Study Structural Template Artifact' },
+      title: { ar: "قالب دراسة الحالة", en: "Case Study Template" },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'عرض هيكل دراسة الحالة النصي الذي يستطيع كل طالب ملؤه لمشروعه.', en: 'Provide the canonical markdown case study template ready to adapt for portfolios.' },
-      speakerNotes: { ar: 'استعرض أقسام هذا القالب. اطلب من الطلاب نسخه والاحتفاظ به لكتابة قصة مشروع تخرجهم في الجلسة 12.', en: 'Review the template sections: Background, Challenge, Solution, Tech Stack, Key Metrics.' },
+      speakerNotes: { ar: "نفّذ: استعرض أقسام القالب. نبّه الطلاب إلى أن بيانات Trattoria Roma توضيحية، واطلب منهم استبدال كل نتيجة بقياس موثق لمشروعهم.\nاسأل: ما وظيفة المثال في «قالب دراسة الحالة»؟\nتحقق: قالب دراسة حالة احترافي يوثق التحدي، المعمارية الهندسية، والنتائج بالأرقام. هذا القالب يرفع قيمتك من مبرمج يطلب وظيفة إلى استشاري موثوق يقدم دراسات أعمال متكاملة.", en: "Cue: Review the template sections: Background, Challenge, Solution, Tech Stack, and measured results. Clarify that Trattoria Roma is illustrative and sample metrics must be replaced with verified project data.\nAsk: What does the example in “Case Study Template” do?\nCheck: Production case study template documenting challenge, technical architecture, and results. This template positions you as an authoritative consultant commanding respect and premium retainers." },
       payload: {
         type: 'code',
         data: {
@@ -229,11 +229,11 @@ export const SESSION_11: PresentationSession = {
 
 ## 1. The Commercial Challenge
 Trattoria Roma, an artisan dining room, relied entirely on phone calls for reservations. 
-During dinner rush hours, over 40% of booking inquiries went unanswered, causing lost revenue.
+Illustrative scenario: During busy periods, some booking inquiries went unanswered, risking lost revenue.
 
 ## 2. The Architectural Solution
 We architected a bespoke Next.js 16 web platform optimized for mobile visitors:
-- Instantaneous First Paint (LCP under 1.2 seconds) on 4G networks
+- Measure First Paint and Largest Contentful Paint on a mobile connection; report the observed results
 - Zero-friction reservation flow completing bookings in 3 clicks
 - Curated visual menu with local currency pricing and high-contrast typography
 
@@ -243,9 +243,9 @@ We architected a bespoke Next.js 16 web platform optimized for mobile visitors:
 - Accessibility: W3C WCAG 2.1 AA compliant across all interactive controls
 
 ## 4. Measurable Results
-- Google Lighthouse Performance: 99 / 100
-- Mobile First Input Delay: 14ms
-- Over 65 online table reservations registered in the initial launch weekend`,
+- Google Lighthouse Performance: [measured score] / 100
+- Mobile responsiveness metric: [measured result and device conditions]
+- Reservations in the launch window: [replace with a verified count and date range]`,
           what: { ar: 'قالب دراسة حالة احترافي يوثق التحدي، المعمارية الهندسية، والنتائج بالأرقام.', en: 'Production case study template documenting challenge, technical architecture, and results.' },
           why: { ar: 'هذا القالب يرفع قيمتك من مبرمج يطلب وظيفة إلى استشاري موثوق يقدم دراسات أعمال متكاملة.', en: 'This template positions you as an authoritative consultant commanding respect and premium retainers.' },
           when: { ar: 'يُكتب بعد اكتمال كل مشروع تجاري ويوضع في بورتفوليو أعمالك ولينكدإن.', en: 'Authored upon completing each capstone project and published on your portfolio and LinkedIn.' },
@@ -258,13 +258,13 @@ We architected a bespoke Next.js 16 web platform optimized for mobile visitors:
       id: 's11-slide-06',
       sessionNumber: 11,
       slideNumber: 6,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'ai',
-      title: { ar: 'برومبت صياغة العرض الفني والمالي (Client Proposal Prompt)', en: 'Client Proposal & Outreach Prompt' },
+      title: { ar: "اكتب عرضًا واضحًا", en: "Write a Clear Proposal" },
       subtitle: { ar: 'كيف تستخدم الذكاء الاصطناعي لكتابة عروض أسعار مقنعة ورسائل تواصل مهنية خالية من الركاكة؟', en: 'Directing AI to craft persuasive commercial proposals, deliverables, and respectful outreach' },
       estimatedMinutes: 6,
       teachingGoal: { ar: 'تدريب الطلاب على صياغة عروض الأسعار المقنعة الموجهة لقيمة العميل.', en: 'Equip students with a prompt generating tailored commercial client proposals.' },
-      speakerNotes: { ar: 'وضح كيف يحول هذا البرومبت تفاصيل المشروع إلى عرض احترافي يشمل: النطاق، المخرجات، الميزانية، والجدول الزمني.', en: 'Explain how this prompt synthesizes scope, deliverables, timeline, and value-based pricing tiers.' },
+      speakerNotes: { ar: "نفّذ: وضح كيف يحول هذا البرومبت تفاصيل المشروع إلى عرض احترافي يشمل: النطاق، المخرجات، الميزانية، والجدول الزمني.\nاسأل: أي قيد أو معيار قبول سيحمي الناتج من التخمين؟\nتحقق: معيار قابل للفحص: Zero confusing developer jargon", en: "Cue: Explain how this prompt synthesizes scope, deliverables, timeline, and value-based pricing tiers.\nAsk: Which constraint or acceptance criterion will guard against guesswork?\nCheck: A verifiable criterion: Zero confusing developer jargon" },
       payload: {
         type: 'ai',
         data: {
@@ -300,13 +300,13 @@ We architected a bespoke Next.js 16 web platform optimized for mobile visitors:
     {
       id: 's11-slide-07',
       sessionNumber: 11,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 7,
+      totalSlides: 10,
       type: 'challenge',
-      title: { ar: 'تحدي الطلاب: صياغة رسالة تواصل بارد احترافية', en: 'Student Challenge: Author a High-Converting Outreach Message' },
+      title: { ar: "اكتب رسالة تواصل مفيدة", en: "Write a Useful Outreach Message" },
       estimatedMinutes: 8,
       teachingGoal: { ar: 'كتابة كل طالب لرسالة تواصل مهنية مقتضبة تعرض خدمة حقيقية لنشاط تجاري.', en: 'Every student drafts a respectful, value-first client outreach pitch in their editor.' },
-      speakerNotes: { ar: 'أطلق مؤقت الـ 5 دقائق. اطلب منهم كتابة رسالة من 4 أسطر: تحية مهنية، ملاحظة مشكلة في موقع العميل، اقتراح حل محدد، ودعوة لمكالمة سريعة.', en: 'Launch 5-minute timer. Have students craft a 4-line value-first outreach message.' },
+      speakerNotes: { ar: "نفّذ: أطلق مؤقت الـ 5 دقائق. اطلب منهم كتابة رسالة من 4 أسطر: تحية مهنية، ملاحظة مشكلة في موقع العميل، اقتراح حل محدد، ودعوة لمكالمة سريعة.\nاسأل: ما الناتج الذي ستسلّمه؟ صياغة رسالة تواصل مهني مقتضبة ومحترمة (Outreach Pitch) تعرض خدمة تطوير ويب لنشاط تجاري حقيقي.\nتحقق: مسودة رسالة تواصل مهنية جاهزة للإرسال لأول 5 عملاء محتملين.", en: "Cue: Launch 5-minute timer. Have students craft a 4-line value-first outreach message.\nAsk: What will you submit? Draft a concise, value-first client outreach message proposing a website enhancement.\nCheck: Polished client outreach message ready for real-world distribution to prospective businesses." },
       payload: {
         type: 'challenge',
         data: {
@@ -338,13 +338,13 @@ We architected a bespoke Next.js 16 web platform optimized for mobile visitors:
     {
       id: 's11-slide-08',
       sessionNumber: 11,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 8,
+      totalSlides: 10,
       type: 'project',
-      title: { ar: 'محطة المشروع: حزمة التسويق ودراسة الحالة التجارية', en: 'Project Milestone: Commercial Case Study & Offer' },
+      title: { ar: "حزمة التسويق ودراسة الحالة التجارية", en: "Project Milestone — Commercial Case Study & Offer" },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'تثبيت اكتمال دراسة الحالة وحزمة العرض التجاري لمشروع التخرج.', en: 'Confirm capstone project is now fully packaged with a commercial case study and proposal.' },
-      speakerNotes: { ar: 'هنئ الطلاب: "مشروعك الآن يملك وجهاً تجارياً مقنعاً؛ ليس فقط كوداً ممتازاً، بل قصة نجاح وعرض خدمة واضح يفتح لك أبواب التعاقد!".', en: 'Congratulate learners: "Your repo now carries commercial authority: a living case study ready for client handoffs!"' },
+      speakerNotes: { ar: "نفّذ: هنئ الطلاب: \"مشروعك الآن يملك وجهاً تجارياً مقنعاً؛ ليس فقط كوداً ممتازاً، بل قصة نجاح وعرض خدمة واضح يفتح لك أبواب التعاقد!\".\nاسأل: أي مخرج من هذه المرحلة يحتاج إلى استكمال؟\nتحقق: وثيقة دراسة حالة متكاملة (Case Study) لمشروع التخرج؛ عرض خدمات فني ومالي محدد النطاق والأسعار؛ رسائل تواصل احترافية جاهزة لبدء أولى محادثات العمل الحر", en: "Cue: Congratulate learners: \"Your repo now carries commercial authority: a living case study ready for client handoffs!\"\nAsk: Which deliverable from this phase still needs work?\nCheck: Comprehensive commercial case study documenting ROI; Packaged commercial service offer with transparent pricing; Battle-tested outreach scripts ready for client acquisition" },
       payload: {
         type: 'project',
         data: {
@@ -371,13 +371,13 @@ We architected a bespoke Next.js 16 web platform optimized for mobile visitors:
     {
       id: 's11-slide-09',
       sessionNumber: 11,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 9,
+      totalSlides: 10,
       type: 'takeaway',
-      title: { ar: 'الخلاصة الهندسية للجلسة الحادية عشرة', en: 'Session 11 Commercial Takeaways' },
+      title: { ar: "خلاصة: خدمة العميل", en: "Recap: Client Service" },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'تثبيت مبادئ الاحترافية التجارية والتركيز على حل مشاكل العميل.', en: 'Cement business professionalism and client-centered value delivery.' },
-      speakerNotes: { ar: 'اقرأ النقاط الثلاث. أكد: "أنت لست بائعاً متجولاً؛ أنت مهندس وشريك حلول رقمية يساعد الشركات على النجاح والنمو".', en: 'Review takeaways: You are not a peddler; you are a strategic digital solutions partner.' },
+      speakerNotes: { ar: "نفّذ: اقرأ النقاط الثلاث. أكد: \"أنت لست بائعاً متجولاً؛ أنت مهندس وشريك حلول رقمية يساعد الشركات على النجاح والنمو\".\nاسأل: أي مبدأ من «خلاصة: خدمة العميل» ستستخدمه في مشروعك؟\nتحقق: صانع الويب الناجح يتقن فن البرمجة بيده، ويتقن فن بناء الثقة مع عملائه بعقله.", en: "Cue: Review takeaways: You are not a peddler; you are a strategic digital solutions partner.\nAsk: Which principle from “Recap: Client Service” will you use in your project?\nCheck: The masterful Web Creator commands code with their hands, and builds unshakable client trust with their mind." },
       payload: {
         type: 'takeaway',
         data: {
@@ -419,13 +419,13 @@ We architected a bespoke Next.js 16 web platform optimized for mobile visitors:
     {
       id: 's11-slide-10',
       sessionNumber: 11,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 10,
+      totalSlides: 10,
       type: 'next',
-      title: { ar: 'المحطة الختامية الكبرى: جلسة التخرج والمشروع النهائي', en: 'The Grand Finale: Capstone Project Showcase (Session 12)' },
+      title: { ar: "الختام: اعرض مشروعك", en: "Finale: Present Your Project" },
       estimatedMinutes: 2,
       teachingGoal: { ar: 'تهيئة وإشعال حماس الطلاب لحفل التخرج وعرض مشاريعهم في الجلسة 12.', en: 'Ignite student anticipation for Session 12: live graduation presentations of their flagship projects.' },
-      speakerNotes: { ar: 'اختم بحماس عظيم: "في الجلسة 12 سنحتفل معاً بإتمام الرحلة كاملة! كل طالب سيعرض مشروعه الحي أمام الجميع: الفكرة، التصميم، الكود، الـ SEO، والتسويق!".', en: 'Closing: "In Session 12 we celebrate the complete journey! Every creator presents their live project to the entire class!"' },
+      speakerNotes: { ar: "نفّذ: اختم بحماس عظيم: \"في الجلسة 12 سنحتفل معاً بإتمام الرحلة كاملة! كل طالب سيعرض مشروعه الحي أمام الجميع: الفكرة، التصميم، الكود، الـ SEO، والتسويق!\".\nاسأل: ما الذي ستجهزه قبل الجلسة القادمة؟\nتحقق: راجع كود مشروعك، تأكد من تشغيل خادم التطوير، وجهز النقاط الـ 10 لعرض مشروعك الختامي.", en: "Cue: Closing: \"In Session 12 we celebrate the complete journey! Every creator presents their live project to the entire class!\"\nAsk: What will you prepare before the next session?\nCheck: Review your codebase, confirm local server runs cleanly, and prepare your 10-point showcase walk." },
       payload: {
         type: 'next',
         data: {

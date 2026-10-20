@@ -93,12 +93,12 @@ export const SESSION_05: PresentationSession = {
       id: 's05-slide-01',
       sessionNumber: 5,
       slideNumber: 1,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'title',
-      title: { ar: 'Antigravity: حلل قبل أن تبني', en: 'Antigravity: Analyze Before Build' },
+      title: { ar: "Antigravity — حلل قبل أن تبني", en: "Antigravity — Analyze Before Build" },
       estimatedMinutes: 2,
       teachingGoal: { ar: 'افتتاح أهم جلسة في بروتوكول العمل مع الذكاء الاصطناعي في بيئات المشاريع الحقيقية.', en: 'Open the hallmark session on disciplined AI collaboration in real repositories.' },
-      speakerNotes: { ar: 'أكد للطلاب: "هذه الجلسة هي التي تفصل من يستخدم AI كأداة ألعاب ومن يستخدمه كمهندس محترف يدير أنظمة بملايين الدولارات".', en: 'State: "This session separates casual AI toys from enterprise engineers managing multi-million-dollar systems".' },
+      speakerNotes: { ar: "نفّذ: وضّح أن قيمة هذه الجلسة في تعلم فحص المشروع وفهمه قبل طلب التغييرات من الذكاء الاصطناعي.\nاسأل: ما الذي ينبغي معرفته عن المشروع قبل تعديله؟\nتحقق: يتوقع الطالب مراجعة البنية والاعتماديات والتعليمات قبل اقتراح خطة تنفيذ.", en: "Cue: Explain that this session teaches learners to inspect and understand a project before asking AI to change it.\nAsk: What should we learn about a project before editing it?\nCheck: Learners expect to review its structure, dependencies, and instructions before proposing an implementation plan." },
       payload: {
         type: 'title',
         data: {
@@ -118,22 +118,22 @@ export const SESSION_05: PresentationSession = {
       id: 's05-slide-02',
       sessionNumber: 5,
       slideNumber: 2,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'context',
-      title: { ar: 'الكارثة البرمجية: ماذا يحدث عندما تقول للـ AI "Build this"؟', en: 'The Disaster of Blind Prompting' },
+      title: { ar: "ابدأ بالتحليل، لا بالتخمين", en: "Analyze Before You Build" },
       subtitle: { ar: 'كيف يدمّر التسرع المعمارية المنظمة للمشروع ويستبدلها بحزم عشوائية متضاربة؟', en: 'How hasty prompting dismantles clean architectures and injects conflicting dependencies' },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'توضيح المخاطر الكارثية للتعديل المباشر دون فحص السياق والاعتماديات.', en: 'Illustrate the catastrophic regressions caused by modifying files without prior contextual audit.' },
-      speakerNotes: { ar: 'اشرح سيناريو الفشل الشهير: مطور يطلب تعديل زر، فيقوم الذكاء الاصطناعي بتثبيت مكتبة قديمة وإعادة كتابة ملف التكوين وكسر التطبيق بالكامل.', en: 'Describe the classic failure: developer asks for a button, AI rewrites configs, installs legacy packages, and bricks the build.' },
+      speakerNotes: { ar: "نفّذ: اشرح سيناريو الفشل الشهير: مطور يطلب تعديل زر، فيقوم الذكاء الاصطناعي بتثبيت مكتبة قديمة وإعادة كتابة ملف التكوين وكسر التطبيق بالكامل.\nاسأل: ما المشكلة التي توضّحها «ابدأ بالتحليل، لا بالتخمين»؟\nتحقق: قد تؤدي التعديلات غير المدروسة إلى أخطاء تراجعية تمس مكونات أخرى؛ افهم أثر التغيير واختبره.", en: "Cue: Describe the classic failure: developer asks for a button, AI rewrites configs, installs legacy packages, and bricks the build.\nAsk: What problem does “Analyze Before You Build” point to?\nCheck: Most production outages occur when developers alter code without tracing upstream architectural dependencies." },
       payload: {
         type: 'context',
         data: {
           industryShift: {
-            ar: 'أدوات الذكاء الاصطناعي قادرة على قراءة مئات الملفات في ثوانٍ، لكنها إذا لم تمنعها صراحة من التعديل فستبدأ بالتغيير الفوري.',
+            ar: 'يمكن لأدوات الذكاء الاصطناعي تحليل ملفات المشروع بسرعة؛ حدّد بوضوح هل تريد التحليل فقط أم التعديل أيضاً.',
             en: 'AI models can parse entire codebases in seconds; without explicit negative constraints, they mutate files blindly.',
           },
           realWorldProblem: {
-            ar: 'أغلب مشاريع الشركات تنهار بسبب قيام المطورين بتعديل أكواد دون فهم تأثيرها على بقية المكونات (Regression Bugs).',
+            ar: 'قد تؤدي التعديلات غير المدروسة إلى أخطاء تراجعية تمس مكونات أخرى؛ افهم أثر التغيير واختبره.',
             en: 'Most production outages occur when developers alter code without tracing upstream architectural dependencies.',
           },
           whyItMatters: {
@@ -149,13 +149,13 @@ export const SESSION_05: PresentationSession = {
       id: 's05-slide-03',
       sessionNumber: 5,
       slideNumber: 3,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'visual',
-      title: { ar: 'بروتوكول Antigravity للعمل الهندسي المنضبط', en: 'The 4-Phase Antigravity Protocol' },
+      title: { ar: "بروتوكول Antigravity للعمل الهندسي المنضبط", en: "The 4-Phase Antigravity Protocol" },
       subtitle: { ar: 'المسار الإلزامي الأبدي: حلل ← افهم ← خطط ← نفذ وراجع', en: 'The inviolable cycle: Analyze → Understand → Plan → Implement & Audit' },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'ترسيخ المراحل الأربع كبروتوكول تشغيل قياسي (SOP) للطلاب.', en: 'Cement the 4 phases as our course Standard Operating Procedure (SOP).' },
-      speakerNotes: { ar: 'أكد: "لا نقفز للمرحلة 4 (التنفيذ) قبل المرور بـ 1 و 2 و 3 واعتماد الخطة. هذه هي علامة المهندس المحترف".', en: 'Stress: "Never jump to implementation without completing steps 1, 2, and 3. That is the mark of senior engineering".' },
+      speakerNotes: { ar: "نفّذ: أكد: \"لا نقفز للمرحلة 4 (التنفيذ) قبل المرور بـ 1 و 2 و 3 واعتماد الخطة. هذه هي علامة المهندس المحترف\".\nاسأل: اشرح ترتيب المراحل في «بروتوكول Antigravity للعمل الهندسي المنضبط» بصوتك.\nتحقق: التحليل الشامل ← فهم المعمارية ← خطة التنفيذ ← التنفيذ الجراحي ← التدقيق والاختبار", en: "Cue: Stress: \"Never jump to implementation without completing steps 1, 2, and 3. That is the mark of senior engineering\".\nAsk: Ask learners to walk through the stages in “The 4-Phase Antigravity Protocol”.\nCheck: Deep Analysis → Architecture Map → Implementation Plan → Surgical Build → Verification Audit" },
       payload: {
         type: 'visual',
         data: {
@@ -177,13 +177,13 @@ export const SESSION_05: PresentationSession = {
       id: 's05-slide-04',
       sessionNumber: 5,
       slideNumber: 4,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'ai',
-      title: { ar: 'برومبت التحليل الشامل الصارم (The Analysis Prompt)', en: 'The Canonical Analysis-First Prompt' },
+      title: { ar: "برومبت التحليل", en: "The Analysis Prompt" },
       subtitle: { ar: 'البرومبت المعياري الذي يلزم Antigravity بالقراءة والتحليل دون المساس بأي ملف', en: 'The mandatory specification commanding thorough audit with zero file mutation' },
       estimatedMinutes: 6,
       teachingGoal: { ar: 'حفظ هذا البرومبت في ذاكرة الطلاب كأداة عمل دائمة.', en: 'Equip every student with this reusable, zero-risk analysis prompt artifact.' },
-      speakerNotes: { ar: 'اقرأ شرط "Do not modify files" بنبرة واضحة. هذا هو الشرط الذي يحمي مشاريعك من التدمير والتخبيط العشوائي.', en: 'Emphasize "Do not modify files". This single constraint saves hundreds of hours of catastrophic reversions.' },
+      speakerNotes: { ar: "نفّذ: اقرأ شرط \"Do not modify files\" بنبرة واضحة. هذا هو الشرط الذي يحمي مشاريعك من التدمير والتخبيط العشوائي.\nاسأل: أي قيد أو معيار قبول سيحمي الناتج من التخمين؟\nتحقق: معيار قابل للفحص: No files touched or mutated in the working tree", en: "Cue: Emphasize \"Do not modify files\". This single constraint helps avoid costly, unnecessary file changes.\nAsk: Which constraint or acceptance criterion will guard against guesswork?\nCheck: A verifiable criterion: No files touched or mutated in the working tree" },
       payload: {
         type: 'ai',
         data: {
@@ -217,13 +217,13 @@ export const SESSION_05: PresentationSession = {
       id: 's05-slide-05',
       sessionNumber: 5,
       slideNumber: 5,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'comparison',
-      title: { ar: 'مقارنة الأوامر: الساذج مقابل المحترف', en: 'Prompting Styles: Naive vs Senior Architect' },
+      title: { ar: "مقارنة الأوامر — الساذج مقابل المحترف", en: "Prompting Styles — Naive vs Senior Architect" },
       subtitle: { ar: 'كيف تتغير نتائج وسلوك الذكاء الاصطناعي بتغير نبرة ودقة طلبك؟', en: 'How AI behavior radically shifts based on architectural authority in your prompt' },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'المقارنة بين طريقة المبتدئ العشوائية وطريقة المهندس القيادية.', en: 'Contrast naive begging with authoritative architectural leadership.' },
-      speakerNotes: { ar: 'وضح كيف أن المهندس لا يستجدي الـ AI، بل يحدد له قواعد الاشتباك بدقة كأنه يدير فريقاً من المهندسين المساعدين.', en: 'Show that senior engineers do not beg; they issue authoritative rules of engagement.' },
+      speakerNotes: { ar: "نفّذ: وضح كيف أن المهندس لا يستجدي الـ AI، بل يحدد له قواعد الاشتباك بدقة كأنه يدير فريقاً من المهندسين المساعدين.\nاسأل: ما معيارك للاختيار بين جانبي «مقارنة الأوامر — الساذج مقابل المحترف»؟\nتحقق: المهندس المحترف يطلب التشخيص والتخطيط أولاً؛ الهواة يندفعون نحو التعديل فيقعون في فخ الأخطاء.", en: "Cue: Show that senior engineers do not beg; they issue authoritative rules of engagement.\nAsk: What would guide your choice between the two sides of “Prompting Styles — Naive vs Senior Architect”?\nCheck: Senior engineers mandate diagnosis and planning first; amateurs rush to edit and drown in regressions." },
       payload: {
         type: 'comparison',
         data: {
@@ -264,12 +264,12 @@ export const SESSION_05: PresentationSession = {
       id: 's05-slide-06',
       sessionNumber: 5,
       slideNumber: 6,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'demo',
-      title: { ar: 'تطبيق حي: تشغيل فحص Antigravity على مشروع المطعم', en: 'Live Demo: Running Full Architecture Audit' },
+      title: { ar: "تشغيل فحص Antigravity على مشروع المطعم", en: "Live Demo — Running Full Architecture Audit" },
       estimatedMinutes: 6,
       teachingGoal: { ar: 'مشاهدة تقرير التحليل يتولد عملياً أمام الطلاب ومناقشة ما كشفه الفحص.', en: 'Observe live architectural scan and audit findings in real time.' },
-      speakerNotes: { ar: 'افتح Antigravity، أدخل برومبت التحليل الشامل، وأظهر كيف يستعرض شجرة الملفات والـ tokens ومسارات الصفحات دون لمس الكود.', en: 'Launch Antigravity, submit the analysis prompt, and review the file tree diagnosis live on Zoom.' },
+      speakerNotes: { ar: "نفّذ: افتح Antigravity، أدخل برومبت التحليل الشامل، وأظهر كيف يستعرض شجرة الملفات والـ tokens ومسارات الصفحات دون لمس الكود.\nاسأل: فحص شجرة ملفات المشروع القائم واستخراج تقرير المعمارية وخطة التنفيذ المعتمدة.\nتحقق: تقرير فحص متكامل يحدد جاهزية المشروع ويضع خطة من 4 مراحل دقيقة للتطوير.", en: "Cue: Launch Antigravity, submit the analysis prompt, and review the file tree diagnosis live on Zoom.\nAsk: Scan existing repository tree and extract structural audit with proposed development plan.\nCheck: Comprehensive diagnostic report confirming zero mutations and outlining a phased roadmap." },
       payload: {
         type: 'demo',
         data: {
@@ -302,13 +302,13 @@ Provide:
     {
       id: 's05-slide-07',
       sessionNumber: 5,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 7,
+      totalSlides: 10,
       type: 'challenge',
-      title: { ar: 'تحدي الطلاب: اجعل Antigravity يحلل مشروعك الآن', en: 'Student Challenge: Run Analysis on Your Codebase' },
+      title: { ar: "اجعل Antigravity يحلل مشروعك الآن", en: "Student Challenge — Run Analysis on Your Codebase" },
       estimatedMinutes: 8,
       teachingGoal: { ar: 'تشغيل كل طالب لبرومبت التحليل الشامل على مجلد مشروعه واستخراج خطته.', en: 'Every student commands Antigravity to audit their capstone repository without mutating files.' },
-      speakerNotes: { ar: 'شغل مؤقت الـ 5 دقائق. اطلب منهم إرسال برومبت التحليل الشامل ومشاركة نقطة واحدة كشفها لهم التحليل في الشات.', en: 'Start 5-minute timer. Instruct students to run the analysis prompt and share 1 insight in chat.' },
+      speakerNotes: { ar: "نفّذ: شغل مؤقت الـ 5 دقائق. اطلب منهم إرسال برومبت التحليل الشامل ومشاركة نقطة واحدة كشفها لهم التحليل في الشات.\nاسأل: ما الناتج الذي ستسلّمه؟ تشغيل برومبت التحليل الشامل على مشروعك البرمجي واستخراج خطة التنفيذ المعتمدة.\nتحقق: وثيقة خطة التنفيذ المعتمدة (Implementation Plan) الخاصة بمشروع تخرجك.", en: "Cue: Start 5-minute timer. Instruct students to run the analysis prompt and share 1 insight in chat.\nAsk: What will you submit? Execute the zero-change analysis prompt on your repository and extract an approved roadmap.\nCheck: Approved implementation roadmap artifact anchoring all future coding sessions." },
       payload: {
         type: 'challenge',
         data: {
@@ -340,13 +340,13 @@ Provide:
     {
       id: 's05-slide-08',
       sessionNumber: 5,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 8,
+      totalSlides: 10,
       type: 'project',
-      title: { ar: 'محطة المشروع: خطة التنفيذ المعتمدة (The Plan)', en: 'Project Milestone: Approved Implementation Plan' },
+      title: { ar: "خطة التنفيذ المعتمدة (The Plan)", en: "Project Milestone — Approved Implementation Plan" },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'ربط خطة التحليل بالمحطات البرمجية القادمة (HTML, CSS, JS, React).', en: 'Tie the approved implementation plan to forthcoming coding sessions.' },
-      speakerNotes: { ar: 'أكد للطلاب: "من الجلسة القادمة (الجلسة 06) سنبدأ بتنفيذ هذه الخطة خطوة بخطوة: سنبني الأساسات بـ HTML و CSS ثم Interaction ثم React!".', en: 'Tell learners: From Session 06 onwards we execute this plan step-by-step: HTML/CSS, JS, React, Next.js!' },
+      speakerNotes: { ar: "نفّذ: أكد للطلاب: \"من الجلسة القادمة (الجلسة 06) سنبدأ بتنفيذ هذه الخطة خطوة بخطوة: سنبني الأساسات بـ HTML و CSS ثم Interaction ثم React!\".\nاسأل: أي مخرج من هذه المرحلة يحتاج إلى استكمال؟\nتحقق: تقرير الفحص المعماري الكامل لشجرة المشروع؛ خطة التنفيذ المعتمدة مقسمة إلى 4 مراحل واضحة؛ قائمة بالمكونات المستهدفة للتطوير في الجلسة 06", en: "Cue: Tell learners: From Session 06 onwards we execute this plan step-by-step: HTML/CSS, JS, React, Next.js!\nAsk: Which deliverable from this phase still needs work?\nCheck: Complete architectural diagnostics report; Phased implementation plan with explicit acceptance criteria; Target component inventory slated for Session 06 HTML/CSS construction" },
       payload: {
         type: 'project',
         data: {
@@ -373,13 +373,13 @@ Provide:
     {
       id: 's05-slide-09',
       sessionNumber: 5,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 9,
+      totalSlides: 10,
       type: 'takeaway',
-      title: { ar: 'الخلاصة الهندسية للجلسة الخامسة', en: 'Session 05 Engineering Takeaways' },
+      title: { ar: "خلاصة: خطّط قبل البناء", en: "Recap: Plan Before Building" },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'تثبيت مبدأ "حلل أولاً، لا تعدل الملفات" كقاعدة حديدية في مسيرة الطالب المهنية.', en: 'Cement "Analyze first, zero mutations" as an ironclad career principle.' },
-      speakerNotes: { ar: 'اقرأ الركائز الثلاث بتركيز: التحليل أولاً، الخطة قبل الكود، والتحقق الصارم. هذه العقلية هي التي تصنع مهندساً يثق فيه الجميع.', en: 'Review takeaways: Analysis first, planning before coding, strict validation. This builds executive engineering trust.' },
+      speakerNotes: { ar: "نفّذ: اقرأ الركائز الثلاث بتركيز: التحليل أولاً، الخطة قبل الكود، والتحقق الصارم. هذه العقلية هي التي تصنع مهندساً يثق فيه الجميع.\nاسأل: أي مبدأ من «خلاصة: خطّط قبل البناء» ستستخدمه في مشروعك؟\nتحقق: المهندس الحقيقي لا يخاف من المشاريع المعقدة؛ المهندس الحقيقي يحللها قبل أن يلمسها.", en: "Cue: Review takeaways: Analysis first, planning before coding, strict validation. This builds executive engineering trust.\nAsk: Which principle from “Recap: Plan Before Building” will you use in your project?\nCheck: True engineers never fear complex codebases; true engineers analyze them before touching them." },
       payload: {
         type: 'takeaway',
         data: {
@@ -421,13 +421,13 @@ Provide:
     {
       id: 's05-slide-10',
       sessionNumber: 5,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 10,
+      totalSlides: 10,
       type: 'next',
-      title: { ar: 'المحطة القادمة: HTML + CSS — أساسيات الويب المتينة', en: 'Next Waypoint: HTML + CSS — The Core Foundation' },
+      title: { ar: "التالي: أساسيات HTML وCSS", en: "Next: HTML & CSS Foundations" },
       estimatedMinutes: 2,
       teachingGoal: { ar: 'تهيئة الطلاب للبدء الفعلي في بناء كود الـ HTML و CSS في الجلسة 06 وفق خطتنا المعتمدة.', en: 'Prepare learners to execute their audited plan in Session 06 HTML/CSS foundations.' },
-      speakerNotes: { ar: 'اختم الجلسة: "في الجلسة 06 سننزل إلى الميدان البرمجي: سنبني كود HTML دلالي ونظام CSS متجاوب ومرن يجسد واجهة مشروعنا بالكامل!".', en: 'Closing: "In Session 06 we materialize our plan: semantic HTML and responsive CSS bringing our project alive!"' },
+      speakerNotes: { ar: "نفّذ: اختم الجلسة: \"في الجلسة 06 سننزل إلى الميدان البرمجي: سنبني كود HTML دلالي ونظام CSS متجاوب ومرن يجسد واجهة مشروعنا بالكامل!\".\nاسأل: ما الذي ستجهزه قبل الجلسة القادمة؟\nتحقق: احفظ وثيقة خطة التنفيذ المعتمدة التي أنشأتها اليوم لتكون مرجعنا البرمجي في الجلسة 06.", en: "Cue: Closing: \"In Session 06 we materialize our plan: semantic HTML and responsive CSS bringing our project alive!\"\nAsk: What will you prepare before the next session?\nCheck: Keep your approved implementation plan handy as our live roadmap in Session 06." },
       payload: {
         type: 'next',
         data: {

@@ -73,8 +73,8 @@ export const SESSION_04: PresentationSession = {
         en: 'Engineers break complex screens into isolated, easily-testable modular components.',
       },
       {
-        ar: 'تضمين رموز التصميم في البداية يوفر مئات التعديلات اليدوية لاحقاً في المشروع.',
-        en: 'Configuring tokens upfront eliminates hundreds of painful manual styling edits downstream.',
+        ar: 'تضمين رموز التصميم في البداية يقلل تكرار التعديلات اليدوية لاحقاً في المشروع.',
+        en: 'Configuring tokens upfront reduces repeated manual styling edits later.',
       },
       {
         ar: 'هيكل المجلدات المنظم هو أول مؤشر على احترافية المطور أمام أصحاب العمل.',
@@ -93,12 +93,12 @@ export const SESSION_04: PresentationSession = {
       id: 's04-slide-01',
       sessionNumber: 4,
       slideNumber: 1,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'title',
-      title: { ar: 'من التصميم إلى المشروع الحقيقي', en: 'From Design to Real Project' },
+      title: { ar: "من التصميم إلى المشروع الحقيقي", en: "From Design to Real Project" },
       estimatedMinutes: 2,
       teachingGoal: { ar: 'افتتاح الجلسة وإعلان بدء مرحلة الكود والمشروع الفعلي.', en: 'Open session: crossing from prototyping into production code.' },
-      speakerNotes: { ar: 'رحب بالطلاب: "اليوم نودع الرسومات المجردة ونفتح محرر الأكواد والـ Terminal لبناء هيكل المشروع الحقيقي!".', en: 'Welcome students: "Today we leave flat mockups and enter the terminal to scaffold our real project!"' },
+      speakerNotes: { ar: "نفّذ: رحب بالطلاب: \"اليوم نودع الرسومات المجردة ونفتح محرر الأكواد والـ Terminal لبناء هيكل المشروع الحقيقي!\".\nاسأل: ما الهدف الذي تتوقع تحقيقه في جلسة «من التصميم إلى المشروع الحقيقي»؟\nتحقق: افتتاح الجلسة وإعلان بدء مرحلة الكود والمشروع الفعلي.", en: "Cue: Welcome students: \"Today we leave flat mockups and enter the terminal to scaffold our real project!\"\nAsk: What outcome do you expect from “From Design to Real Project”?\nCheck: Open session: crossing from prototyping into production code." },
       payload: {
         type: 'title',
         data: {
@@ -118,13 +118,13 @@ export const SESSION_04: PresentationSession = {
       id: 's04-slide-02',
       sessionNumber: 4,
       slideNumber: 2,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'context',
-      title: { ar: 'كيف يقرأ مهندس البرمجيات صفحة التصميم؟', en: 'How Engineers Read UI Designs' },
+      title: { ar: "كيف يقرأ مهندس البرمجيات صفحة التصميم؟", en: "How Engineers Read UI Designs" },
       subtitle: { ar: 'الفرق بين النظر إلى الصفحة كصورة واحدة وبين رؤيتها كشجرة مكونات مترابطة', en: 'Viewing a page as a flat picture vs seeing an interactive component tree' },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'تدريب عقول الطلاب على التفكير الشجري (Component Tree Thinking).', en: 'Train student minds to perceive layouts as a composable component tree.' },
-      speakerNotes: { ar: 'اعرض واجهة موقع واسأل: "ما الذي تراه هنا؟" المبتدئ يرى ألواناً ونصوصاً؛ المهندس يرى Header و Hero و CardList و Footer.', en: 'Show a website screen: beginners see images; engineers see Header, Hero, CardList, and Footer.' },
+      speakerNotes: { ar: "نفّذ: اعرض واجهة موقع واسأل: \"ما الذي تراه هنا؟\" المبتدئ يرى ألواناً ونصوصاً؛ المهندس يرى Header و Hero و CardList و Footer.\nاسأل: ما المشكلة التي توضّحها «كيف يقرأ مهندس البرمجيات صفحة التصميم؟»؟\nتحقق: نسخ الكود ولصقه دون تقسيم معماري يؤدي لكود يصعب تعديله، وكل تغيير في جزء منه يكسر بقية الأجزاء.", en: "Cue: Show a website screen: beginners see images; engineers see Header, Hero, CardList, and Footer.\nAsk: What problem does “How Engineers Read UI Designs” point to?\nCheck: Copy-pasting flat markup without component boundaries creates fragile, spaghetti code." },
       payload: {
         type: 'context',
         data: {
@@ -149,13 +149,13 @@ export const SESSION_04: PresentationSession = {
       id: 's04-slide-03',
       sessionNumber: 4,
       slideNumber: 3,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'visual',
-      title: { ar: 'تفكيك صفحة الهبوط إلى شجرة مكونات (Component Tree)', en: 'Deconstructing Landing Page into Component Tree' },
+      title: { ar: "من الصفحة إلى المكونات", en: "From Page to Components" },
       subtitle: { ar: 'كيف تتحول الشاشة الواحدة إلى 5 ملفات كود مستقلة وسهلة الفحص', en: 'How a single viewport translates into 5 discrete, maintainable files' },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'رسم الشجرة المكونة بوضوح أمام الطلاب.', en: 'Visually diagram the component hierarchy from layout down to leaf buttons.' },
-      speakerNotes: { ar: 'استعرض الأقسام الخمسة: Navbar -> HeroSection -> MenuGrid -> StorySection -> SiteFooter.', en: 'Walk through: Navbar -> HeroSection -> MenuGrid -> StorySection -> SiteFooter.' },
+      speakerNotes: { ar: "نفّذ: استعرض الأقسام الخمسة: Navbar -> HeroSection -> MenuGrid -> StorySection -> SiteFooter.\nاسأل: اشرح ترتيب المراحل في «من الصفحة إلى المكونات» بصوتك.\nتحقق: Navbar & Mobile Menu ← Hero With Big CTA ← Signature Menu Grid ← About & Chef Story ← Reservation Booking ← Footer & Legal/Social", en: "Cue: Walk through: Navbar -> HeroSection -> MenuGrid -> StorySection -> SiteFooter.\nAsk: Ask learners to walk through the stages in “From Page to Components”.\nCheck: Navbar & Nav → Hero Section → Product Grid → Brand Story → Booking CTA → Site Footer" },
       payload: {
         type: 'visual',
         data: {
@@ -178,17 +178,17 @@ export const SESSION_04: PresentationSession = {
       id: 's04-slide-04',
       sessionNumber: 4,
       slideNumber: 4,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'concept',
-      title: { ar: 'معمارية المجلدات في مشاريع الويب الاحترافية', en: 'Professional Repository Architecture' },
+      title: { ar: "معمارية المجلدات في مشاريع الويب الاحترافية", en: "Professional Repository Architecture" },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'تعليم الطلاب بنية المجلدات القياسية وتفادي تسمية الملفات العشوائية.', en: 'Establish clean directory conventions (src/app, components, styles, lib).' },
-      speakerNotes: { ar: 'اشرح أهمية مجلد components ومجلد styles ومجلد content. هذا الترتيب يجعل أي مهندس يفتح مشروعك يفهمه في 30 ثانية.', en: 'Explain the roles of src/app, components, styles, and content. Clean layout screams professionalism.' },
+      speakerNotes: { ar: "نفّذ: اشرح أهمية مجلد components ومجلد styles ومجلد content. هذا الترتيب يساعد أي مهندس يفتح المشروع على العثور على المكونات وفهم تنظيمها.\nاسأل: كيف تطبّق هذا المبدأ: هيكل الملفات المتوقع والنظيف يقلل وقت البحث والتعديل في المشروع.؟\nتحقق: قاعدة ذهبية: لا تضع أكواد المكونات داخل صفحة الـ page.tsx مباشرة؛ اجعل الصفحة منسقاً يجمع المكونات فقط.", en: "Cue: Explain the roles of src/app, components, styles, and content. Clean layout screams professionalism.\nAsk: How would you apply this principle: A predictable directory layout cuts search and cognitive load in half.?\nCheck: Golden Rule: Never bloat page.tsx; pages must serve as thin orchestrators of modular components." },
       payload: {
         type: 'concept',
         data: {
           principle: {
-            ar: 'هيكل الملفات المتوقع والنظيف يوفر نصف وقت البحث والتعديل في المشروع.',
+            ar: 'هيكل الملفات المتوقع والنظيف يقلل وقت البحث والتعديل في المشروع.',
             en: 'A predictable directory layout cuts search and cognitive load in half.',
           },
           tagline: { ar: 'PREDICTABLE CODEBASE TAXONOMY', en: 'PREDICTABLE CODEBASE TAXONOMY' },
@@ -215,12 +215,12 @@ export const SESSION_04: PresentationSession = {
       id: 's04-slide-05',
       sessionNumber: 4,
       slideNumber: 5,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'code',
-      title: { ar: 'الكود كمنسق: كيف تبدو صفحة page.tsx النظيفة؟', en: 'Orchestrator Pattern: The Clean page.tsx' },
+      title: { ar: "الكود كمنسق — كيف تبدو صفحة page.tsx النظيفة؟", en: "Orchestrator Pattern — The Clean page.tsx" },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'إظهار كيف تكون صفحة الـ Page نظيفة وقصيرة جداً تستدعي المكونات فقط.', en: 'Demonstrate that high-quality pages are short orchestrators importing clean components.' },
-      speakerNotes: { ar: 'أظهر الكود واطلب منهم ملاحظة أنه لا يتجاوز 30 سطراً. كل قسم في ملفه الخاص. هذا يسهل صيانة الكود وتوجيه الـ AI.', en: 'Highlight that page.tsx is under 30 lines. Each section lives in its own file, making AI prompting surgical.' },
+      speakerNotes: { ar: "نفّذ: أظهر الكود ووضّح أن الملف الرئيسي يركّب المكونات فقط، وأن كل قسم يعيش في ملف مستقل. هذا يسهل صيانة الكود وتوجيه الـ AI.\nاسأل: ما وظيفة المثال في «الكود كمنسق — كيف تبدو صفحة page.tsx النظيفة؟»؟\nتحقق: صفحة رئيسية تقوم فقط بتركيب المكونات المعمارية بترتيب تدفق الزائر. فصل كل قسم في ملف مستقل يتيح تصحيح قسم واحد دون أي خوف من كسر بقية الصفحة.", en: "Cue: Show how page.tsx composes sections kept in separate files. This makes maintenance and AI-assisted changes more focused.\nAsk: What does the example in “Orchestrator Pattern — The Clean page.tsx” do?\nCheck: Root page cleanly composing modular sections in user flow sequence. Isolation allows modifying one section without risking collateral breakage." },
       payload: {
         type: 'code',
         data: {
@@ -257,12 +257,12 @@ export default function HomePage() {
       id: 's04-slide-06',
       sessionNumber: 4,
       slideNumber: 6,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'demo',
-      title: { ar: 'تطبيق حي: تأسيس المشروع وهيكل المكونات في 5 دقائق', en: 'Live Demo: Scaffolding Project & Folders in 5 Mins' },
+      title: { ar: "تأسيس المشروع وهيكل المكونات في 5 دقائق", en: "Live Demo — Scaffolding Project & Folders in 5 Mins" },
       estimatedMinutes: 6,
       teachingGoal: { ar: 'إظهار سرعة إنشاء الهيكل وضبط ملف tokens.css عملياً أمام الطلاب.', en: 'Demonstrate live folder creation and tokens.css configuration in terminal.' },
-      speakerNotes: { ar: 'افتح الـ Terminal وأنشئ المجلدات: components, styles. انسخ الـ Tokens التي استخرجناها في الجلسة 03 وضعها في ملف CSS.', en: 'Open terminal and create components and styles folders. Inject design tokens from Session 03.' },
+      speakerNotes: { ar: "نفّذ: افتح الـ Terminal وأنشئ المجلدات: components, styles. انسخ الـ Tokens التي استخرجناها في الجلسة 03 وضعها في ملف CSS.\nاسأل: إنشاء مجلدات المشروع الحقيقية وحقن رموز تصميم Terracotta في ملف الأنماط.\nتحقق: مشروع يعمل بسرعة 0 أخطاء مع مكونات نظيفة ومستعدة لاستقبال الأكواد.", en: "Cue: Open terminal and create components and styles folders. Inject design tokens from Session 03.\nAsk: Create repository directory skeleton and inject brand tokens into stylesheets.\nCheck: Clean development server running at localhost with zero errors and modular stubs." },
       payload: {
         type: 'demo',
         data: {
@@ -292,13 +292,13 @@ export default function HomePage() {
     {
       id: 's04-slide-07',
       sessionNumber: 4,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 7,
+      totalSlides: 10,
       type: 'challenge',
-      title: { ar: 'تحدي الطلاب: تفكيك واجهتك وتأسيس مجلدات مشروعك', en: 'Student Challenge: Deconstruct UI & Scaffold Workspace' },
+      title: { ar: "تفكيك واجهتك وتأسيس مجلدات مشروعك", en: "Student Challenge — Deconstruct UI & Scaffold Workspace" },
       estimatedMinutes: 8,
       teachingGoal: { ar: 'قيام كل طالب بتقسيم تصميمه وتأسيس 4 ملفات مكونات على جهازه.', en: 'Every student maps their design into 4 component files in their workspace.' },
-      speakerNotes: { ar: 'أطلق مؤقت الـ 5 دقائق. اطلب منهم كتابة أسماء المكونات الأربعة في الشات وتأسيس ملفاتها في مشروعهم.', en: 'Start 5-minute countdown. Instruct students to list their 4 component file names in chat.' },
+      speakerNotes: { ar: "نفّذ: أطلق مؤقت الـ 5 دقائق. اطلب منهم كتابة أسماء المكونات الأربعة في الشات وتأسيس ملفاتها في مشروعهم.\nاسأل: ما الناتج الذي ستسلّمه؟ تفكيك تصميم صفحة الهبوط لمشروعك إلى 4 ملفات مكونات منفصلة وتسميتها بدقة.\nتحقق: هيكل مشروع حقيقي جاهز لاستقبال التحليل والبرمجة في الجلسات القادمة.", en: "Cue: Start 5-minute countdown. Instruct students to list their 4 component file names in chat.\nAsk: What will you submit? Deconstruct your project landing UI into 4 dedicated component files with clean naming.\nCheck: A live, cleanly partitioned project repository ready for architectural analysis in Session 05." },
       payload: {
         type: 'challenge',
         data: {
@@ -330,13 +330,13 @@ export default function HomePage() {
     {
       id: 's04-slide-08',
       sessionNumber: 4,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 8,
+      totalSlides: 10,
       type: 'project',
-      title: { ar: 'محطة المشروع: الهيكل المعماري المنضبط للمشروع', en: 'Project Milestone: Codebase Scaffolding' },
+      title: { ar: "الهيكل المعماري المنضبط للمشروع", en: "Project Milestone — Codebase Scaffolding" },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'تثبيت أن المشروع الحقيقي قد بدأ برمجياً بالفعل على الأجهزة.', en: 'Celebrate that the capstone repository is now live and partitioned.' },
-      speakerNotes: { ar: 'هنئ الطلاب: "الآن لم نعد في مرحلة الكلام النظري أو التصميم؛ الآن أصبح لديك مشروع كود حقيقي على جهازك!".', en: 'Congratulate learners: "We are now live in code; your real capstone repo is born!"' },
+      speakerNotes: { ar: "نفّذ: هنئ الطلاب: \"الآن لم نعد في مرحلة الكلام النظري أو التصميم؛ الآن أصبح لديك مشروع كود حقيقي على جهازك!\".\nاسأل: أي مخرج من هذه المرحلة يحتاج إلى استكمال؟\nتحقق: مستودع كود Next.js يعمل دون أخطاء؛ مجلد مكونات منظم يحتوي أقسام الصفحة الرئيسية؛ ملف أنماط مركزي يضم رموز التصميم (Design Tokens)", en: "Cue: Congratulate learners: \"We are now live in code; your real capstone repo is born!\"\nAsk: Which deliverable from this phase still needs work?\nCheck: Next.js repository running with zero errors; Structured components folder containing page sections; Centralized tokens stylesheet integrated with layout" },
       payload: {
         type: 'project',
         data: {
@@ -363,13 +363,13 @@ export default function HomePage() {
     {
       id: 's04-slide-09',
       sessionNumber: 4,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 9,
+      totalSlides: 10,
       type: 'takeaway',
-      title: { ar: 'الخلاصة الهندسية للجلسة الرابعة', en: 'Session 04 Engineering Takeaways' },
+      title: { ar: "خلاصة: معمارية المشروع", en: "Recap: Project Architecture" },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'ترسيخ مبدأ التفكير المكوّناتي (Component Thinking) كقاعدة أبدية.', en: 'Solidify Component Thinking as a permanent engineering superpower.' },
-      speakerNotes: { ar: 'اقرأ النقاط الثلاث. أكد: "المبرمج المبتدئ يكتب ملفاً بطول 1000 سطر؛ المهندس يكتب 10 ملفات كل منها بطول 100 سطر".', en: 'Amateur coders write 1,000-line monsters; senior architects compose ten 100-line modular gems.' },
+      speakerNotes: { ar: "نفّذ: اقرأ النقاط الثلاث. أكد: \"بدلاً من جمع المسؤوليات في ملف واحد، وزّعها على ملفات ومكونات واضحة\".\nاسأل: أي مبدأ من «خلاصة: معمارية المشروع» ستستخدمه في مشروعك؟\nتحقق: الكود المنظم يعكس عقلية المهندس المنظم، وهو ما يبني ثقة العملاء وفِرق العمل.", en: "Cue: Amateur coders write 1,000-line monsters; senior architects compose ten 100-line modular gems.\nAsk: Which principle from “Recap: Project Architecture” will you use in your project?\nCheck: Disciplined code reflects a disciplined engineering mind, forging unwavering client trust." },
       payload: {
         type: 'takeaway',
         data: {
@@ -394,8 +394,8 @@ export default function HomePage() {
               number: '03',
               title: { ar: 'المعمارية قبل البرمجة تمنع الفوضى', en: 'Structure Before Code Prevents Chaos' },
               description: {
-                ar: 'تنظيم المجلدات وتسمية الملفات بدقة في البداية يختصر 80% من مشاكل التوسع ويسهل عمل الذكاء الاصطناعي معك.',
-                en: 'Disciplined repository conventions upfront eliminate 80% of scaling friction and supercharge AI collaboration.',
+                ar: 'تنظيم المجلدات وتسمية الملفات بدقة في البداية يقلل مشكلات التوسع ويسهل عمل الذكاء الاصطناعي معك.',
+                en: 'Disciplined repository conventions upfront reduce scaling friction and supercharge AI collaboration.',
               },
             },
           ],
@@ -411,13 +411,13 @@ export default function HomePage() {
     {
       id: 's04-slide-10',
       sessionNumber: 4,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 10,
+      totalSlides: 10,
       type: 'next',
-      title: { ar: 'المحطة القادمة: Antigravity — حلل قبل أن تبني', en: 'Next Waypoint: Antigravity — Analyze Before Build' },
+      title: { ar: "المحطة القادمة — Antigravity — حلل قبل أن تبني", en: "Next Waypoint — Antigravity — Analyze Before Build" },
       estimatedMinutes: 2,
       teachingGoal: { ar: 'تشويق الطلاب للجلسة 05 التي تعد من أهم جلسات الدورة مع أداة Antigravity.', en: 'Build intense anticipation for Session 05: architectural analysis with Antigravity.' },
-      speakerNotes: { ar: 'اختم الجلسة: "في الجلسة 05 سنعلمكم القاعدة الذهبية التي تفصل المحترفين عن الهواة: كيف تطلب من AI أن يحلل مشروعك ويفهم كل أجزائه قبل أن يغير حرفاً واحداً!".', en: 'Closing: "In Session 05 we teach the golden rule: inspect and understand architecture before modifying a single file!"' },
+      speakerNotes: { ar: "نفّذ: اختم الجلسة: \"في الجلسة 05 سنعلمكم القاعدة الذهبية التي تفصل المحترفين عن الهواة: كيف تطلب من AI أن يحلل مشروعك ويفهم كل أجزائه قبل أن يغير حرفاً واحداً!\".\nاسأل: ما الذي ستجهزه قبل الجلسة القادمة؟\nتحقق: احرص على أن يكون مشروعك الذي أسسته اليوم محفوظاً وجاهزاً للتحليل في الجلسة القادمة.", en: "Cue: Closing: \"In Session 05 we teach the golden rule: inspect and understand architecture before modifying a single file!\"\nAsk: What will you prepare before the next session?\nCheck: Ensure your project directory from today is saved and ready for deep architectural inspection in Session 05." },
       payload: {
         type: 'next',
         data: {

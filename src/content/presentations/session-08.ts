@@ -44,8 +44,8 @@ export const SESSION_08: PresentationSession = {
     en: 'Refactoring co-pilot extracting atomic components and drafting typed TypeScript props schemas.',
   },
   marketConnection: {
-    ar: 'مهارة React هي المهارة الأكثر طلباً في إعلانات وظائف تطوير الويب العالمية بنسبة تزيد عن 65%.',
-    en: 'React remains the #1 sought-after frontend framework, requested in over 65% of global developer job openings.',
+    ar: 'تظهر React كثيراً ضمن أدوات تطوير الواجهات؛ تعلّم المبادئ التي تساعدك على بناء مكونات قابلة لإعادة الاستخدام.',
+    en: 'React remains the #1 sought-after frontend framework, frequently requested in frontend developer job openings.',
   },
   startScreen: {
     badge: 'SESSION 08 / 12 • REACT ARCHITECTURE',
@@ -93,12 +93,12 @@ export const SESSION_08: PresentationSession = {
       id: 's08-slide-01',
       sessionNumber: 8,
       slideNumber: 1,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'title',
-      title: { ar: 'React: التفكير بالمكونات', en: 'React: Think in Components' },
+      title: { ar: "React — التفكير بالمكونات", en: "React — Think in Components" },
       estimatedMinutes: 2,
       teachingGoal: { ar: 'افتتاح الجلسة وإعلان الوصول إلى قلب هندسة الواجهات الحديثة.', en: 'Open session: entering the core of modern component engineering.' },
-      speakerNotes: { ar: 'رحب بالطلاب: "اليوم نتعلم React ليس بمجرد حفظ دوال، بل باكتساب العقلية التي تبني بها كبرى شركات التقنية واجهاتها!".', en: 'Welcome students: "Today we master React not by rote syntax, but by adopting the senior component mental model!"' },
+      speakerNotes: { ar: "نفّذ: رحب بالطلاب: \"اليوم نتعلم React ليس بمجرد حفظ دوال، بل باكتساب العقلية التي تبني بها كبرى شركات التقنية واجهاتها!\".\nاسأل: ما الهدف الذي تتوقع تحقيقه في جلسة «React — التفكير بالمكونات»؟\nتحقق: افتتاح الجلسة وإعلان الوصول إلى قلب هندسة الواجهات الحديثة.", en: "Cue: Welcome students: \"Today we master React not by rote syntax, but by adopting the senior component mental model!\"\nAsk: What outcome do you expect from “React — Think in Components”?\nCheck: Open session: entering the core of modern component engineering." },
       payload: {
         type: 'title',
         data: {
@@ -118,13 +118,13 @@ export const SESSION_08: PresentationSession = {
       id: 's08-slide-02',
       sessionNumber: 8,
       slideNumber: 2,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'context',
-      title: { ar: 'لماذا غير React عالم تطوير الويب للأبد؟', en: 'Why React Revolutionized the Web' },
+      title: { ar: "لماذا غير React عالم تطوير الويب للأبد؟", en: "Why React Revolutionized the Web" },
       subtitle: { ar: 'من أسلوب التعديل اليدوي المرهق (Imperative) إلى الأسلوب التصريحي الأنيق (Declarative)', en: 'From painful imperative DOM manipulation to elegant declarative state' },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'شرح الفارق الجوهري بين البرمجة الإجرائية والبرمجة التصريحية في React.', en: 'Demonstrate the leap from imperative step-by-step DOM scripts to declarative UI states.' },
-      speakerNotes: { ar: 'وضح: قديماً كنت تأمر المتصفح: "ابحث عن هذا الزر، غيّر لونه، أضف هذا النص". في React تصف ما تريده فقط بناءً على البيانات، و React يتكفل بالباقي.', en: 'Imperative: find button, change class, append child. Declarative: you declare the target UI for given data.' },
+      speakerNotes: { ar: "نفّذ: وضح: قديماً كنت تأمر المتصفح: \"ابحث عن هذا الزر، غيّر لونه، أضف هذا النص\". في React تصف ما تريده فقط بناءً على البيانات، و React يتكفل بالباقي.\nاسأل: ما المشكلة التي توضّحها «لماذا غير React عالم تطوير الويب للأبد؟»؟\nتحقق: عندما يكبر السكربت وتتداخل مسؤولياته، يصبح تتبع الأخطاء أصعب.", en: "Cue: Imperative: find button, change class, append child. Declarative: you declare the target UI for given data.\nAsk: What problem does “Why React Revolutionized the Web” point to?\nCheck: As scripts grow and responsibilities overlap, debugging becomes harder." },
       payload: {
         type: 'context',
         data: {
@@ -133,12 +133,12 @@ export const SESSION_08: PresentationSession = {
             en: 'Transitioning from manual DOM mutations to declarative components declaring UI as a function of data.',
           },
           realWorldProblem: {
-            ar: 'المشاريع القديمة كانت تغرق في تعقيد الأكواد بمجرد أن يزيد حجم الصفحة عن 500 سطر، ويصبح تتبع الأخطاء كابوساً.',
-            en: 'Legacy apps collapsed under cognitive load when scripts exceeded 500 lines, turning debugging into quicksand.',
+            ar: 'عندما يكبر السكربت وتتداخل مسؤولياته، يصبح تتبع الأخطاء أصعب.',
+            en: 'As scripts grow and responsibilities overlap, debugging becomes harder.',
           },
           whyItMatters: {
-            ar: 'مع React، يمكنك بناء مكون واحد وتكراره آلاف المرات ببيانات مختلفة، مع ضمان عزل كل مكون عن الآخر تماماً.',
-            en: 'With React, you craft a single component primitive and deploy it thousands of times across your platform.',
+            ar: 'مع React، يمكنك إعادة استخدام المكون نفسه مع بيانات مختلفة، مع ضمان عزل كل مكون عن الآخر تماماً.',
+            en: 'With React, you craft a single component primitive and reuse it with different data across your platform.',
           },
         },
       },
@@ -149,12 +149,12 @@ export const SESSION_08: PresentationSession = {
       id: 's08-slide-03',
       sessionNumber: 8,
       slideNumber: 3,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'concept',
-      title: { ar: 'الخصائص (Props): تمرير البيانات في اتجاه واحد', en: 'Props: Unidirectional Data Flow' },
+      title: { ar: "الخصائص (Props) — تمرير البيانات في اتجاه واحد", en: "Props — Unidirectional Data Flow" },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'شرح مفهوم الـ Props كمعاملات دالة (Function Arguments) تتحكم في شكل وسلوك المكون.', en: 'Anchor Props as typed function parameters governing component presentation and behavior.' },
-      speakerNotes: { ar: 'وضح: المكون هو دالة عادية تستقبل كائن اسمه Props. عندما تمرر له title="Pizza" يعرض البيتزا، وعندما تمرر title="Pasta" يعرض الباستا.', en: 'A component is a pure function taking a Props object. Pass title="Pizza", it renders Pizza cleanly.' },
+      speakerNotes: { ar: "نفّذ: وضح: المكون هو دالة عادية تستقبل كائن اسمه Props. عندما تمرر له title=\"Pizza\" يعرض البيتزا، وعندما تمرر title=\"Pasta\" يعرض الباستا.\nاسأل: كيف تطبّق هذا المبدأ: المكونات النقية تستقبل الخصائص (Props) وتعرضها دون أن تغير قيمتها الأصلية.؟\nتحقق: قاعدة ذهبية: لا تعدل قيمة الـ Props داخل المكون أبداً؛ الخصائص للقراءة فقط (Read-Only).", en: "Cue: A component is a pure function taking a Props object. Pass title=\"Pizza\", it renders Pizza cleanly.\nAsk: How would you apply this principle: Pure components receive props and render UI deterministically without mutating inputs.?\nCheck: Golden Rule: Never mutate props inside a child component; props are strictly immutable and read-only." },
       payload: {
         type: 'concept',
         data: {
@@ -186,12 +186,12 @@ export const SESSION_08: PresentationSession = {
       id: 's08-slide-04',
       sessionNumber: 8,
       slideNumber: 4,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'code',
-      title: { ar: 'الكود كأثر بصري: بناء مكون Button موحد مع Typed Props', en: 'Code Artifact: Universal Button Primitive' },
+      title: { ar: "بناء مكون Button موحد مع Typed Props", en: "Code Artifact — Universal Button Primitive" },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'إظهار كيفية كتابة مكون زر موحد يقبل variants مختلفة بدلاً من تكرار كود الأزرار في كل ملف.', en: 'Demonstrate writing a universal typed Button primitive replacing duplicated button styles.' },
-      speakerNotes: { ar: 'اشرح interface ButtonProps: يقبل variant: primary أو outline، ويقبل children. هذا المكون نستخدمه في كل مكان بالمشروع.', en: 'Explain typed interface: variant can be primary or outline. We reuse this exact button everywhere.' },
+      speakerNotes: { ar: "نفّذ: اشرح interface ButtonProps: يقبل variant: primary أو outline، ويقبل children. هذا المكون نستخدمه في كل مكان بالمشروع.\nاسأل: ما وظيفة المثال في «بناء مكون Button موحد مع Typed Props»؟\nتحقق: مكون زر موحد ومُنمذج بـ TypeScript يقبل أشكالاً وأحجاماً مختلفة ويعاد استخدامه في كامل المشروع. يسمح مكوّن الزر المشترك بتعديل الشكل في مكان واحد بدلاً من تكرار التغيير في كل موضع.", en: "Cue: Explain typed interface: variant can be primary or outline. We reuse this exact button everywhere.\nAsk: What does the example in “Code Artifact — Universal Button Primitive” do?\nCheck: Universal typed button primitive accepting polymorphic variants and sizes. A shared button component lets you update styling in one place instead of editing repeated markup." },
       payload: {
         type: 'code',
         data: {
@@ -236,7 +236,7 @@ export function Button({
   );
 }`,
           what: { ar: 'مكون زر موحد ومُنمذج بـ TypeScript يقبل أشكالاً وأحجاماً مختلفة ويعاد استخدامه في كامل المشروع.', en: 'Universal typed button primitive accepting polymorphic variants and sizes.' },
-          why: { ar: 'تغيير شكل أزرار الموقع في المستقبل يتطلب تعديل هذا الملف الوحيد بدلاً من البحث في 50 صفحة.', en: 'Global button styling adjustments now take 10 seconds in a single file instead of hunting across 50 pages.' },
+          why: { ar: 'يسمح مكوّن الزر المشترك بتعديل الشكل في مكان واحد بدلاً من تكرار التغيير في كل موضع.', en: 'A shared button component lets you update styling in one place instead of editing repeated markup.' },
           when: { ar: 'اللبنة الأساسية الأولى التي يبنيها مهندس الواجهات في أي نظام تصميم (Design System).', en: 'The quintessential initial UI primitive crafted in any professional design system.' },
         },
       },
@@ -247,12 +247,12 @@ export function Button({
       id: 's08-slide-05',
       sessionNumber: 8,
       slideNumber: 5,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'concept',
-      title: { ar: 'التركيب المعماري (Component Composition): سر القوة', en: 'Component Composition: The True Superpower' },
+      title: { ar: "تركيب المكونات", en: "Component Composition" },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'تعليم الطلاب كيف يركبون المكونات كقطع الليجو بدلاً من كتابة مكونات عملاقة ومعقدة.', en: 'Teach students to compose small components like Lego bricks over massive monolithic cards.' },
-      speakerNotes: { ar: 'أكد: بدل أن تبني مكون DishCard معقد، ابنِ Card عام وضعه داخله Card.Header و Card.Body و Card.Footer.', en: 'Instead of an inflexible monolithic card, compose Card, Card.Image, and Card.Footer.' },
+      speakerNotes: { ar: "نفّذ: أكد: بدل أن تبني مكون DishCard معقد، ابنِ Card عام وضعه داخله Card.Header و Card.Body و Card.Footer.\nاسأل: كيف تطبّق هذا المبدأ: المكونات الصغيرة البسيطة التي تركب معاً أفضل بـ 100 مرة من مكون ضخم واحد مليء بالشروط المعقدة.؟\nتحقق: التركيب (Composition) يعني أن تبني مكونات عامة مثل <Card> و <Badge> و <Button>، ثم تركبها معاً لصناعة بطاقة منتج، بطاقة مقال، أو بطاقة تعليق، دون تكرار سطر CSS واحد.", en: "Cue: Instead of an inflexible monolithic card, compose Card, Card.Image, and Card.Footer.\nAsk: How would you apply this principle: Small composable components assembled like Lego bricks vastly outperform complex monolithic beasts.?\nCheck: Composition empowers you to build universal building blocks (<Card>, <Badge>, <Button>) and snap them together to form dishes, reviews, or team profiles without duplicating layout CSS." },
       payload: {
         type: 'concept',
         data: {
@@ -269,7 +269,7 @@ export function Button({
             { ar: 'استخدام خاصية children لتمرير أي محتوى بحرية تامة داخل الحاوية', en: 'Leveraging the children prop to slot custom content into containers freely' },
             { ar: 'سهولة الاختبار: فحص مكون Button الصغير أسهل وأسرع بكثير من فحص صفحة كاملة', en: 'Trivial testing: Validating a tiny Button primitive takes seconds compared to full pages' },
             { ar: 'تسهيل العمل مع الذكاء الاصطناعي: تطلب من AI تعديل مكون واحد دون خطر تخريب البقية', en: 'Frictionless AI pairing: Instructing AI to refactor a single atomic component carries zero risk' },
-            { ar: 'سرعة بناء الميزات الجديدة: تركيب المكونات الموجودة يوفر 80% من وقت البرمجة', en: 'Instant feature velocity: Recombining existing primitives slashes new feature delivery time by 80%' },
+            { ar: 'سرعة بناء الميزات الجديدة: تركيب المكونات الموجودة يسرّع بناء الميزات عند إعادة استخدام المكونات', en: 'Instant feature velocity: Recombining existing primitives can speed up feature delivery by reusing existing primitives' },
           ],
         },
       },
@@ -280,12 +280,12 @@ export function Button({
       id: 's08-slide-06',
       sessionNumber: 8,
       slideNumber: 6,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'demo',
-      title: { ar: 'تطبيق حي: تفكيك بطاقة وجبة إلى مكونات React مستقلة', en: 'Live Demo: Deconstructing Dish Card into Pure Components' },
+      title: { ar: "تفكيك بطاقة وجبة إلى مكونات React مستقلة", en: "Live Demo — Deconstructing Dish Card into Pure Components" },
       estimatedMinutes: 6,
       teachingGoal: { ar: 'إظهار عملية الـ Refactoring عملياً أمام الطلاب: تحويل كود مكرر إلى مكون قابل لإعادة الاستخدام.', en: 'Demonstrate live refactoring: turning duplicated markup into a clean typed component.' },
-      speakerNotes: { ar: 'خذ كود البطاقة من الجلسة 06، استخرج منه مكون DishCard.tsx وضع له interface DishCardProps. استبدل التكرار بـ dishes.map.', en: 'Extract DishCard component from Session 06, add typed interface, replace duplication with clean map.' },
+      speakerNotes: { ar: "نفّذ: خذ كود البطاقة من الجلسة 06، استخرج منه مكون DishCard.tsx وضع له interface DishCardProps. استبدل التكرار بـ dishes.map.\nاسأل: إعادة هيكلة بطاقات القائمة إلى مكون DishCard مستقل ومُنمذج بـ TypeScript.\nتحقق: كود منظم ونظيف يستدعي المكونات بأسلوب أنيق وبأقل عدد أسطر ممكن.", en: "Cue: Extract DishCard component from Session 06, add typed interface, replace duplication with clean map.\nAsk: Refactor menu items into an isolated, strongly-typed DishCard component primitive.\nCheck: Immaculate component abstraction with zero repetitive markup and strong type safety." },
       payload: {
         type: 'demo',
         data: {
@@ -301,7 +301,7 @@ export function Button({
             { ar: 'إنشاء ملف src/components/DishCard.tsx وتحديد interface الخصائص', en: 'Create src/components/DishCard.tsx and declare typed props interface' },
             { ar: 'نقل كود الـ JSX الخاص بالبطاقة إلى المكون الجديد واستخدام الـ Props', en: 'Migrate card JSX into new component and wire props variables' },
             { ar: 'استبدال الكود المكرر في MenuGrid.tsx باستدعاء <DishCard key={...} />', en: 'Clean up MenuGrid.tsx by mapping clean <DishCard key={dish.id} {...dish} />' },
-            { ar: 'التأكد من أن الصفحة تظهر بنفس الجمال في المتصفح بكود أنظف بـ 70%', en: 'Verify identical visual fidelity with 70% cleaner, modular codebase' },
+            { ar: 'التأكد من أن الصفحة تظهر بنفس الجمال في المتصفح بكود أكثر تنظيماً', en: 'Verify identical visual fidelity with a cleaner, more modular codebase' },
           ],
           expectedOutput: {
             ar: 'كود منظم ونظيف يستدعي المكونات بأسلوب أنيق وبأقل عدد أسطر ممكن.',
@@ -315,13 +315,13 @@ export function Button({
     {
       id: 's08-slide-07',
       sessionNumber: 8,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 7,
+      totalSlides: 10,
       type: 'challenge',
-      title: { ar: 'تحدي الطلاب: استخراج مكونين قابلين لإعادة الاستخدام', en: 'Student Challenge: Extract 2 Reusable React Primitives' },
+      title: { ar: "استخراج مكونين قابلين لإعادة الاستخدام", en: "Student Challenge — Extract 2 Reusable React Primitives" },
       estimatedMinutes: 8,
       teachingGoal: { ar: 'استخراج كل طالب لمكون Button ومكون Card لمشروعه وتطبيقهما في صفحته.', en: 'Every student extracts a reusable Button and Card component in their project repo.' },
-      speakerNotes: { ar: 'أطلق مؤقت الـ 5 دقائق. اطلب منهم استخراج مكون Button أو Card في مجلد منفصل واستدعائه في صفحتهم.', en: 'Launch 5-minute timer. Instruct students to extract a clean Button or Card primitive with typed props.' },
+      speakerNotes: { ar: "نفّذ: أطلق مؤقت الـ 5 دقائق. اطلب منهم استخراج مكون Button أو Card في مجلد منفصل واستدعائه في صفحتهم.\nاسأل: ما الناتج الذي ستسلّمه؟ استخراج مكون Button موحد أو بطاقة قابلة لإعادة الاستخدام في مشروعك وتمرير البيانات عبر Props.\nتحقق: مكونان نظيفان قابلان لإعادة الاستخدام مدمجان بنجاح في مشروع تخرجك.", en: "Cue: Launch 5-minute timer. Instruct students to extract a clean Button or Card primitive with typed props.\nAsk: What will you submit? Extract a universal Button primitive or reusable Card in your project and pass data via typed Props.\nCheck: Two production-grade reusable React primitives wired into your capstone project." },
       payload: {
         type: 'challenge',
         data: {
@@ -353,13 +353,13 @@ export function Button({
     {
       id: 's08-slide-08',
       sessionNumber: 8,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 8,
+      totalSlides: 10,
       type: 'project',
-      title: { ar: 'محطة المشروع: معمارية React المكتملة', en: 'Project Milestone: Pure React Component Architecture' },
+      title: { ar: "معمارية React المكتملة", en: "Project Milestone — Pure React Component Architecture" },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'تثبيت اكتمال تحويل المشروع بالكامل إلى شجرة مكونات React نقية.', en: 'Confirm capstone project is now a textbook modular React component tree.' },
-      speakerNotes: { ar: 'هنئ الطلاب: "مشروعك الآن ليس مجرد كود ويب عادي؛ مشروعك الآن يتبع نفس المعمارية التي تبنى بها منصات كبرى كـ Airbnb و Stripe!".', en: 'Congratulate learners: "Your repo now reflects the exact modular component architecture used by Airbnb and Stripe!"' },
+      speakerNotes: { ar: "نفّذ: هنئ الطلاب: \"مشروعك الآن يستخدم مكونات مستقلة قابلة لإعادة الاستخدام؛ إنها طريقة تساعد على تنظيم الواجهة وصيانتها.\".\nاسأل: أي مخرج من هذه المرحلة يحتاج إلى استكمال؟\nتحقق: مكونات أساسية موحدة (Button و Card) قابلة لإعادة الاستخدام؛ فصل بيانات النصوص والأطباق في مصفوفات مستقلة؛ هيكل مشروع نظيف يقتصر فيه ملف الصفحة الرئيسية على تركيب المكونات", en: "Cue: Congratulate learners: \"Your project now uses independent reusable components, helping organize and maintain its interface.\"\nAsk: Which deliverable from this phase still needs work?\nCheck: Reusable core UI primitives (Button, Card, Badge); Decoupled domain data arrays cleanly fed into components; A clean page.tsx orchestrator focused on composing components" },
       payload: {
         type: 'project',
         data: {
@@ -372,7 +372,7 @@ export function Button({
           deliverables: [
             { ar: 'مكونات أساسية موحدة (Button و Card) قابلة لإعادة الاستخدام', en: 'Reusable core UI primitives (Button, Card, Badge)' },
             { ar: 'فصل بيانات النصوص والأطباق في مصفوفات مستقلة', en: 'Decoupled domain data arrays cleanly fed into components' },
-            { ar: 'هيكل مشروع نظيف لا يتجاوز فيه ملف الصفحة الرئيسية 35 سطراً', en: 'Ultra-clean page.tsx orchestrator under 35 lines of code' },
+            { ar: 'هيكل مشروع نظيف يقتصر فيه ملف الصفحة الرئيسية على تركيب المكونات', en: 'A clean page.tsx orchestrator focused on composing components' },
           ],
           connectionToFinalProject: {
             ar: 'في الجلسة 09 سنأخذ هذه المكونات ونضعها في قمة الإنتاجية: محرك Next.js 16 مع دعم الـ SEO الخارق والأداء العالي.',
@@ -386,13 +386,13 @@ export function Button({
     {
       id: 's08-slide-09',
       sessionNumber: 8,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 9,
+      totalSlides: 10,
       type: 'takeaway',
-      title: { ar: 'الخلاصة الهندسية للجلسة الثامنة', en: 'Session 08 Engineering Takeaways' },
+      title: { ar: "خلاصة: React", en: "Recap: React" },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'تثبيت ركائز نموذج React العقلي وقوة التركيب المعماري.', en: 'Cement the React mental model and compositional architecture.' },
-      speakerNotes: { ar: 'اقرأ النقاط الثلاث. أكد: "البرمجة بـ React ليست مجرد syntax؛ إنها طريقة تفكير تفصل المسؤوليات وتجعل الكود قابلاً للتوسع".', en: 'Review takeaways: React is an architectural discipline of decoupling responsibilities and composing primitives.' },
+      speakerNotes: { ar: "نفّذ: اقرأ النقاط الثلاث. أكد: \"البرمجة بـ React ليست مجرد syntax؛ إنها طريقة تفكير تفصل المسؤوليات وتجعل الكود قابلاً للتوسع\".\nاسأل: أي مبدأ من «خلاصة: React» ستستخدمه في مشروعك؟\nتحقق: المكونات النظيفة هي العملة الحقيقية لمهندس الواجهات الحديث.", en: "Cue: Review takeaways: React is an architectural discipline of decoupling responsibilities and composing primitives.\nAsk: Which principle from “Recap: React” will you use in your project?\nCheck: Clean, composable components are the true currency of the modern frontend engineer." },
       payload: {
         type: 'takeaway',
         data: {
@@ -434,13 +434,13 @@ export function Button({
     {
       id: 's08-slide-10',
       sessionNumber: 8,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 10,
+      totalSlides: 10,
       type: 'next',
-      title: { ar: 'المحطة القادمة: Next.js + SEO — مواقع فائقة السرعة', en: 'Next Waypoint: Next.js + SEO — Production Grade' },
+      title: { ar: "التالي: Next.js وSEO", en: "Next: Next.js & SEO" },
       estimatedMinutes: 2,
       teachingGoal: { ar: 'تشويق الطلاب للجلسة 09 حيث سنحول مكونات React إلى موقع إنتاجي حقيقي يتصدر محركات البحث.', en: 'Build anticipation for Session 09: elevating React components into a production Next.js powerhouse.' },
-      speakerNotes: { ar: 'اختم الجلسة: "في الجلسة 09 سننتقل إلى Next.js: سنتعلم كيف تجعل موقعك يفتح في رمشة عين، وكيف يتصدر الصفحة الأولى في Google عبر الـ SEO!".', en: 'Closing: "In Session 09 we enter Next.js: blazing performance, server layouts, and top-tier SEO auditing!"' },
+      speakerNotes: { ar: "نفّذ: اختم الجلسة: \"في الجلسة 09 سننتقل إلى Next.js: سنتعلم كيف تجعل موقعك يفتح في رمشة عين، وكيف يتصدر الصفحة الأولى في Google عبر الـ SEO!\".\nاسأل: ما الذي ستجهزه قبل الجلسة القادمة؟\nتحقق: تأكد من أن مشروعك مبني بنظام المكونات النظيفة لندخل به مباشرة في تحسينات Next.js.", en: "Cue: Closing: \"In Session 09 we enter Next.js: blazing performance, server layouts, and top-tier SEO auditing!\"\nAsk: What will you prepare before the next session?\nCheck: Confirm your component refactoring is committed and clean ahead of Session 09." },
       payload: {
         type: 'next',
         data: {

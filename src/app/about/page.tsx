@@ -7,6 +7,7 @@ import {
   PageSection,
 } from '@/components';
 import { INSTRUCTOR_PROFILE } from '@/content/instructor';
+import { PROFESSIONAL_EXPERIENCES } from '@/content/experience';
 import { usePreferencesStore } from '@/store';
 import { getLocalizedText } from '@/lib/utils';
 
@@ -15,59 +16,171 @@ export default function AboutPage() {
   const isRtl = language === 'ar';
   const name = getLocalizedText(INSTRUCTOR_PROFILE.name, language);
 
+  const narrativeQuestions = isRtl
+    ? [
+        {
+          label: 'الخلفية المهنية',
+          text: INSTRUCTOR_PROFILE.story.paragraphs[0]?.ar,
+        },
+        {
+          label: 'نوع البرمجيات والمشكلات التي أهتم بها',
+          text: INSTRUCTOR_PROFILE.story.paragraphs[1]?.ar,
+        },
+        {
+          label: 'القرارات الهندسية وجودة الكود',
+          text: INSTRUCTOR_PROFILE.story.paragraphs[2]?.ar,
+        },
+        {
+          label: 'ماذا يجد الزائر في هذا الموقع؟',
+          text: INSTRUCTOR_PROFILE.story.paragraphs[3]?.ar,
+        },
+      ]
+    : [
+        {
+          label: 'Professional Background',
+          text: INSTRUCTOR_PROFILE.story.paragraphs[0]?.en,
+        },
+        {
+          label: 'Software Focus & Problem Spaces',
+          text: INSTRUCTOR_PROFILE.story.paragraphs[1]?.en,
+        },
+        {
+          label: 'Engineering Decisions & Code Quality',
+          text: INSTRUCTOR_PROFILE.story.paragraphs[2]?.en,
+        },
+        {
+          label: 'What You Will Find on This Site',
+          text: INSTRUCTOR_PROFILE.story.paragraphs[3]?.en,
+        },
+      ];
+
   return (
     <PortfolioShell>
       <PageContainer>
-        <div className="p-6 sm:p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm flex flex-col md:flex-row items-center gap-6 text-start mb-8">
+        {/* Profile Intro Banner */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-xs flex flex-col md:flex-row items-center gap-6 text-start mb-10">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/myphoto.jfif"
             alt={name}
             width={120}
             height={120}
-            className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover object-top ring-2 ring-[var(--color-border)] shadow-md shrink-0"
+            className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover object-top ring-2 ring-[var(--color-border)] shadow-sm shrink-0"
           />
-          <div className="space-y-1.5 flex-1">
-            <span className="text-xs font-mono font-bold text-[var(--color-secondary)] uppercase tracking-wider">
-              {getLocalizedText(INSTRUCTOR_PROFILE.roleTitle, language)}
-            </span>
-            <h1 className="text-h2 font-extrabold text-[var(--color-text)]">
-              {isRtl ? `عن ${name}` : `About ${name}`}
+          <div className="space-y-2 flex-1">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs font-mono font-bold text-[var(--color-secondary)] uppercase tracking-wider">
+                {getLocalizedText(INSTRUCTOR_PROFILE.roleTitle, language)}
+              </span>
+              <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-[var(--color-surface-sunken)] border border-[var(--color-border-subtle)] text-[var(--color-text-subtle)]">
+                Senior Software Architect & Full Stack Engineer
+              </span>
+            </div>
+            <h1 className="text-h2 font-extrabold text-[var(--color-text)] tracking-tight">
+              {isRtl ? 'عن عبد الحكيم' : 'About Abdulhakim'}
             </h1>
-            <p className="text-body text-[var(--color-text-muted)] leading-relaxed">
+            <p className="text-body text-[var(--color-text-muted)] leading-relaxed max-w-3xl">
               {getLocalizedText(INSTRUCTOR_PROFILE.briefIntro, language)}
             </p>
           </div>
         </div>
 
-        {/* Narrative & Story */}
+        {/* Narrative & Story — Answering the 4 core questions directly */}
         <PageSection
-          title={getLocalizedText(INSTRUCTOR_PROFILE.story.title, language)}
+          title={isRtl ? 'طريقة التفكير والعمل' : 'Philosophy & Engineering Practice'}
+          subtitle={
+            isRtl
+              ? 'إجابات واضحة ومباشرة عن الخلفية، مجالات التركيز، وأسلوب التعامل مع المشكلات الهندسية.'
+              : 'Direct perspectives on background, focus areas, and engineering methodology.'
+          }
         >
-          <div className="max-w-4xl space-y-4 text-body font-normal text-[var(--color-text-muted)] leading-relaxed">
-            {INSTRUCTOR_PROFILE.story.paragraphs.map((p, idx) => (
-              <p key={idx}>{getLocalizedText(p, language)}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {narrativeQuestions.map((q, idx) => (
+              <div
+                key={idx}
+                className="p-6 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-2xs space-y-3 text-start"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-xs font-bold text-[var(--color-secondary)] uppercase">
+                    0{idx + 1}
+                  </span>
+                  <h3 className="text-h4 font-bold text-[var(--color-text)]">
+                    {q.label}
+                  </h3>
+                </div>
+                <p className="text-body-sm text-[var(--color-text-muted)] leading-relaxed">
+                  {q.text}
+                </p>
+              </div>
             ))}
           </div>
         </PageSection>
 
-        {/* Technical Focus Areas */}
+        {/* Professional Milestones & Experience Timeline */}
         <PageSection
-          title={getLocalizedText(INSTRUCTOR_PROFILE.whatIBuild.title, language)}
-          subtitle={getLocalizedText(INSTRUCTOR_PROFILE.whatIBuild.description, language)}
+          title={isRtl ? 'المسار المهني وسجل الخبرة' : 'Professional Experience & Milestones'}
+          subtitle={
+            isRtl
+              ? 'أكثر من 8 سنوات من العمل الفعلي في تطوير الأنظمة وتطبيقات الويب وإدارة الخوادم.'
+              : 'Over 8 years of hands-on practice across application architecture, backend systems, and infrastructure.'
+          }
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {INSTRUCTOR_PROFILE.whatIBuild.focusAreas.map((area, idx) => (
+          <div className="space-y-6">
+            {PROFESSIONAL_EXPERIENCES.map((exp, idx) => (
               <div
-                key={idx}
-                className="p-6 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] space-y-2 text-start"
+                key={exp.id || idx}
+                className="p-6 sm:p-7 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-2xs space-y-4 text-start transition-all hover:border-[var(--color-border-strong)]"
               >
-                <span className="font-mono text-xs font-bold text-[var(--color-secondary)] uppercase">
-                  FOCUS / 0{idx + 1}
-                </span>
-                <p className="text-body font-semibold text-[var(--color-text)]">
-                  {getLocalizedText(area, language)}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--color-border-subtle)] pb-4">
+                  <div>
+                    <h3 className="text-h4 font-bold text-[var(--color-text)]">
+                      {getLocalizedText(exp.role, language)}
+                    </h3>
+                    {exp.organization && (
+                      <p className="text-body-xs font-mono text-[var(--color-text-subtle)] mt-0.5">
+                        {getLocalizedText(exp.organization, language)}
+                      </p>
+                    )}
+                  </div>
+                  {exp.period && (
+                    <span className="font-mono text-xs text-[var(--color-secondary)] self-start sm:self-auto font-semibold">
+                      {getLocalizedText(exp.period, language)}
+                    </span>
+                  )}
+                </div>
+
+                <p className="text-body-sm text-[var(--color-text-muted)] leading-relaxed">
+                  {getLocalizedText(exp.scope, language)}
                 </p>
+
+                {exp.highlights && exp.highlights.length > 0 && (
+                  <ul className="space-y-2 pt-1">
+                    {exp.highlights.map((h, hIdx) => (
+                      <li
+                        key={hIdx}
+                        className="text-body-xs text-[var(--color-text-muted)] flex items-start gap-2.5"
+                      >
+                        <span className="text-[var(--color-secondary)] font-bold mt-0.5 shrink-0">
+                          •
+                        </span>
+                        <span>{getLocalizedText(h, language)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {exp.technologies && exp.technologies.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {exp.technologies.map((t) => (
+                      <span
+                        key={t}
+                        className="px-2.5 py-1 rounded text-[11px] font-mono bg-[var(--color-surface-sunken)] border border-[var(--color-border-subtle)] text-[var(--color-text)]"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -77,11 +190,11 @@ export default function AboutPage() {
         <PageSection
           title={isRtl ? 'المهارات والتقنيات الأساسية' : 'Engineering Skills & Toolset'}
         >
-          <div className="space-y-6">
+          <div className="space-y-5">
             {INSTRUCTOR_PROFILE.skills.map((skillGroup, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] space-y-3 text-start"
+                className="p-6 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] space-y-3 text-start"
               >
                 <div className="flex items-center justify-between">
                   <h3 className="text-h4 font-bold text-[var(--color-text)]">
@@ -107,7 +220,7 @@ export default function AboutPage() {
           </div>
         </PageSection>
 
-        {/* CV & Professional Profile Section (Rule 15) */}
+        {/* CV & Professional Profile Section */}
         <PageSection
           title={isRtl ? 'السيرة الذاتية والملف المهني' : 'Curriculum Vitae & Profile'}
         >

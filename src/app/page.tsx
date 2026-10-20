@@ -4,41 +4,34 @@ import React from 'react';
 import { PortfolioShell } from '@/components';
 import {
   PortfolioHeroSection,
-  PortfolioAboutSection,
-  EngineeringFocusSection,
-  ExperienceTimelineSection,
   FeaturedProjectsSection,
+  EngineeringFocusSection,
   EngineeringWritingsSection,
-  CoursesSection,
+  ResourcesTeaserSection,
   PortfolioCTASection,
 } from '@/components/portfolio';
 
 export default function HomePage() {
   return (
     <PortfolioShell>
-      {/* 01 — HERO: Lendex Full-bleed Personal Portfolio Hero */}
+      {/* 1. عنوان رئيسي ونبذة شخصية قصيرة وأزرار التوجيه */}
       <PortfolioHeroSection />
 
-      {/* 02 — ABOUT: Professional profile & craftsmanship philosophy */}
-      <PortfolioAboutSection />
-
-      {/* 03 — ENGINEERING FOCUS: What I work with + Engineering Approach */}
-      <EngineeringFocusSection />
-
-      {/* 04 — EXPERIENCE: Professional practice & milestones */}
-      <ExperienceTimelineSection />
-
-      {/* 05 — FEATURED PROJECTS: What I have built (Case study depth, architecture) */}
+      {/* 2. ثلاثة مشاريع مختارة فقط */}
       <FeaturedProjectsSection />
 
-      {/* 06 — WRITINGS: Architectural insights & engineering notes */}
+      {/* 3. نبذة موجزة عن مجالات عملي */}
+      <EngineeringFocusSection />
+
+      {/* 4. أحدث ثلاثة مقالات أو فيديوهات مفيدة */}
       <EngineeringWritingsSection />
 
-      {/* 07 — TRAINING: What I teach (Extensible courses architecture) */}
-      <CoursesSection />
+      {/* 5. تعريف قصير بالمحتوى والموارد التي أشاركها */}
+      <ResourcesTeaserSection />
 
-      {/* 08 — CONTACT: Direct, calm communication & inquiries */}
+      {/* 6 & 7. دعوة واضحة للتواصل ورابط مختصر إلى صفحة «عنّي» */}
       <PortfolioCTASection />
     </PortfolioShell>
   );
 }
+

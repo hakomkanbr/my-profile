@@ -44,8 +44,8 @@ export const SESSION_03: PresentationSession = {
     en: 'Visual rendering engine translating semantic prompts into instant viewport layouts.',
   },
   marketConnection: {
-    ar: 'عرض نموذج أولي بصري تفاعلي للعميل في أول 24 ساعة يضاعف احتمالية توقيع العقد بنسبة 80%.',
-    en: 'Presenting an interactive visual prototype within 24 hours doubles client closing rates.',
+    ar: 'عرض نموذج أولي مبكر يساعد العميل على مراجعة الفكرة وتقديم ملاحظاته.',
+    en: 'Presenting an early interactive prototype helps clients review the idea and give feedback.',
   },
   startScreen: {
     badge: 'SESSION 03 / 12 • UI PROTOTYPING',
@@ -69,8 +69,8 @@ export const SESSION_03: PresentationSession = {
     },
     keyRecap: [
       {
-        ar: 'التصميم التوليدي يختصر أسابيع من الرسم اليدوي، لكنه يتطلب عيناً نقدية تحذف الفوضى.',
-        en: 'Generative UI cuts weeks of manual wireframing; your eye must prune noise and clutter.',
+        ar: 'يساعد التصميم التوليدي على استكشاف الأفكار بصريًا، مع الحاجة إلى عين نقدية تحذف الفوضى.',
+        en: 'Generative design helps explore ideas visually; a critical eye is still needed to remove clutter.',
       },
       {
         ar: 'التسلسل الهرمي والمساحات البيضاء هي ما يجعل الموقع يبدو فخماً واحترافياً.',
@@ -93,12 +93,12 @@ export const SESSION_03: PresentationSession = {
       id: 's03-slide-01',
       sessionNumber: 3,
       slideNumber: 1,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'title',
-      title: { ar: 'Google Stitch: من الفكرة للتصميم', en: 'Google Stitch: Idea to Interface' },
+      title: { ar: "Google Stitch — من الفكرة للتصميم", en: "Google Stitch — Idea to Interface" },
       estimatedMinutes: 2,
       teachingGoal: { ar: 'افتتاح الجلسة وإعلان دخول مرحلة التجسيد البصري.', en: 'Open session: entering the visual materialized stage.' },
-      speakerNotes: { ar: 'رحب بالطلاب. أخبرهم: "اليوم سنرى الكلمات التي كتبناها بالأمس تتحول إلى أزرار وألوان وأقسام حقيقية أمامنا".', en: 'Welcome students. Today words from Session 02 turn into buttons, colors, and live sections.' },
+      speakerNotes: { ar: "نفّذ: رحب بالطلاب. أخبرهم: \"اليوم سنرى الكلمات التي كتبناها بالأمس تتحول إلى أزرار وألوان وأقسام حقيقية أمامنا\".\nاسأل: ما الهدف الذي تتوقع تحقيقه في جلسة «Google Stitch — من الفكرة للتصميم»؟\nتحقق: افتتاح الجلسة وإعلان دخول مرحلة التجسيد البصري.", en: "Cue: Welcome students. Today words from Session 02 turn into buttons, colors, and live sections.\nAsk: What outcome do you expect from “Google Stitch — Idea to Interface”?\nCheck: Open session: entering the visual materialized stage." },
       payload: {
         type: 'title',
         data: {
@@ -118,13 +118,13 @@ export const SESSION_03: PresentationSession = {
       id: 's03-slide-02',
       sessionNumber: 3,
       slideNumber: 2,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'context',
-      title: { ar: 'ما هي أدوات التوليد البصري ومتى نلجأ إليها؟', en: 'Generative UI Tools: When & Why' },
+      title: { ar: "ما هي أدوات التوليد البصري ومتى نلجأ إليها؟", en: "Generative UI Tools — When & Why" },
       subtitle: { ar: 'لماذا لم نعد نبدأ برسم مستطيلات فارغة في Figma لكل مشروع صغير؟', en: 'Why we no longer draw empty boxes from scratch in Figma for every project' },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'توضيح الموقع الصحيح لأدوات Generative UI في مسار العمل المعاصر.', en: 'Demarcate the exact position of generative UI tools in modern frontend workflows.' },
-      speakerNotes: { ar: 'وضح أن Figma أداة عملاقة للأنظمة الضخمة، لكن في مراحل البداية واختبار الأفكار مع العملاء، أدوات مثل Stitch توفر 80% من الوقت.', en: 'Clarify that Figma is for massive design systems, but for rapid client prototypes, tools like Stitch save 80% of time.' },
+      speakerNotes: { ar: "نفّذ: وضح أن Figma أداة عملاقة للأنظمة الضخمة، لكن في مراحل البداية واختبار الأفكار مع العملاء، أدوات مثل Stitch توفر جزءاً من وقت إعداد النموذج الأولي.\nاسأل: ما المشكلة التي توضّحها «ما هي أدوات التوليد البصري ومتى نلجأ إليها؟»؟\nتحقق: العميل لا يفهم وثائق الكود أو المخططات النصية؛ العميل يحتاج أن \"يرى\" الواجهة ليتخذ قرار الاستثمار.", en: "Cue: Clarify that Figma is for massive design systems, but for rapid client prototypes, tools like Stitch speed up initial prototyping.\nAsk: What problem does “Generative UI Tools — When & Why” point to?\nCheck: Clients cannot visualize text specs; they need tangible visual interfaces to commit capital." },
       payload: {
         type: 'context',
         data: {
@@ -137,8 +137,8 @@ export const SESSION_03: PresentationSession = {
             en: 'Clients cannot visualize text specs; they need tangible visual interfaces to commit capital.',
           },
           whyItMatters: {
-            ar: 'القدرة على إظهار تصميم مبهر في 15 دقيقة تفصلك عن المنافسين التقليديين الذين يحتاجون أسبوعين للرسم.',
-            en: 'Delivering a striking visual prototype in 15 minutes separates you from 2-week traditional design agencies.',
+            ar: 'القدرة على النموذج المرئي المبكر يساعد العميل على مراجعة الفكرة قبل استكمال التنفيذ.',
+            en: 'An early visual prototype lets the client review the idea before full implementation.',
           },
         },
       },
@@ -149,13 +149,13 @@ export const SESSION_03: PresentationSession = {
       id: 's03-slide-03',
       sessionNumber: 3,
       slideNumber: 3,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'visual',
-      title: { ar: 'مسار التوليد البصري المتكامل (Visual Pipeline)', en: 'The Generative Visual Pipeline' },
+      title: { ar: "مسار التوليد البصري المتكامل (Visual Pipeline)", en: "The Generative Visual Pipeline" },
       subtitle: { ar: 'الخطوات الست من الفكرة إلى استخراج الكود والـ Tokens', en: 'The 6 phases from raw idea to code-ready tokens' },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'توضيح دورة حياة التصميم في Stitch خطوة بخطوة.', en: 'Map the complete step-by-step UI generation workflow in Stitch.' },
-      speakerNotes: { ar: 'اشرح الخطوات: الفكرة -> المتطلبات -> البرومبت -> التوليد -> المراجعة النقدية -> استخراج الـ Tokens.', en: 'Walk through: Idea -> Requirements -> Prompt Spec -> Scaffolding -> Audit -> Token Extraction.' },
+      speakerNotes: { ar: "نفّذ: اشرح الخطوات: الفكرة -> المتطلبات -> البرومبت -> التوليد -> المراجعة النقدية -> استخراج الـ Tokens.\nاسأل: اشرح ترتيب المراحل في «مسار التوليد البصري المتكامل (Visual Pipeline)» بصوتك.\nتحقق: الفكرة والمتطلبات ← البرومبت الهندسي ← التوليد البصري ← الفحص والتهذيب ← ضبط التباين والألوان ← استخراج الـ Tokens", en: "Cue: Walk through: Idea -> Requirements -> Prompt Spec -> Scaffolding -> Audit -> Token Extraction.\nAsk: Ask learners to walk through the stages in “The Generative Visual Pipeline”.\nCheck: Requirements → Spec Prompt → UI Generation → Audit & Prune → Refine Theme → Export Tokens" },
       payload: {
         type: 'visual',
         data: {
@@ -178,12 +178,12 @@ export const SESSION_03: PresentationSession = {
       id: 's03-slide-04',
       sessionNumber: 3,
       slideNumber: 4,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'think',
-      title: { ar: 'تأمل: التصميم الاحترافي هو فن الحذف', en: 'Think: Design is the Art of Subtraction' },
+      title: { ar: "تأمل — التصميم الاحترافي هو فن الحذف", en: "Think — Design is the Art of Subtraction" },
       estimatedMinutes: 2,
       teachingGoal: { ar: 'تحذير الطلاب من فخ الألوان الزاعقة والتدرجات المبالغ فيها التي تنتجها أدوات AI أحياناً.', en: 'Warn students against excessive gradients, neon glows, and AI visual clutter.' },
-      speakerNotes: { ar: 'شغل مؤقت 30 ثانية. ذكرهم: "الموقع الراقي لا يصرخ بالألوان؛ الموقع الراقي يهمس بالبساطة والمساحات البيضاء".', en: 'Trigger 30s timer: "Luxury interfaces whisper through typography and whitespace, they never scream with neon".' },
+      speakerNotes: { ar: "نفّذ: شغل مؤقت 30 ثانية. ذكرهم: \"الموقع الراقي لا يصرخ بالألوان؛ الموقع الراقي يهمس بالبساطة والمساحات البيضاء\".\nاسأل: ما الفكرة التي تغيّرت لديك بعد هذا التأمل؟\nتحقق: التصميم لا يكتمل عندما لا يتبقى شيء تضيفه، بل عندما لا يتبقى شيء يمكنك حذفه دون الإخلال بالمعنى.", en: "Cue: Trigger 30s timer: \"Luxury interfaces whisper through typography and whitespace, they never scream with neon\".\nAsk: What changed in your thinking after this pause?\nCheck: Design is achieved not when there is nothing more to add, but when there is nothing left to take away." },
       payload: {
         type: 'think',
         data: {
@@ -205,12 +205,12 @@ export const SESSION_03: PresentationSession = {
       id: 's03-slide-05',
       sessionNumber: 3,
       slideNumber: 5,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'concept',
-      title: { ar: 'ما هي رموز التصميم (Design Tokens)؟', en: 'What are Design Tokens?' },
+      title: { ar: "ما هي رموز التصميم (Design Tokens)؟", en: "What are Design Tokens?" },
       estimatedMinutes: 5,
       teachingGoal: { ar: 'شرح مفهوم الـ Tokens كجسر التواصل بين التصميم والكود.', en: 'Explain design tokens as the immutable bridge between visual UI and code.' },
-      speakerNotes: { ar: 'اشرح أن الـ Token هو متغير مثل --color-primary أو font-sans. عندما نغير الـ Token يتحدث الموقع بأكمله.', en: 'Explain that tokens are variables (--color-primary, font-display). Updating a token cascades across the app.' },
+      speakerNotes: { ar: "نفّذ: اشرح أن الـ Token هو متغير مثل --color-primary أو font-sans. عندما نغير الـ Token يتحدث الموقع بأكمله.\nاسأل: كيف تطبّق هذا المبدأ: رموز التصميم (Tokens) هي أصغر ذرات الهوية البصرية التي تُترجم مباشرة إلى كود.؟\nتحقق: قاعدة المعمارية: التصميم الذي لا يُبنى على Tokens يتحول إلى فوضى مستحيلة الصيانة في الكود.", en: "Cue: Explain that tokens are variables (--color-primary, font-display). Updating a token cascades across the app.\nAsk: How would you apply this principle: Design Tokens are the atomic building blocks translating visual aesthetics into code variables.?\nCheck: Architectural Rule: Designs lacking tokens dissolve into unmaintainable CSS spaghetti in code." },
       payload: {
         type: 'concept',
         data: {
@@ -242,12 +242,12 @@ export const SESSION_03: PresentationSession = {
       id: 's03-slide-06',
       sessionNumber: 3,
       slideNumber: 6,
-      totalSlides: 16,
+      totalSlides: 10,
       type: 'demo',
-      title: { ar: 'تطبيق حي: تشغيل برومبت المطعم في Google Stitch', en: 'Live Demo: Executing Restaurant Prompt in Stitch' },
+      title: { ar: "تشغيل برومبت المطعم في Google Stitch", en: "Live Demo — Executing Restaurant Prompt in Stitch" },
       estimatedMinutes: 6,
       teachingGoal: { ar: 'إظهار عملية التوليد المباشرة وتعديل الألوان أمام أعين الطلاب.', en: 'Demonstrate live generation, critique, and color tuning in real time.' },
-      speakerNotes: { ar: 'انسخ برومبت Trattoria Roma من الجلسة 02، أدخله في الأداة، وشاهد الواجهة تتشكل. اطلب من الطلاب ملاحظة التباين وتسلسل العناوين.', en: 'Copy Trattoria Roma prompt from Session 02, paste into the tool, and watch UI construct live.' },
+      speakerNotes: { ar: "نفّذ: انسخ برومبت Trattoria Roma من الجلسة 02، أدخله في الأداة، وشاهد الواجهة تتشكل. اطلب من الطلاب ملاحظة التباين وتسلسل العناوين.\nاسأل: توليد نموذج واجهة تفاعلي لصفحة هبوط مطعم واستخراج هوية ألوان Terracotta الدافئة.\nتحقق: واجهة متوازنة بخلفية كريمية دافئة ونصوص إسبراسو عميقة وأزرار تيرّاكوتّا واضحة.", en: "Cue: Copy Trattoria Roma prompt from Session 02, paste into the tool, and watch UI construct live.\nAsk: Scaffold an interactive restaurant landing page and extract warm Terracotta palette tokens.\nCheck: Balanced layout with warm cream canvas, deep espresso text, and bold terracotta CTAs." },
       payload: {
         type: 'demo',
         data: {
@@ -280,13 +280,13 @@ Color Palette: #641a01 (Primary Rust), #fff8f5 (Cream Background), #140905 (Deep
     {
       id: 's03-slide-07',
       sessionNumber: 3,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 7,
+      totalSlides: 10,
       type: 'challenge',
-      title: { ar: 'تحدي الطلاب: توليد وتنسيق واجهة مشروعك', en: 'Student Challenge: Generate & Refine Your UI' },
+      title: { ar: "توليد وتنسيق واجهة مشروعك", en: "Student Challenge — Generate & Refine Your UI" },
       estimatedMinutes: 8,
       teachingGoal: { ar: 'توليد كل طالب لتصميم واجهته واستخراج 3 ألوان أساسية لمشروعه.', en: 'Each student generates a prototype UI and locks in 3 core brand colors.' },
-      speakerNotes: { ar: 'شغل مؤقت الـ 5 دقائق. اطلب منهم إدخال برومبت مشروعهم الخاص في أداة التوليد ومشاركة لقطة أو كود الألوان في الشات.', en: 'Start 5-minute timer. Have students feed their spec prompt and share their 3 brand hex codes in chat.' },
+      speakerNotes: { ar: "نفّذ: شغل مؤقت الـ 5 دقائق. اطلب منهم إدخال برومبت مشروعهم الخاص في أداة التوليد ومشاركة لقطة أو كود الألوان في الشات.\nاسأل: ما الناتج الذي ستسلّمه؟ توليد صفحة الهبوط لمشروعك التجاري وضبط هوية ألوانها الأساسية.\nتحقق: تصميم واجهة معتمد مع لوحة الألوان الأساسية الخاصة بمشروع التخرج.", en: "Cue: Start 5-minute timer. Have students feed their spec prompt and share their 3 brand hex codes in chat.\nAsk: What will you submit? Generate your project landing page prototype and configure brand color tokens.\nCheck: Approved visual UI prototype with defined core brand tokens." },
       payload: {
         type: 'challenge',
         data: {
@@ -318,13 +318,13 @@ Color Palette: #641a01 (Primary Rust), #fff8f5 (Cream Background), #140905 (Deep
     {
       id: 's03-slide-08',
       sessionNumber: 3,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 8,
+      totalSlides: 10,
       type: 'project',
-      title: { ar: 'محطة المشروع: التصميم المعتمد ونظام الـ Tokens', en: 'Project Milestone: Approved UI & Token Architecture' },
+      title: { ar: "التصميم المعتمد ونظام الـ Tokens", en: "Project Milestone — Approved UI & Token Architecture" },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'ربط مخرجات الجلسة 03 بالخطوة القادمة: تحويل التصميم إلى كود حقيقي في الجلسة 04.', en: 'Bridge today UI design output to Session 04 codebase scaffolding.' },
-      speakerNotes: { ar: 'وضح للطلاب: "في الجلسة 04 سنأخذ هذا التصميم الذي أنشأناه، ونفككه إلى Components و Codebase حقيقية".', en: 'Reassure students: Session 04 translates this exact design into Next.js components and real files.' },
+      speakerNotes: { ar: "نفّذ: وضح للطلاب: \"في الجلسة 04 سنأخذ هذا التصميم الذي أنشأناه، ونفككه إلى Components و Codebase حقيقية\".\nاسأل: أي مخرج من هذه المرحلة يحتاج إلى استكمال؟\nتحقق: واجهة بصرية متكاملة الأقسام لصفحة الهبوط؛ جدول الـ Design Tokens (الألوان، الخطوط، والمسافات)؛ قائمة الصور والأيقونات المطلوبة للواجهة", en: "Cue: Reassure students: Session 04 translates this exact design into Next.js components and real files.\nAsk: Which deliverable from this phase still needs work?\nCheck: Complete sectioned visual landing page prototype; Design tokens matrix (palette, typography, spatial rhythm); Inventory of necessary photo assets and inline SVGs" },
       payload: {
         type: 'project',
         data: {
@@ -351,13 +351,13 @@ Color Palette: #641a01 (Primary Rust), #fff8f5 (Cream Background), #140905 (Deep
     {
       id: 's03-slide-09',
       sessionNumber: 3,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 9,
+      totalSlides: 10,
       type: 'takeaway',
-      title: { ar: 'الخلاصة الهندسية للجلسة الثالثة', en: 'Session 03 Engineering Takeaways' },
+      title: { ar: "خلاصة: التصميم البصري", en: "Recap: Visual Design" },
       estimatedMinutes: 4,
       teachingGoal: { ar: 'تثبيت مبادئ التصميم المتزن واستخراج الـ Tokens كمعيار هندسي.', en: 'Cement balanced visual design and token extraction as core standards.' },
-      speakerNotes: { ar: 'اقرأ النقاط الثلاث وركز على أن التصميم الجيد في الويب هو هندسة تخدم الاستخدام وليس مجرد زينة.', en: 'Deliver takeaways emphasizing that web design is ergonomic engineering, not decorative art.' },
+      speakerNotes: { ar: "نفّذ: اقرأ النقاط الثلاث وركز على أن التصميم الجيد في الويب هو هندسة تخدم الاستخدام وليس مجرد زينة.\nاسأل: أي مبدأ من «خلاصة: التصميم البصري» ستستخدمه في مشروعك؟\nتحقق: التصميم العظيم لا يلفت الانتباه لنفسه؛ التصميم العظيم يخدم المستخدم والمنتج بسلاسة تامة.", en: "Cue: Deliver takeaways emphasizing that web design is ergonomic engineering, not decorative art.\nAsk: Which principle from “Recap: Visual Design” will you use in your project?\nCheck: Great design never calls attention to itself; it empowers the user and product with effortless clarity." },
       payload: {
         type: 'takeaway',
         data: {
@@ -382,8 +382,8 @@ Color Palette: #641a01 (Primary Rust), #fff8f5 (Cream Background), #140905 (Deep
               number: '03',
               title: { ar: 'الوضوح البصري يخدم الهدف التجاري (Conversion)', en: 'Visual Clarity Drives Business Conversion' },
               description: {
-                ar: 'التصميم الاحترافي يجعل زر الحجز أو الشراء واضحاً في أول 3 ثوانٍ من وصول الزائر للموقع.',
-                en: 'Professional design ensures primary conversion triggers are unmistakably clear within 3 seconds.',
+                ar: 'يجعل التصميم الواضح زر الحجز أو الشراء سهل العثور عليه دون إرباك الزائر.',
+                en: 'Clear design makes the primary booking or purchase action easy to find.',
               },
             },
           ],
@@ -399,13 +399,13 @@ Color Palette: #641a01 (Primary Rust), #fff8f5 (Cream Background), #140905 (Deep
     {
       id: 's03-slide-10',
       sessionNumber: 3,
-      slideNumber: 16,
-      totalSlides: 16,
+      slideNumber: 10,
+      totalSlides: 10,
       type: 'next',
-      title: { ar: 'المحطة القادمة: من التصميم إلى المشروع الحقيقي', en: 'Next Waypoint: From Design to Real Project' },
+      title: { ar: "المحطة القادمة — من التصميم إلى المشروع الحقيقي", en: "Next Waypoint — From Design to Real Project" },
       estimatedMinutes: 2,
       teachingGoal: { ar: 'بناء الحماس للانتقال إلى كتابة الكود وتأسيس مجلد المشروع الحقيقي في الجلسة 04.', en: 'Ignite enthusiasm for translating visual mockups into a real Next.js repository in Session 04.' },
-      speakerNotes: { ar: 'اختم بحماس: "في الجلسة 04 سنفتح الـ Terminal ونؤسس مشروعاً حقيقياً ونبدأ بتحويل هذه الشاشات إلى مكونات كود حية!".', en: 'Close with energy: "In Session 04 we fire up our terminals and scaffold our real code repository!"' },
+      speakerNotes: { ar: "نفّذ: اختم بحماس: \"في الجلسة 04 سنفتح الـ Terminal ونؤسس مشروعاً حقيقياً ونبدأ بتحويل هذه الشاشات إلى مكونات كود حية!\".\nاسأل: ما الذي ستجهزه قبل الجلسة القادمة؟\nتحقق: تأكد من تثبيت Node.js ومحرر VS Code على جهازك إن لم تكن قد ثبتهما بعد.", en: "Cue: Close with energy: \"In Session 04 we fire up our terminals and scaffold our real code repository!\"\nAsk: What will you prepare before the next session?\nCheck: Ensure Node.js and your code editor are installed and operational on your machine." },
       payload: {
         type: 'next',
         data: {

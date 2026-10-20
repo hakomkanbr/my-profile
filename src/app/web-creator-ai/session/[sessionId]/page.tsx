@@ -17,6 +17,8 @@ import {
   getCompletedActivityIds,
   getStudentSubmissionForActivity,
   getSessionSubmissions,
+  getStudentDraft,
+  saveStudentDraft,
   StudentSubmission,
 } from '@/lib/student-storage';
 import {
@@ -60,6 +62,7 @@ export default function StudentSessionRunnerPage() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [revealedHints, setRevealedHints] = useState<number[]>([]);
   const [savedSubmissions, setSavedSubmissions] = useState<StudentSubmission[]>([]);
+  const [draftSaved, setDraftSaved] = useState(true);
 
   useEffect(() => {
     initializeSessions();
@@ -86,7 +89,8 @@ export default function StudentSessionRunnerPage() {
     if (!currentActivity) return;
     const timer = setTimeout(() => {
       const prev = getStudentSubmissionForActivity(currentActivity.id);
-      setStudentInput(prev?.studentAnswer || '');
+      setStudentInput(prev?.studentAnswer || getStudentDraft(currentActivity.id));
+      setDraftSaved(true);
     }, 0);
     return () => clearTimeout(timer);
   }, [currentActivity]);
@@ -156,6 +160,12 @@ export default function StudentSessionRunnerPage() {
     }, 300);
   };
 
+  const handleAnswerChange = (value: string) => {
+    if (!currentActivity) return;
+    setStudentInput(value);
+    setDraftSaved(saveStudentDraft(currentActivity.id, value));
+  };
+
   const nextSessionNumber = session.number + 1;
   const nextSessionSlug = `session-${String(nextSessionNumber).padStart(2, '0')}`;
 
@@ -210,9 +220,12 @@ export default function StudentSessionRunnerPage() {
                     {completedActivities.length} / {totalActivities} {isRtl ? 'مكتملة' : 'completed'}
                   </span>
                 </div>
-                <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full">
-                  {Math.round(((completedActivities.length) / totalActivities) * 100)}% {isRtl ? 'نسبة الإنجاز' : 'Done'}
+                <span className="text-xs text-[var(--color-text-muted)]">
+                  {isRtl ? `النشاط ${currentActivityIndex + 1} من ${totalActivities}` : `Activity ${currentActivityIndex + 1} of ${totalActivities}`}
                 </span>
+              </div>
+              <div className="h-1.5 overflow-hidden rounded-full bg-[var(--color-surface-sunken)]" role="progressbar" aria-label={isRtl ? 'تقدم الجلسة' : 'Session progress'} aria-valuenow={Math.round(completedActivities.length / totalActivities * 100)} aria-valuemin={0} aria-valuemax={100}>
+                <div className="h-full rounded-full bg-[var(--color-primary)]" style={{ width: `${Math.round(completedActivities.length / totalActivities * 100)}%` }} />
               </div>
 
               {/* Clickable Activity Tabs */}
@@ -384,11 +397,12 @@ export default function StudentSessionRunnerPage() {
 
                   {/* Starter / Example Snippet */}
                   {currentActivity.studentContent.starterSnippet && (
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-[var(--color-text-subtle)]">
+                    <details className="group space-y-2">
+                      <summary className="cursor-pointer list-none text-xs font-bold text-[var(--color-text-subtle)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-primary)]">
                           {isRtl ? 'قالب البداية المقترح' : 'Starter Template'}
-                        </span>
+                        <span className="ms-2 text-[var(--color-primary)]">{isRtl ? '(عرض)' : '(show)'}</span>
+                      </summary>
+                      <div className="flex items-center justify-end">
                         <button
                           type="button"
                           onClick={() => handleCopySnippet(currentActivity.studentContent.starterSnippet || '')}
@@ -402,18 +416,19 @@ export default function StudentSessionRunnerPage() {
                       <pre className="p-4 rounded-xl bg-slate-950 text-slate-100 font-mono text-xs sm:text-sm overflow-x-auto border border-slate-800 leading-relaxed whitespace-pre-wrap">
                         {currentActivity.studentContent.starterSnippet}
                       </pre>
-                    </div>
+                    </details>
                   )}
 
                   {currentActivity.studentContent.exampleSnippet && (
-                    <div className="space-y-2">
-                      <span className="text-xs font-bold text-[var(--color-text-subtle)]">
+                    <details className="space-y-2">
+                      <summary className="cursor-pointer list-none text-xs font-bold text-[var(--color-text-subtle)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-primary)]">
                         {isRtl ? 'مثال عملي محلول للاسترشاد' : 'Reference Solution Example'}
-                      </span>
+                        <span className="ms-2 text-[var(--color-primary)]">{isRtl ? '(عرض)' : '(show)'}</span>
+                      </summary>
                       <pre className="p-4 rounded-xl bg-[var(--color-surface-sunken)] text-[var(--color-text)] font-mono text-xs sm:text-sm overflow-x-auto border border-[var(--color-border)] leading-relaxed whitespace-pre-wrap">
                         {currentActivity.studentContent.exampleSnippet}
                       </pre>
-                    </div>
+                    </details>
                   )}
                 </div>
               </Card>
@@ -456,7 +471,7 @@ export default function StudentSessionRunnerPage() {
                     <textarea
                       rows={5}
                       value={studentInput}
-                      onChange={(e) => setStudentInput(e.target.value)}
+                      onChange={(e) => handleAnswerChange(e.target.value)}
                       placeholder={
                         isRtl
                           ? 'اكتب مخرجات النشاط هنا (مثل: اسم المشروع، الأقسام، أو صيغة البرومبت)...'
@@ -473,7 +488,7 @@ export default function StudentSessionRunnerPage() {
                             <span>{isRtl ? 'تم حفظ وتحديث إنجازك بنجاح ✓' : 'Progress saved successfully! ✓'}</span>
                           </span>
                         ) : (
-                          <span>{isRtl ? '💾 يتم حفظ تقدمك تلقائياً في متصفحك ولا يضيع عند التحديث' : '💾 Progress saved locally in browser'}</span>
+                          <span>{draftSaved ? (isRtl ? '💾 تم حفظ المسودة في هذا المتصفح' : '💾 Draft saved in this browser') : (isRtl ? 'تعذر حفظ المسودة في هذا المتصفح' : 'Could not save draft in this browser')}</span>
                         )}
                       </span>
 

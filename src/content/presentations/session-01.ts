@@ -144,8 +144,8 @@ export const SESSION_01: PresentationSession = {
     },
     keyRecap: [
       {
-        ar: 'الذكاء الاصطناعي أداة تسريع تنفيذ خارقة، لكن الحكم الهندسي والمسؤولية تظل بشرية 100%.',
-        en: 'AI is a powerful execution accelerator, but engineering judgment and accountability remain 100% human.',
+        ar: 'الذكاء الاصطناعي أداة تسريع تنفيذ خارقة، لكن الحكم الهندسي والمسؤولية تظل مسؤولية الإنسان.',
+        en: 'AI is a powerful execution accelerator, but engineering judgment and accountability remain a human responsibility.',
       },
       {
         ar: 'الـ Vibe Coding أسلوب مفيد للاستكشاف والـ MVP، بينما هندسة البرمجيات تضمن الجودة وقابلية الصيانة.',
@@ -168,21 +168,15 @@ export const SESSION_01: PresentationSession = {
       id: 's01-slide-01',
       sessionNumber: 1,
       slideNumber: 1,
-      totalSlides: 20,
+      totalSlides: 16,
       type: 'title',
-      title: {
-        ar: 'المبتكر الجديد للويب',
-        en: 'The New Web Creator',
-      },
+      title: { ar: "المبتكر الجديد للويب", en: "The New Web Creator" },
       estimatedMinutes: 2,
       teachingGoal: {
         ar: 'افتتاح الجلسة بطاقة عالية وتركيز مباشر على الهوية الجديدة للمتعلم في عصر الذكاء الاصطناعي.',
         en: 'Open session with high energy and set the student identity in the AI era.',
       },
-      speakerNotes: {
-        ar: 'ابدأ بالترحيب بالطلاب في Zoom. اطلب منهم كتابة مدنهم وخلفياتهم البرمجية السابقة في الشات. أكد أن هذه الدورة لا تتطلب حفظًا مسبقًا للأكواد، بل تتطلب عقلية فضولية هندسية منظمة.',
-        en: 'Welcome learners on Zoom. Ask them to share backgrounds in chat. Reassure them that memorization is obsolete; curiosity and mental architecture are what matter.',
-      },
+      speakerNotes: { ar: "نفّذ: ابدأ بالترحيب بالطلاب في Zoom. اطلب منهم كتابة مدنهم وخلفياتهم البرمجية السابقة في الشات. أكد أن هذه الدورة لا تتطلب حفظًا مسبقًا للأكواد، بل تتطلب عقلية فضولية هندسية منظمة.\nاسأل: ما الهدف الذي تتوقع تحقيقه في جلسة «المبتكر الجديد للويب»؟\nتحقق: افتتاح الجلسة بطاقة عالية وتركيز مباشر على الهوية الجديدة للمتعلم في عصر الذكاء الاصطناعي.", en: "Cue: Welcome learners on Zoom. Ask them to share backgrounds in chat. Reassure them that memorization is obsolete; curiosity and mental architecture are what matter.\nAsk: What outcome do you expect from “The New Web Creator”?\nCheck: Open session with high energy and set the student identity in the AI era." },
       payload: {
         type: 'title',
         data: {
@@ -211,12 +205,9 @@ export const SESSION_01: PresentationSession = {
       id: 's01-slide-02',
       sessionNumber: 1,
       slideNumber: 2,
-      totalSlides: 20,
+      totalSlides: 16,
       type: 'context',
-      title: {
-        ar: 'التحول الكبير في صناعة الويب',
-        en: 'The Great Shift in Web Development',
-      },
+      title: { ar: "التحول الكبير في صناعة الويب", en: "The Great Shift in Web Development" },
       subtitle: {
         ar: 'لماذا تختلف بيئة تطوير الويب اليوم جذرياً عما كانت عليه قبل عامين فقط؟',
         en: 'Why web development today fundamentally differs from two years ago',
@@ -226,24 +217,21 @@ export const SESSION_01: PresentationSession = {
         ar: 'وضع الطلاب في قلب الواقع الصناعي والتقني المعاصر بأسلوب موضوعي دون تهويل أو تقليل.',
         en: 'Contextualize the current market state realistically without hype or fear.',
       },
-      speakerNotes: {
-        ar: 'ركز على أن حواجز الدخول انخفضت جداً، مما يعني أن كتابة Syntax لم تعد وحدها ميزة تنافسية. القيمة الحقيقية انتقلت إلى فهم المنتج، معمارية الحل، والتسليم السريع.',
-        en: 'Emphasize that syntax barriers collapsed. Competitive advantage shifted to product understanding, architecture, and reliable delivery.',
-      },
+      speakerNotes: { ar: "نفّذ: ركز على أن حواجز الدخول انخفضت جداً، مما يعني أن كتابة Syntax لم تعد وحدها ميزة تنافسية. القيمة الحقيقية انتقلت إلى فهم المنتج، معمارية الحل، والتسليم السريع.\nاسأل: ما المشكلة التي توضّحها «التحول الكبير في صناعة الويب»؟\nتحقق: توليد الكود أصبح سهلاً، لكن التأكد من أمانه، بنيته المعمارية، وسرعة أدائه أصبح يتطلب عيناً هندسية فاحصة.", en: "Cue: Emphasize that syntax barriers collapsed. Competitive advantage shifted to product understanding, architecture, and reliable delivery.\nAsk: What problem does “The Great Shift in Web Development” point to?\nCheck: Generating code is easy; ensuring security, clean architecture, and performance demands sharp engineering review." },
       payload: {
         type: 'context',
         data: {
           industryShift: {
-            ar: 'أدوات الذكاء الاصطناعي خفضت زمن كتابة الأكواد التأسيسية (Boilerplate) من أيام وساعات إلى دقائق معدودة.',
-            en: 'AI tools reduced boilerplate scaffolding time from days to minutes.',
+            ar: 'يمكن لأدوات الذكاء الاصطناعي تسريع كتابة الأكواد التأسيسية (Boilerplate)، مع ضرورة مراجعة الناتج.',
+            en: 'AI tools can speed up boilerplate drafting, while the result still needs review.',
           },
           realWorldProblem: {
             ar: 'توليد الكود أصبح سهلاً، لكن التأكد من أمانه، بنيته المعمارية، وسرعة أدائه أصبح يتطلب عيناً هندسية فاحصة.',
             en: 'Generating code is easy; ensuring security, clean architecture, and performance demands sharp engineering review.',
           },
           whyItMatters: {
-            ar: 'المطور الذي يجمع بين سرعة الذكاء الاصطناعي والانضباط الهندسي يسبق السوق بـ 10 أضعاف مقارنة بالمطور التقليدي.',
-            en: 'Creators combining AI speed with engineering fundamentals outpace traditional workflows tenfold.',
+            ar: 'الجمع بين سرعة الذكاء الاصطناعي والانضباط الهندسي يساعد على تقديم عمل موثوق.',
+            en: 'Creators combining AI speed with engineering fundamentals work more effectively than either approach alone.',
           },
         },
       },
@@ -254,21 +242,15 @@ export const SESSION_01: PresentationSession = {
       id: 's01-slide-03',
       sessionNumber: 1,
       slideNumber: 3,
-      totalSlides: 20,
+      totalSlides: 16,
       type: 'question',
-      title: {
-        ar: 'سؤال افتتاحي للنقاش',
-        en: 'Opening Class Discussion',
-      },
+      title: { ar: "سؤال افتتاحي", en: "Opening question" },
       estimatedMinutes: 4,
       teachingGoal: {
         ar: 'تحفيز الطلاب على التفكير في جوهر مهنة المطور في ظل انتشار نماذج LLMs.',
         en: 'Ignite student reflection on what defines an engineer in the LLM era.',
       },
-      speakerNotes: {
-        ar: 'اطرح السؤال بصوت واضح: "ماذا يعني أن تكون مطور ويب اليوم؟ هل دورك هو كتابة الحلقات التكرارية والـ CSS فقط؟" اقرأ إجابات الشات المباشرة وعلّق عليها.',
-        en: 'Ask clearly: "What does it mean to be a web developer today?" Read live Zoom chat responses and validate insightful points.',
-      },
+      speakerNotes: { ar: "نفّذ: اطرح السؤال بصوت واضح: \"ماذا يعني أن تكون مطور ويب اليوم؟ هل دورك هو كتابة الحلقات التكرارية والـ CSS فقط؟\" اقرأ إجابات الشات المباشرة وعلّق عليها.\nاسأل: اكتب في شات Zoom بكلمة أو اثنتين: ما هي وظيفتك الحقيقية الآن؟\nتحقق: استمع لأفكار مثل: فهم رغبة العميل وتحويلها لمتطلبات دقيقة؛ اتخاذ القرارات المعمارية واختيار التقنيات المناسبة", en: "Cue: Ask clearly: \"What does it mean to be a web developer today?\" Read live Zoom chat responses and validate insightful points.\nAsk: Drop in Zoom chat in 1-2 words: What is your primary role now?\nCheck: Listen for ideas such as: Deconstructing client intent into precise technical requirements; Making architectural decisions and technology tradeoffs" },
       payload: {
         type: 'question',
         data: {
@@ -278,7 +260,7 @@ export const SESSION_01: PresentationSession = {
           },
           contextHint: {
             ar: 'إذا كان الذكاء الاصطناعي يستطيع كتابة صفحة هبوط في 30 ثانية، فأين تكمن قيمتك المضافة؟',
-            en: 'If an AI can scaffold a landing page in 30 seconds, where does your human value lie?',
+            en: 'If AI can quickly scaffold a landing page, where does your human value lie?',
           },
           promptToClass: {
             ar: 'اكتب في شات Zoom بكلمة أو اثنتين: ما هي وظيفتك الحقيقية الآن؟',
@@ -311,21 +293,15 @@ export const SESSION_01: PresentationSession = {
       id: 's01-slide-04',
       sessionNumber: 1,
       slideNumber: 4,
-      totalSlides: 20,
+      totalSlides: 16,
       type: 'think',
-      title: {
-        ar: 'توقف وتأمل: الأداة مقابل العقلية',
-        en: 'Think & Reflect: Tool vs Mindset',
-      },
+      title: { ar: "توقف وتأمل — الأداة مقابل العقلية", en: "Think & Reflect — Tool vs Mindset" },
       estimatedMinutes: 2,
       teachingGoal: {
         ar: 'تهدئة وتيرة الشرح لدقيقة واحدة وإتاحة 30 ثانية للطالب لترسيخ مفهوم أن الذكاء الاصطناعي أداة وليس قائداً.',
         en: 'Provide a 30-second silent contemplative window: AI is an instrument, not the orchestrator.',
       },
-      speakerNotes: {
-        ar: 'شغل المؤقت لـ 30 ثانية. اطلب من الجميع الصمت والتأمل في العبارة المعروضة على الشاشة.',
-        en: 'Trigger the 30-second countdown. Encourage silence and reflection on the principle displayed.',
-      },
+      speakerNotes: { ar: "نفّذ: شغل المؤقت لـ 30 ثانية. اطلب من الجميع الصمت والتأمل في العبارة المعروضة على الشاشة.\nاسأل: ما الفكرة التي تغيّرت لديك بعد هذا التأمل؟\nتحقق: الذكاء الاصطناعي يمنحك سرعة الرياح، لكن عقلك الهندسي هو الذي يمسك بدفة السفينة.", en: "Cue: Trigger the 30-second countdown. Encourage silence and reflection on the principle displayed.\nAsk: What changed in your thinking after this pause?\nCheck: AI provides the speed of the wind; your engineering mind holds the ship rudder." },
       payload: {
         type: 'think',
         data: {
@@ -353,12 +329,9 @@ export const SESSION_01: PresentationSession = {
       id: 's01-slide-05',
       sessionNumber: 1,
       slideNumber: 5,
-      totalSlides: 20,
+      totalSlides: 16,
       type: 'comparison',
-      title: {
-        ar: 'مسار العمل: التطوير التقليدي مقابل التطوير المعزز بالذكاء الاصطناعي',
-        en: 'Workflow Evolution: Traditional vs AI-Assisted Development',
-      },
+      title: { ar: "مقارنة مساري التطوير", en: "Two Development Workflows" },
       subtitle: {
         ar: 'كيف أعاد الذكاء الاصطناعي هيكلة خطوات بناء مواقع الويب من الفكرة إلى النشر؟',
         en: 'How AI restructured the end-to-end web construction lifecycle',
@@ -368,10 +341,7 @@ export const SESSION_01: PresentationSession = {
         ar: 'توضيح المسار الحقيقي خطوة بخطوة وإثبات أن خطوات التفكير والمراجعة لم تختف بل ازدادت أهميتها.',
         en: 'Demonstrate step-by-step how the pipeline transformed without discarding verification.',
       },
-      speakerNotes: {
-        ar: 'اشرح المقارنة بين العمودين. لاحظ أن مرحلة "Research with AI" و"AI-assisted Architecture" و"Human Review" أصبحت محطات صريحة تمنع الأخطاء.',
-        en: 'Walk through both columns. Point out that Research, AI Scaffolding, and Human Review are now explicit stages.',
-      },
+      speakerNotes: { ar: "نفّذ: اشرح المقارنة بين العمودين. لاحظ أن مرحلة \"Research with AI\" و\"AI-assisted Architecture\" و\"Human Review\" أصبحت محطات صريحة تمنع الأخطاء.\nاسأل: ما معيارك للاختيار بين جانبي «مقارنة مساري التطوير»؟\nتحقق: الذكاء الاصطناعي يختصر وقت التنفيذ اليدوي، لكنه لا يقرر بالنيابة عنك ما الذي يجب بناؤه.", en: "Cue: Walk through both columns. Point out that Research, AI Scaffolding, and Human Review are now explicit stages.\nAsk: What would guide your choice between the two sides of “Two Development Workflows”?\nCheck: AI compresses manual execution time, but never decides what should be built for the user." },
       payload: {
         type: 'comparison',
         data: {
@@ -423,21 +393,15 @@ export const SESSION_01: PresentationSession = {
       id: 's01-slide-06',
       sessionNumber: 1,
       slideNumber: 6,
-      totalSlides: 20,
+      totalSlides: 16,
       type: 'concept',
-      title: {
-        ar: 'من مطور أكواد إلى صانع ويب متكامل',
-        en: 'From Coder to Web Creator',
-      },
+      title: { ar: "من مطور أكواد إلى صانع ويب متكامل", en: "From Coder to Web Creator" },
       estimatedMinutes: 5,
       teachingGoal: {
         ar: 'ترسيخ مفهوم "Web Creator" كشخص يفهم المنتج بالكامل من التصميم وحتى التسويق والعملاء.',
         en: 'Define "Web Creator" as a full-spectrum orchestrator covering design, engineering, and market delivery.',
       },
-      speakerNotes: {
-        ar: 'اشرح أن العميل لا يهتم إن كنت تستخدم Flexbox أو Grid بقدر ما يهتم بأن موقعه سريع، أنيق، ويجلب له مبيعات ومستخدمين.',
-        en: 'Explain that clients care less about whether you chose Flexbox vs Grid and care most that the site is fast, stunning, and converts.',
-      },
+      speakerNotes: { ar: "نفّذ: اشرح أن العميل لا يهتم إن كنت تستخدم Flexbox أو Grid بقدر ما يهتم بأن موقعه سريع، أنيق، ويجلب له مبيعات ومستخدمين.\nاسأل: كيف تطبّق هذا المبدأ: صانع الويب (Web Creator) لا ينحصر في كتابة الدوال، بل يقود رحلة المنتج كاملة.؟\nتحقق: التقنية وسيلة لتحقيق قيمة تجارية وإنسانية، وليست غاية في حد ذاتها.", en: "Cue: Explain that clients care less about whether you chose Flexbox vs Grid and care most that the site is fast, stunning, and converts.\nAsk: How would you apply this principle: A Web Creator orchestrates the entire product journey from concept to revenue.?\nCheck: Technology is an instrument for delivering human and business value, never an end in itself." },
       payload: {
         type: 'concept',
         data: {
@@ -484,12 +448,9 @@ export const SESSION_01: PresentationSession = {
       id: 's01-slide-07',
       sessionNumber: 1,
       slideNumber: 7,
-      totalSlides: 20,
+      totalSlides: 16,
       type: 'comparison',
-      title: {
-        ar: 'هندسة البرمجيات مقابل أسلوب الـ Vibe Coding',
-        en: 'Software Engineering vs Vibe Coding Approach',
-      },
+      title: { ar: "هندسة البرمجيات مقابل أسلوب الـ Vibe Coding", en: "Software Engineering vs Vibe Coding Approach" },
       subtitle: {
         ar: 'مقارنة موضوعية ومتزنة تفكك المفاهيم دون تحيز أو تبسيط تسويقي',
         en: 'An objective, balanced comparison without marketing hype or oversimplification',
@@ -499,10 +460,7 @@ export const SESSION_01: PresentationSession = {
         ar: 'تعليم الطلاب متى يفيد الـ Vibe Coding السريع (النماذج الأولية) ولماذا تحتاج المشاريع الحقيقية إلى منهجية هندسية منضبطة.',
         en: 'Teach students where Vibe Coding shines (rapid prototypes) and why production requires disciplined engineering.',
       },
-      speakerNotes: {
-        ar: 'أكد بقوة على ألا نصف أي أسلوب بأنه "سيء" أو "خاطئ". الـ Vibe Coding ممتع وسريع للـ MVP، لكن عندما يتعلق الأمر بالأمان والـ scalability، نحتاج عقلية المهندس.',
-        en: 'Do not label either approach as bad. Vibe Coding is fantastic for weekend MVPs, while Software Engineering is vital for uptime, security, and scale.',
-      },
+      speakerNotes: { ar: "نفّذ: أكد بقوة على ألا نصف أي أسلوب بأنه \"سيء\" أو \"خاطئ\". الـ Vibe Coding ممتع وسريع للـ MVP، لكن عندما يتعلق الأمر بالأمان والـ scalability، نحتاج عقلية المهندس.\nاسأل: ما معيارك للاختيار بين جانبي «هندسة البرمجيات مقابل أسلوب الـ Vibe Coding»؟\nتحقق: النموذج الأمثل للدورة: نستخدم سرعة الـ Vibe Coding لتوليد الخيارات، ونطبق انضباط هندسة البرمجيات لاعتمادها وتأمينها.", en: "Cue: Do not label either approach as bad. Vibe Coding is fantastic for weekend MVPs, while Software Engineering is vital for uptime, security, and scale.\nAsk: What would guide your choice between the two sides of “Software Engineering vs Vibe Coding Approach”?\nCheck: Our course synthesis: Use Vibe velocity for rapid options, apply Engineering rigor for production safety." },
       payload: {
         type: 'comparison',
         data: {
@@ -523,7 +481,7 @@ export const SESSION_01: PresentationSession = {
             {
               dimension: { ar: 'سرعة النمذجة الأولى', en: 'Initial Prototyping Speed' },
               left: { ar: 'متأنية ومحسوبة بالمللي ثانية', en: 'Measured and methodically deliberate' },
-              right: { ar: 'فائقة السرعة في دقائق معدودة', en: 'Instantaneous scaffolding in seconds' },
+              right: { ar: 'توليد سريع لنموذج أولي يحتاج إلى مراجعة', en: 'Rapid prototype generation that still needs review' },
             },
             {
               dimension: { ar: 'قابلية الصيانة على المدى الطويل', en: 'Long-Term Maintainability' },
@@ -554,21 +512,15 @@ export const SESSION_01: PresentationSession = {
       id: 's01-slide-08',
       sessionNumber: 1,
       slideNumber: 8,
-      totalSlides: 20,
+      totalSlides: 16,
       type: 'concept',
-      title: {
-        ar: 'ما الذي يتقنه الذكاء الاصطناعي بكفاءة خارقة؟',
-        en: 'What AI Excels At Exceptionally Well',
-      },
+      title: { ar: "ما الذي يتقنه الذكاء الاصطناعي بكفاءة خارقة؟", en: "What AI Excels At Exceptionally Well" },
       estimatedMinutes: 4,
       teachingGoal: {
         ar: 'تحديد نقاط القوة الحقيقية لأدوات الذكاء الاصطناعي لتوظيفها دون إضاعة الوقت في مهام لا تناسبها.',
         en: 'Pinpoint the true super-strengths of AI tools so students leverage them effectively.',
       },
-      speakerNotes: {
-        ar: 'وضح للطلاب أن الذكاء الاصطناعي ممتاز في تحويل JSON إلى واجهة، كتابة Regex معقد، وتوليد نصوص تجريبية، وتحويل التصاميم إلى Tailwind CSS.',
-        en: 'Explain that AI shines at generating boilerplate, complex regex, dummy JSON mocks, and translating styles to Tailwind classes.',
-      },
+      speakerNotes: { ar: "نفّذ: وضّح أن الذكاء الاصطناعي قد يساعد في تحويل JSON إلى واجهة، وصياغة Regex، وتوليد بيانات تجريبية، وتحويل التصميم إلى CSS.\nاسأل: أيّ مهمة من هذه المهام ستجرّب فيها مساعدًا ذكيًا، وكيف ستراجع الناتج؟\nتحقق: يذكر الطالب مهمة محددة، ثم يوضح أن الناتج يحتاج إلى مراجعة وتجربة.", en: "Cue: Explain that AI can help turn JSON into a UI, draft a regular expression, generate sample data, or translate a design into CSS.\nAsk: Which task would you try with an AI assistant, and how would you review its output?\nCheck: Learners name a concrete task and explain that the result still needs review and testing." },
       payload: {
         type: 'concept',
         data: {
@@ -581,8 +533,8 @@ export const SESSION_01: PresentationSession = {
             en: 'UNLEASH THE EXECUTION ENGINE',
           },
           explanation: {
-            ar: 'النماذج اللغوية الحديثة دربت على مليارات أسطر الكود، مما يجعلها قادرة على استدعاء الأنماط البرمجية المألوفة (Design Patterns) في أجزاء من الثانية.',
-            en: 'LLMs ingested billions of code tokens, enabling them to instantly retrieve and scaffold canonical design patterns.',
+            ar: 'يمكن للنماذج اللغوية اقتراح أنماط برمجية مألوفة، لكن على المطور مراجعة ملاءمتها واختبارها.',
+            en: 'Language models can suggest familiar coding patterns, but developers still need to review and test their fit.',
           },
           bulletPoints: [
             {
@@ -611,21 +563,15 @@ export const SESSION_01: PresentationSession = {
       id: 's01-slide-09',
       sessionNumber: 1,
       slideNumber: 9,
-      totalSlides: 20,
+      totalSlides: 16,
       type: 'concept',
-      title: {
-        ar: 'ما الذي يعجز الذكاء الاصطناعي عن تعويضه؟',
-        en: 'What AI Cannot Replace: The Human Frontier',
-      },
+      title: { ar: "ما الذي يعجز الذكاء الاصطناعي عن تعويضه؟", en: "What AI Cannot Replace — The Human Frontier" },
       estimatedMinutes: 5,
       teachingGoal: {
         ar: 'طمأنة الطلاب وبناء ثقتهم بأن قيمتهم الإنسانية والفكرية هي صمام الأمان لأي مشروع ناجح.',
         en: 'Reassure students and solidify confidence in human critical thinking, ethics, and empathy.',
       },
-      speakerNotes: {
-        ar: 'هذه شريحة محورية جداً. أكد أن الذكاء الاصطناعي لا يملك حس التذوق الجمالي الدقيق، ولا يفهم مشاعر العميل، ولا يتحمل المسؤولية القانونية أو الأخلاقية عند حدوث اختراق.',
-        en: 'Crucial slide. Reiterate that AI lacks design taste, cannot empathize with a client, and never shoulders legal liability when data breaches occur.',
-      },
+      speakerNotes: { ar: "نفّذ: هذه شريحة محورية جداً. أكد أن الذكاء الاصطناعي لا يملك حس التذوق الجمالي الدقيق، ولا يفهم مشاعر العميل، ولا يتحمل المسؤولية القانونية أو الأخلاقية عند حدوث اختراق.\nاسأل: كيف تطبّق هذا المبدأ: المسؤولية، الحكم الهندسي، والتواصل الإنساني تظل حكراً على العقل البشري.؟\nتحقق: القاعدة الذهبية: الذكاء الاصطناعي يولد الاقتراحات — والمهندس البشري يقرر ويعتمد.", en: "Cue: Crucial slide. Reiterate that AI lacks design taste, cannot empathize with a client, and never shoulders legal liability when data breaches occur.\nAsk: How would you apply this principle: Accountability, architectural judgment, and client empathy remain uniquely human.?\nCheck: Golden Rule: AI Generates Proposals — Human Engineers Audit and Approve." },
       payload: {
         type: 'concept',
         data: {
@@ -672,12 +618,9 @@ export const SESSION_01: PresentationSession = {
       id: 's01-slide-10',
       sessionNumber: 1,
       slideNumber: 10,
-      totalSlides: 20,
+      totalSlides: 16,
       type: 'visual',
-      title: {
-        ar: 'خارطة طريق رحلة الـ 12 جلسة (18 ساعة)',
-        en: 'The 12-Session Learning Roadmap (18 Hours)',
-      },
+      title: { ar: "خارطة طريق رحلة الـ 12 جلسة (18 ساعة)", en: "The 12-Session Learning Roadmap (18 Hours)" },
       subtitle: {
         ar: 'مسار تصاعدي مترابط ينقلك من الفكرة المجردة إلى إطلاق منتج ويب متكامل وقابل للبيع',
         en: 'A progressive end-to-end flight path from abstract idea to market-ready web service',
@@ -687,10 +630,7 @@ export const SESSION_01: PresentationSession = {
         ar: 'إعطاء الطلاب الصورة البانورامية الكبرى للدورة ليرى كل طالب موقعه الحالي وأين سيصل.',
         en: 'Present the grand architectural curriculum roadmap so students see how every session connects.',
       },
-      speakerNotes: {
-        ar: 'استعرض المحطات الست الرئيسية في الخريطة: التأسيس -> هندسة البرومبت والتصميم -> المشروع والتحليل -> أساسيات الويب وReact -> Next.js والـ AI الاحترافي -> التسويق والمشروع النهائي.',
-        en: 'Walk through the 6 major pipeline stages: Foundation -> Prompt & Design -> Setup & Antigravity -> Fundamentals & React -> Production Next.js -> Marketing & Launch.',
-      },
+      speakerNotes: { ar: "نفّذ: استعرض المحطات الست الرئيسية في الخريطة: التأسيس -> هندسة البرومبت والتصميم -> المشروع والتحليل -> أساسيات الويب وReact -> Next.js والـ AI الاحترافي -> التسويق والمشروع النهائي.\nاسأل: اشرح ترتيب المراحل في «خارطة طريق رحلة الـ 12 جلسة (18 ساعة)» بصوتك.\nتحقق: المبتكر الجديد ← هندسة البرومبت ← Google Stitch ← تأسيس المشروع ← Antigravity ← HTML + CSS", en: "Cue: Walk through the 6 major pipeline stages: Foundation -> Prompt & Design -> Setup & Antigravity -> Fundamentals & React -> Production Next.js -> Marketing & Launch.\nAsk: Ask learners to walk through the stages in “The 12-Session Learning Roadmap (18 Hours)”.\nCheck: New Creator → Prompt Eng → UI Design → Project Setup → Analyze First → Web Basics" },
       payload: {
         type: 'visual',
         data: {
@@ -716,21 +656,15 @@ export const SESSION_01: PresentationSession = {
       id: 's01-slide-11',
       sessionNumber: 1,
       slideNumber: 11,
-      totalSlides: 20,
+      totalSlides: 16,
       type: 'concept',
-      title: {
-        ar: 'ما الذي تطلبه الشركات والعملاء اليوم في سوق الويب؟',
-        en: 'What Clients & Employers Pay For Today',
-      },
+      title: { ar: "ما الذي يقدّره العملاء؟", en: "What Clients Value" },
       estimatedMinutes: 4,
       teachingGoal: {
         ar: 'ربط المعرفة التقنية بسوق العمل والفرص المالية الواقعية بدون وعود تسويقية وهمية.',
         en: 'Ground technical competencies in economic reality without fraudulent earning guarantees.',
       },
-      speakerNotes: {
-        ar: 'اشرح أن العميل الحديث لا يملك وقتاً للانتظار 3 أشهر لموقع بسيط. يريد شريكاً رقمياً يفهم احتياجاته، يبني بسرعة، ويقدم موقعاً متوافقاً مع الهواتف ومحركات البحث.',
-        en: 'Explain that clients no longer wait 3 months for basic sites. They hire creators who understand business, iterate fast, and deliver responsive, SEO-ready sites.',
-      },
+      speakerNotes: { ar: "نفّذ: اشرح أن العميل يبحث عن حل يناسب حاجته، وأن وضوح النطاق والاتفاق على الأولويات يساعدان على تقدير وقت التنفيذ.\nاسأل: كيف تطبّق هذا المبدأ: العملاء لا يشترون لغات برمجة؛ العملاء يشترون حلولاً تزيد مبيعاتهم ومصداقيتهم؟\nتحقق: يربط الطالب بين احتياج العميل ومخرج قابل للتسليم، ويتجنب الوعد بوقت أو نتيجة قبل فهم نطاق العمل.", en: "Cue: Explain that clients seek a solution to a need, and that clear scope and priorities help estimate delivery time.\nAsk: How would you apply this principle: clients are buying solutions to business needs, not a programming language?\nCheck: Learners connect a client need to a deliverable and avoid promising a timeline or outcome before understanding the scope." },
       payload: {
         type: 'concept',
         data: {
@@ -743,8 +677,8 @@ export const SESSION_01: PresentationSession = {
             en: 'MARKET REALITY & ECONOMIC VALUE',
           },
           explanation: {
-            ar: 'تغيرت توقعات السوق بشكل جذري: أصبح العميل يبحث عن شريك يستطيع تسليم موقع احترافي سريع الاستجابة في أيام معدودة، مع دعم كامل للـ SEO والأداء والأمان.',
-            en: 'Market expectations evolved: clients seek partners delivering high-speed, mobile-responsive, SEO-optimized web assets in days instead of months.',
+            ar: 'يقدّر العملاء فهم احتياجهم والاتفاق على نطاق واضح وتسليم تجربة سريعة الاستجابة مع مراعاة البحث والأداء والأمان.',
+            en: 'Clients value a clear understanding of their needs, agreed scope, and responsive experiences built with search, performance, and security in mind.',
           },
           bulletPoints: [
             {
@@ -773,21 +707,15 @@ export const SESSION_01: PresentationSession = {
       id: 's01-slide-12',
       sessionNumber: 1,
       slideNumber: 12,
-      totalSlides: 20,
+      totalSlides: 16,
       type: 'project',
-      title: {
-        ar: 'مشروعك التطبيقي طوال الدورة: البناء التراكمي المستمر',
-        en: 'Your Course Project: Continuous Milestone Progression',
-      },
+      title: { ar: "مشروع واحد، يتطور كل جلسة", en: "One Project, Built Session by Session" },
       estimatedMinutes: 5,
       teachingGoal: {
         ar: 'شرح مفهوم المشروع الممتد عبر الجلسات الـ 12 ليدرك الطالب أن كل درس سيضيف لبنة ملموسة لمشروعه النهائي.',
         en: 'Clarify the course-long project architecture: every session contributes directly to a portfolio piece.',
       },
-      speakerNotes: {
-        ar: 'أوضح للطلاب أنهم لن يبنوا مشاريع عشوائية تنتهي في سلة المهملات، بل سيختار كل طالب نشاطاً تجارياً حقيقياً (مطعم، عيادة، نادي رياضي، أو متجر) ويطوره طوال الدورة.',
-        en: 'Reassure students that projects are not throwaway exercises. Each chooses a realistic domain (clinic, restaurant, gym) that matures across all 12 sessions.',
-      },
+      speakerNotes: { ar: "نفّذ: أوضح للطلاب أنهم لن يبنوا مشاريع عشوائية تنتهي في سلة المهملات، بل سيختار كل طالب نشاطاً تجارياً حقيقياً (مطعم، عيادة، نادي رياضي، أو متجر) ويطوره طوال الدورة.\nاسأل: أي مخرج من هذه المرحلة يحتاج إلى استكمال؟\nتحقق: اختيار اسم وفكرة النشاط التجاري للمشروع؛ تحديد الجمهور المستهدف والقيمة المقدمة للعميل؛ حصر الصفحات والأقسام المطلوبة في الواجهة الرئيسية؛ تجهيز ملف المتطلبات الأولية لجلسة البرومبت القادمة", en: "Cue: Reassure students that projects are not throwaway exercises. Each chooses a realistic domain (clinic, restaurant, gym) that matures across all 12 sessions.\nAsk: Which deliverable from this phase still needs work?\nCheck: Select business name and sector niche; Define target persona and unique value proposition; Inventory required sections for the flagship landing page; Prepare initial requirements doc for Session 02 prompt design" },
       payload: {
         type: 'project',
         data: {
@@ -816,21 +744,15 @@ export const SESSION_01: PresentationSession = {
       id: 's01-slide-13',
       sessionNumber: 1,
       slideNumber: 13,
-      totalSlides: 20,
+      totalSlides: 16,
       type: 'demo',
-      title: {
-        ar: 'تطبيق حي: كيف يحلل صانع الويب طلب عميل تجاري؟',
-        en: 'Live Demo: How a Web Creator Analyzes a Client Brief',
-      },
+      title: { ar: "كيف يحلل صانع الويب طلب عميل تجاري؟", en: "Live Demo — How a Web Creator Analyzes a Client Brief" },
       estimatedMinutes: 6,
       teachingGoal: {
         ar: 'نمذجة التفكير الهندسي عملياً أمام الطلاب عند استلام طلب غامض من العميل.',
         en: 'Model professional deconstruction of ambiguous client requests in real time.',
       },
-      speakerNotes: {
-        ar: 'افتح الشات واعرض طلب عميل نمطي: "أريد موقعاً لمطعمي الجديد". أظهر للطلاب كيف يحوله المهندس إلى 5 أسئلة استراتيجية قبل كتابة أي برومبت أو كود.',
-        en: 'Share screen with a raw brief: "I want a site for my restaurant." Demonstrate how an engineer converts this into 5 strategic technical specs before touching AI.',
-      },
+      speakerNotes: { ar: "نفّذ: افتح الشات واعرض طلب عميل نمطي: \"أريد موقعاً لمطعمي الجديد\". أظهر للطلاب كيف يحوله المهندس إلى 5 أسئلة استراتيجية قبل كتابة أي برومبت أو كود.\nاسأل: تحويل رسالة عميل عفوية إلى وثيقة متطلبات برمجية واضحة ومحددة المعالم.\nتحقق: هيكل واجهة مكون من 5 أقسام رئيسية مع زر حجز طاولة بارز وموقع خرائط واضح.", en: "Cue: Share screen with a raw brief: \"I want a site for my restaurant.\" Demonstrate how an engineer converts this into 5 strategic technical specs before touching AI.\nAsk: Transforming an informal client brief into actionable architectural specifications.\nCheck: A 5-section landing page blueprint with primary reservation CTA and integrated Google Map." },
       payload: {
         type: 'demo',
         data: {
@@ -865,21 +787,15 @@ Extract:
       id: 's01-slide-14',
       sessionNumber: 1,
       slideNumber: 14,
-      totalSlides: 20,
+      totalSlides: 16,
       type: 'challenge',
-      title: {
-        ar: 'تحدي الطلاب: تفكيك طلب عميل في 5 دقائق',
-        en: 'Student Challenge: Deconstruct a Client Brief (5 Mins)',
-      },
+      title: { ar: "تفكيك طلب عميل في 5 دقائق", en: "Student Challenge — Deconstruct a Client Brief (5 Mins)" },
       estimatedMinutes: 7,
       teachingGoal: {
         ar: 'جعل الطالب يمارس التفكير الهندسي بيده ويكتب في الشات أو في محرر نصوصه.',
         en: 'Engage students in hands-on requirement decomposition with active Zoom chat participation.',
       },
-      speakerNotes: {
-        ar: 'شغل مؤقت الـ 5 دقائق. اطلب من الطلاب اختيار قطاع (مطعم أو عيادة) وتحديد: ما هي الأقسام الـ 4 الأساسية للموقع؟ وما هو الزر الرئيسي (CTA)؟',
-        en: 'Launch the 5-minute countdown. Instruct students to pick a clinic or restaurant and list 4 essential sections plus the primary CTA.',
-      },
+      speakerNotes: { ar: "نفّذ: شغل مؤقت الـ 5 دقائق. اطلب من الطلاب اختيار قطاع (مطعم أو عيادة) وتحديد: ما هي الأقسام الـ 4 الأساسية للموقع؟ وما هو الزر الرئيسي (CTA)؟\nاسأل: ما الناتج الذي ستسلّمه؟ تفكيك طلب عميل لنشاط تجاري محلي وتحديد هيكل الموقع وأهدافه.\nتحقق: مخطط نصي للأقسام الأربعة مع زر الدعوة لاتخاذ إجراء (CTA) الأساسي.", en: "Cue: Launch the 5-minute countdown. Instruct students to pick a clinic or restaurant and list 4 essential sections plus the primary CTA.\nAsk: What will you submit? Deconstruct a local business client brief into structural sections and CTA.\nCheck: A concise 4-section layout blueprint with primary call-to-action." },
       payload: {
         type: 'challenge',
         data: {
@@ -912,21 +828,15 @@ Extract:
       id: 's01-slide-15',
       sessionNumber: 1,
       slideNumber: 15,
-      totalSlides: 20,
+      totalSlides: 16,
       type: 'takeaway',
-      title: {
-        ar: 'الخلاصة الهندسية للجلسة الأولى (3 ركائز)',
-        en: 'Session 01 Engineering Takeaways',
-      },
+      title: { ar: "خلاصة: ثلاث ركائز", en: "Recap: Three Principles" },
       estimatedMinutes: 4,
       teachingGoal: {
         ar: 'تلخيص الجلسة في 3 قواعد ذهبية لا تُنسى ترافق الطالب طوال رحلته البرمجية.',
         en: 'Crystallize the session into 3 memorable pillars that anchor the rest of the course.',
       },
-      speakerNotes: {
-        ar: 'اقرأ الركائز الثلاث بتركيز شديد ونبرة واثقة. اطلب من الطلاب تدوينها أو تصوير الشاشة لأنها تمثل ميثاق العمل للدورة بأكملها.',
-        en: 'Deliver these 3 principles with conviction. Encourage learners to screenshot or journal them as our course code of conduct.',
-      },
+      speakerNotes: { ar: "نفّذ: اقرأ الركائز الثلاث بتركيز شديد ونبرة واثقة. اطلب من الطلاب تدوينها أو تصوير الشاشة لأنها تمثل ميثاق العمل للدورة بأكملها.\nاسأل: أي مبدأ من «خلاصة: ثلاث ركائز» ستستخدمه في مشروعك؟\nتحقق: نحن لا نكتفي بكتابة الكود؛ نحن نصنع حلول ويب رقمية متكاملة تغير واقع الأعمال.", en: "Cue: Deliver these 3 principles with conviction. Encourage learners to screenshot or journal them as our course code of conduct.\nAsk: Which principle from “Recap: Three Principles” will you use in your project?\nCheck: We do not just write code; we engineer end-to-end web products that power real businesses." },
       payload: {
         type: 'takeaway',
         data: {
@@ -969,21 +879,15 @@ Extract:
       id: 's01-slide-16',
       sessionNumber: 1,
       slideNumber: 16,
-      totalSlides: 20,
+      totalSlides: 16,
       type: 'next',
-      title: {
-        ar: 'المحطة القادمة: هندسة البرومبت لتطوير الويب',
-        en: 'Next Waypoint: Prompt Engineering for Web Development',
-      },
+      title: { ar: "المحطة القادمة — هندسة البرومبت لتطوير الويب", en: "Next Waypoint — Prompt Engineering for Web Development" },
       estimatedMinutes: 2,
       teachingGoal: {
         ar: 'تشويق الطلاب للجلسة القادمة وتحديد المهمة التحضيرية البسيطة المطلوبة منهم.',
         en: 'Build anticipation for Session 02 and assign a concise pre-class preparation task.',
       },
-      speakerNotes: {
-        ar: 'اختم الجلسة بتوجيه تحية للجميع. اطلب منهم تثبيت فكرة مشروعهم (مطعم أو عيادة أو غيرها) لندخل بها مباشرة في ورشة البرومبت في الجلسة 02.',
-        en: 'Conclude with applause. Instruct learners to lock in their project idea so Session 02 launches straight into hands-on prompt workshops.',
-      },
+      speakerNotes: { ar: "نفّذ: اختم الجلسة بتوجيه تحية للجميع. اطلب منهم تثبيت فكرة مشروعهم (مطعم أو عيادة أو غيرها) لندخل بها مباشرة في ورشة البرومبت في الجلسة 02.\nاسأل: ما الذي ستجهزه قبل الجلسة القادمة؟\nتحقق: اختر اسم ونشاط مشروعك التجاري الذي ستطبق عليه هندسة البرومبت في الجلسة القادمة.", en: "Cue: Conclude with applause. Instruct learners to lock in their project idea so Session 02 launches straight into hands-on prompt workshops.\nAsk: What will you prepare before the next session?\nCheck: Finalize your chosen business name and sector for Session 02 prompt lab exercises." },
       payload: {
         type: 'next',
         data: {

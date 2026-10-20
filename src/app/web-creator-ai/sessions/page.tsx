@@ -49,13 +49,14 @@ export default function StudentSessionsCatalogPage() {
           />
 
           {/* Filter Toolbar */}
-          <div className="flex items-center gap-1.5 p-1.5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] text-xs font-bold w-fit">
+          <div className="flex max-w-full items-center gap-1.5 overflow-x-auto p-1.5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] text-xs font-bold w-fit">
             {(['all', 'active', 'scheduled', 'completed'] as const).map((tab) => (
               <button
                 key={tab}
                 type="button"
                 onClick={() => setFilter(tab)}
-                className={`px-4 py-2 rounded-xl transition-colors cursor-pointer ${
+                aria-pressed={filter === tab}
+                className={`shrink-0 whitespace-nowrap px-4 py-2 rounded-xl transition-colors cursor-pointer ${
                   filter === tab
                     ? 'bg-[var(--color-primary)] text-white'
                     : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)]'

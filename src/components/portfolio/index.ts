@@ -8,3 +8,4 @@ export * from './PortfolioCTASection';
 export * from './FlagshipProductSection';
 export * from './TeachingPillarsSection';
 export * from './EngineeringWritingsSection';
+export * from './ResourcesTeaserSection';

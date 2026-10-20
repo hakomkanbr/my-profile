@@ -1,11 +1,18 @@
 import type { MetadataRoute } from 'next';
-import { PORTFOLIO_PROJECTS, ALL_WRITINGS } from '@/content';
+import { getPublishedProjectsWithCaseStudy, ALL_WRITINGS } from '@/content';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://abdulhakimkanbr.com';
   const currentDate = new Date();
 
+
   const staticRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/links`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
     {
       url: `${baseUrl}`,
       lastModified: currentDate,
@@ -110,7 +117,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const projectRoutes: MetadataRoute.Sitemap = PORTFOLIO_PROJECTS.map((project) => ({
+  const projectRoutes: MetadataRoute.Sitemap = getPublishedProjectsWithCaseStudy().map((project) => ({
     url: `${baseUrl}/projects/${project.slug}`,
     lastModified: currentDate,
     changeFrequency: 'monthly',

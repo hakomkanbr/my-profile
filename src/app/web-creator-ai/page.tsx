@@ -2,376 +2,60 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import {
-  LearningShell,
-  PageContainer,
-  Card,
-  Button,
-} from '@/components';
-import { usePreferencesStore, useProgressStore, useSessionStore } from '@/store';
+import { LearningShell, PageContainer, Card, Button } from '@/components';
+import { usePreferencesStore, useSessionStore } from '@/store';
 import { getLocalizedText } from '@/lib/utils';
 import { getSessionCompletionStats } from '@/lib/student-storage';
-import {
-  Play,
-  ArrowRight,
-  ArrowLeft,
-  Clock,
-  Sparkles,
-  Briefcase,
-  TrendingUp,
-  Bookmark,
-  CheckCircle2,
-} from 'lucide-react';
+import { ArrowLeft, ArrowRight, BookOpen, Bookmark, Briefcase, CheckCircle2, ChevronDown, ChevronUp, Sparkles } from 'lucide-react';
+
+const phases = [
+  { key: 'plan', from: 1, to: 2, ar: 'الفكرة والتخطيط', en: 'Idea & Planning' },
+  { key: 'build', from: 3, to: 8, ar: 'التصميم والبناء', en: 'Design & Build' },
+  { key: 'launch', from: 9, to: 12, ar: 'الإطلاق والعمل', en: 'Launch & Work' },
+] as const;
 
 export default function WebCreatorAIHomePage() {
   const { language } = usePreferencesStore();
   const isRtl = language === 'ar';
-  const { progress } = useProgressStore();
   const { sessions, getActiveSession, initializeSessions } = useSessionStore();
-  const [filter, setFilter] = useState<'all' | 'active' | 'completed' | 'scheduled'>('all');
+  const [expandedPhase, setExpandedPhase] = useState<string | null>(null);
+  const stats = Object.fromEntries(sessions.map((s) => [s.id, getSessionCompletionStats(s.id, s.activities.length)]));
+  useEffect(() => { initializeSessions(); }, [initializeSessions]);
 
-  useEffect(() => {
-    initializeSessions();
-  }, [initializeSessions]);
+  const current = getActiveSession() || sessions[0];
+  const total = sessions.reduce((sum, s) => sum + s.activities.length, 0);
+  const done = Object.values(stats).reduce((sum, s) => sum + s.completedCount, 0);
+  const percent = total ? Math.round(done / total * 100) : 0;
+  const currentStats = current ? stats[current.id] : undefined;
 
-  const activeSession = getActiveSession() || sessions[0];
+  return <LearningShell headerTitle={isRtl ? 'مساري التدريبي' : 'My learning path'}><PageContainer>
+    <div className="mx-auto max-w-5xl space-y-8 pb-16 text-start">
+      <header className="space-y-2">
+        <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">WEB CREATOR AI</p>
+        <h1 className="text-2xl font-black tracking-tight text-[var(--color-text)] sm:text-3xl">{isRtl ? 'من الفكرة إلى موقع جاهز للإطلاق' : 'From idea to a launch-ready website'}</h1>
+        <p className="max-w-2xl text-sm leading-relaxed text-[var(--color-text-muted)]">{isRtl ? 'مسار عملي لبناء مواقع الويب خطوة بخطوة باستخدام أدوات الذكاء الاصطناعي بعقلية هندسية.' : 'A practical path to build websites step by step with AI tools and an engineering mindset.'}</p>
+      </header>
 
-  return (
-    <LearningShell headerTitle={isRtl ? 'لوحة الطالب التعليمية' : 'Student Dashboard'}>
-      <PageContainer>
-        <div className="space-y-10 text-start pb-16">
-          {/* 1. ACTIVE SESSION SPOTLIGHT HERO */}
-          {activeSession && (
-            <div className="p-8 sm:p-10 rounded-3xl bg-[var(--color-surface)] border-2 border-[var(--color-primary)] relative overflow-hidden shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8">
-              <div className="space-y-3 relative z-10 max-w-2xl text-start">
-                <div className="flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-mono font-bold bg-green-500/15 text-green-600 border border-green-500/30">
-                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    <span>{isRtl ? 'الجلسة التدريبية الحالية' : 'CURRENT ACTIVE SESSION'}</span>
-                  </span>
-                  <span className="text-xs font-mono text-[var(--color-secondary)] font-bold">
-                    SESSION {String(activeSession.number).padStart(2, '0')}
-                  </span>
-                </div>
+      {current && <Card className="border-[var(--color-primary)]/30 p-5 sm:p-7"><div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
+        <div className="space-y-2"><p className="text-xs font-bold text-[var(--color-primary)]">{isRtl ? `الجلسة ${String(current.number).padStart(2, '0')} · ${current.status === 'active' ? 'نشطة الآن' : current.status === 'completed' ? 'مكتملة' : 'قادمة'}` : `SESSION ${String(current.number).padStart(2, '0')} · ${current.status}`}</p>
+          <h2 className="text-lg font-bold text-[var(--color-text)] sm:text-xl">{getLocalizedText(current.title, language)}</h2><p className="max-w-2xl text-sm text-[var(--color-text-muted)]">{getLocalizedText(current.description, language)}</p>
+          {currentStats && <p className="text-xs text-[var(--color-text-subtle)]">{isRtl ? `أنجزت ${currentStats.completedCount} من ${currentStats.totalCount} أنشطة` : `${currentStats.completedCount} of ${currentStats.totalCount} activities complete`}</p>}
+        </div><Link href={`/web-creator-ai/session/${current.id}`} className="shrink-0"><Button variant="primary" rightIcon={isRtl ? <ArrowLeft className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}>{isRtl ? (currentStats?.completedCount ? 'متابعة التعلّم' : 'ابدأ الجلسة') : (currentStats?.completedCount ? 'Continue learning' : 'Start session')}</Button></Link>
+      </div></Card>}
 
-                <h1 className="text-2xl sm:text-4xl font-black text-[var(--color-text)] tracking-tight">
-                  {getLocalizedText(activeSession.title, language)}
-                </h1>
+      <section aria-labelledby="progress-heading" className="space-y-3"><div className="flex items-end justify-between gap-4"><div><h2 id="progress-heading" className="text-base font-bold">{isRtl ? 'تقدمك في الأنشطة' : 'Your activity progress'}</h2><p className="text-xs text-[var(--color-text-muted)]">{isRtl ? `${done} من ${total} نشاطًا` : `${done} of ${total} activities`}</p></div><span className="font-mono text-sm font-bold text-[var(--color-primary)]">{percent}%</span></div>
+        <div className="h-2 overflow-hidden rounded-full bg-[var(--color-surface-sunken)]" role="progressbar" aria-label={isRtl ? 'التقدم في أنشطة المسار' : 'Curriculum activity progress'} aria-valuenow={percent} aria-valuemin={0} aria-valuemax={100}><div className="h-full rounded-full bg-[var(--color-primary)] transition-[width]" style={{ width: `${percent}%` }} /></div>
+        <p className="text-xs text-[var(--color-text-subtle)]">{isRtl ? `${sessions.length} جلسة تدريبية` : `${sessions.length} learning sessions`}</p>
+      </section>
 
-                <p className="text-xs sm:text-body-sm text-[var(--color-text-muted)] leading-relaxed">
-                  {getLocalizedText(activeSession.subtitle, language)}
-                </p>
+      <section className="space-y-4" aria-labelledby="curriculum-heading"><div className="flex flex-wrap items-end justify-between gap-3"><div><h2 id="curriculum-heading" className="text-xl font-bold">{isRtl ? 'خارطة المنهج' : 'Curriculum roadmap'}</h2><p className="text-sm text-[var(--color-text-muted)]">{isRtl ? 'افتح مرحلة لاستعراض جلساتها.' : 'Open a phase to browse its sessions.'}</p></div><Link href="/web-creator-ai/sessions" className="text-sm font-semibold text-[var(--color-primary)] hover:underline">{isRtl ? 'فهرس الجلسات' : 'Sessions catalog'} <span aria-hidden="true">{isRtl ? '←' : '→'}</span></Link></div>
+        <div className="space-y-3">{phases.map((phase) => { const open = expandedPhase === phase.key; const phaseSessions = sessions.filter((s) => s.number >= phase.from && s.number <= phase.to); const phaseDone = phaseSessions.reduce((sum, s) => sum + (stats[s.id]?.completedCount || 0), 0); const phaseTotal = phaseSessions.reduce((sum, s) => sum + s.activities.length, 0); return <Card key={phase.key} className="overflow-hidden">
+          <button type="button" aria-expanded={open} onClick={() => setExpandedPhase(open ? null : phase.key)} className="flex w-full items-center justify-between gap-4 p-4 text-start sm:p-5"><span><span className="block font-bold">{isRtl ? phase.ar : phase.en}</span><span className="mt-1 block text-xs text-[var(--color-text-muted)]">{isRtl ? `الجلسات ${String(phase.from).padStart(2, '0')}–${String(phase.to).padStart(2, '0')} · ${phaseDone}/${phaseTotal} نشاطًا` : `Sessions ${String(phase.from).padStart(2, '0')}–${String(phase.to).padStart(2, '0')} · ${phaseDone}/${phaseTotal} activities`}</span></span>{open ? <ChevronUp className="h-5 w-5 shrink-0" /> : <ChevronDown className="h-5 w-5 shrink-0" />}</button>
+          {open && <ol className="divide-y divide-[var(--color-border-subtle)] border-t border-[var(--color-border-subtle)]">{phaseSessions.map((s) => { const itemStats = stats[s.id]; return <li key={s.id}><Link href={`/web-creator-ai/session/${s.id}`} className="flex items-center justify-between gap-4 px-4 py-3.5 hover:bg-[var(--color-surface-sunken)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-primary)] sm:px-5"><span className="flex min-w-0 items-center gap-3"><span className="font-mono text-xs text-[var(--color-text-subtle)]">{String(s.number).padStart(2, '0')}</span><span className="truncate text-sm font-medium">{getLocalizedText(s.title, language)}</span></span><span className="flex shrink-0 items-center gap-2 text-xs text-[var(--color-text-muted)]">{itemStats?.isAllCompleted ? <><CheckCircle2 className="h-4 w-4 text-emerald-600"/><span className="hidden sm:inline">{isRtl ? 'مكتملة' : 'Complete'}</span></> : <>{itemStats?.completedCount ? `${itemStats.completedCount}/${itemStats.totalCount}` : isRtl ? 'عرض' : 'Open'}<span aria-hidden="true">{isRtl ? '←' : '→'}</span></>}</span></Link></li>; })}</ol>}
+        </Card>; })}</div>
+      </section>
 
-                <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-[var(--color-text-subtle)] pt-1">
-                  <span className="flex items-center gap-1.5">
-                    <Clock className="w-4 h-4 text-[var(--color-primary)]" />
-                    <span>{activeSession.durationMinutes} دقيقة</span>
-                  </span>
-                  <span>•</span>
-                  <span>{activeSession.activities.length} أنشطة تطبيقية</span>
-                  <span>•</span>
-                  <span>المدرب: {getLocalizedText(activeSession.trainer.name, language)}</span>
-                </div>
-              </div>
-
-              {/* Enter Session CTA */}
-              <div className="flex flex-col gap-3 shrink-0 relative z-10 w-full sm:w-auto">
-                <Link href={`/web-creator-ai/session/${activeSession.id}`}>
-                  <Button
-                    size="lg"
-                    variant="primary"
-                    className="w-full shadow-lg shadow-[var(--color-primary)]/20 text-sm font-bold"
-                    leftIcon={<Play className="w-5 h-5 fill-current" />}
-                  >
-                    {isRtl ? 'دخول الجلسة ومتابعة الأنشطة' : 'Enter Active Session'}
-                  </Button>
-                </Link>
-
-                <Link
-                  href="/web-creator-ai/sessions"
-                  className="text-xs font-semibold text-center text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors"
-                >
-                  {isRtl ? 'استعراض كل الجلسات الـ 12 ←' : 'View all 12 sessions →'}
-                </Link>
-              </div>
-            </div>
-          )}
-
-          {/* 2. QUICK STATS & STUDENT PROGRESS OVERVIEW */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Card className="p-5 space-y-1">
-              <span className="text-caption text-[var(--color-text-subtle)] font-medium">
-                {isRtl ? 'الدروس المنجزة' : 'Completed Lessons'}
-              </span>
-              <p className="text-3xl font-mono font-black text-[var(--color-primary)]">
-                {progress.completedLessons.length}
-              </p>
-            </Card>
-
-            <Card className="p-5 space-y-1">
-              <span className="text-caption text-[var(--color-text-subtle)] font-medium">
-                {isRtl ? 'التحديات المكتملة' : 'Completed Challenges'}
-              </span>
-              <p className="text-3xl font-mono font-black text-[var(--color-secondary)]">
-                {progress.completedChallenges.length}
-              </p>
-            </Card>
-
-            <Card className="p-5 space-y-1">
-              <span className="text-caption text-[var(--color-text-subtle)] font-medium">
-                {isRtl ? 'المشاريع الجاري بناؤها' : 'Projects in Progress'}
-              </span>
-              <p className="text-3xl font-mono font-black text-[var(--color-accent-strong)]">
-                {progress.completedProjects.length}/5
-              </p>
-            </Card>
-
-            <Card className="p-5 space-y-1">
-              <span className="text-caption text-[var(--color-text-subtle)] font-medium">
-                {isRtl ? 'جلسات المنهج' : 'Curriculum Sessions'}
-              </span>
-              <p className="text-3xl font-mono font-black text-[var(--color-text)]">
-                12
-              </p>
-            </Card>
-          </div>
-
-          {/* 3. SESSIONS ROADMAP (THE 12 DIRECT SESSIONS) */}
-          <div className="space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <div>
-                <h2 className="text-xl sm:text-2xl font-black text-[var(--color-text)]">
-                  {isRtl ? 'الجلسات التعليمية الـ 12 المباشرة' : 'The 12 Curriculum Sessions'}
-                </h2>
-                <p className="text-xs text-[var(--color-text-muted)]">
-                  {isRtl
-                    ? 'جلسات عملية تفاعلية مرتبطة بمسارك التدريبي، تحتوي على مهام وأكواد وتطبيقات خطوة بخطوة.'
-                    : 'Hands-on practical sessions with step-by-step tasks and interactive outputs.'}
-                </p>
-              </div>
-
-              <Link href="/web-creator-ai/sessions">
-                <Button size="sm" variant="ghost" className="text-xs font-bold">
-                  {isRtl ? 'عرض فهرس الجلسات الكامل' : 'View Full Catalog'}
-                </Button>
-              </Link>
-            </div>
-
-            {/* Filter Tabs */}
-            <div className="flex flex-wrap items-center gap-2 pt-1 pb-2">
-              <button
-                type="button"
-                onClick={() => setFilter('all')}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                  filter === 'all'
-                    ? 'bg-[var(--color-primary)] text-white shadow-xs'
-                    : 'bg-[var(--color-surface-sunken)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]'
-                }`}
-              >
-                {isRtl ? `جميع الجلسات (${sessions.length})` : `All (${sessions.length})`}
-              </button>
-              <button
-                type="button"
-                onClick={() => setFilter('active')}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                  filter === 'active'
-                    ? 'bg-green-600 text-white shadow-xs'
-                    : 'bg-[var(--color-surface-sunken)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]'
-                }`}
-              >
-                {isRtl ? 'النشطة حالياً' : 'Live Active'}
-              </button>
-              <button
-                type="button"
-                onClick={() => setFilter('completed')}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                  filter === 'completed'
-                    ? 'bg-blue-600 text-white shadow-xs'
-                    : 'bg-[var(--color-surface-sunken)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]'
-                }`}
-              >
-                {isRtl ? 'المكتملة' : 'Completed'}
-              </button>
-              <button
-                type="button"
-                onClick={() => setFilter('scheduled')}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                  filter === 'scheduled'
-                    ? 'bg-indigo-600 text-white shadow-xs'
-                    : 'bg-[var(--color-surface-sunken)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]'
-                }`}
-              >
-                {isRtl ? 'المجدولة' : 'Scheduled'}
-              </button>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {sessions
-                .filter((s) => {
-                  if (filter === 'active') return s.status === 'active';
-                  if (filter === 'completed') return s.status === 'completed';
-                  if (filter === 'scheduled') return s.status === 'scheduled';
-                  return true;
-                })
-                .map((session) => {
-                  const isActive = session.status === 'active';
-                  const isCompleted = session.status === 'completed';
-                  const studentStats = getSessionCompletionStats(session.id, session.activities.length);
-
-                  return (
-                    <Card
-                      key={session.id}
-                      className={`p-6 flex flex-col justify-between space-y-5 transition-all relative overflow-hidden ${
-                        isActive
-                          ? 'border-2 border-[var(--color-primary)] shadow-md bg-[var(--color-surface)]'
-                          : 'border border-[var(--color-border)] hover:border-[var(--color-border-strong)]'
-                      }`}
-                    >
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between">
-                          <span className="px-2.5 py-0.5 rounded text-xs font-mono font-bold bg-[var(--color-primary-subtle)] text-[var(--color-primary)]">
-                            SESSION {String(session.number).padStart(2, '0')}
-                          </span>
-
-                          <span
-                            className={`text-[11px] font-bold px-2 py-0.5 rounded ${
-                              isActive
-                                ? 'bg-green-500/15 text-green-600'
-                                : isCompleted
-                                ? 'bg-blue-500/15 text-blue-600'
-                                : 'bg-[var(--color-surface-sunken)] text-[var(--color-text-subtle)]'
-                            }`}
-                          >
-                            {isActive
-                              ? isRtl ? '● نشطة الآن' : '● Live'
-                              : isCompleted
-                              ? isRtl ? '✓ مكتملة' : '✓ Done'
-                              : isRtl ? 'مجدولة' : 'Scheduled'}
-                          </span>
-                        </div>
-
-                        <h3 className="text-base font-bold text-[var(--color-text)] leading-snug">
-                          {getLocalizedText(session.title, language)}
-                        </h3>
-
-                        <p className="text-xs text-[var(--color-text-muted)] line-clamp-2 leading-relaxed">
-                          {getLocalizedText(session.description, language)}
-                        </p>
-
-                        <div className="flex items-center justify-between pt-1">
-                          <div className="flex items-center gap-2 text-[11px] font-mono text-[var(--color-text-subtle)]">
-                            <span>{session.durationMinutes} دقيقة</span>
-                            <span>•</span>
-                            <span>{session.activities.length} أنشطة</span>
-                          </div>
-
-                          {studentStats.completedCount > 0 && (
-                            <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded-full">
-                              <CheckCircle2 className="w-3 h-3" />
-                              {studentStats.isAllCompleted
-                                ? isRtl ? 'مكتملة بالكامل' : 'Completed'
-                                : `${studentStats.completedCount}/${studentStats.totalCount}`}
-                            </span>
-                          )}
-                        </div>
-                      </div>
-
-                      <div className="pt-3 border-t border-[var(--color-border-subtle)]">
-                        <Link href={`/web-creator-ai/session/${session.id}`}>
-                          <Button
-                            size="sm"
-                            variant={isActive ? 'primary' : 'outline'}
-                            className="w-full text-xs font-bold"
-                            rightIcon={isRtl ? <ArrowLeft className="w-3.5 h-3.5" /> : <ArrowRight className="w-3.5 h-3.5" />}
-                          >
-                            {isActive
-                              ? (isRtl ? 'دخول الجلسة النشطة' : 'Enter Session')
-                              : studentStats.completedCount > 0
-                              ? (isRtl ? 'مراجعة الأنشطة المنجزة' : 'Review Activities')
-                              : (isRtl ? 'استعراض الأنشطة والمهام' : 'Explore Activities')}
-                          </Button>
-                        </Link>
-                      </div>
-                    </Card>
-                  );
-                })}
-            </div>
-          </div>
-
-          {/* 4. LEARNING LABS & TRACKS SHORTCUTS */}
-          <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-black text-[var(--color-text)]">
-              {isRtl ? 'المختبرات والمشاريع المساعدة' : 'Learning Labs & Toolkits'}
-            </h2>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Link href="/web-creator-ai/ai-lab">
-                <Card className="p-5 space-y-2 hover:border-[var(--color-primary)] transition-all cursor-pointer h-full">
-                  <div className="w-9 h-9 rounded-xl bg-[var(--color-primary-subtle)] text-[var(--color-primary)] flex items-center justify-center font-bold">
-                    <Sparkles className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-sm font-bold text-[var(--color-text)]">
-                    {isRtl ? 'مختبر الذكاء الاصطناعي' : 'AI Prompt Lab'}
-                  </h3>
-                  <p className="text-xs text-[var(--color-text-muted)]">
-                    {isRtl
-                      ? 'موجهات برمجية جاهزة ونماذج متقدمة لتوليد كود الويب.'
-                      : 'Production-ready prompts to accelerate web coding.'}
-                  </p>
-                </Card>
-              </Link>
-
-              <Link href="/web-creator-ai/projects">
-                <Card className="p-5 space-y-2 hover:border-[var(--color-secondary)] transition-all cursor-pointer h-full">
-                  <div className="w-9 h-9 rounded-xl bg-[var(--color-secondary)]/15 text-[var(--color-secondary)] flex items-center justify-center font-bold">
-                    <Briefcase className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-sm font-bold text-[var(--color-text)]">
-                    {isRtl ? 'المشاريع التطبيقية' : 'Applied Projects'}
-                  </h3>
-                  <p className="text-xs text-[var(--color-text-muted)]">
-                    {isRtl
-                      ? 'بناء مواقع تجارية كاملة خطوة بخطوة من الفكرة للإطلاق.'
-                      : 'End-to-end web products ready for your portfolio.'}
-                  </p>
-                </Card>
-              </Link>
-
-              <Link href="/web-creator-ai/marketing-lab">
-                <Card className="p-5 space-y-2 hover:border-[var(--color-accent-strong)] transition-all cursor-pointer h-full">
-                  <div className="w-9 h-9 rounded-xl bg-[var(--color-accent-strong)]/15 text-[var(--color-accent-strong)] flex items-center justify-center font-bold">
-                    <TrendingUp className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-sm font-bold text-[var(--color-text)]">
-                    {isRtl ? 'مختبر التسويق والـ SEO' : 'Marketing & SEO Lab'}
-                  </h3>
-                  <p className="text-xs text-[var(--color-text-muted)]">
-                    {isRtl
-                      ? 'أدوات تهيئة محركات البحث وجلب أول عميل تجاري.'
-                      : 'SEO, client proposals, and freelancing strategies.'}
-                  </p>
-                </Card>
-              </Link>
-
-              <Link href="/web-creator-ai/resources">
-                <Card className="p-5 space-y-2 hover:border-[var(--color-text)] transition-all cursor-pointer h-full">
-                  <div className="w-9 h-9 rounded-xl bg-[var(--color-surface-sunken)] text-[var(--color-text)] flex items-center justify-center font-bold">
-                    <Bookmark className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-sm font-bold text-[var(--color-text)]">
-                    {isRtl ? 'الموارد والمراجع' : 'Developer Resources'}
-                  </h3>
-                  <p className="text-xs text-[var(--color-text-muted)]">
-                    {isRtl
-                      ? 'أوراق مساعدة وروابط التوثيق الرسمي للمطورين.'
-                      : 'Curated cheat sheets and modern engineering tools.'}
-                  </p>
-                </Card>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </PageContainer>
-    </LearningShell>
-  );
+      <Link href="/web-creator-ai/resources" className="block rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-primary)]"><Card className="flex items-center justify-between gap-4 p-5 transition-colors hover:border-[var(--color-primary)] sm:p-6"><span className="flex items-start gap-4"><span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--color-primary-subtle)] text-[var(--color-primary)]"><BookOpen className="h-5 w-5"/></span><span><span className="block font-bold">{isRtl ? 'مكتبة الموارد' : 'Resource library'}</span><span className="mt-1 block text-sm text-[var(--color-text-muted)]">{isRtl ? 'المختبرات، المشاريع التطبيقية، والأدلة والمراجع في مكان واحد.' : 'Labs, hands-on projects, guides, and references in one place.'}</span><span className="mt-2 flex flex-wrap gap-3 text-xs text-[var(--color-text-subtle)]"><span className="inline-flex items-center gap-1"><Sparkles className="h-3.5 w-3.5"/>{isRtl ? 'المختبرات' : 'Labs'}</span><span className="inline-flex items-center gap-1"><Briefcase className="h-3.5 w-3.5"/>{isRtl ? 'المشاريع' : 'Projects'}</span><span className="inline-flex items-center gap-1"><Bookmark className="h-3.5 w-3.5"/>{isRtl ? 'المراجع' : 'References'}</span></span></span></span><span className="shrink-0 text-[var(--color-primary)]" aria-hidden="true">{isRtl ? '←' : '→'}</span></Card></Link>
+    </div>
+  </PageContainer></LearningShell>;
 }
