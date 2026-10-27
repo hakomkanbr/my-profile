@@ -5,457 +5,676 @@ export const SESSION_08: PresentationSession = {
   number: 8,
   slug: 'session-08',
   title: {
-    ar: 'React: التفكير المعماري بالمكونات (Think in Components)',
-    en: 'React: Thinking in Components, Props & Declarative UI State',
+    ar: 'تنظيم الموقع في قوالب وقطع قابلة لإعادة الاستخدام (React Components)',
+    en: 'Organizing the Website into Reusable Templates (React Components)',
   },
   subtitle: {
-    ar: 'كيف تنتقل من كتابة كود عشوائي إلى بناء نظام واجهات متكامل يعتمد على المكونات القابلة لإعادة الاستخدام؟',
-    en: 'Elevating from ad-hoc scripting to building scalable, reusable component systems',
+    ar: 'بدل نسخ البطاقة وتكرارها يدويًا، كيف نصنع قالبًا ذكيًا واحدًا ونمرر له بيانات المنتجات بسهولة؟',
+    en: 'Instead of copying cards manually, how to create one smart template and pass product data cleanly',
   },
   durationMinutes: 90,
   goal: {
-    ar: 'ترسيخ النموذج العقلي لـ React (React Mental Model): فهم كيفية تقسيم الواجهة إلى مكونات نقية، تمرير البيانات عبر الـ Props، وإدارة الحالة التصريحية (Declarative State).',
-    en: 'Master the React mental model: decomposing UI into pure modular components, passing props, and managing declarative state.',
+    ar: 'تمكين المتدرب من فهم فكرة المكونات القابلة لإعادة الاستخدام في React وتمرير البيانات إليها (Props)، وفصل قائمة بيانات الموقع عن تصميم البطاقة لسهولة التحديث.',
+    en: 'Understand reusable React components and props, separating product data lists from card design for effortless updates.',
   },
   prerequisites: [
-    { ar: 'إكمال الجلسة 07 وفهم التفاعل والأحداث بـ JavaScript', en: 'Completion of Session 07 with JS event understanding' },
+    {
+      ar: 'إكمال الجلسة 07 وبناء قسم البطاقات التفاعلي',
+      en: 'Completion of Session 07 with interactive cards',
+    },
   ],
   objectives: [
-    { ar: 'فهم الفلسفة المعمارية لـ React: لماذا غيرت طريقة بناء الواجهات حول العالم؟', en: 'Understand the architectural philosophy of React and why it powers the modern web' },
-    { ar: 'إتقان تمرير البيانات عبر الخصائص (Props) وتحديد أنواعها بدقة (TypeScript Interfaces)', en: 'Master unidirectional data flow via typed component Props' },
-    { ar: 'تطبيق التركيب المعماري (Component Composition) وبناء مكونات قابلة لإعادة الاستخدام كـ Button و Card', en: 'Implement component composition to author universal reusable primitives (Button, Card, Badge)' },
-    { ar: 'إعادة هيكلة مشروع التخرج ليصبح نظام React متكامل يتكون من مكونات معزولة ونظيفة', en: 'Refactor capstone project into an orchestrated tree of isolated React components' },
+    {
+      ar: 'فهم فكرة المكون (Component) في React كقالب ذكي نصنعه مرة واحدة ونستخدمه في أي مكان',
+      en: 'Understand a React Component as a smart template built once and used anywhere',
+    },
+    {
+      ar: 'فهم فكرة المدخلات (Props): كيف نعطي القالب الواحد اسمًا وسعرًا مختلفًا لكل منتج',
+      en: 'Understand Props: how we feed a single template different names and prices per item',
+    },
+    {
+      ar: 'فصل قائمة المنتجات أو الخدمات في قائمة واضحة يسهل تعديلها دون لمس كود التصميم',
+      en: 'Separate products/services into a clean data list easy to edit without touching design code',
+    },
+    {
+      ar: 'إضافة منتج أو خدمة جديدة للموقع في سطر واحد ومشاهدتها تظهر تلقائيًا بنفس التصميم',
+      en: 'Add a new product or service in one line and watch it appear automatically with the same design',
+    },
   ],
   timeline: [
-    { timeRange: '00:00 – 00:10', durationMinutes: 10, label: { ar: 'مقدمة: ما هو React Mental Model ولماذا نهتم به؟', en: 'Intro: What is the React Mental Model?' }, type: 'context' },
-    { timeRange: '00:10 – 00:25', durationMinutes: 15, label: { ar: 'المكونات والخصائص (Components & Props): تدفق البيانات في اتجاه واحد', en: 'Components & Props: One-way data flow' }, type: 'concept' },
-    { timeRange: '00:25 – 00:45', durationMinutes: 20, label: { ar: 'تطبيق حي: بناء مكون Card ومكون Button موحد لمشروع المطعم', en: 'Live Demo: Building Reusable Button & Card Primitives' }, type: 'demo' },
-    { timeRange: '00:45 – 01:00', durationMinutes: 15, label: { ar: 'العرض الشرطي والتكرار (Lists & Conditional Rendering)', en: 'Conditional Rendering & List Mapping' }, type: 'concept' },
-    { timeRange: '01:00 – 01:20', durationMinutes: 20, label: { ar: 'تحدي الطلاب: تحويل أجزاء من مشروعهم إلى مكونات React نقية', en: 'Student Challenge: Refactor Project Into Clean Components' }, type: 'practice' },
-    { timeRange: '01:20 – 01:25', durationMinutes: 5, label: { ar: 'مراجعة المكونات والتحقق من تعريف الـ Props', en: 'Review student component props interfaces' }, type: 'review' },
-    { timeRange: '01:25 – 01:30', durationMinutes: 5, label: { ar: 'الخلاصة والتجهيز لـ Next.js والـ SEO (Session 09)', en: 'Takeaways & Prep for Next.js & SEO (Session 09)' }, type: 'takeaway' },
+    {
+      timeRange: '00:00 – 00:15',
+      durationMinutes: 15,
+      label: { ar: 'مشكلة النسخ واللصق المتكرر وكيف تحلها قوالب React الذكية', en: 'The copy-paste problem & how React templates solve it' },
+      type: 'comparison',
+    },
+    {
+      timeRange: '00:15 – 00:35',
+      durationMinutes: 20,
+      label: { ar: 'كيف يعمل القالب (Component) والمدخلات (Props) معًا؟', en: 'How Components and Props work together' },
+      type: 'concept',
+    },
+    {
+      timeRange: '00:35 – 00:55',
+      durationMinutes: 20,
+      label: { ar: 'تطبيق عملي: فصل قائمة مشروبات المقهى عن قالب البطاقة وإضافة صنف جديد', en: 'Live Demo: Separating Café menu data from the card template' },
+      type: 'demo',
+    },
+    {
+      timeRange: '00:55 – 01:20',
+      durationMinutes: 25,
+      label: { ar: 'نشاط المتدرب: تنظيم بيانات موقعه في قائمة نظيفة وتجربة إضافة عنصر جديد', en: 'Trainee Activity: Organize your site data list & add a new item' },
+      type: 'practice',
+    },
+    {
+      timeRange: '01:20 – 01:30',
+      durationMinutes: 10,
+      label: { ar: 'مراجعة قوائم المتدربين وخلاصة الجلسة الثامنة', en: 'Review trainee data lists & Session 08 summary' },
+      type: 'takeaway',
+    },
   ],
   projectMilestone: {
-    ar: 'تحويل كامل أجزاء صفحة الهبوط لمشروع التخرج إلى مكونات React نقية وقابلة لإعادة الاستخدام.',
-    en: 'Refactor entire capstone landing page into pure, reusable, typed React components.',
+    ar: 'تحويل بطاقات المشروع إلى مكون React موحد يقرأ بياناته من قائمة واضحة ومفصولة.',
+    en: 'Convert project cards into a unified React component reading from a clean, separate data list.',
   },
   aiRole: {
-    ar: 'مساعد في تفكيك المكونات الكبيرة واقتراح واجهات الـ TypeScript Props الدقيقة.',
-    en: 'Refactoring co-pilot extracting atomic components and drafting typed TypeScript props schemas.',
+    ar: 'مساعد تنظيم يفصل البيانات (الأسماء والأسعار) عن كود الشكل البصري ليجعل تحديث الموقع سهلًا جدًا.',
+    en: 'Structuring assistant separating data (names & prices) from visual UI code for easy updates.',
   },
   marketConnection: {
-    ar: 'تظهر React كثيراً ضمن أدوات تطوير الواجهات؛ تعلّم المبادئ التي تساعدك على بناء مكونات قابلة لإعادة الاستخدام.',
-    en: 'React remains the #1 sought-after frontend framework, frequently requested in frontend developer job openings.',
+    ar: 'أصحاب المواقع يريدون تعديل الأسعار أو إضافة منتج جديد بسرعة؛ وفصل البيانات عن القالب يجعل ذلك ممكنًا في ثوانٍ.',
+    en: 'Business owners need to update prices or add products quickly; separating data from templates makes it instant.',
   },
   startScreen: {
-    badge: 'SESSION 08 / 12 • REACT ARCHITECTURE',
+    badge: 'الجلسة 08 من 12 • بناء الموقع وتحسينه (4)',
     headline: {
-      ar: 'React: كيف تفكر بالمكونات مثل كبار مهندسي الواجهات؟',
-      en: 'React: Thinking in Components Like a Senior Frontend Architect',
+      ar: 'تنظيم الموقع في قوالب قابلة لإعادة الاستخدام (React)',
+      en: 'Organizing the Website into Reusable Templates (React)',
     },
     description: {
-      ar: 'تعلم الفلسفة المعمارية التي تجعل كودك أنيقاً، قابلاً لإعادة الاستخدام، وسهل الاختبار، من خلال تفكيك الواجهات إلى مكونات نقية.',
-      en: 'Master the declarative architectural philosophy that makes your code reusable, testable, and deeply satisfying to maintain.',
+      ar: 'نتعلم اليوم الفكرة الذكية التي جعلت React أشهر أداة لبناء المواقع في العالم: كيف نصنع قالب البطاقة مرة واحدة ونغذيه بقائمة بيانات بسيطة.',
+      en: 'Learn the core idea behind React: build a card template once and feed it a simple list of data.',
     },
     sessionGoal: {
-      ar: 'إعادة بناء أقسام مشروع تخرجك كنظام مكونات React منضبط مع تمرير الخصائص (Props).',
-      en: 'Re-architect your capstone project sections into a clean React component hierarchy with typed props.',
+      ar: 'فصل بيانات منتجات أو خدمات موقعك في قائمة واضحة وعرضها عبر قالب بطاقة موحد.',
+      en: 'Separate your website product/service data into a clean list and display it via one card template.',
     },
   },
   endScreen: {
     headline: {
-      ar: 'ممتاز! أصبحت الآن تفكر بعقلية React وتبني مكونات احترافية',
-      en: 'Bravo! You Now Possess the React Mental Model and Component Mastery',
+      ar: 'ممتاز! أصبح موقعك منظمًا بقوالب React الذكية وسهل التحديث',
+      en: 'Excellent! Your Website Is Now Powered by Clean Reusable React Templates',
     },
     keyRecap: [
       {
-        ar: 'المكون (Component) هو لبنة بناء مستقلة تستقبل مدخلات (Props) وتعيد واجهة بصرية (JSX).',
-        en: 'A Component is a self-contained unit receiving inputs (Props) and returning visual UI (JSX).',
+        ar: 'المكون (Component) هو قالب تصميم موحد نصنعه مرة واحدة فلا نضطر لنسخ الكود وتكراره.',
+        en: 'A Component is a unified design template built once so we never copy-paste repeated code.',
       },
       {
-        ar: 'فصل البيانات عن التنسيق يجعل المكون قادراً على عرض أي عنصر دون تكرار الكود.',
-        en: 'Decoupling data from styling enables components to render any dynamic payload without duplication.',
+        ar: 'المدخلات (Props) هي البيانات المتغيرة (الاسم، السعر، الوصف) التي نمررها للقالب في كل بطاقة.',
+        en: 'Props are the changing details (title, price, description) passed into each card template.',
       },
       {
-        ar: 'التركيب المعماري (Composition) يتفوق على بناء مكونات عملاقة ومعقدة مليئة بالشروط.',
-        en: 'Component composition vastly outperforms bloated monolithic components riddled with flags.',
+        ar: 'فصل قائمة البيانات عن تصميم البطاقة يتيح لك إضافة أو تعديل أي منتج في ثوانٍ.',
+        en: 'Separating your data list from the card design lets you add or update any item in seconds.',
       },
     ],
     nextSessionNumber: '09',
     nextSessionTitle: {
-      ar: 'Next.js + SEO: بناء مواقع ويب فائقة السرعة وجاهزة للإنتاج',
-      en: 'Next.js + SEO: Building Blazing-Fast, Production-Ready Web Platforms',
+      ar: 'ربط الصفحات وتسريع الموقع وتجهيزه لمحركات البحث (Next.js & SEO)',
+      en: 'Connecting Pages, Speeding Up the Site & Search Optimization (Next.js & SEO)',
     },
   },
   slides: [
-    // Slide 1: Title
     {
       id: 's08-slide-01',
       sessionNumber: 8,
       slideNumber: 1,
       totalSlides: 10,
       type: 'title',
-      title: { ar: "React — التفكير بالمكونات", en: "React — Think in Components" },
-      estimatedMinutes: 2,
-      teachingGoal: { ar: 'افتتاح الجلسة وإعلان الوصول إلى قلب هندسة الواجهات الحديثة.', en: 'Open session: entering the core of modern component engineering.' },
-      speakerNotes: { ar: "نفّذ: رحب بالطلاب: \"اليوم نتعلم React ليس بمجرد حفظ دوال، بل باكتساب العقلية التي تبني بها كبرى شركات التقنية واجهاتها!\".\nاسأل: ما الهدف الذي تتوقع تحقيقه في جلسة «React — التفكير بالمكونات»؟\nتحقق: افتتاح الجلسة وإعلان الوصول إلى قلب هندسة الواجهات الحديثة.", en: "Cue: Welcome students: \"Today we master React not by rote syntax, but by adopting the senior component mental model!\"\nAsk: What outcome do you expect from “React — Think in Components”?\nCheck: Open session: entering the core of modern component engineering." },
+      visualType: 'components-lego',
+      realWorldExample: {
+        ar: 'مثل قالب بطاقة الهوية في الشركة: تصميم البطاقة واحد للجميع، فقط يتغير الاسم والصورة والمسمى الوظيفي لكل موظف.',
+        en: 'Like a company ID badge template: the badge design is the same for everyone; only the name, photo, and title change.',
+      },
+      title: {
+        ar: 'التفكير بالقوالب القابلة لإعادة الاستخدام (React)',
+        en: 'Thinking in Reusable Templates (React)',
+      },
+      estimatedMinutes: 5,
+      teachingGoal: {
+        ar: 'توضيح الفكرة الأساسية لمكتبة React بلغة الحياة اليومية البسيطة (القالب والبيانات).',
+        en: 'Explain the core idea of React using the everyday ID badge / template analogy.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: اشرح تشبيه بطاقة الهوية أو ختم القالب. في الجلسات السابقة صممنا البطاقة، واليوم سنتعلم كيف نجعل React يطبع لنا 6 أو 20 بطاقة تلقائيًا من قالب واحد فقط!\nاسأل: لو كان لديك 20 منتجًا ونسخت كود البطاقة 20 مرة، ثم أردت تغيير لون زر الطلب، كم مرة ستضطر للتعديل؟ (20 مرة!). أما مع قالب React؟ (مرة واحدة فقط!).\nتحقق: هذه الفائدة العملية المباشرة تجعل المبتدئ يحب فكرة React فورًا.',
+        en: 'Use the ID badge analogy to show why 1 React template beats copying code 20 times.',
+      },
       payload: {
         type: 'title',
         data: {
           sessionNumber: '08',
-          kicker: { ar: 'النموذج العقلي الحديث', en: 'The Modern Mental Model' },
-          headline: { ar: 'REACT COMPONENT ARCHITECTURE', en: 'REACT COMPONENT ARCHITECTURE' },
-          subheadline: { ar: 'كيف تفكك الواجهات وتبني مكونات نقية وقابلة لإعادة الاستخدام؟', en: 'How to decompose interfaces and build reusable, pure component primitives' },
           totalSessions: '12',
           durationMinutes: 90,
-          tags: ['React 19', 'Components & Props', 'Component Composition', 'Clean Interfaces'],
+          kicker: {
+            ar: 'المرحلة الرابعة • بناء الموقع وتحسينه (الجزء الرابع)',
+            en: 'Phase 4 • Building & Improving the Website (Part 4)',
+          },
+          headline: {
+            ar: 'كيف نصنع قالب البطاقة مرة واحدة ونستخدمه في كل الموقع؟',
+            en: 'How Do We Build a Card Template Once and Use It Everywhere?',
+          },
+          subheadline: {
+            ar: 'نتعرف ببساطة على فكرة القوالب (Components) والبيانات (Props) في React لتنظيم موقعنا بذكاء.',
+            en: 'Simply learn React Components and Props to organize and update your website effortlessly.',
+          },
+          tags: ['قالب موحد Component', 'بيانات البطاقة Props', 'بدون تكرار', 'تحديث سريع'],
         },
       },
     },
-
-    // Slide 2: Context
     {
       id: 's08-slide-02',
       sessionNumber: 8,
       slideNumber: 2,
       totalSlides: 10,
-      type: 'context',
-      title: { ar: "لماذا غير React عالم تطوير الويب للأبد؟", en: "Why React Revolutionized the Web" },
-      subtitle: { ar: 'من أسلوب التعديل اليدوي المرهق (Imperative) إلى الأسلوب التصريحي الأنيق (Declarative)', en: 'From painful imperative DOM manipulation to elegant declarative state' },
-      estimatedMinutes: 4,
-      teachingGoal: { ar: 'شرح الفارق الجوهري بين البرمجة الإجرائية والبرمجة التصريحية في React.', en: 'Demonstrate the leap from imperative step-by-step DOM scripts to declarative UI states.' },
-      speakerNotes: { ar: "نفّذ: وضح: قديماً كنت تأمر المتصفح: \"ابحث عن هذا الزر، غيّر لونه، أضف هذا النص\". في React تصف ما تريده فقط بناءً على البيانات، و React يتكفل بالباقي.\nاسأل: ما المشكلة التي توضّحها «لماذا غير React عالم تطوير الويب للأبد؟»؟\nتحقق: عندما يكبر السكربت وتتداخل مسؤولياته، يصبح تتبع الأخطاء أصعب.", en: "Cue: Imperative: find button, change class, append child. Declarative: you declare the target UI for given data.\nAsk: What problem does “Why React Revolutionized the Web” point to?\nCheck: As scripts grow and responsibilities overlap, debugging becomes harder." },
+      type: 'comparison',
+      visualType: 'components-lego',
+      title: {
+        ar: 'مقارنة: تكرار الكود يدويًا مقابل استخدام قالب موحد (React)',
+        en: 'Comparison: Manual Copy-Paste vs. One Reusable Template (React)',
+      },
+      subtitle: {
+        ar: 'لماذا تعتمد جميع المواقع الحديثة على القوالب الموحدة؟',
+        en: 'Why modern websites rely on reusable component templates',
+      },
+      estimatedMinutes: 8,
+      teachingGoal: {
+        ar: 'إظهار التوفير الكبير في الوقت والجهد عند استخدام مكونات React بدل النسخ واللصق.',
+        en: 'Show the huge time and accuracy savings of reusable components over copy-paste.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: قارن بين العمودين مع المتدربين. عندما نفصل التصميم في قالب واحد، ونضع الأسعار والأسماء في قائمة بسيطة، يصبح الموقع نظيفًا جدًا.\nاسأل: أيهما أقل عرضة للخطأ عند تحديث الأسعار؟\nتحقق: القائمة المنظمة مع القالب الموحد تحميك من نسيان تعديل بطاقة من البطاقات.',
+        en: 'Compare manual copy-paste with a single reusable React component.',
+      },
       payload: {
-        type: 'context',
+        type: 'comparison',
         data: {
-          industryShift: {
-            ar: 'الانتقال من التعديل اليدوي لكل وسم في المتصفح إلى كتابة مكونات تعبر عن شكل الشاشة بناءً على البيانات المتوفرة.',
-            en: 'Transitioning from manual DOM mutations to declarative components declaring UI as a function of data.',
+          leftHeader: {
+            ar: 'قالب موحد + قائمة بيانات (طريقة React)',
+            en: 'One Template + Data List (React Way)',
           },
-          realWorldProblem: {
-            ar: 'عندما يكبر السكربت وتتداخل مسؤولياته، يصبح تتبع الأخطاء أصعب.',
-            en: 'As scripts grow and responsibilities overlap, debugging becomes harder.',
+          rightHeader: {
+            ar: 'نسخ ولصق البطاقة عدة مرات (طريقة قديمة)',
+            en: 'Copying & Pasting Each Card (Old Way)',
           },
-          whyItMatters: {
-            ar: 'مع React، يمكنك إعادة استخدام المكون نفسه مع بيانات مختلفة، مع ضمان عزل كل مكون عن الآخر تماماً.',
-            en: 'With React, you craft a single component primitive and reuse it with different data across your platform.',
+          dimensions: [
+            {
+              dimension: { ar: 'تعديل تصميم البطاقة', en: 'Updating Card Design' },
+              left: {
+                ar: 'نعدل القالب مرة واحدة فقط فتتحدث جميع البطاقات في الموقع فورًا',
+                en: 'Edit the template once and every card on the site updates instantly',
+              },
+              right: {
+                ar: 'نضطر لتعديل كل بطاقة يدويًا واحدة تلو الأخرى',
+                en: 'Forced to edit every single card manually one by one',
+              },
+            },
+            {
+              dimension: { ar: 'إضافة منتج أو خدمة جديدة', en: 'Adding a New Product/Service' },
+              left: {
+                ar: 'نضيف سطرًا واحدًا يحتوي على (الاسم والسعر) في قائمة البيانات',
+                en: 'Add a single line with (Name & Price) to the data list',
+              },
+              right: {
+                ar: 'ننسخ عشرات الأسطر من الكود ونحاول تعديل النصوص وسطها',
+                en: 'Copy dozens of code lines and hunt for text inside them',
+              },
+            },
+            {
+              dimension: { ar: 'ترتيب الصفحة ونظافتها', en: 'Page Cleanliness' },
+              left: {
+                ar: 'صفحة قصيرة ومرتبة يسهل قراءتها وفحصها',
+                en: 'Short, clean page that is easy to read and inspect',
+              },
+              right: {
+                ar: 'صفحة طويلة جدًا مليئة بالتكرار الممل',
+                en: 'Very long cluttered file full of repetitive code',
+              },
+            },
+          ],
+          balancedVerdict: {
+            ar: 'اصنع القالب مرة واحدة، وضع بياناتك في قائمة مرتبة؛ هذه هي خلاصة التفكير الذكي في React.',
+            en: 'Build the template once and keep your data in a clean list—that is the heart of React.',
           },
         },
       },
     },
-
-    // Slide 3: Concept (Props & Unidirectional Data Flow)
     {
       id: 's08-slide-03',
       sessionNumber: 8,
       slideNumber: 3,
       totalSlides: 10,
       type: 'concept',
-      title: { ar: "الخصائص (Props) — تمرير البيانات في اتجاه واحد", en: "Props — Unidirectional Data Flow" },
-      estimatedMinutes: 5,
-      teachingGoal: { ar: 'شرح مفهوم الـ Props كمعاملات دالة (Function Arguments) تتحكم في شكل وسلوك المكون.', en: 'Anchor Props as typed function parameters governing component presentation and behavior.' },
-      speakerNotes: { ar: "نفّذ: وضح: المكون هو دالة عادية تستقبل كائن اسمه Props. عندما تمرر له title=\"Pizza\" يعرض البيتزا، وعندما تمرر title=\"Pasta\" يعرض الباستا.\nاسأل: كيف تطبّق هذا المبدأ: المكونات النقية تستقبل الخصائص (Props) وتعرضها دون أن تغير قيمتها الأصلية.؟\nتحقق: قاعدة ذهبية: لا تعدل قيمة الـ Props داخل المكون أبداً؛ الخصائص للقراءة فقط (Read-Only).", en: "Cue: A component is a pure function taking a Props object. Pass title=\"Pizza\", it renders Pizza cleanly.\nAsk: How would you apply this principle: Pure components receive props and render UI deterministically without mutating inputs.?\nCheck: Golden Rule: Never mutate props inside a child component; props are strictly immutable and read-only." },
+      visualType: 'components-lego',
+      realWorldExample: {
+        ar: 'ماكينة القهوة هي «القالب (Component)»، ونوع البن والحليب الذي تضعه فيها هو «المدخلات (Props)»، والكوب الجاهز هو البطاقة التي يراها الزائر!',
+        en: 'The coffee machine is the Component, the beans and milk you put in are the Props, and the finished cup is the card visitors see!',
+      },
+      title: {
+        ar: 'كلمتان فقط تحتاج لفهمهما في React: القالب والمدخلات',
+        en: 'Only Two Words You Need to Know in React: Component & Props',
+      },
+      estimatedMinutes: 10,
+      teachingGoal: {
+        ar: 'شرح مصطلحي `Component` و `Props` بأبسط صورة ممكنة للمبتدئ.',
+        en: 'Explain "Component" and "Props" in the simplest possible terms for beginners.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: اشرح المصطلحين بهدوء: لا نريد للمتدرب أن يشعر بالرهبة إذا سمع كلمة `Component` أو `Props`. الأولى تعني «قالب الجزء»، والثانية تعني «البيانات التي نمررها للقالب».\nاسأل: في قالب بطاقة المشروب، ما هي الـ Props (البيانات المتغيرة من مشروب لآخر)؟\nتحقق: الاسم، الوصف، السعر، والفئة (ساخن/بارد)!',
+        en: 'Explain Component (the template) and Props (the data fields passed into it).',
+      },
       payload: {
         type: 'concept',
         data: {
+          tagline: { ar: 'تبسيط المصطلحات التقنية', en: 'Technical Terms Made Simple' },
           principle: {
-            ar: 'المكونات النقية تستقبل الخصائص (Props) وتعرضها دون أن تغير قيمتها الأصلية.',
-            en: 'Pure components receive props and render UI deterministically without mutating inputs.',
+            ar: 'القالب (Component) يرسم الشكل، والمدخلات (Props) تملؤه بالمعلومة',
+            en: 'The Component Draws the Shape, and Props Fill It with Information',
           },
-          tagline: { ar: 'ONE-WAY DATA FLOW CONTRACT', en: 'ONE-WAY DATA FLOW CONTRACT' },
           explanation: {
-            ar: 'في React، تتدفق البيانات دائماً من الأعلى إلى الأسفل (Parent to Child). المكون الأب يملك البيانات ويمررها لأبنائه عبر الـ Props، مما يجعل تتبع حركة البيانات سهلاً ومتوقعاً.',
-            en: 'In React, data flows strictly top-down (Parent to Child). Parents hold domain data and dispatch attributes downstream via props, ensuring predictable tracking.',
+            ar: 'عندما تتحدث مع الذكاء الاصطناعي لبناء موقع حديث، ستلاحظ هذين المفهومين البسيطين:',
+            en: 'When working with AI to build a modern website, you will see these two simple concepts:',
           },
           bulletPoints: [
-            { ar: 'Props كعقد برمجي: نحدد نوع كل خاصية بـ TypeScript Interface لمنع الأخطاء', en: 'Props as a contract: Strictly typed via TypeScript interfaces to eliminate runtime flaws' },
-            { ar: 'إعادة الاستخدام المطلقة: مكون Card واحد يمكنه عرض وجبة، مقال، أو منتج متجر', en: 'Universal reuse: A single Card primitive renders dishes, articles, or services' },
-            { ar: 'الأبناء كعنصر خاص (children prop): تتيح وضع أي محتوى داخل المكون بمرونة فائقة', en: 'The children prop: Unlocks supreme composition by slotting custom markup inside containers' },
-            { ar: 'القيم الافتراضية (Default Props): توفير قيم احتياطية في حال لم يمرر الأب معلومة معينة', en: 'Default fallback values: Providing robust defaults when optional props are omitted' },
+            {
+              ar: '1. المكون أو القالب (Component): هو التصميم الثابت للقطعة (مثل إطار البطاقة ولون الزر ومكان السعر).',
+              en: '1. Component (Template): The fixed visual design (card border, button color, price placement).',
+            },
+            {
+              ar: '2. الخصائص أو المدخلات (Props): هي المعلومات التي تتغير من بطاقة لأخرى (اسم الصنف، السعر، الفئة).',
+              en: '2. Props (Inputs): The details that change from card to card (item name, price, category).',
+            },
+            {
+              ar: '3. قائمة البيانات (Data Array): جدول بسيط نكتب فيه جميع أصنافنا ليقوم القالب بعرضها تلقائيًا.',
+              en: '3. Data List (Array): A simple list of all our items that the template displays automatically.',
+            },
           ],
           architecturalRule: {
-            ar: 'قاعدة ذهبية: لا تعدل قيمة الـ Props داخل المكون أبداً؛ الخصائص للقراءة فقط (Read-Only).',
-            en: 'Golden Rule: Never mutate props inside a child component; props are strictly immutable and read-only.',
+            ar: 'افصل دائمًا بين «بيانات موقعك» وبين «تصميم البطاقة» لتتمكن من تحديث موقعك في أي لحظة.',
+            en: 'Always separate your website data from the card design so updates take seconds.',
           },
         },
       },
     },
-
-    // Slide 4: Code (Universal Button & Card Primitives)
     {
       id: 's08-slide-04',
       sessionNumber: 8,
       slideNumber: 4,
       totalSlides: 10,
       type: 'code',
-      title: { ar: "بناء مكون Button موحد مع Typed Props", en: "Code Artifact — Universal Button Primitive" },
-      estimatedMinutes: 5,
-      teachingGoal: { ar: 'إظهار كيفية كتابة مكون زر موحد يقبل variants مختلفة بدلاً من تكرار كود الأزرار في كل ملف.', en: 'Demonstrate writing a universal typed Button primitive replacing duplicated button styles.' },
-      speakerNotes: { ar: "نفّذ: اشرح interface ButtonProps: يقبل variant: primary أو outline، ويقبل children. هذا المكون نستخدمه في كل مكان بالمشروع.\nاسأل: ما وظيفة المثال في «بناء مكون Button موحد مع Typed Props»؟\nتحقق: مكون زر موحد ومُنمذج بـ TypeScript يقبل أشكالاً وأحجاماً مختلفة ويعاد استخدامه في كامل المشروع. يسمح مكوّن الزر المشترك بتعديل الشكل في مكان واحد بدلاً من تكرار التغيير في كل موضع.", en: "Cue: Explain typed interface: variant can be primary or outline. We reuse this exact button everywhere.\nAsk: What does the example in “Code Artifact — Universal Button Primitive” do?\nCheck: Universal typed button primitive accepting polymorphic variants and sizes. A shared button component lets you update styling in one place instead of editing repeated markup." },
+      visualType: 'components-lego',
+      title: {
+        ar: 'كيف تبدو قائمة بيانات المشروبات المفصولة بوضوح؟',
+        en: 'What Does a Clean Separated Drinks Data List Look Like?',
+      },
+      estimatedMinutes: 9,
+      teachingGoal: {
+        ar: 'إظهار كيف تبدو قائمة البيانات البسيطة التي يستطيع أي مبتدئ تعديل الأسعار أو الأسماء داخلها بسهولة.',
+        en: 'Show how readable a clean data list is so any beginner can update prices or items easily.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: اعرض قائمة المشروبات الثلاثة على الشاشة. لاحظ كم هي واضحة ومرتبة بالعربية! أي صاحب مقهى أو متدرب مبتدئ يستطيع قراءة هذه الأسطر وتغيير السعر أو إضافة مشروب رابع بسهولة.\nاسأل: لو أردنا إضافة «موكا بارد بسعر 21 ر.س»، ماذا نفعل؟\nتحقق: ننسخ سطرًا واحدًا ونكتب فيه الاسم والسعر الجديدين فيظهر في الموقع فورًا!',
+        en: 'Show the simple `DRINKS` list and ask how easy it is to change a price or add a drink.',
+      },
       payload: {
         type: 'code',
         data: {
-          language: 'tsx',
-          codeSnippet: `// src/components/ui/Button.tsx — Universal Reusable Button
-import React from 'react';
+          language: 'TypeScript Data List',
+          codeSnippet: `const DRINKS = [
+  { id: 1, name: 'قهوة لاتيه', category: 'ساخن', price: '18 ر.س' },
+  { id: 2, name: 'كابتشينو إيطالي', category: 'ساخن', price: '20 ر.س' },
+  { id: 3, name: 'ماتشا لاتيه بارد', category: 'بارد', price: '22 ر.س' },
+];
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'outline' | 'ghost';
-  size?: 'sm' | 'md' | 'lg';
-  children: React.ReactNode;
-}
-
-export function Button({ 
-  variant = 'primary', 
-  size = 'md', 
-  children, 
-  className = '', 
-  ...props 
-}: ButtonProps) {
-  const baseStyles = 'inline-flex items-center justify-center rounded-xl font-bold transition-all cursor-pointer';
-  
-  const variants = {
-    primary: 'bg-[#641a01] text-white hover:opacity-95 shadow-sm',
-    outline: 'border-2 border-[#641a01] text-[#641a01] hover:bg-[#641a01]/10',
-    ghost: 'text-neutral-700 hover:bg-neutral-100',
-  };
-
-  const sizes = {
-    sm: 'px-3 py-1.5 text-xs',
-    md: 'px-5 py-2.5 text-sm',
-    lg: 'px-8 py-3.5 text-base',
-  };
-
-  return (
-    <button 
-      className={\`\${baseStyles} \${variants[variant]} \${sizes[size]} \${className}\`}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-}`,
-          what: { ar: 'مكون زر موحد ومُنمذج بـ TypeScript يقبل أشكالاً وأحجاماً مختلفة ويعاد استخدامه في كامل المشروع.', en: 'Universal typed button primitive accepting polymorphic variants and sizes.' },
-          why: { ar: 'يسمح مكوّن الزر المشترك بتعديل الشكل في مكان واحد بدلاً من تكرار التغيير في كل موضع.', en: 'A shared button component lets you update styling in one place instead of editing repeated markup.' },
-          when: { ar: 'اللبنة الأساسية الأولى التي يبنيها مهندس الواجهات في أي نظام تصميم (Design System).', en: 'The quintessential initial UI primitive crafted in any professional design system.' },
+// القالب الموحد يعرض القائمة كاملة تلقائياً:
+{DRINKS.map((drink) => (
+  <DrinkCard key={drink.id} name={drink.name} price={drink.price} />
+))}`,
+          what: {
+            ar: 'قائمة واضحة تحتوي على المشروبات وأسعارها، متبوعة بسطر واحد يطلب من قالب (DrinkCard) عرض كل مشروب.',
+            en: 'A clean list of drinks and prices, followed by one line telling DrinkCard to display each item.',
+          },
+          why: {
+            ar: 'لأنك عندما تريد تعديل الأسعار أو إضافة صنف جديد، لن تبحث داخل كود التصميم، بل ستعدل هذه القائمة البسيطة فقط.',
+            en: 'When updating prices or adding items, you only edit this simple list without touching layout code.',
+          },
+          when: {
+            ar: 'نستخدم هذه الطريقة مع أي قائمة عناصر في الموقع (منتجات، خدمات، آراء عملاء، أو أسئلة شائعة).',
+            en: 'Use this pattern for any list on your site (products, services, reviews, or FAQs).',
+          },
         },
       },
     },
-
-    // Slide 5: Concept (Component Composition over Inheritance)
     {
       id: 's08-slide-05',
       sessionNumber: 8,
       slideNumber: 5,
       totalSlides: 10,
-      type: 'concept',
-      title: { ar: "تركيب المكونات", en: "Component Composition" },
-      estimatedMinutes: 5,
-      teachingGoal: { ar: 'تعليم الطلاب كيف يركبون المكونات كقطع الليجو بدلاً من كتابة مكونات عملاقة ومعقدة.', en: 'Teach students to compose small components like Lego bricks over massive monolithic cards.' },
-      speakerNotes: { ar: "نفّذ: أكد: بدل أن تبني مكون DishCard معقد، ابنِ Card عام وضعه داخله Card.Header و Card.Body و Card.Footer.\nاسأل: كيف تطبّق هذا المبدأ: المكونات الصغيرة البسيطة التي تركب معاً أفضل بـ 100 مرة من مكون ضخم واحد مليء بالشروط المعقدة.؟\nتحقق: التركيب (Composition) يعني أن تبني مكونات عامة مثل <Card> و <Badge> و <Button>، ثم تركبها معاً لصناعة بطاقة منتج، بطاقة مقال، أو بطاقة تعليق، دون تكرار سطر CSS واحد.", en: "Cue: Instead of an inflexible monolithic card, compose Card, Card.Image, and Card.Footer.\nAsk: How would you apply this principle: Small composable components assembled like Lego bricks vastly outperform complex monolithic beasts.?\nCheck: Composition empowers you to build universal building blocks (<Card>, <Badge>, <Button>) and snap them together to form dishes, reviews, or team profiles without duplicating layout CSS." },
+      type: 'reveal',
+      visualType: 'components-lego',
+      title: {
+        ar: '3 قوالب أساسية تكفي لبناء معظم مواقع الويب',
+        en: '3 Core Templates Enough to Build Most Websites',
+      },
+      estimatedMinutes: 8,
+      teachingGoal: {
+        ar: 'توضيح أهم 3 قوالب متكررة في أي موقع: قالب البطاقة، قالب الزر الموحد، وقالب عنوان القسم.',
+        en: 'Highlight the 3 most useful reusable templates: Card, Action Button, and Section Header.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: استعرض القوالب الثلاثة. عندما نلتزم بهذه القوالب الثلاثة في موقعنا، يصبح الموقع كله متناسقًا كأنه من تصميم شركة عالمية.\nاسأل: لماذا نوحد قالب «زر واتساب» في الموقع؟\nتحقق: حتى يظهر بنفس اللون والأيقونة والوضوح في أعلى الصفحة وداخل البطاقات وفي أسفل الصفحة.',
+        en: 'Walk through the 3 core reusable templates: Product/Service Card, WhatsApp Action Button, and Section Title.',
+      },
       payload: {
-        type: 'concept',
+        type: 'reveal',
         data: {
-          principle: {
-            ar: 'المكونات الصغيرة البسيطة التي تركب معاً أفضل بـ 100 مرة من مكون ضخم واحد مليء بالشروط المعقدة.',
-            en: 'Small composable components assembled like Lego bricks vastly outperform complex monolithic beasts.',
+          premise: {
+            ar: 'لتجعل موقعك متناسقًا بالكامل، اطلب من الذكاء الاصطناعي توحيد هذه القوالب الثلاثة:',
+            en: 'To make your website completely consistent, ask AI to unify these 3 templates:',
           },
-          tagline: { ar: 'COMPOSE LIKE LEGO BRICKS', en: 'COMPOSE LIKE LEGO BRICKS' },
-          explanation: {
-            ar: 'التركيب (Composition) يعني أن تبني مكونات عامة مثل <Card> و <Badge> و <Button>، ثم تركبها معاً لصناعة بطاقة منتج، بطاقة مقال، أو بطاقة تعليق، دون تكرار سطر CSS واحد.',
-            en: 'Composition empowers you to build universal building blocks (<Card>, <Badge>, <Button>) and snap them together to form dishes, reviews, or team profiles without duplicating layout CSS.',
-          },
-          bulletPoints: [
-            { ar: 'استخدام خاصية children لتمرير أي محتوى بحرية تامة داخل الحاوية', en: 'Leveraging the children prop to slot custom content into containers freely' },
-            { ar: 'سهولة الاختبار: فحص مكون Button الصغير أسهل وأسرع بكثير من فحص صفحة كاملة', en: 'Trivial testing: Validating a tiny Button primitive takes seconds compared to full pages' },
-            { ar: 'تسهيل العمل مع الذكاء الاصطناعي: تطلب من AI تعديل مكون واحد دون خطر تخريب البقية', en: 'Frictionless AI pairing: Instructing AI to refactor a single atomic component carries zero risk' },
-            { ar: 'سرعة بناء الميزات الجديدة: تركيب المكونات الموجودة يسرّع بناء الميزات عند إعادة استخدام المكونات', en: 'Instant feature velocity: Recombining existing primitives can speed up feature delivery by reusing existing primitives' },
+          steps: [
+            {
+              number: '01',
+              title: { ar: 'قالب بطاقة العرض (Product / Service Card)', en: '1. Offer Card Template' },
+              description: {
+                ar: 'يعرض الصورة أو الأيقونة، العنوان، الوصف المختصر، السعر، وزر الطلب بتصميم موحد.',
+                en: 'Displays the icon/photo, title, short description, price, and order button consistently.',
+              },
+            },
+            {
+              number: '02',
+              title: { ar: 'قالب زر التواصل والطلب (WhatsApp Button)', en: '2. WhatsApp Action Button Template' },
+              description: {
+                ar: 'زر موحد الشكل واللون يفتح محادثة واتساب مع الرسالة المناسبة أينما وُضع في الموقع.',
+                en: 'A unified button style that opens WhatsApp with the right message wherever placed.',
+              },
+            },
+            {
+              number: '03',
+              title: { ar: 'قالب عنوان القسم (Section Header)', en: '3. Section Header Template' },
+              description: {
+                ar: 'يجعل عناوين جميع الأقسام (خدماتنا، لماذا نحن، آراء العملاء) متناسقة في الحجم والمسافات.',
+                en: 'Keeps all section titles consistent in font size and spacing across the page.',
+              },
+            },
           ],
         },
       },
     },
-
-    // Slide 6: Demo (Live Component Refactoring)
     {
       id: 's08-slide-06',
       sessionNumber: 8,
       slideNumber: 6,
       totalSlides: 10,
-      type: 'demo',
-      title: { ar: "تفكيك بطاقة وجبة إلى مكونات React مستقلة", en: "Live Demo — Deconstructing Dish Card into Pure Components" },
+      type: 'question',
+      visualType: 'components-lego',
+      title: {
+        ar: 'سؤال تفاعلي: أين نعدل السعر؟',
+        en: 'Interactive Question: Where Do We Update the Price?',
+      },
       estimatedMinutes: 6,
-      teachingGoal: { ar: 'إظهار عملية الـ Refactoring عملياً أمام الطلاب: تحويل كود مكرر إلى مكون قابل لإعادة الاستخدام.', en: 'Demonstrate live refactoring: turning duplicated markup into a clean typed component.' },
-      speakerNotes: { ar: "نفّذ: خذ كود البطاقة من الجلسة 06، استخرج منه مكون DishCard.tsx وضع له interface DishCardProps. استبدل التكرار بـ dishes.map.\nاسأل: إعادة هيكلة بطاقات القائمة إلى مكون DishCard مستقل ومُنمذج بـ TypeScript.\nتحقق: كود منظم ونظيف يستدعي المكونات بأسلوب أنيق وبأقل عدد أسطر ممكن.", en: "Cue: Extract DishCard component from Session 06, add typed interface, replace duplication with clean map.\nAsk: Refactor menu items into an isolated, strongly-typed DishCard component primitive.\nCheck: Immaculate component abstraction with zero repetitive markup and strong type safety." },
+      teachingGoal: {
+        ar: 'التأكد من فهم المتدرب للفرق بين تعديل البيانات وتعديل شكل القالب.',
+        en: 'Verify that trainees distinguish between editing the data list vs. editing the template.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: اطرح السؤال في شات Zoom.\nاسأل: إذا أراد صاحب المقهى إضافة مشروب جديد أو تعديل سعر الكابتشينو، هل يفتح ملف تصميم البطاقة أم يفتح قائمة البيانات؟\nتحقق: يفتح قائمة البيانات فقط!',
+        en: 'Ask whether adding a new drink requires editing the card design or the data list.',
+      },
       payload: {
-        type: 'demo',
+        type: 'question',
         data: {
-          objective: {
-            ar: 'إعادة هيكلة بطاقات القائمة إلى مكون DishCard مستقل ومُنمذج بـ TypeScript.',
-            en: 'Refactor menu items into an isolated, strongly-typed DishCard component primitive.',
+          question: {
+            ar: 'بعد تنظيم موقعك بقوالب React، أردت تغيير سعر منتج وإضافة منتج جديد. أين تجري هذا التعديل؟',
+            en: 'After organizing your site with React templates, you want to change a price and add a new item. Where do you edit?',
           },
-          promptToUse: `Refactor this duplicated card markup into an isolated DishCard component in React 19:
-1. Define TypeScript interface DishCardProps with id, name, price, description, and onOrder handler.
-2. Replace hardcoded buttons with our reusable Button component.
-3. Export cleanly for ingestion in MenuGrid.tsx.`,
-          instructorSteps: [
-            { ar: 'إنشاء ملف src/components/DishCard.tsx وتحديد interface الخصائص', en: 'Create src/components/DishCard.tsx and declare typed props interface' },
-            { ar: 'نقل كود الـ JSX الخاص بالبطاقة إلى المكون الجديد واستخدام الـ Props', en: 'Migrate card JSX into new component and wire props variables' },
-            { ar: 'استبدال الكود المكرر في MenuGrid.tsx باستدعاء <DishCard key={...} />', en: 'Clean up MenuGrid.tsx by mapping clean <DishCard key={dish.id} {...dish} />' },
-            { ar: 'التأكد من أن الصفحة تظهر بنفس الجمال في المتصفح بكود أكثر تنظيماً', en: 'Verify identical visual fidelity with a cleaner, more modular codebase' },
+          contextHint: {
+            ar: 'تذكر الفرق بين «قائمة البيانات» و«قالب التصميم».',
+            en: 'Remember the difference between the Data List and the Design Template.',
+          },
+          promptToClass: {
+            ar: 'اكتب إجابتك في شات Zoom 💬',
+            en: 'Type your answer in Zoom chat 💬',
+          },
+          expectedAnswers: [
+            {
+              ar: 'نعدل في «قائمة البيانات» فقط دون الحاجة للمس كود تصميم البطاقة أبدًا.',
+              en: 'Edit the "Data List" only without touching the card design code.',
+            },
+            {
+              ar: 'بمجرد إضافة السطر الجديد في القائمة، يتكفل القالب برسم البطاقة الجديدة تلقائيًا.',
+              en: 'As soon as we add the new line to the list, the template draws the new card automatically.',
+            },
           ],
-          expectedOutput: {
-            ar: 'كود منظم ونظيف يستدعي المكونات بأسلوب أنيق وبأقل عدد أسطر ممكن.',
-            en: 'Immaculate component abstraction with zero repetitive markup and strong type safety.',
-          },
         },
       },
     },
-
-    // Slide 7: Challenge (Student Component Refactoring Lab)
     {
       id: 's08-slide-07',
       sessionNumber: 8,
       slideNumber: 7,
       totalSlides: 10,
-      type: 'challenge',
-      title: { ar: "استخراج مكونين قابلين لإعادة الاستخدام", en: "Student Challenge — Extract 2 Reusable React Primitives" },
-      estimatedMinutes: 8,
-      teachingGoal: { ar: 'استخراج كل طالب لمكون Button ومكون Card لمشروعه وتطبيقهما في صفحته.', en: 'Every student extracts a reusable Button and Card component in their project repo.' },
-      speakerNotes: { ar: "نفّذ: أطلق مؤقت الـ 5 دقائق. اطلب منهم استخراج مكون Button أو Card في مجلد منفصل واستدعائه في صفحتهم.\nاسأل: ما الناتج الذي ستسلّمه؟ استخراج مكون Button موحد أو بطاقة قابلة لإعادة الاستخدام في مشروعك وتمرير البيانات عبر Props.\nتحقق: مكونان نظيفان قابلان لإعادة الاستخدام مدمجان بنجاح في مشروع تخرجك.", en: "Cue: Launch 5-minute timer. Instruct students to extract a clean Button or Card primitive with typed props.\nAsk: What will you submit? Extract a universal Button primitive or reusable Card in your project and pass data via typed Props.\nCheck: Two production-grade reusable React primitives wired into your capstone project." },
+      type: 'demo',
+      visualType: 'components-lego',
+      title: {
+        ar: 'تطبيق عملي: فصل بيانات المقهى وإضافة صنف جديد في 10 ثوانٍ',
+        en: 'Live Demo: Separating Café Data & Adding a New Item in 10 Seconds',
+      },
+      estimatedMinutes: 15,
+      teachingGoal: {
+        ar: 'عرض عملي حي لفصل قائمة المشروبات عن قالب البطاقة وتجربة إضافة مشروب جديد مباشرة أمام المتدربين.',
+        en: 'Live demonstration separating the drinks data array and adding a new drink in seconds.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: اعرض أمام المتدربين كيف نطلب من الذكاء الاصطناعي فصل بيانات المشروبات في قائمة واضحة، ثم أضف مشروبًا سابعًا أمامهم في سطر واحد وافتح المتصفح ليروا البطاقة السابعة وقد ظهرت بنفس التصميم وزر واتساب تلقائيًا!\nاسأل: هل رأيتم كم أصبح تحديث الموقع سهلًا وممتعًا؟\nتحقق: هذا يمنح المتدرب قدرة حقيقية على إدارة محتوى موقعه بنفسه.',
+        en: 'Add a 7th drink live on Zoom so trainees see the card render automatically.',
+      },
       payload: {
-        type: 'challenge',
+        type: 'demo',
         data: {
-          mission: {
-            ar: 'استخراج مكون Button موحد أو بطاقة قابلة لإعادة الاستخدام في مشروعك وتمرير البيانات عبر Props.',
-            en: 'Extract a universal Button primitive or reusable Card in your project and pass data via typed Props.',
-          },
-          durationMinutes: 5,
           objective: {
-            ar: 'ممارسة التفكير المعماري لـ React والتخلص من تكرار الأكواد في مشروع التخرج.',
-            en: 'Exercise the React component mental model and eradicate repetitive markup in your capstone repo.',
+            ar: 'تحويل بطاقات المقهى إلى قالب React موحد يقرأ من قائمة بيانات واضحة',
+            en: 'Convert café cards into a unified React component reading from a clean data list',
           },
-          instructions: [
-            { ar: 'أنشئ ملف src/components/ui/Button.tsx أو ملف بطاقتك الخاصة', en: 'Create src/components/ui/Button.tsx or your custom Card primitive' },
-            { ar: 'حدد interface يحتوي على الخصائص المطلوبة (العنوان، السعر، أو الـ variant)', en: 'Declare a TypeScript interface with required props' },
-            { ar: 'استبدل كود الأزرار أو البطاقات القديمة في مشروعك بالمكون الجديد', en: 'Replace old hardcoded markup with your new reusable component' },
-            { ar: 'تأكد من عمل الصفحة بسلاسة دون أي أخطاء في الـ Terminal أو المتصفح', en: 'Confirm clean compile and error-free rendering in your browser' },
+          instructorSteps: [
+            {
+              ar: 'نطلب من الذكاء الاصطناعي وضع بيانات المشروبات (الاسم، الفئة، الوصف، السعر) في قائمة واضحة أعلى الملف أو في ملف بيانات مستقل.',
+              en: 'Ask AI to place drink details (name, category, description, price) in a clean data list.',
+            },
+            {
+              ar: 'نجعل قالب البطاقة الموحد يعرض عناصر هذه القائمة تلقائيًا.',
+              en: 'Make the unified card component render the items from this list automatically.',
+            },
+            {
+              ar: 'نضيف مشروبًا جديدًا في القائمة أمامكم ونشاهد ظهوره الفوري في الصفحة.',
+              en: 'Add a new drink to the list live and watch it appear immediately on the page.',
+            },
           ],
-          starterPromptOrCode: 'interface CardProps { title: string; desc: string; price: number; } export function Card(props: CardProps) {...}',
-          deliverable: {
-            ar: 'مكونان نظيفان قابلان لإعادة الاستخدام مدمجان بنجاح في مشروع تخرجك.',
-            en: 'Two production-grade reusable React primitives wired into your capstone project.',
+          promptToUse:
+            'افصل بيانات المشروبات في قائمة واضحة ومرتبة تحتوي على (الاسم، الفئة، الوصف القصير، السعر)، واجعل قسم القائمة يعرضها باستخدام قالب بطاقة React موحد، بحيث يمكنني إضافة أو تعديل أي مشروب من القائمة بسهولة.',
+          expectedOutput: {
+            ar: 'قائمة بيانات نظيفة باللغة العربية يسهل تعديلها وإضافة أصناف جديدة إليها في ثوانٍ.',
+            en: 'A clean Arabic data list that is effortless to edit and expand in seconds.',
           },
         },
       },
     },
-
-    // Slide 8: Project (Milestone 08)
     {
       id: 's08-slide-08',
       sessionNumber: 8,
       slideNumber: 8,
       totalSlides: 10,
-      type: 'project',
-      title: { ar: "معمارية React المكتملة", en: "Project Milestone — Pure React Component Architecture" },
-      estimatedMinutes: 4,
-      teachingGoal: { ar: 'تثبيت اكتمال تحويل المشروع بالكامل إلى شجرة مكونات React نقية.', en: 'Confirm capstone project is now a textbook modular React component tree.' },
-      speakerNotes: { ar: "نفّذ: هنئ الطلاب: \"مشروعك الآن يستخدم مكونات مستقلة قابلة لإعادة الاستخدام؛ إنها طريقة تساعد على تنظيم الواجهة وصيانتها.\".\nاسأل: أي مخرج من هذه المرحلة يحتاج إلى استكمال؟\nتحقق: مكونات أساسية موحدة (Button و Card) قابلة لإعادة الاستخدام؛ فصل بيانات النصوص والأطباق في مصفوفات مستقلة؛ هيكل مشروع نظيف يقتصر فيه ملف الصفحة الرئيسية على تركيب المكونات", en: "Cue: Congratulate learners: \"Your project now uses independent reusable components, helping organize and maintain its interface.\"\nAsk: Which deliverable from this phase still needs work?\nCheck: Reusable core UI primitives (Button, Card, Badge); Decoupled domain data arrays cleanly fed into components; A clean page.tsx orchestrator focused on composing components" },
+      type: 'challenge',
+      visualType: 'components-lego',
+      title: {
+        ar: 'نشاطك العملي: نظّم بيانات موقعك في قائمة وأضف عنصرًا جديدًا',
+        en: 'Your Activity: Organize Your Site Data List & Add a New Item',
+      },
+      estimatedMinutes: 20,
+      teachingGoal: {
+        ar: 'تمكين كل متدرب من فصل بيانات منتجاته/خدماته في قائمة واضحة وتجربة إضافة عنصر جديد بنفسه.',
+        en: 'Have each trainee separate their product/service data into a clean list and add a new item.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: شغّل المؤقت لمدة 20 دقيقة. ساعد المتدربين على فصل بيانات بطاقاتهم وتجربة تعديل سعر أو إضافة خدمة جديدة.\nاسأل: من نجح في إضافة عنصر جديد لموقعه من خلال قائمة البيانات؟\nتحقق: شجع المتدربين على مشاركة العنصر الجديد الذي أضافوه في شات Zoom.',
+        en: 'Run the 20-minute timer and help trainees test adding a new item to their data list.',
+      },
       payload: {
-        type: 'project',
+        type: 'challenge',
         data: {
-          phaseName: { ar: 'المرحلة 08: بناء نظام المكونات المعيارية بـ React', en: 'Phase 08: Modular React Component System' },
-          stepNumber: '08',
-          whatWeBuildNow: {
-            ar: 'تحويل كامل أقسام صفحة الهبوط إلى مكونات React نقية تعتمد على Props وتفصل البيانات.',
-            en: 'Refactor all landing page features into pure React components leveraging typed props.',
+          mission: {
+            ar: 'افصل بيانات بطاقات موقعك في قائمة منظمة وأضف إليها عنصرًا جديدًا',
+            en: 'Separate Your Card Data into a Clean List and Add One New Item',
           },
-          deliverables: [
-            { ar: 'مكونات أساسية موحدة (Button و Card) قابلة لإعادة الاستخدام', en: 'Reusable core UI primitives (Button, Card, Badge)' },
-            { ar: 'فصل بيانات النصوص والأطباق في مصفوفات مستقلة', en: 'Decoupled domain data arrays cleanly fed into components' },
-            { ar: 'هيكل مشروع نظيف يقتصر فيه ملف الصفحة الرئيسية على تركيب المكونات', en: 'A clean page.tsx orchestrator focused on composing components' },
+          durationMinutes: 20,
+          objective: {
+            ar: 'جعل موقعك سهل التحديث والتطوير عبر قوالب React القابلة لإعادة الاستخدام.',
+            en: 'Make your website easy to update and expand using reusable React templates.',
+          },
+          instructions: [
+            {
+              ar: '1. اطلب من الذكاء الاصطناعي فصل بيانات خدماتك أو منتجاتك في قائمة واضحة واستخدام قالب بطاقة موحد لعرضها.',
+              en: '1. Ask AI to separate your services/products into a clean list and render them with one card template.',
+            },
+            {
+              ar: '2. افتح قائمة البيانات وأضف عنصرًا جديدًا (منتجًا أو خدمة إضافية) بكتابة اسمه وسعره ووصفه.',
+              en: '2. Open the data list and add a new item by writing its name, price, and description.',
+            },
+            {
+              ar: '3. عاين الصفحة وتأكد أن العنصر الجديد ظهر بنفس التصميم الأنيق وأن زر واتساب يعمل فيه.',
+              en: '3. Preview the page and verify the new item appears cleanly with a working WhatsApp button.',
+            },
           ],
-          connectionToFinalProject: {
-            ar: 'في الجلسة 09 سنأخذ هذه المكونات ونضعها في قمة الإنتاجية: محرك Next.js 16 مع دعم الـ SEO الخارق والأداء العالي.',
-            en: 'In Session 09 we propel these components to production mastery: Next.js 16 with extreme SEO and speed.',
+          deliverable: {
+            ar: 'شارك اسم العنصر الجديد الذي أضفته في شات Zoom أو أرسله عبر واتساب من صفحة الجلسة.',
+            en: 'Share the new item you added in Zoom chat or send it via WhatsApp.',
           },
         },
       },
     },
-
-    // Slide 9: Takeaway
     {
       id: 's08-slide-09',
       sessionNumber: 8,
       slideNumber: 9,
       totalSlides: 10,
-      type: 'takeaway',
-      title: { ar: "خلاصة: React", en: "Recap: React" },
+      type: 'project',
+      visualType: 'components-lego',
+      title: {
+        ar: 'الخطوة الثامنة في مشروعك: موقع منظم بقوالب ذكية وبيانات واضحة',
+        en: 'Step 8 in Your Project: Smart Templates & Clean Data',
+      },
       estimatedMinutes: 4,
-      teachingGoal: { ar: 'تثبيت ركائز نموذج React العقلي وقوة التركيب المعماري.', en: 'Cement the React mental model and compositional architecture.' },
-      speakerNotes: { ar: "نفّذ: اقرأ النقاط الثلاث. أكد: \"البرمجة بـ React ليست مجرد syntax؛ إنها طريقة تفكير تفصل المسؤوليات وتجعل الكود قابلاً للتوسع\".\nاسأل: أي مبدأ من «خلاصة: React» ستستخدمه في مشروعك؟\nتحقق: المكونات النظيفة هي العملة الحقيقية لمهندس الواجهات الحديث.", en: "Cue: Review takeaways: React is an architectural discipline of decoupling responsibilities and composing primitives.\nAsk: Which principle from “Recap: React” will you use in your project?\nCheck: Clean, composable components are the true currency of the modern frontend engineer." },
+      teachingGoal: {
+        ar: 'ربط تنظيم قوالب React بالخطوة القادمة في الجلسة التاسعة (Next.js والسرعة ومشاركة الروابط).',
+        en: 'Connect today’s React template milestone to Session 09 Next.js speed and link previews.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: وضح للمتدربين أن موقعهم الآن مبني بنفس الطريقة الاحترافية التي تُبنى بها المواقع الحديثة.\nاسأل: ماذا يحدث عندما نشارك رابط موقعنا الآن في واتساب أو يبحث عنه شخص في Google؟\nتحقق: هذا ما سنتعلم ضبطه وإتقانه في الجلسة التاسعة القادمة (Next.js & SEO)!',
+        en: 'Show how clean React components lead into Session 09 Next.js & SEO.',
+      },
+      payload: {
+        type: 'project',
+        data: {
+          stepNumber: '08',
+          phaseName: {
+            ar: 'المرحلة الرابعة: التنظيم بالقوالب القابلة لإعادة الاستخدام (React)',
+            en: 'Phase 4: Organizing with Reusable Templates (React)',
+          },
+          whatWeBuildNow: {
+            ar: 'قالب البطاقة الموحد + قائمة بيانات المنتجات والخدمات المفصولة بوضوح',
+            en: 'Unified Card Component + Clean Separated Product/Service Data List',
+          },
+          deliverables: [
+            {
+              ar: 'قالب بطاقة موحد يضمن تناسق جميع العناصر في الموقع',
+              en: 'Unified card template ensuring visual consistency across all items',
+            },
+            {
+              ar: 'قائمة بيانات مرتبة يسهل تعديل الأسعار أو إضافة أصناف جديدة فيها',
+              en: 'Clean data list making price edits or new item additions effortless',
+            },
+            {
+              ar: 'ربط تلقائي بين بيانات كل بطاقة ورسالة الطلب عبر واتساب',
+              en: 'Automatic connection between each card’s data and its WhatsApp order message',
+            },
+          ],
+          connectionToFinalProject: {
+            ar: 'هذا التنظيم يجعل موقعك قابلًا للنمو والتحديث بسهولة حتى بعد إطلاقه وتسليمه للعميل.',
+            en: 'This structure makes your website easy to grow and update even after launch.',
+          },
+        },
+      },
+    },
+    {
+      id: 's08-slide-10',
+      sessionNumber: 8,
+      slideNumber: 10,
+      totalSlides: 10,
+      type: 'takeaway',
+      title: {
+        ar: 'خلاصة الجلسة الثامنة في 3 نقاط',
+        en: 'Session 08 Summary in 3 Points',
+      },
+      estimatedMinutes: 3,
+      teachingGoal: {
+        ar: 'تثبيت مفاهيم القالب والبيانات والتمهيد للجلسة التاسعة.',
+        en: 'Reinforce Component and Props concepts and preview Session 09.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: لخص النقاط الثلاث واشكر المتدربين.\nاسأل: بكلمتين بسيطتين، ما الفرق بين Component و Props؟ (القالب والمدخلات!).\nتحقق: ذكّرهم بإرسال نشاط الجلسة عبر واتساب.',
+        en: 'Summarize the 3 points and preview Session 09.',
+      },
       payload: {
         type: 'takeaway',
         data: {
           takeaways: [
             {
               number: '01',
-              title: { ar: 'فكر في المكون كدالة نقية (Pure Function)', en: 'Components as Pure Functions' },
+              title: {
+                ar: 'اصنع القالب مرة واحدة واستخدمه في كل مكان',
+                en: 'Build the Template Once, Use It Everywhere',
+              },
               description: {
-                ar: 'المكون الممتاز هو الذي يستقبل Props ويعيد JSX، ولا يحدث أي آثار جانبية عشوائية في بقية المشروع.',
-                en: 'Premier components receive props and return JSX deterministically with zero collateral side-effects.',
+                ar: 'قالب البطاقة الموحد يوفر وقتك ويحفظ تناسق موقعك بالكامل.',
+                en: 'A single card template saves time and keeps your whole site consistent.',
               },
             },
             {
               number: '02',
-              title: { ar: 'التركيب يتفوق على التعقيد (Composition Wins)', en: 'Composition Trumps Complexity' },
+              title: {
+                ar: 'افصل البيانات عن التصميم دائمًا',
+                en: 'Always Separate Data from Design',
+              },
               description: {
-                ar: 'ابنِ مكونات صغيرة بسيطة وركّبها معاً كقطع الليجو؛ هذا يسهل صيانة الكود وتوجيه الذكاء الاصطناعي بدقة.',
-                en: 'Assemble small Lego-like primitives together; this makes debugging trivial and AI prompting surgical.',
+                ar: 'وضع الأسماء والأسعار في قائمة واضحة يجعل تعديل المحتوى سهلًا وآمنًا.',
+                en: 'Keeping names and prices in a clean list makes updating content safe and easy.',
               },
             },
             {
               number: '03',
-              title: { ar: 'الأنواع بـ TypeScript تحميك من الأخطاء', en: 'TypeScript Props Protect Your Build' },
+              title: {
+                ar: 'المدخلات (Props) هي ما يميز كل بطاقة',
+                en: 'Props Are What Make Each Card Unique',
+              },
               description: {
-                ar: 'تحديد interface الخصائص يجعل محرر الكود والذكاء الاصطناعي ينبهانك لأي نقص في البيانات قبل تشغيل الموقع.',
-                en: 'Defining typed props interfaces catches missing attributes at compile time before deployment.',
+                ar: 'نفس القالب الأنيق يعرض عشرات المنتجات المختلفة بتمرير الاسم والسعر لكل بطاقة.',
+                en: 'The same clean template displays dozens of items by passing name and price.',
               },
             },
           ],
           coreMotto: {
-            ar: 'المكونات النظيفة هي العملة الحقيقية لمهندس الواجهات الحديث.',
-            en: 'Clean, composable components are the true currency of the modern frontend engineer.',
-          },
-        },
-      },
-    },
-
-    // Slide 10: Next
-    {
-      id: 's08-slide-10',
-      sessionNumber: 8,
-      slideNumber: 10,
-      totalSlides: 10,
-      type: 'next',
-      title: { ar: "التالي: Next.js وSEO", en: "Next: Next.js & SEO" },
-      estimatedMinutes: 2,
-      teachingGoal: { ar: 'تشويق الطلاب للجلسة 09 حيث سنحول مكونات React إلى موقع إنتاجي حقيقي يتصدر محركات البحث.', en: 'Build anticipation for Session 09: elevating React components into a production Next.js powerhouse.' },
-      speakerNotes: { ar: "نفّذ: اختم الجلسة: \"في الجلسة 09 سننتقل إلى Next.js: سنتعلم كيف تجعل موقعك يفتح في رمشة عين، وكيف يتصدر الصفحة الأولى في Google عبر الـ SEO!\".\nاسأل: ما الذي ستجهزه قبل الجلسة القادمة؟\nتحقق: تأكد من أن مشروعك مبني بنظام المكونات النظيفة لندخل به مباشرة في تحسينات Next.js.", en: "Cue: Closing: \"In Session 09 we enter Next.js: blazing performance, server layouts, and top-tier SEO auditing!\"\nAsk: What will you prepare before the next session?\nCheck: Confirm your component refactoring is committed and clean ahead of Session 09." },
-      payload: {
-        type: 'next',
-        data: {
-          nextSessionNumber: '09',
-          nextSessionTitle: {
-            ar: 'Next.js + SEO: بناء مواقع ويب فائقة السرعة وجاهزة للإنتاج',
-            en: 'Next.js + SEO: Building Blazing-Fast, Production-Ready Web Platforms',
-          },
-          teaser: {
-            ar: 'سنتعلم App Router وميزات Server Components، ضبط بيانات الـ Metadata لمحركات البحث، تحسين سرعة الصور، واستخدام AI لتدقيق الـ SEO والأداء.',
-            en: 'Master Next.js App Router layouts, search metadata, image optimization budgets, and AI-powered SEO audits.',
-          },
-          preparationHint: {
-            ar: 'تأكد من أن مشروعك مبني بنظام المكونات النظيفة لندخل به مباشرة في تحسينات Next.js.',
-            en: 'Confirm your component refactoring is committed and clean ahead of Session 09.',
+            ar: 'الخطوة القادمة في الجلسة 09: كيف نسرّع الموقع ونجهز بطاقة ظهوره في بحث Google ومشاركات واتساب؟',
+            en: 'Up Next in Session 09: How to speed up your site and prepare its Google & WhatsApp preview card.',
           },
         },
       },

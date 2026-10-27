@@ -1,7 +1,6 @@
 /**
  * WEB CREATOR AI — Unified Presentation Slides Catalog
- * The single source of truth for Presentation Mode (Trainer and Learner).
- * Covering Stages 01 THINK to 07 GROW with micro-interactions and presenter speaking notes.
+ * Clean, beginner-friendly overview slides for the 7 stages of WEB CREATOR AI.
  */
 
 import { PresentationSlide } from '@/types';
@@ -14,60 +13,60 @@ export const ALL_PRESENTATION_SLIDES: PresentationSlide[] = [
     stageNumber: '01',
     slideNumber: 1,
     title: {
-      ar: 'المعمارية قبل الكود: كيف يفكر مهندس الويب؟',
-      en: 'Architecture Before Code: Thinking Like a Web Engineer',
+      ar: 'التخطيط قبل الكود: كيف تبدأ بناء موقع ناجح؟',
+      en: 'Planning Before Code: How to Start a Successful Website',
     },
     subtitle: {
-      ar: 'تحويل الفكرة المجردة إلى نموذج اتصال ونظام عميل وخادم منضبط',
-      en: 'Transforming abstract concepts into resilient client-server models',
+      ar: 'فهم كيف تطورت المواقع من الماضي إلى اليوم، وتحديد الفكرة والجمهور والأدوات الأساسية',
+      en: 'Understanding how websites evolved, defining the idea, audience, and essential tools',
     },
     keyConcept: {
-      ar: 'كل ضغطة زر في المتصفح هي بداية لمحادثة بروتوكولية دقيقة ومحسوبة بالمللي ثانية بين العميل والخادم عبر DNS و TLS و HTTP.',
-      en: 'Every browser interaction initiates a millisecond-precision protocol dialogue across DNS, cryptographic handshakes, and HTTP payloads.',
+      ar: 'الموقع الناجح يبدأ بفكرة واضحة على الورق: لمن نبني هذا الموقع؟ ماذا نقدم له؟ وما هي الخطوة الواضحة التي نريد من الزائر القيام بها؟',
+      en: 'A successful website starts with a clear plan: who is it for, what does it offer, and what action should the visitor take?',
     },
     takeaways: [
       {
-        ar: 'المتصفح هو مفسر للأكواد الرسومية والبرمجية وليس مجرد قارئ نصوص.',
-        en: 'Browsers are compilation and rendering engines, not simple document readers.',
+        ar: 'المواقع اليوم تفاعلية وسريعة ومصممة لتعمل على الهاتف والكمبيوتر وتوجه الطلبات مباشرة.',
+        en: 'Modern websites are interactive, fast, mobile-ready, and guide customer requests directly.',
       },
       {
-        ar: 'فهم دورة حياة الطلب (Request Lifecycle) يختصر 80% من مشاكل الأداء وتصحيح الأخطاء.',
-        en: 'Understanding the request lifecycle eliminates 80% of latency and debugging headaches.',
+        ar: 'كل موقع يتكون من 3 طبقات أساسية: الهيكل والمحتوى (HTML)، المظهر والألوان (CSS)، والتفاعل الحي (JavaScript).',
+        en: 'Every website has 3 core layers: Structure (HTML), Visual Styling (CSS), and Live Interaction (JavaScript).',
       },
       {
-        ar: 'التقسيم المعماري السليم للفكرة يحدد مصير المشروع قبل كتابة أول سطر كود.',
-        en: 'A sound architectural breakdown dictates project success before writing a single line of code.',
+        ar: 'تثبيت الأدوات الأساسية على جهازك (Chrome, VS Code/Antigravity, Node.js, Git) يجهزك للبناء خطوة بخطوة.',
+        en: 'Installing the core tools on your computer prepares you for structured step-by-step building.',
       },
     ],
     interaction: {
       type: 'quiz',
       question: {
-        ar: 'ماذا يحدث فعلياً عندما يكتب المستخدم عنوان موقع ويضغط Enter؟',
-        en: 'What actually happens first when a user types a URL and presses Enter?',
+        ar: 'ما هي الخطوة الأولى الصحيحة قبل أن تطلب من الذكاء الاصطناعي كتابة كود الموقع؟',
+        en: 'What is the right first step before asking AI to write website code?',
       },
       options: [
         {
-          ar: 'يقوم المتصفح برسم الواجهة مباشرة من الذاكرة العشوائية.',
-          en: 'The browser renders the UI directly from local RAM.',
+          ar: 'طلب موقع كامل بجميع صفحاته في جملة واحدة عامة.',
+          en: 'Requesting an entire website in a single vague sentence.',
         },
         {
-          ar: 'يقوم خادم DNS بترجمة النطاق إلى عنوان IP رقمي لإنشاء اتصال TCP/TLS مشفر.',
-          en: 'The DNS server resolves the domain to an IP address to establish an encrypted TCP/TLS handshake.',
+          ar: 'تحديد هدف الموقع وجمهوره وأقسامه الـ 5 الأساسية بوضوح.',
+          en: 'Clearly defining the site goal, target audience, and 5 core sections.',
         },
         {
-          ar: 'يقوم الخادم بتنفيذ كود الـ JavaScript أولاً قبل إرسال الـ HTML.',
-          en: 'The server executes client-side JavaScript before dispatching HTML.',
+          ar: 'اختيار تأثيرات حركية معقدة قبل كتابة النصوص.',
+          en: 'Picking complex animations before writing any content.',
         },
       ],
       correctAnswerIndex: 1,
       explanation: {
-        ar: 'بالضبط! لا يستطيع المتصفح إرسال طلب HTTP إلا بعد معرفة عنوان IP الدقيق عبر DNS وبدء مصافحة TLS المشفرة.',
-        en: 'Exactly! The browser cannot send an HTTP request until DNS resolves the IP address and establishes the encrypted TLS handshake.',
+        ar: 'صحيح! عندما تحدد الهدف والجمهور والأقسام أولاً، تصبح توجيهاتك للذكاء الاصطناعي واضحة وتخرج بنتيجة مرتبة ومقنعة.',
+        en: 'Correct! Defining your goal, audience, and sections first makes your AI instructions clear and produces structured results.',
       },
     },
     trainerNotes: {
-      ar: 'نصيحة للمدرب: افتح أدوات المطور (F12) وتبويب Network أمام الطلاب مباشرة على الزوم. اطلب من متدرب عشوائي ذكر موقع واعرض له الـ Status Code 200 وزمن الـ TTFB لترسيخ الفكرة.',
-      en: 'Trainer Tip: Open DevTools Network tab live on Zoom. Pick a student suggestion, inspect the 200 OK status, and emphasize TTFB latency.',
+      ar: 'نصيحة للمدرب: قارن أمام المتدربين بين موقع قديم مزدحم بالنصوص وموقع حديث واضح يقود الزائر في 5 ثوانٍ إلى زر الطلب.',
+      en: 'Trainer Tip: Compare an old cluttered website with a clean modern website that guides visitors to the CTA within 5 seconds.',
     },
   },
   {
@@ -77,55 +76,55 @@ export const ALL_PRESENTATION_SLIDES: PresentationSlide[] = [
     stageNumber: '02',
     slideNumber: 2,
     title: {
-      ar: 'هندسة التجربة البصرية (UI/UX) والتسلسل الهرمي',
-      en: 'UI/UX Engineering & Visual Hierarchy',
+      ar: 'تخطيط الصفحات وترتيب الأقسام وتصميم تجربة مريحة للزائر',
+      en: 'Page Planning, Section Order & Visitor-Friendly Design',
     },
     subtitle: {
-      ar: 'بناء الثقة من الثانية الأولى عبر التيبوغرافي ونظام الألوان',
-      en: 'Building immediate user trust through typography and token systems',
+      ar: 'ترتيب أقسام الصفحة من الأعلى للأسفل بحيث يفهم الزائر العرض دون تشتت',
+      en: 'Ordering page sections from top to bottom so visitors understand the offer effortlessly',
     },
     keyConcept: {
-      ar: 'التصميم الجيد ليس إضافة ألوان وزينة، بل هو ترتيب الأولويات البصرية وتوجيه عين المستخدم نحو الهدف بأقل جهد إدراكي ممكن.',
-      en: 'Great design is not decoration; it is structuring cognitive priorities and guiding the user with zero visual friction.',
+      ar: 'التصميم المريح لا يعني كثرة الألوان والزخارف، بل يعني ترتيب المعلومات حسب أهميتها للزائر وترك مساحات هادئة تريح العين.',
+      en: 'Good design is not decoration; it is ordering information by importance and leaving calm breathing room.',
     },
     takeaways: [
       {
-        ar: 'استخدم خطوطاً محددة بأوزان متناغمة (Display, Heading, Body, Mono).',
-        en: 'Rely on disciplined font pairings and intentional weights.',
+        ar: 'رتب الصفحة في 5 محطات منطقية: شريط علوي، قسم رئيسي (Hero)، الخدمات أو المنتجات، الثقة، والتواصل.',
+        en: 'Order the page into 5 logical stations: Navbar, Hero, Products/Services, Trust, and Contact.',
       },
       {
-        ar: 'التباين العالي ونظام Design Tokens يمنح الموقع هوية رقمية رصينة.',
-        en: 'High contrast and semantic design tokens ensure authoritative identity.',
+        ar: 'استخدم لوناً أساسياً واحداً للأزرار المهمة وخطاً عربياً واضحاً ومقروءاً.',
+        en: 'Use one primary color for main action buttons and a clear, readable Arabic font.',
       },
       {
-        ar: 'المساحات البيضاء (Whitespace) عنصر تصميمي أساسي وليست مساحة فارغة.',
-        en: 'Whitespace is a core structural tool, not wasted canvas real estate.',
+        ar: 'حوّل مخططك المكتوب إلى تصور بصري أولي قبل البدء بكتابة الكود.',
+        en: 'Turn your written plan into an initial visual layout before writing code.',
       },
     ],
     interaction: {
       type: 'checklist',
       title: {
-        ar: 'قائمة تدقيق واجهة المستخدم قبل الانتقال للكود:',
-        en: 'UI/UX Pre-Flight Checklist Before Writing Code:',
+        ar: 'قائمة مراجعة تخطيط الصفحة قبل البناء:',
+        en: 'Page Planning Checklist Before Building:',
       },
       items: [
         {
-          ar: 'هل التسلسل الهرمي واضح (عنوان رئيسي واحد، تباين نصوص مقروء)؟',
-          en: 'Is the visual hierarchy clear (single H1, high text contrast)?',
+          ar: 'هل يشرح القسم الأول (Hero) ماذا يقدم الموقع ولمن في 5 ثوانٍ؟',
+          en: 'Does the Hero section explain what the site offers and for whom within 5 seconds?',
         },
         {
-          ar: 'هل تم تحديد لوحة ألوان دلالية (Primary, Secondary, Surface, Canvas)؟',
-          en: 'Are semantic color tokens defined for light and dark surfaces?',
+          ar: 'هل يوجد زر إجراء أساسي واضح واحد في بداية الصفحة ونهايتها؟',
+          en: 'Is there one clear primary action button at the top and bottom of the page?',
         },
         {
-          ar: 'هل الإجراء الأساسي (Primary CTA) بارز ولا ينافسه أكثر من زر واحد ثانوي؟',
-          en: 'Is the primary CTA distinct with clear secondary alternatives?',
+          ar: 'هل حذفت العناصر الثانوية المشتتة مثل النوافذ المنبثقة المزعجة؟',
+          en: 'Have distracting secondary elements like annoying popups been removed?',
         },
       ],
     },
     trainerNotes: {
-      ar: 'نصيحة للمدرب: استعرض صفحة هبوط سيئة مليئة بالظلال الفاقعة والـ Gradients المزعجة، وقارنها بصفحة نظيفة من موقعنا لتوضيح قوة الانضباط البصري.',
-      en: 'Trainer Tip: Contrast a cluttered website against our clean editorial design tokens to demonstrate visual discipline.',
+      ar: 'نصيحة للمدرب: اعرض للمتدربين كيف نرسم خريطة الأقسام الـ 5 على الورق في 5 دقائق قبل فتح محرر الكود.',
+      en: 'Trainer Tip: Show trainees how to sketch the 5-section map on paper in 5 minutes before opening the editor.',
     },
   },
   {
@@ -135,57 +134,57 @@ export const ALL_PRESENTATION_SLIDES: PresentationSlide[] = [
     stageNumber: '03',
     slideNumber: 3,
     title: {
-      ar: 'العمود الفقري الدلالي (HTML5) وتنسيقات Tailwind CSS',
-      en: 'Semantic HTML5 Architecture & Modern Tailwind CSS',
+      ar: 'بناء الهيكل الأساسي وتنسيق الموقع للهاتف والكمبيوتر (HTML & CSS)',
+      en: 'Building Core Structure & Responsive Layout (HTML & CSS)',
     },
     subtitle: {
-      ar: 'بناء كود يمكن قراءته آلياً وصيانته وتوسيعه لسنوات',
-      en: 'Crafting machine-readable, accessible code built to endure',
+      ar: 'قراءة عناصر الصفحة الأساسية وضبط تناسق البطاقات على جميع الشاشات',
+      en: 'Reading core page elements and aligning cards across mobile and desktop screens',
     },
     keyConcept: {
-      ar: 'الوسوم الدلالية (main, header, nav, section, article) ليست كماليات، بل هي لغة التواصل مع محركات البحث، قارئات الشاشة، والأداء الفائق.',
-      en: 'Semantic HTML tags are not optional formalities; they dictate accessibility, SEO ranking, and DOM parsing performance.',
+      ar: 'استخدام أسماء العناصر الصحيحة (header, main, section, footer) وتنسيق الشبكة المتجاوبة يجعل الموقع منظماً ومريحاً على الهاتف والكمبيوتر.',
+      en: 'Using semantic HTML tags and responsive grids keeps your website organized and comfortable on both phone and desktop.',
     },
     takeaways: [
       {
-        ar: 'تجنب فخ الـ (Div Soup) واستخدم الوسم المناسب لكل جزء في الواجهة.',
-        en: 'Avoid div-soup by selecting semantic containers for every section.',
+        ar: 'لكل عنصر في الصفحة اسم واضح: h1 للعنوان الرئيسي، p للفقرة، و button للزر.',
+        en: 'Every page element has a clear tag: h1 for main heading, p for paragraph, and button for actions.',
       },
       {
-        ar: 'الـ Flexbox و CSS Grid يحلان معاً 100% من تحديات التجاوب على الهواتف.',
-        en: 'Flexbox and CSS Grid resolve 100% of mobile responsive layout challenges.',
+        ar: 'البطاقات التي تظهر في 3 أعمدة على الكمبيوتر يجب أن تتحول إلى عمود واحد مريح على الهاتف.',
+        en: 'Cards shown in 3 columns on desktop should stack into a comfortable single column on mobile.',
       },
       {
-        ar: 'نظام Design Tokens مع Tailwind يوفر سرعة إنتاج مذهلة مع الحفاظ على التناسق.',
-        en: 'Tailwind with custom CSS tokens guarantees rapid execution and absolute visual cohesion.',
+        ar: 'المسافات الداخلية والحدود الهادئة هي سر المظهر المرتب والاحترافي.',
+        en: 'Consistent padding and calm borders are the secret to a clean, professional look.',
       },
     ],
     interaction: {
       type: 'reveal',
       beforeLabel: {
-        ar: 'الكود الشائع السيئ (Div Soup)',
-        en: 'Anti-pattern: Div Soup',
+        ar: 'كود عشوائي بصناديق عامة غير واضحة',
+        en: 'Unstructured Generic Divs',
       },
       beforeContent: {
-        ar: '<div class="top-nav">\n  <div class="logo">App</div>\n  <div class="links">\n    <div class="item">Home</div>\n  </div>\n</div>',
-        en: '<div class="top-nav">\n  <div class="logo">App</div>\n  <div class="links">\n    <div class="item">Home</div>\n  </div>\n</div>',
+        ar: '<div class="top">\n  <div class="big-text">قهوة الصباح</div>\n  <div class="click-here">اطلب الآن</div>\n</div>',
+        en: '<div class="top">\n  <div class="big-text">Morning Coffee</div>\n  <div class="click-here">Order Now</div>\n</div>',
       },
       afterLabel: {
-        ar: 'الكود الدلالي الاحترافي (Semantic Web)',
-        en: 'Professional Semantic Architecture',
+        ar: 'كود منظم وواضح الدلالة (HTML & Tailwind)',
+        en: 'Clean Semantic HTML & Tailwind',
       },
       afterContent: {
-        ar: '<header class="flex items-center justify-between">\n  <a href="/" class="font-bold">App</a>\n  <nav aria-label="Main Navigation">\n    <ul class="flex gap-4">\n      <li><a href="/">Home</a></li>\n    </ul>\n  </nav>\n</header>',
-        en: '<header class="flex items-center justify-between">\n  <a href="/" class="font-bold">App</a>\n  <nav aria-label="Main Navigation">\n    <ul class="flex gap-4">\n      <li><a href="/">Home</a></li>\n    </ul>\n  </nav>\n</header>',
+        ar: '<section class="p-8 bg-white rounded-2xl border">\n  <h1 class="text-3xl font-bold">قهوة الصباح المختصة</h1>\n  <a href="https://wa.me/905382015072" class="mt-4 inline-block px-6 py-3 bg-blue-600 text-white rounded-xl">اطلب عبر واتساب</a>\n</section>',
+        en: '<section class="p-8 bg-white rounded-2xl border">\n  <h1 class="text-3xl font-bold">Specialty Morning Coffee</h1>\n  <a href="https://wa.me/905382015072" class="mt-4 inline-block px-6 py-3 bg-blue-600 text-white rounded-xl">Order via WhatsApp</a>\n</section>',
       },
       note: {
-        ar: 'لاحظ كيف أصبح الكود مقروءاً لمحركات البحث وذوي الاحتياجات الخاصة فوراً بمجرد استخدام الوسوم المناسبة.',
-        en: 'Notice how semantic tags instantly unlock accessibility and SEO indexing without extra code.',
+        ar: 'لاحظ كيف أصبح الكود واضح المعنى لأي شخص يقرؤه ولمحركات البحث أيضاً.',
+        en: 'Notice how clear and readable the code becomes for both humans and search engines.',
       },
     },
     trainerNotes: {
-      ar: 'نصيحة للمدرب: انقر على زر Reveal أمام الطلاب ليروا الفرق المباشر بين الكود الهاوي والكود الاحترافي. شدد على أهمية وسم nav و ul في تقييم محركات البحث.',
-      en: 'Trainer Tip: Trigger the reveal toggle to show the difference between hobbyist code and engineering-grade semantic tags.',
+      ar: 'نصيحة للمدرب: اضغط على زر المقارنة وأظهر للمتدربين أن قراءة HTML تشبه قراءة عناوين وفقرات مستند وورد منظم.',
+      en: 'Trainer Tip: Toggle the comparison to show trainees how readable clean HTML is.',
     },
   },
   {
@@ -195,62 +194,64 @@ export const ALL_PRESENTATION_SLIDES: PresentationSlide[] = [
     stageNumber: '04',
     slideNumber: 4,
     title: {
-      ar: 'المنطق والتطوير التفاعلي: من JavaScript إلى Next.js App Router',
-      en: 'Dynamic Interactivity: Modern JS & Next.js Architecture',
+      ar: 'التفاعل الحي والقوالب القابلة لإعادة الاستخدام (JavaScript & React)',
+      en: 'Live Interactivity & Reusable Templates (JavaScript & React)',
     },
     subtitle: {
-      ar: 'بث الحياة في الواجهات بمكونات React وإدارة الحالة الذكية',
-      en: 'Breathing life into web systems with reactive components and state',
+      ar: 'تصفية البطاقات، فتح القوائم، وربط كل عنصر برسالة طلب مخصصة عبر واتساب',
+      en: 'Filtering cards, toggling menus, and linking items to custom WhatsApp order messages',
     },
     keyConcept: {
-      ar: 'في Next.js الحديث، نجعل الواجهة سريعة وخفيفة عبر تشغيل الحسابات الثقيلة في السيرفر (Server Components) وقصر الـ Client Components على التفاعل الحقيقي فقط.',
-      en: 'Modern Next.js achieves lightning performance by running work on the server by default and isolating client components strictly to user interactions.',
+      ar: 'بدلاً من نسخ الكود عشرات المرات، نصمم قالب بطاقة واحداً في React ونمرر له بيانات المنتجات، ونضيف تفاعلاً يسهل على الزائر الاختيار والطلب.',
+      en: 'Instead of copying code repeatedly, we design one React card template, pass it product data, and add smooth filtering and ordering.',
     },
     takeaways: [
       {
-        ar: 'استخدم "use client" فقط عندما تحتاج تفاعل المستخدم (State, Event Listeners).',
-        en: 'Reserve "use client" exclusively for components needing reactive state or DOM events.',
+        ar: 'كل تفاعل في الموقع يتبع 3 خطوات: حدث من الزائر ← تحديث الاختيار ← تغير فوري في الشاشة.',
+        en: 'Every interaction follows 3 steps: visitor action -> state update -> instant screen update.',
       },
       {
-        ar: 'الـ TypeScript يحميك من 90% من أخطاء وقت التشغيل الشائعة في الـ JavaScript.',
-        en: 'Strict TypeScript eradicates runtime bugs before code reaches the browser.',
+        ar: 'فصل قائمة البيانات (الأسماء والأسعار) عن قالب البطاقة يجعل تعديل الموقع سهلاً وسريعاً.',
+        en: 'Separating data lists from the card template makes updating the website fast and safe.',
       },
       {
-        ar: 'بناء المكونات المستقلة والقابلة لإعادة الاستخدام يسرّع تطوير أي منتج إلى 3 أضعاف.',
-        en: 'Modular, composable components triple your development speed on any serious product.',
+        ar: 'تجهيز رسالة واتساب تلقائية باسم المنتج المختار يختصر وقت الزائر وصاحب المشروع.',
+        en: 'Pre-filling WhatsApp messages with the selected item name saves time for both visitor and owner.',
       },
     ],
     interaction: {
       type: 'code',
       title: {
-        ar: 'مكون تفاعلي حديث ومنضبط بنظام TypeScript و Hooks:',
-        en: 'Modern Reactive Component with TypeScript & Custom State:',
+        ar: 'مثال واضح لزر يغير التصنيف المختار في الصفحة:',
+        en: 'Simple Example of a Category Filter State:',
       },
       language: 'tsx',
       code: `'use client';
 
 import React, { useState } from 'react';
 
-export const CounterToggle: React.FC = () => {
-  const [active, setActive] = useState(false);
+export const CategoryFilter: React.FC = () => {
+  const [category, setCategory] = useState('الكل');
 
   return (
-    <button
-      onClick={() => setActive(!active)}
-      className="px-4 py-2 rounded-lg font-mono text-xs font-bold border transition-colors"
-    >
-      {active ? 'SYSTEM ACTIVE' : 'SYSTEM IDLE'}
-    </button>
+    <div className="flex gap-2">
+      <button onClick={() => setCategory('الكل')} className="px-4 py-2 rounded-lg border">
+        الكل ({category === 'الكل' ? 'نشط' : ''})
+      </button>
+      <button onClick={() => setCategory('مشروبات ساخنة')} className="px-4 py-2 rounded-lg border">
+        مشروبات ساخنة ({category === 'مشروبات ساخنة' ? 'نشط' : ''})
+      </button>
+    </div>
   );
 };`,
       explanation: {
-        ar: 'بنية بسيطة، خالية من التعقيد، واضحة الدلالة والأنواع.',
-        en: 'A concise, robust component structure adhering to modern React paradigms.',
+        ar: 'عندما يضغط الزائر على الزر، يتغير التصنيف المحفوظ وتتحدث القائمة المعروضة فوراً.',
+        en: 'When the visitor clicks a button, the saved category updates and the displayed list refreshes immediately.',
       },
     },
     trainerNotes: {
-      ar: 'نصيحة للمدرب: اشرح للطلاب مفهوم تدفق البيانات أحادي الاتجاه (Unidirectional Data Flow) ولماذا لا نخلط بين منطق السيرفر وتفاعل المتصفح.',
-      en: 'Trainer Tip: Emphasize unidirectional data flow and the performance benefits of keeping server logic decoupled from client interactivity.',
+      ar: 'نصيحة للمدرب: اربط مفهوم الحالة (State) بذاكرة قصيرة تحفظ اختيار الزائر الحالي على الشاشة.',
+      en: 'Trainer Tip: Explain State simply as short-term memory that remembers the visitor’s current selection.',
     },
   },
   {
@@ -260,55 +261,55 @@ export const CounterToggle: React.FC = () => {
     stageNumber: '05',
     slideNumber: 5,
     title: {
-      ar: 'الذكاء الاصطناعي كمضاعف إنتاجي: الموجهات والتدقيق البرمجي',
-      en: 'Applied AI as a Multiplier: Prompts & Code Auditing',
+      ar: 'توجيه الذكاء الاصطناعي ومراجعة النتيجة خطوة بخطوة',
+      en: 'Guiding AI Clearly & Reviewing Results Step by Step',
     },
     subtitle: {
-      ar: 'كيف تكون المايسترو المعماري الذي يقود أدوات الـ AI باحتراف؟',
-      en: 'Directing AI copilots as an architectural maestro rather than a passive consumer',
+      ar: 'كيف تصوغ طلباً واضحاً من 4 عناصر وتراجع كل قسم قبل الانتقال للتالي؟',
+      en: 'How to write a 4-part prompt and inspect each section before moving on',
     },
     keyConcept: {
-      ar: 'الذكاء الاصطناعي لا يكتب كوداً عظيماً بمفرده، بل يعكس دقة فهمك للمشكلة. المطور المحترف يزوّد النموذج بالسياق والمعايير لإنتاج حلول متينة.',
-      en: 'AI models mirror your engineering clarity. Senior developers provide precise architecture context and constraints to generate production-grade code.',
+      ar: 'الذكاء الاصطناعي مساعد سريع، لكنه يحتاج إلى وصف دقيق للمهمة ومراجعة بشرية واعية للنصوص والتصميم وطريقة العمل على الهاتف.',
+      en: 'AI is a fast assistant, but it requires clear task descriptions and human review of copy, layout, and mobile behavior.',
     },
     takeaways: [
       {
-        ar: 'حدد الدور، الهدف، القيود البرمجية، والمخرجات المطلوبة في كل Prompt.',
-        en: 'Always define the persona, strict architectural constraints, and exact output format.',
+        ar: 'استخدم القالب الرباعي في كل طلب: السياق والهدف، المكان والملف، المحتوى المطلوب، وشروط المظهر.',
+        en: 'Use the 4-part prompt template: Context, File/Location, Content, and Layout Rules.',
       },
       {
-        ar: 'لا تقبل كوداً لا تفهمه؛ استخدم الـ AI لتفسير المنطق وإيجاد الثغرات.',
-        en: 'Never paste code you do not comprehend; use AI to audit performance and edge cases.',
+        ar: 'اطلب بناء أو تعديل قسم واحد فقط في كل مرة حتى تحافظ على ترتيب المشروع.',
+        en: 'Request or edit one section at a time to keep your project clean and controlled.',
       },
       {
-        ar: 'دمج الـ AI مع الـ TypeScript يقلص وقت بناء النماذج الأولية من أيام إلى دقائق.',
-        en: 'Pairing AI with TypeScript shrinks prototyping cycles from days to minutes.',
+        ar: 'اطلب من المساعد الذكي في المحرر شرح خطته وتحديد الملفات المتأثرة قبل تنفيذ تعديلات كبيرة.',
+        en: 'Ask the editor AI to explain its plan and affected files before applying large changes.',
       },
     ],
     interaction: {
       type: 'checklist',
       title: {
-        ar: 'المعادلة الذهبية لكتابة برومبت برمجي عالي الجودة:',
-        en: 'The Golden Formula for High-Performance Code Prompts:',
+        ar: 'قائمة التحقق من جودة الطلب قبل إرساله للذكاء الاصطناعي:',
+        en: 'Prompt Clarity Checklist Before Sending to AI:',
       },
       items: [
         {
-          ar: 'الدور والسياق: أنت مهندس برمجيات متخصص في Next.js 16 و TypeScript.',
-          en: 'Role & Context: Senior Next.js 16 & TypeScript software engineer.',
+          ar: 'هل حددت اسم الملف أو القسم المطلوب تعديله بدقة؟',
+          en: 'Did you specify the exact file or section to create or edit?',
         },
         {
-          ar: 'القيود المعمارية: استخدم Tailwind v4 بدون ألوان مخصصة غير المعرفة في التصميم.',
-          en: 'Constraints: Use Tailwind with strict design tokens, zero arbitrary colors.',
+          ar: 'هل كتبت النصوص العربية الحقيقية التي تريد ظهورها بدلاً من تركه يخترع نصوصاً عامة؟',
+          en: 'Did you provide the real Arabic copy instead of leaving AI to invent generic text?',
         },
         {
-          ar: 'المخرجات: كود نظيف مكتمل الأنواع خالي من أي متغيرات غير مستخدمة.',
-          en: 'Output: Clean, strictly-typed code with zero lint warnings or unused vars.',
+          ar: 'هل طلبت الحفاظ على باقي أقسام الصفحة دون تغيير؟',
+          en: 'Did you instruct it to leave other sections of the page untouched?',
         },
       ],
     },
     trainerNotes: {
-      ar: 'نصيحة للمدرب: اطلب من أحد المتدربين كتابة Prompt سطحي (مثل: ابنِ لي موقعاً)، واعرض له كيف يفشل، ثم حوّله أمام الجميع إلى Prompt احترافي منظم.',
-      en: 'Trainer Tip: Contrast a vague prompt against our 3-part engineering prompt structure live on screen.',
+      ar: 'نصيحة للمدرب: اعرض أمام المتدربين طلب تعديل محدد في سطرين وكيف ينفذه المساعد الذكي بدقة دون تخريب باقي الصفحة.',
+      en: 'Trainer Tip: Show a focused 2-line edit prompt and how cleanly the AI applies it without breaking the rest of the page.',
     },
   },
   {
@@ -318,60 +319,60 @@ export const CounterToggle: React.FC = () => {
     stageNumber: '06',
     slideNumber: 6,
     title: {
-      ar: 'تدقيق الأداء، الـ SEO، والإطلاق الحي المستمر (CI/CD)',
-      en: 'Core Web Vitals, Technical SEO & Production Deployment',
+      ar: 'تهيئة محركات البحث، الفحص الشامل، والنشر الحي على الإنترنت',
+      en: 'SEO, Pre-Launch Inspection & Live Cloud Deployment',
     },
     subtitle: {
-      ar: 'إيصال موقعك للعالم الحقيقي بأعلى درجات السرعة والأمان',
-      en: 'Shipping real-world applications with optimal search visibility and performance',
+      ar: 'تجهيز معاينة الرابط في واتساب وجوجل، فحص الهاتف، ونشر الموقع عبر GitHub و Vercel',
+      en: 'Setting up WhatsApp/Google link previews, checking mobile, and deploying via GitHub & Vercel',
     },
     keyConcept: {
-      ar: 'الموقع غير المحسّن لمحركات البحث والأداء يفقد 50% من زواره في أول 3 ثوانٍ. الإطلاق الحقيقي يبدأ بالتدقيق على Lighthouse والنشر السحابي التلقائي.',
-      en: 'Unoptimized websites lose over 50% of visitors in under 3 seconds. True launch readiness demands Lighthouse 95+ scores and automated cloud deployment.',
+      ar: 'قبل إرسال رابط موقعك لأي عميل، نضبط عنوانه ووصفه وصورته الترحيبية، ونفحص كل زر على شاشة الهاتف، ثم ننشره برابط حي يعمل في كل مكان.',
+      en: 'Before sharing your link, configure its title and preview card, test every button on mobile, and deploy it live.',
     },
     takeaways: [
       {
-        ar: 'احرص على أرقام خضراء في مقاييس LCP و FID و CLS.',
-        en: 'Target green scores across Core Web Vitals (LCP, FID, CLS).',
+        ar: 'إعداد العنوان والوصف (Metadata & Open Graph) يجعل رابط موقعك يظهر كبطاقة أنيقة في واتساب.',
+        en: 'Configuring Metadata and Open Graph makes your link appear as a clean preview card on WhatsApp.',
       },
       {
-        ar: 'أضف بيانات OpenGraph والـ Meta Tags لتظهر الروابط بشكل جذاب عند المشاركة.',
-        en: 'Configure OpenGraph and JSON-LD schema for compelling social sharing.',
+        ar: 'قائمة الفحص الرباعية (النصوص، الروابط، شاشة الهاتف، والأمان) تحميك من الأخطاء المحرجة.',
+        en: 'The 4-part checklist (copy, links, mobile view, safety) prevents embarrassing launch mistakes.',
       },
       {
-        ar: 'اربط مستودع GitHub بمنصة النشر (مثل Vercel) لتفعيل التحديث الفوري مع كل Push.',
-        en: 'Link your git repository to cloud deployment for continuous integration on every commit.',
+        ar: 'ربط GitHub بمنصة Vercel يمنحك رابطاً حياً (https://) يتحدث تلقائياً مع كل تعديل.',
+        en: 'Connecting GitHub to Vercel gives you a live https:// link that updates automatically.',
       },
     ],
     interaction: {
       type: 'quiz',
       question: {
-        ar: 'أي من العناصر التالية له التأثير الأكبر على سرعة تحميل صفحة الويب؟',
-        en: 'Which element typically has the biggest impact on initial page load speed?',
+        ar: 'ما الذي يجعل رابط موقعك يظهر مع عنوان واضح وصورة جميلة عند إرساله في محادثة واتساب؟',
+        en: 'What makes your website link show a clear title and image when shared on WhatsApp?',
       },
       options: [
         {
-          ar: 'حجم ونوع الصور والوسائط غير المضغوطة.',
-          en: 'Unoptimized, heavy image and media assets.',
+          ar: 'إعداد بيانات العنوان والوصف ومعاينة الرابط (Metadata & Open Graph) في ملف layout.tsx.',
+          en: 'Setting Metadata and Open Graph tags in layout.tsx.',
         },
         {
-          ar: 'عدد أسطر ملفات الـ HTML النصية.',
-          en: 'The number of lines in raw HTML documents.',
+          ar: 'زيادة حجم الخط في تذييل الموقع (Footer).',
+          en: 'Increasing the font size in the website footer.',
         },
         {
-          ar: 'لون الخلفية المستخدم في ملف CSS.',
-          en: 'The background hex color specified in CSS.',
+          ar: 'تغيير لون الخلفية إلى اللون الأسود.',
+          en: 'Changing the background color to black.',
         },
       ],
       correctAnswerIndex: 0,
       explanation: {
-        ar: 'صحيح! تشكل الصور غير المضغوطة أكثر من 70% من وزن صفحات الويب. استخدام وسم next/image وصيغ WebP/AVIF هو الحل الأمثل.',
-        en: 'Correct! Uncompressed images account for over 70% of page weight. Modern Next.js image optimization resolves this effortlessly.',
+        ar: 'أحسنت! يقرأ واتساب وجوجل بيانات Metadata و Open Graph لعرض بطاقة تعريفية جذابة للموقع قبل فتحه.',
+        en: 'Spot on! WhatsApp and Google read Metadata and Open Graph tags to display a rich preview card.',
       },
     },
     trainerNotes: {
-      ar: 'نصيحة للمدرب: شغل تدقيق Lighthouse حي على شاشة العرض لموقعنا وأظهر للطلاب كيف نحصل على 100/100 في معايير الأداء والـ Accessibility والـ SEO.',
-      en: 'Trainer Tip: Run a live Lighthouse audit on our production build to demonstrate a real 100/100 score on Zoom.',
+      ar: 'نصيحة للمدرب: أرسل رابط أحد مشاريع المتدربين في واتساب أمامهم ليروا كيف تظهر البطاقة الترحيبية بعد ضبط الإعدادات.',
+      en: 'Trainer Tip: Share a deployed student link on WhatsApp live so everyone sees the Open Graph preview card.',
     },
   },
   {
@@ -381,55 +382,55 @@ export const CounterToggle: React.FC = () => {
     stageNumber: '07',
     slideNumber: 7,
     title: {
-      ar: 'بناء معرض الأعمال الشخصي واقتناص عقود العمل الحر',
-      en: 'Authoritative Portfolio & Client Monetization Strategy',
+      ar: 'عرض أعمالك للعملاء بطريقة مقنعة وتسليم المشروع النهائي',
+      en: 'Presenting Your Work to Clients & Delivering the Final Project',
     },
     subtitle: {
-      ar: 'تحويل المعرفة البرمجية إلى منتجات وسجل إنجازات يفرض الاحترام',
-      en: 'Transforming technical engineering competence into high-value client engagements',
+      ar: 'كيف تشرح فائدة الموقع لأصحاب المشاريع بوضوح وصدق وتبني معرض أعمالك؟',
+      en: 'How to explain website value to business owners honestly and build your portfolio',
     },
     keyConcept: {
-      ar: 'العميل لا يشتري لغات برمجة، بل يشتري حلولاً لمشاكل تجارته وموقعاً يحقق له مبيعات وسمعة. معرض أعمالك هو الدليل القاطع على قدرتك على الإنجاز.',
-      en: 'Clients do not purchase raw syntax; they invest in solutions that drive their revenue and prestige. Your portfolio is definitive proof of execution.',
+      ar: 'صاحب المشروع يهتم بالنتيجة العملية: كيف يسهل الموقع تصفح زبائنه ويوجه طلباتهم مباشرة إلى واتساب؟ اعرض عملك بلغة الفائدة وبأمثلة حية.',
+      en: 'Business owners care about practical results: how the site helps their visitors and routes orders to WhatsApp.',
     },
     takeaways: [
       {
-        ar: 'اعرض دراسات حالة (Case Studies) توضح المشكلة والحل والنتيجة.',
-        en: 'Present structured case studies detailing the challenge, engineering solution, and measurable outcome.',
+        ar: 'قدم كل مشروع في 3 نقاط واضحة: مشكلة العميل، الحل الذي قدمه الموقع، والفائدة العملية للزائر.',
+        en: 'Present every project in 3 clear points: client problem, website solution, and visitor benefit.',
       },
       {
-        ar: 'سعّر على أساس القيمة والنتيجة (Value-Based Pricing) وليس على الساعات فقط.',
-        en: 'Price based on the value delivered to the client, not purely hourly rates.',
+        ar: 'أرسل للعميل دائماً رابطاً حياً يجربه من هاتفه بدلاً من إرسال صور ثابتة فقط.',
+        en: 'Always share a live link the client can test on their phone instead of static screenshots.',
       },
       {
-        ar: 'استمر في التطوير وبناء المنتجات الحقيقية لتظل في مقدمة المنافسين.',
-        en: 'Relentlessly build production products to maintain an insurmountable market edge.',
+        ar: 'ابنِ 3 مشاريع متنوعة ومنشورة لتكوين معرض أعمال قوي تبدأ به تقديم خدماتك بثقة.',
+        en: 'Build 3 diverse live projects to form a strong portfolio and offer your services with confidence.',
       },
     ],
     interaction: {
       type: 'checklist',
       title: {
-        ar: 'أركان البورتفوليو الناجح لصانع الويب المحترف:',
-        en: 'Core Elements of a High-Converting Developer Portfolio:',
+        ar: 'المعايير الخمسة لتسليم مشروعك النهائي في البرنامج:',
+        en: 'The 5 Criteria for Submitting Your Final Project:',
       },
       items: [
         {
-          ar: 'رسالة واضحة في البداية: ماذا أبني وكيف أساعد عملائي أو فريقي؟',
-          en: 'Clear upfront value statement: What I build and the value I unlock.',
+          ar: 'قسم رئيسي واضح يشرح فكرة الموقع وجمهوره من أول نظرة.',
+          en: 'A clear Hero section explaining the site concept and audience at first glance.',
         },
         {
-          ar: 'مشاريع حقيقية منشورة بروابط حية وكود مفتوح يمكن اختباره فوراً.',
-          en: 'Real production projects with live demos and clean inspectable architecture.',
+          ar: 'أقسام متكاملة مع تفاعل شغال وأزرار طلب مرتبطة بواتساب (+905382015072).',
+          en: 'Complete sections with working interactivity and WhatsApp order buttons.',
         },
         {
-          ar: 'قنوات تواصل مباشرة وسهلة دون استمارات معقدة أو روابط معطلة.',
-          en: 'Frictionless, direct communication channels for instant collaboration.',
+          ar: 'تصميم متناسق على الهاتف ومنشور برابط حي يعمل على منصة Vercel.',
+          en: 'Mobile-friendly layout deployed with a working live link on Vercel.',
         },
       ],
     },
     trainerNotes: {
-      ar: 'نصيحة للمدرب: اختم العرض بدعوة الطلاب لتطبيق مشروعهم النهائي ومتابعة لوحة التقدم. ذكّرهم أن هذا البورتفوليو نفسه مبني بنفس الأصول التي درسوها.',
-      en: 'Trainer Tip: Close the presentation by challenging students to complete their capstone project and highlight that this platform is built on these exact principles.',
+      ar: 'نصيحة للمدرب: اختم العرض بتشجيع المتدربين على تسليم مشاريعهم عبر واتساب واستعراضها أمام المجموعة.',
+      en: 'Trainer Tip: Close by encouraging trainees to submit their live projects via WhatsApp and present them to the group.',
     },
   },
 ];

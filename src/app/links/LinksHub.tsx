@@ -3,7 +3,23 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { ArrowUpRight, BriefcaseBusiness, Camera, Check, Code2, Copy, GitBranch, Languages, Moon, Share2, Sun } from 'lucide-react';
+import {
+  ArrowUpRight,
+  BriefcaseBusiness,
+  Camera,
+  Check,
+  Code2,
+  Copy,
+  GitBranch,
+  Globe,
+  GraduationCap,
+  Languages,
+  MessageCircle,
+  Moon,
+  Share2,
+  ShoppingBag,
+  Sun,
+} from 'lucide-react';
 import { INSTRUCTOR_PROFILE } from '@/content/instructor';
 import { PERSONAL_LINKS, type LinkCategory, type LinkIcon } from '@/content/links';
 import { getLocalizedText } from '@/lib/utils';
@@ -11,12 +27,17 @@ import { usePreferencesStore } from '@/store';
 import styles from './links.module.css';
 
 const categories: { id: LinkCategory; title: { ar: string; en: string } }[] = [
-  { id: 'social', title: { ar: 'حساباتي', en: 'Find me online' } },
-  { id: 'product', title: { ar: 'منتجات ومشاريع', en: 'Products & projects' } },
-  { id: 'learning', title: { ar: 'التعلّم والتدريب', en: 'Learning & teaching' } },
+  { id: 'contact', title: { ar: 'التواصل السريع والموقع الرسمي', en: 'Direct contact & website' } },
+  { id: 'product', title: { ar: 'منتجاتي الرقمية (SaaS)', en: 'My SaaS digital products' } },
+  { id: 'learning', title: { ar: 'التعلّم والتدريب', en: 'Learning & training' } },
+  { id: 'social', title: { ar: 'حساباتي الرسمية', en: 'Official profiles' } },
 ];
 
 function BrandMark({ icon }: { icon: LinkIcon }) {
+  if (icon === 'whatsapp') return <MessageCircle aria-hidden="true" size={19} strokeWidth={1.8} />;
+  if (icon === 'portfolio') return <Globe aria-hidden="true" size={19} strokeWidth={1.8} />;
+  if (icon === 'share2sells') return <ShoppingBag aria-hidden="true" size={19} strokeWidth={1.8} />;
+  if (icon === 'learning') return <GraduationCap aria-hidden="true" size={19} strokeWidth={1.8} />;
   if (icon === 'instagram') return <Camera aria-hidden="true" size={19} strokeWidth={1.8} />;
   if (icon === 'github') return <Code2 aria-hidden="true" size={19} strokeWidth={1.8} />;
   if (icon === 'gitlab') return <GitBranch aria-hidden="true" size={19} strokeWidth={1.8} />;
@@ -43,7 +64,11 @@ function LinkRows({ category, language }: { category: LinkCategory; language: 'a
               <span className={styles.iconTile}><BrandMark icon={item.icon} /></span>
               <span className={styles.linkCopy}>
                 <span className={styles.linkTitle}>{title}</span>
-                {description && <span className={styles.linkDescription} dir={item.handle && !item.description ? 'ltr' : undefined}><bdi>{description}</bdi></span>}
+                {description && (
+                  <span className={styles.linkDescription} dir={item.handle && !item.description ? 'ltr' : undefined}>
+                    <bdi>{description}</bdi>
+                  </span>
+                )}
               </span>
               <ArrowUpRight className={styles.linkArrow} aria-hidden="true" size={17} />
             </>
@@ -72,8 +97,22 @@ export default function LinksHub() {
   const [shareState, setShareState] = useState<'idle' | 'copied' | 'shared'>('idle');
   const isArabic = language === 'ar';
   const labels = isArabic
-    ? { lang: 'English', theme: theme === 'dark' ? 'تفعيل الوضع الفاتح' : 'تفعيل الوضع الداكن', share: 'مشاركة الصفحة أو نسخ الرابط', contact: 'للتواصل المهني', copied: 'تم نسخ الرابط', shared: 'تمت المشاركة' }
-    : { lang: 'العربية', theme: theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode', share: 'Share or copy this page', contact: 'Get in touch', copied: 'Link copied', shared: 'Shared' };
+    ? {
+        lang: 'English',
+        theme: theme === 'dark' ? 'تفعيل الوضع الفاتح' : 'تفعيل الوضع الداكن',
+        share: 'مشاركة الصفحة أو نسخ الرابط',
+        contact: 'إرسال طلب مشروع أو استشارة',
+        copied: 'تم نسخ الرابط',
+        shared: 'تمت المشاركة',
+      }
+    : {
+        lang: 'العربية',
+        theme: theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
+        share: 'Share or copy this page',
+        contact: 'Project or consultation inquiry',
+        copied: 'Link copied',
+        shared: 'Shared',
+      };
 
   const sharePage = async () => {
     const url = window.location.href;
@@ -131,18 +170,24 @@ export default function LinksHub() {
               <Image src="/myphoto.jpg" alt={getLocalizedText(INSTRUCTOR_PROFILE.name, language)} fill priority sizes="88px" className={styles.portrait} />
             </div>
             <div className={styles.identityText}>
-              <p className={styles.eyebrow}>{isArabic ? 'الموقع الرسمي' : 'PERSONAL LINK PAGE'}</p>
+              <p className={styles.eyebrow}>{isArabic ? 'الموقع الرسمي والروابط' : 'OFFICIAL LINKS'}</p>
               <h1>{getLocalizedText(INSTRUCTOR_PROFILE.name, language)}</h1>
             </div>
           </div>
-          <p className={styles.role}>{getLocalizedText(INSTRUCTOR_PROFILE.roleTitle, language)}</p>
-          <p className={styles.bio}>{isArabic
-            ? 'أصمّم وأبني تطبيقات ويب وأنظمة برمجية، وأشارك خبرتي في هندسة البرمجيات والتعلّم العملي.'
-            : 'I design and build web applications and software systems, and share practical engineering knowledge.'}</p>
+          <p className={styles.role}>
+            {isArabic ? 'أحوّل الأفكار إلى مواقع ومنتجات رقمية' : 'I turn ideas into websites and digital products'}
+          </p>
+          <p className={styles.bio}>
+            {isArabic
+              ? 'أطوّر مواقع وأنظمة تساعد الشركات وأصحاب الأفكار على بناء حضورهم الرقمي وتنظيم أعمالهم، وأشارك أعمالي ومنتجاتي ومساري التدريبي WEB CREATOR AI.'
+              : 'I build websites and custom systems that help businesses establish their digital presence and organize operations, and I share my products and the WEB CREATOR AI training track.'}
+          </p>
           <div className={styles.signatureRule} aria-hidden="true"><span /></div>
           <button className={styles.shareButton} type="button" onClick={sharePage} aria-label={shareState === 'copied' ? labels.copied : shareState === 'shared' ? labels.shared : labels.share}>
             {shareState === 'copied' ? <Check size={17} aria-hidden="true" /> : shareState === 'shared' ? <Share2 size={17} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
-            <span aria-live="polite" aria-atomic="true">{shareState === 'copied' ? labels.copied : shareState === 'shared' ? labels.shared : (isArabic ? 'شارك هذه الصفحة' : 'Share this page')}</span>
+            <span aria-live="polite" aria-atomic="true">
+              {shareState === 'copied' ? labels.copied : shareState === 'shared' ? labels.shared : (isArabic ? 'مشاركة أو نسخ رابط الصفحة' : 'Share or copy this page')}
+            </span>
           </button>
         </header>
 
@@ -154,7 +199,9 @@ export default function LinksHub() {
           <Link className={styles.contactLink} href="/contact">
             <span>{labels.contact}</span><ArrowUpRight size={16} aria-hidden="true" />
           </Link>
-          <span className={styles.footerCaption}>{isArabic ? 'عبد الحكيم قنبر · مهندس برمجيات' : 'Abdulhakim Kanbr · Software Engineer'}</span>
+          <span className={styles.footerCaption}>
+            {isArabic ? 'عبد الحكيم قنبر · تطوير مواقع ومنتجات رقمية' : 'Abdulhakim Kanbr · Websites & Digital Products'}
+          </span>
         </footer>
       </div>
     </main>

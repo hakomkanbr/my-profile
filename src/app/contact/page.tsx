@@ -5,299 +5,370 @@ import {
   PortfolioShell,
   PageContainer,
   PageHeader,
-  PageSection,
+  Card,
+  Button,
+  Input,
+  Textarea,
+  WhatsAppActionFeedback,
 } from '@/components';
 import { INSTRUCTOR_PROFILE } from '@/content/instructor';
 import { usePreferencesStore } from '@/store';
-import { Mail, Phone, ExternalLink, Send, CheckCircle2, Clock, ShieldCheck, Copy, Check } from 'lucide-react';
+import { getLocalizedText } from '@/lib/utils';
+import {
+  Mail,
+  CheckCircle2,
+  ExternalLink,
+  MessageCircle,
+  Globe,
+  LayoutDashboard,
+  Sparkles,
+  GraduationCap,
+} from 'lucide-react';
+import {
+  WHATSAPP_CONFIG,
+  buildClientInquiryMessage,
+  buildWhatsAppUrl,
+  getCurrentPageUrl,
+  openWhatsAppChat,
+} from '@/lib/whatsapp';
+
+type InquiryTypeKey = 'website' | 'system' | 'saas' | 'training';
 
 export default function ContactPage() {
   const { language } = usePreferencesStore();
   const isRtl = language === 'ar';
 
-  const email = INSTRUCTOR_PROFILE.email || 'abdulhekimkanbr@gmail.com';
-  const phone = INSTRUCTOR_PROFILE.phone || '+905382015072';
-  const phoneDisplay = INSTRUCTOR_PROFILE.phoneDisplay || '+90 538 201 50 72';
+  const [selectedType, setSelectedType] = useState<InquiryTypeKey>('website');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [preparedWhatsAppMsg, setPreparedWhatsAppMsg] = useState<string | null>(
+    null
+  );
 
-  const [copied, setCopied] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    type: 'project',
-    message: '',
-  });
+  const inquiryTypes = [
+    {
+      key: 'website' as const,
+      icon: Globe,
+      title: {
+        ar: 'بناء موقع أو متجر إلكتروني',
+        en: 'Website or Online Store',
+      },
+      desc: {
+        ar: 'تطوير موقع شركة، صفحة هبوط، أو متجر إلكتروني سريع ومتجاوب مع الهواتف.',
+        en: 'Building a company website, landing page, or fast mobile-friendly online store.',
+      },
+      typeLabelAr: 'بناء موقع أو متجر إلكتروني',
+    },
+    {
+      key: 'system' as const,
+      icon: LayoutDashboard,
+      title: {
+        ar: 'تطوير نظام مخصص لإدارة الأعمال',
+        en: 'Custom Business System',
+      },
+      desc: {
+        ar: 'بناء لوحة تحكم أو نظام داخلي لتنظيم المبيعات، الفواتير، المخزون، أو فريق العمل.',
+        en: 'Developing a custom dashboard or internal system for sales, invoicing, or inventory.',
+      },
+      typeLabelAr: 'تطوير نظام مخصص لإدارة الأعمال',
+    },
+    {
+      key: 'saas' as const,
+      icon: Sparkles,
+      title: {
+        ar: 'تطوير منتج رقمي (SaaS) أو استشارة تقنية',
+        en: 'Digital Product (SaaS) or Technical Consultation',
+      },
+      desc: {
+        ar: 'تحويل فكرة ريادية إلى منتج سحابي متكامل، أو مراجعة مشروع قائم وتحسينه.',
+        en: 'Turning a product idea into a SaaS platform, or reviewing and improving an existing system.',
+      },
+      typeLabelAr: 'تطوير منتج رقمي (SaaS) أو استشارة تقنية',
+    },
+    {
+      key: 'training' as const,
+      icon: GraduationCap,
+      title: {
+        ar: 'استفسار عن التدريب أو WEB CREATOR AI',
+        en: 'Training or WEB CREATOR AI Inquiry',
+      },
+      desc: {
+        ar: 'الاستفسار عن الجلسات التدريبية، مراجعة الأنشطة، أو تدريب فرق العمل.',
+        en: 'Questions about training sessions, activity reviews, or team workshops.',
+      },
+      typeLabelAr: 'استفسار عن التدريب أو WEB CREATOR AI',
+    },
+  ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const activeInquiry =
+    inquiryTypes.find((t) => t.key === selectedType) || inquiryTypes[0];
+
+  const handleSubmitViaWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
-    // Create mailto fallback or submit
-    const subject = encodeURIComponent(
-      `[Inquiry: ${formData.type}] from ${formData.name}`
-    );
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nType: ${formData.type}\n\nMessage:\n${formData.message}`
-    );
-    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-    setFormSubmitted(true);
+
+    const formatted = buildClientInquiryMessage({
+      name,
+      email,
+      projectType: activeInquiry.typeLabelAr,
+      details: message,
+      pageUrl: getCurrentPageUrl('/contact'),
+    });
+
+    setPreparedWhatsAppMsg(formatted);
+    openWhatsAppChat(formatted);
   };
+
+  const directWhatsAppUrl = buildWhatsAppUrl(
+    'مرحبًا أستاذ عبد الحكيم، أرغب في التواصل معك بخصوص مشروع أو استفسار.'
+  );
 
   return (
     <PortfolioShell>
       <PageContainer>
         <PageHeader
-          title={isRtl ? 'تواصل معي' : 'Get in Touch'}
+          title={
+            isRtl
+              ? 'عندك فكرة أو مشروع؟ لنتحدث'
+              : 'Have an idea or project? Let’s talk'
+          }
           subtitle={
             isRtl
-              ? 'متاح لمناقشة المشاريع البرمجية، الاستشارات المعمارية، وتطوير حلول الويب الموثوقة.'
-              : 'Available for new software projects, architectural consultations, and reliable web engineering.'
+              ? 'اختر نوع طلبك واكتب فكرتك باختصار، ثم اضغط إرسال لتفتح محادثة واتساب جاهزة معي مباشرة.'
+              : 'Choose your inquiry type, write a brief summary of your idea, and click send to open a direct WhatsApp conversation with me.'
           }
           breadcrumbs={[
             { id: '1', label: isRtl ? 'الرئيسية' : 'Home', href: '/' },
-            { id: '2', label: isRtl ? 'تواصل معي' : 'Contact', isCurrent: true },
+            {
+              id: '2',
+              label: isRtl ? 'تواصل معي' : 'Contact',
+              isCurrent: true,
+            },
           ]}
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 text-start mb-16">
-          {/* Option 1: Inquiry Form (7 cols) */}
-          <div className="lg:col-span-7">
-            <div className="p-7 sm:p-9 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-xs space-y-6">
-              <div className="space-y-2">
-                <span className="text-xs font-mono font-bold text-[var(--color-secondary)] uppercase tracking-wider">
-                  {isRtl ? 'الخيار الأول' : 'Option 1'}
-                </span>
-                <h2 className="text-h3 font-bold text-[var(--color-text)]">
-                  {isRtl ? 'نموذج التواصل السريع' : 'Project Inquiry Form'}
-                </h2>
-                <p className="text-body-sm text-[var(--color-text-muted)] leading-relaxed">
-                  {isRtl
-                    ? 'أرسل تفاصيل مشروعك أو فكرتك وسأراجع متطلباتك الهندسية بعناية.'
-                    : 'Share a summary of your project or technical challenge, and I will review the requirements.'}
-                </p>
-              </div>
-
-              {formSubmitted ? (
-                <div className="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-start space-y-2">
-                  <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold">
-                    <CheckCircle2 className="w-5 h-5" />
-                    <span>{isRtl ? 'تم فتح تطبيق البريد بنجاح!' : 'Email client opened!'}</span>
-                  </div>
-                  <p className="text-body-sm text-[var(--color-text-muted)] leading-relaxed">
-                    {isRtl
-                      ? 'إذا لم يفتح بريدك تلقائياً، يمكنك مراسلتي مباشرة عبر البريد الإلكتروني.'
-                      : 'If your client did not launch automatically, feel free to email me directly.'}
-                  </p>
+        <div className="space-y-12 pb-16 text-start">
+          {/* 1. Inquiry Type Selector */}
+          <div className="space-y-4">
+            <h2 className="text-h3 font-bold text-[var(--color-text)]">
+              {isRtl ? '1. اختر موضوع الرسالة' : '1. Select Inquiry Topic'}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              {inquiryTypes.map((item) => {
+                const Icon = item.icon;
+                const isSelected = selectedType === item.key;
+                return (
                   <button
-                    onClick={() => setFormSubmitted(false)}
-                    className="text-xs font-mono text-[var(--color-secondary)] hover:underline pt-2 cursor-pointer"
+                    key={item.key}
+                    type="button"
+                    onClick={() => setSelectedType(item.key)}
+                    className={`p-5 rounded-2xl border text-start transition-all flex flex-col justify-between space-y-4 cursor-pointer ${
+                      isSelected
+                        ? 'bg-[var(--color-primary-subtle)] border-[var(--color-secondary)] shadow-xs'
+                        : 'bg-[var(--color-surface)] border-[var(--color-border)] hover:border-[var(--color-secondary)]/50'
+                    }`}
                   >
-                    {isRtl ? 'إرسال استفسار آخر' : 'Send another inquiry'}
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <div
+                          className={`w-10 h-10 rounded-xl flex items-center justify-center ${
+                            isSelected
+                              ? 'bg-[var(--color-secondary)] text-white'
+                              : 'bg-[var(--color-surface-sunken)] text-[var(--color-secondary)]'
+                          }`}
+                        >
+                          <Icon className="w-5 h-5" />
+                        </div>
+                        {isSelected && (
+                          <CheckCircle2 className="w-5 h-5 text-[var(--color-secondary)]" />
+                        )}
+                      </div>
+
+                      <h3 className="text-h4 font-bold text-[var(--color-text)]">
+                        {getLocalizedText(item.title, language)}
+                      </h3>
+
+                      <p className="text-xs text-[var(--color-text-muted)] leading-relaxed">
+                        {getLocalizedText(item.desc, language)}
+                      </p>
+                    </div>
                   </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label className="block text-xs font-mono font-medium text-[var(--color-text-muted)] mb-1.5">
-                      {isRtl ? 'الاسم الكريم' : 'Your Name'} *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder={isRtl ? 'أدخل اسمك...' : 'Enter your name...'}
-                      className="w-full px-4 py-2.5 rounded-xl bg-[var(--color-surface-sunken)] border border-[var(--color-border)] text-sm text-[var(--color-text)] placeholder:text-[var(--color-text-subtle)] focus:outline-none focus:border-[var(--color-primary)]"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-mono font-medium text-[var(--color-text-muted)] mb-1.5">
-                      {isRtl ? 'البريد الإلكتروني' : 'Email Address'} *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder={isRtl ? 'name@example.com' : 'name@example.com'}
-                      className="w-full px-4 py-2.5 rounded-xl bg-[var(--color-surface-sunken)] border border-[var(--color-border)] text-sm text-[var(--color-text)] placeholder:text-[var(--color-text-subtle)] focus:outline-none focus:border-[var(--color-primary)]"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-mono font-medium text-[var(--color-text-muted)] mb-1.5">
-                      {isRtl ? 'نوع الاستفسار أو التعاقد' : 'Inquiry Type'}
-                    </label>
-                    <select
-                      value={formData.type}
-                      onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-[var(--color-surface-sunken)] border border-[var(--color-border)] text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-primary)] cursor-pointer"
-                    >
-                      <option value="project">
-                        {isRtl ? 'تطوير مشروع ويب جديد' : 'New Web Application / Platform'}
-                      </option>
-                      <option value="consultation">
-                        {isRtl ? 'استشارة معمارية أو تدقيق كود' : 'Architecture Consultation / Code Review'}
-                      </option>
-                      <option value="training">
-                        {isRtl ? 'استفسار عن برنامج WEB CREATOR AI' : 'WEB CREATOR AI Inquiry'}
-                      </option>
-                      <option value="general">
-                        {isRtl ? 'تواصل مهني عام' : 'General Connection'}
-                      </option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-mono font-medium text-[var(--color-text-muted)] mb-1.5">
-                      {isRtl ? 'نبذة عن المشروع أو الرسالة' : 'Project Details / Message'} *
-                    </label>
-                    <textarea
-                      required
-                      rows={4}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder={
-                        isRtl
-                          ? 'صف بإيجاز فكرة المشروع، النطاق الزمني المتوقع، أو المشكلة التقنية...'
-                          : 'Briefly describe your project scope, timeline expectations, or technical needs...'
-                      }
-                      className="w-full px-4 py-2.5 rounded-xl bg-[var(--color-surface-sunken)] border border-[var(--color-border)] text-sm text-[var(--color-text)] placeholder:text-[var(--color-text-subtle)] focus:outline-none focus:border-[var(--color-primary)] resize-none"
-                    />
-                  </div>
-
-                  <div className="space-y-2 pt-1">
-                    <button
-                      type="submit"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl bg-[var(--color-primary)] text-white font-bold hover:bg-[var(--color-primary-hover)] active:scale-[0.98] transition-all text-sm shadow-xs cursor-pointer"
-                    >
-                      <Send className="w-4 h-4" />
-                      <span>{isRtl ? 'إرسال عبر تطبيق البريد' : 'Send via Email App'}</span>
-                    </button>
-                    <p className="text-[11px] font-mono text-[var(--color-text-subtle)]">
-                      {isRtl
-                        ? '* يفتح الزر رسالة جديدة جاهزة في تطبيق بريدك المعتمد (mailto). إذا كنت تستخدم بريد المتصفح، يمكنك نسخ البريد مباشرة أدناه.'
-                        : '* Opens a pre-filled draft in your default email client. You can also copy the email directly from Option 2.'}
-                    </p>
-                  </div>
-                </form>
-              )}
-
-              {/* Expectations Footnote */}
-              <div className="pt-4 border-t border-[var(--color-border-subtle)] flex items-start gap-2.5 text-xs text-[var(--color-text-muted)] font-mono">
-                <Clock className="w-4 h-4 text-[var(--color-secondary)] shrink-0 mt-0.5" />
-                <p className="leading-relaxed">
-                  {isRtl
-                    ? 'وقت الرد المعتاد: خلال 24 إلى 48 ساعة عمل. تفاصيل مشروعك وبياناتك تعامل باهتمام وسرية تامة.'
-                    : 'Typical response time: Within 24–48 business hours. Your project details are handled with strict privacy.'}
-                </p>
-              </div>
+                );
+              })}
             </div>
           </div>
 
-          {/* Option 2: Direct Channels & Networks (5 cols) */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="p-7 sm:p-9 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-xs space-y-6">
-              <div className="space-y-2">
-                <span className="text-xs font-mono font-bold text-[var(--color-secondary)] uppercase tracking-wider">
-                  {isRtl ? 'الخيار الثاني' : 'Option 2'}
-                </span>
-                <h3 className="text-h3 font-bold text-[var(--color-text)]">
-                  {isRtl ? 'قنوات الاتصال المباشرة' : 'Direct Channels'}
-                </h3>
-                <p className="text-body-sm text-[var(--color-text-muted)] leading-relaxed">
+          {/* 2. Form & Direct Channels */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* WhatsApp Inquiry Form */}
+            <Card className="lg:col-span-7 p-6 sm:p-8 space-y-6">
+              <div className="space-y-1 border-b border-[var(--color-border-subtle)] pb-4">
+                <h2 className="text-h3 font-bold text-[var(--color-text)]">
                   {isRtl
-                    ? 'إذا كنت تفضل المراسلة المباشرة دون ملء النموذج:'
-                    : 'If you prefer reaching out directly without form submissions:'}
+                    ? '2. أرسل تفاصيل طلبك عبر واتساب'
+                    : '2. Send Your Inquiry via WhatsApp'}
+                </h2>
+                <p className="text-xs text-[var(--color-text-muted)]">
+                  {isRtl
+                    ? `الموضوع المحدد: ${getLocalizedText(activeInquiry.title, language)} — ستفتح نافذة واتساب على الرقم (${WHATSAPP_CONFIG.phoneDisplay}) وبداخلها رسالتك جاهزة للإرسال.`
+                    : `Selected Topic: ${getLocalizedText(activeInquiry.title, language)} — WhatsApp will open (${WHATSAPP_CONFIG.phoneDisplay}) with your pre-filled message ready to send.`}
                 </p>
               </div>
 
-              {/* Direct Cards */}
-              <div className="space-y-3">
-                <div className="p-4 rounded-xl bg-[var(--color-surface-sunken)] border border-[var(--color-border)] space-y-1">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-xs font-mono font-bold text-[var(--color-secondary)] uppercase">
-                      <Mail className="w-4 h-4" />
-                      <span>{isRtl ? 'البريد الإلكتروني' : 'Email'}</span>
+              <form onSubmit={handleSubmitViaWhatsApp} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <Input
+                    label={isRtl ? 'الاسم الكامل' : 'Full Name'}
+                    placeholder={
+                      isRtl ? 'مثال: محمد العبد الله' : 'e.g., John Doe'
+                    }
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
+                  <Input
+                    label={
+                      isRtl
+                        ? 'البريد الإلكتروني (اختياري)'
+                        : 'Email Address (Optional)'
+                    }
+                    type="email"
+                    placeholder="name@company.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+
+                <Textarea
+                  label={
+                    isRtl
+                      ? 'تفاصيل الفكرة أو المشروع'
+                      : 'Project or Inquiry Details'
+                  }
+                  placeholder={
+                    isRtl
+                      ? 'اشرح باختصار فكرة المشروع، الهدف منه، أو أي تفاصيل تود مناقشتها...'
+                      : 'Briefly describe your project idea, goals, or any details you would like to discuss...'
+                  }
+                  rows={5}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  required
+                />
+
+                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    size="lg"
+                    className="font-bold bg-emerald-600 hover:bg-emerald-700 border-emerald-600 text-white shadow-sm"
+                    leftIcon={<MessageCircle className="w-4 h-4" />}
+                  >
+                    {isRtl
+                      ? 'إرسال الطلب عبر واتساب'
+                      : 'Send Inquiry via WhatsApp'}
+                  </Button>
+
+                  <span className="text-xs text-[var(--color-text-subtle)]">
+                    {isRtl
+                      ? '* لن تُمسح مدخلاتك بعد الضغط، ويمكنك نسخ الرسالة في أي وقت.'
+                      : '* Your inputs stay saved on screen and can be copied anytime.'}
+                  </span>
+                </div>
+              </form>
+
+              {preparedWhatsAppMsg && (
+                <WhatsAppActionFeedback
+                  message={preparedWhatsAppMsg}
+                  isRtl={isRtl}
+                  onClose={() => setPreparedWhatsAppMsg(null)}
+                />
+              )}
+            </Card>
+
+            {/* Direct Contact Channels Column */}
+            <div className="lg:col-span-5 space-y-4">
+              {/* Direct WhatsApp Card */}
+              <Card className="p-6 space-y-4 border-2 border-emerald-500/30">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                    <MessageCircle className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-h4 font-bold text-[var(--color-text)]">
+                      {isRtl
+                        ? 'محادثة سريعة عبر واتساب'
+                        : 'Direct WhatsApp Chat'}
+                    </h3>
+                    <p className="text-xs text-[var(--color-text-muted)]">
+                      {isRtl
+                        ? 'أسرع وسيلة للتواصل ومناقشة المشاريع والتدريب'
+                        : 'Fastest way to discuss projects & training'}
+                    </p>
+                  </div>
+                </div>
+
+                <a
+                  href={directWhatsAppUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  dir="ltr"
+                  className="block p-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-mono text-sm text-center font-bold transition-colors shadow-xs"
+                >
+                  {WHATSAPP_CONFIG.phoneDisplay}
+                </a>
+              </Card>
+
+              {/* Email Card (Secondary) */}
+              {INSTRUCTOR_PROFILE.email && (
+                <Card className="p-6 space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-[var(--color-primary-subtle)] text-[var(--color-secondary)] flex items-center justify-center shrink-0">
+                      <Mail className="w-5 h-5" />
                     </div>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        navigator.clipboard.writeText(email);
-                        setCopied(true);
-                        setTimeout(() => setCopied(false), 2500);
-                      }}
-                      className="text-xs font-mono text-[var(--color-text-subtle)] hover:text-[var(--color-primary)] inline-flex items-center gap-1 transition-colors cursor-pointer"
-                      title={isRtl ? 'نسخ البريد الإلكتروني' : 'Copy email address'}
-                    >
-                      {copied ? (
-                        <>
-                          <Check className="w-3.5 h-3.5 text-emerald-500" />
-                          <span className="text-emerald-500 font-bold">{isRtl ? 'تم النسخ' : 'Copied'}</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-3.5 h-3.5" />
-                          <span>{isRtl ? 'نسخ' : 'Copy'}</span>
-                        </>
-                      )}
-                    </button>
+                    <div>
+                      <h3 className="text-h4 font-bold text-[var(--color-text)]">
+                        {isRtl ? 'البريد الإلكتروني' : 'Email Address'}
+                      </h3>
+                      <p className="text-xs text-[var(--color-text-muted)]">
+                        {isRtl
+                          ? 'للمراسلات الرسمية والملفات المرفقة'
+                          : 'For formal correspondence and attachments'}
+                      </p>
+                    </div>
                   </div>
-                  <a
-                    href={`mailto:${email}`}
-                    className="block text-sm font-mono font-bold text-[var(--color-text)] hover:text-[var(--color-primary)] transition-colors break-all"
-                  >
-                    {email}
-                  </a>
-                </div>
 
-                <div className="p-4 rounded-xl bg-[var(--color-surface-sunken)] border border-[var(--color-border)] space-y-1">
-                  <div className="flex items-center gap-2 text-xs font-mono font-bold text-[var(--color-secondary)] uppercase">
-                    <Phone className="w-4 h-4" />
-                    <span>{isRtl ? 'الهاتف / واتساب' : 'Phone / WhatsApp'}</span>
-                  </div>
                   <a
-                    href={`tel:${phone}`}
-                    className="block text-sm font-mono font-bold text-[var(--color-text)] hover:text-[var(--color-primary)] transition-colors"
+                    href={`mailto:${INSTRUCTOR_PROFILE.email}`}
+                    className="block p-3.5 rounded-xl bg-[var(--color-surface-sunken)] border border-[var(--color-border)] font-mono text-xs sm:text-sm text-[var(--color-secondary)] hover:underline text-center font-bold break-all"
                   >
-                    {phoneDisplay}
+                    {INSTRUCTOR_PROFILE.email}
                   </a>
-                </div>
-              </div>
+                </Card>
+              )}
 
-              <div className="pt-2 border-t border-[var(--color-border-subtle)] space-y-3">
-                <span className="text-xs font-mono font-bold text-[var(--color-text-subtle)] uppercase block">
-                  {isRtl ? 'الشبكات والمنصات المهنية' : 'Professional Networks'}
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {INSTRUCTOR_PROFILE.socialLinks.map((s) => (
+              {/* Social & Code Profiles */}
+              <Card className="p-6 space-y-4">
+                <h3 className="text-h4 font-bold text-[var(--color-text)]">
+                  {isRtl
+                    ? 'الحسابات الرسمية والمنصات البرمجية'
+                    : 'Official Profiles'}
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {INSTRUCTOR_PROFILE.socialLinks.map((social) => (
                     <a
-                      key={s.platform}
-                      href={s.url}
+                      key={social.platform}
+                      href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[var(--color-surface-sunken)] border border-[var(--color-border)] text-xs font-mono font-medium hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-all"
+                      className="p-3 rounded-xl bg-[var(--color-surface-sunken)] border border-[var(--color-border-subtle)] hover:border-[var(--color-secondary)]/50 flex items-center justify-between text-xs font-mono font-bold text-[var(--color-text)] transition-all"
                     >
-                      <span>{s.label}</span>
-                      <ExternalLink className="w-3 h-3 opacity-60" />
+                      <span>{social.label}</span>
+                      <ExternalLink className="w-3.5 h-3.5 text-[var(--color-text-subtle)]" />
                     </a>
                   ))}
                 </div>
-              </div>
-            </div>
-
-            {/* Confidentiality & Ethics Card */}
-            <div className="p-6 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] flex items-start gap-3">
-              <ShieldCheck className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-              <div className="space-y-1">
-                <h4 className="text-xs font-mono font-bold text-[var(--color-text)] uppercase">
-                  {isRtl ? 'التزام السرية والشفافية' : 'Confidentiality Commitment'}
-                </h4>
-                <p className="text-body-xs text-[var(--color-text-muted)] leading-relaxed">
-                  {isRtl
-                    ? 'أقدم تقييماً هندسياً صادقاً لجدوى المشروع قبل البدء، مع احترام كامل لسرية الأفكار والبيانات التقنية.'
-                    : 'I offer realistic technical feasibility assessments prior to engagement, with absolute respect for NDA and idea confidentiality.'}
-                </p>
-              </div>
+              </Card>
             </div>
           </div>
         </div>

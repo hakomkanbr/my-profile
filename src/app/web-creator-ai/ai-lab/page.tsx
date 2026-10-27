@@ -12,24 +12,37 @@ import {
   CodeBlock,
 } from '@/components';
 import { ALL_AI_PROMPTS } from '@/content';
+import { usePreferencesStore } from '@/store';
+import { getLocalizedText } from '@/lib/utils';
 
 export default function WebCreatorAILabPage() {
+  const { language } = usePreferencesStore();
+  const isRtl = language === 'ar';
+
   return (
-    <LearningShell headerTitle="مختبر الذكاء الاصطناعي">
+    <LearningShell headerTitle={isRtl ? 'مختبر الذكاء الاصطناعي' : 'AI Lab'}>
       <PageContainer>
         <PageHeader
-          title="مختبر الذكاء الاصطناعي (AI Lab)"
-          subtitle="بنك الموجهات المتقدمة وسير العمل الذكي لتوليد واجهات الويب وتصحيح الأخطاء وتسريع الإنتاج."
+          title={isRtl ? 'مختبر الذكاء الاصطناعي (AI Lab)' : 'AI Prompt & Workflow Lab'}
+          subtitle={
+            isRtl
+              ? 'مجموعة من الموجهات (Prompts) المختبرة لمساعدتك على بناء واجهات الويب، ومراجعة الكود، وتصحيح الأخطاء بسرعة ودقة.'
+              : 'Tested prompts and workflows to help you generate web interfaces, review code, and debug faster.'
+          }
           breadcrumbs={[
-            { id: '1', label: 'الرئيسية', href: '/' },
-            { id: '2', label: 'WEB CREATOR AI', href: '/web-creator-ai' },
-            { id: '3', label: 'مختبر الذكاء الاصطناعي', isCurrent: true },
+            { id: '1', label: isRtl ? 'لوحة التدريب' : 'Dashboard', href: '/web-creator-ai' },
+            { id: '2', label: isRtl ? 'الموارد والمختبرات' : 'Resources & Labs', href: '/web-creator-ai/resources' },
+            { id: '3', label: isRtl ? 'مختبر الذكاء الاصطناعي' : 'AI Lab', isCurrent: true },
           ]}
         />
 
         <PageSection
-          title="نماذج الموجهات الجاهزة (Production Prompts)"
-          subtitle="موجهات مختبرة لمساعدتك في بناء واجهات وتصحيح الأخطاء باحتراف"
+          title={isRtl ? 'نماذج الموجهات الجاهزة للاستخدام' : 'Ready-to-Use AI Prompts'}
+          subtitle={
+            isRtl
+              ? 'انسخ الموجه المناسب، وعدّل تفاصيل مشروعك بين الأقواس، ثم استخدمه في أداة الذكاء الاصطناعي المفضلة لديك.'
+              : 'Copy the prompt template, customize the bracketed project details, and run it in your preferred AI assistant.'
+          }
         >
           <ContentGrid columns={2}>
             {ALL_AI_PROMPTS.map((prompt) => (
@@ -45,14 +58,14 @@ export default function WebCreatorAILabPage() {
                   </div>
 
                   <h3 className="text-h4 font-bold text-[var(--color-text)] mb-2">
-                    {prompt.title.ar}
+                    {getLocalizedText(prompt.title, language)}
                   </h3>
                   <p className="text-body-sm text-[var(--color-text-muted)] mb-3">
-                    {prompt.description.ar}
+                    {getLocalizedText(prompt.description, language)}
                   </p>
 
                   <CodeBlock
-                    code={prompt.promptTemplate.ar}
+                    code={getLocalizedText(prompt.promptTemplate, language)}
                     language="markdown"
                     filename="AI-Prompt.txt"
                     showLineNumbers={false}

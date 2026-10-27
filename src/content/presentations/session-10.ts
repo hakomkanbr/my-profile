@@ -5,457 +5,630 @@ export const SESSION_10: PresentationSession = {
   number: 10,
   slug: 'session-10',
   title: {
-    ar: 'الذكاء الاصطناعي كمسار عمل مهني متكامل (Full SDLC)',
-    en: 'AI as a Professional Development Workflow: Architecture to Ship',
+    ar: 'فحص الموقع واختباره الشامل قبل الإطلاق (وضوح المحتوى، الروابط، الهواتف، والأمان)',
+    en: 'Comprehensive Pre-Launch Website Inspection (Copy, Links, Mobile & Safety)',
   },
   subtitle: {
-    ar: 'الذكاء الاصطناعي ليس مجرد توليد كود: كيف توظفه في التخطيط، الاختبارات، التوثيق، والمراجعة مع تجنب الهلوسات والمخاطر الأمنية؟',
-    en: 'Beyond raw code generation: orchestrating AI across planning, testing, documentation, and security audits',
+    ar: 'قائمة فحص عملية من 4 محطات للتأكد من جاهزية الموقع وخلوه من الأخطاء قبل إرساله لأي عميل (المدة: 90 دقيقة)',
+    en: 'A practical 4-part checklist to verify your website is ready before sharing it with any client (90 mins)',
   },
   durationMinutes: 90,
   goal: {
-    ar: 'تمكين الطالب من قيادة دورة حياة تطوير البرمجيات الكاملة (SDLC) مع الذكاء الاصطناعي، وفهم حدوده ومخاطره بدقة، وترسيخ قاعدة: "AI generates. Human validates".',
-    en: 'Master the full AI-assisted Software Development Lifecycle (SDLC), understand critical AI failure modes, and enforce the golden rule: "AI generates. Human validates".',
+    ar: 'تمكين المتدرب من مراجعة موقعه بعيون الزائر الحقيقي واختبار وضوح النصوص، عمل الأزرار وروابط واتساب، تناسق شاشة الهاتف، وأساسيات الأمان قبل النشر.',
+    en: 'Enable trainees to review their website through a real visitor’s eyes across copy clarity, working links, mobile layout, and basic safety.',
   },
   prerequisites: [
-    { ar: 'إكمال الجلسة 09 وامتلاك مشروع Next.js متكامل وجاهز للإنتاج', en: 'Completion of Session 09 with production-ready Next.js site' },
+    {
+      ar: 'إكمال الجلسة 09 وضبط عنوان الموقع ووصفه وصفحاته الأساسية',
+      en: 'Completion of Session 09 with configured metadata and core pages',
+    },
   ],
   objectives: [
-    { ar: 'إتقان توظيف الذكاء الاصطناعي في الـ 10 مراحل الهندسية: من البحث والتخطيط حتى كتابة الاختبارات والتوثيق', en: 'Master AI deployment across all 10 SDLC stages: research, specs, planning, code, tests, docs, and ship' },
-    { ar: 'تشخيص وتفادي فخاخ الذكاء الاصطناعي الكبرى: الهلوسة، الافتراضات الخاطئة، الثغرات الأمنية، والمكتبات الوهمية', en: 'Diagnose and mitigate AI failure modes: hallucinations, security oversights, and phantom packages' },
-    { ar: 'استخدام الذكاء الاصطناعي لكتابة حالات اختبار آلية (Unit & Integration Tests) تضمن سلامة الكود', en: 'Direct AI to scaffold automated unit and integration tests verifying application invariants' },
-    { ar: 'ممارسة مراجعة الكود الصارمة (Code Review) كمهندس رئيسي يعتمد ما يصلح ويرفض ما يضر', en: 'Execute senior-level code reviews critically auditing AI proposals before merging' },
+    {
+      ar: 'فحص وضوح النصوص والعناوين وحذف أي نصوص تجريبية أو أرقام افتراضية منسية',
+      en: 'Check headline and copy clarity and remove any leftover placeholder text or numbers',
+    },
+    {
+      ar: 'تجربة جميع الأزرار وروابط التنقل وأزرار الطلب عبر واتساب للتأكد من عملها',
+      en: 'Test every navigation link, filter button, and WhatsApp action button',
+    },
+    {
+      ar: 'فحص الموقع على مقاسات شاشات الهواتف المختلفة من داخل متصفح Google Chrome',
+      en: 'Inspect the website across mobile screen sizes using Chrome DevTools',
+    },
+    {
+      ar: 'تطبيق قواعد الأمان الأساسية ومراجعة تعديلات الذكاء الاصطناعي قبل اعتمادها',
+      en: 'Apply basic safety rules and review AI changes before shipping',
+    },
   ],
   timeline: [
-    { timeRange: '00:00 – 00:10', durationMinutes: 10, label: { ar: 'مقدمة: الذكاء الاصطناعي كشريك معماري وليس مجرد كاتب أكواد', en: 'Intro: AI as architectural partner, not just a typist' }, type: 'context' },
-    { timeRange: '00:10 – 00:25', durationMinutes: 15, label: { ar: 'مسار الـ SDLC المعزز: الـ 10 محطات الهندسية من الفكرة للشحن', en: 'The 10-Stage AI-Augmented SDLC Pipeline' }, type: 'concept' },
-    { timeRange: '00:25 – 00:45', durationMinutes: 20, label: { ar: 'فخاخ ومخاطر الذكاء الاصطناعي: الهلوسة، الأمان، والتضخيم الهندسي', en: 'AI Failure Modes: Hallucinations, Security & Bloat' }, type: 'comparison' },
-    { timeRange: '00:45 – 01:00', durationMinutes: 15, label: { ar: 'تطبيق حي: استخدام AI لكتابة اختبارات وتوثيق لمشروع المطعم', en: 'Live Demo: Automated Testing & API Documentation' }, type: 'demo' },
-    { timeRange: '01:00 – 01:20', durationMinutes: 20, label: { ar: 'تحدي الطلاب: تشغيل فحص أمني وتوليد وثيقة README متكاملة لمشروعهم', en: 'Student Challenge: Security Audit & README Spec' }, type: 'practice' },
-    { timeRange: '01:20 – 01:25', durationMinutes: 5, label: { ar: 'مراجعة الملاحظات الأمنية المكتشفة في الشات', en: 'Review discovered security and documentation findings' }, type: 'review' },
-    { timeRange: '01:25 – 01:30', durationMinutes: 5, label: { ar: 'الخلاصة والتجهيز للتسويق وجلب العملاء (Session 11)', en: 'Takeaways & Prep for Marketing & Clients (Session 11)' }, type: 'takeaway' },
+    {
+      timeRange: '00:00 – 00:25',
+      durationMinutes: 25,
+      label: { ar: 'لماذا نختبر الموقع قبل الإطلاق؟ وقائمة الفحص الرباعية', en: 'Why test before launch & the 4-part checklist' },
+      type: 'context',
+    },
+    {
+      timeRange: '00:25 – 00:50',
+      durationMinutes: 25,
+      label: { ar: 'فحص النصوص والروابط وتجربة شاشة الهاتف من داخل المتصفح', en: 'Checking copy, links, and mobile screens in the browser' },
+      type: 'demo',
+    },
+    {
+      timeRange: '00:50 – 01:10',
+      durationMinutes: 20,
+      label: { ar: 'أساسيات الأمان وحماية البيانات ومراجعة كود الذكاء الاصطناعي', en: 'Basic security & reviewing AI code safely' },
+      type: 'concept',
+    },
+    {
+      timeRange: '01:10 – 01:30',
+      durationMinutes: 20,
+      label: { ar: 'نشاط عملي: فحص مشروع المتدرب واكتشاف وإصلاح 3 ملاحظات', en: 'Hands-on Activity: Inspect your project & fix 3 issues' },
+      type: 'practice',
+    },
   ],
   projectMilestone: {
-    ar: 'إجراء التدقيق الأمني الشامل، كتابة حالات الاختبار الآلية، وتجهيز ملف التوثيق README لمشروع التخرج.',
-    en: 'Complete comprehensive security audit, automated test suite, and production README documentation.',
+    ar: 'موقع مكتمل ومفحوص في النصوص والروابط وشاشة الهاتف وجاهز للنشر الحي في الدرس القادم.',
+    en: 'A fully inspected website verified across copy, links, and mobile view, ready for live deployment.',
   },
   aiRole: {
-    ar: 'شريك مراجعة فاحص ومولد لاختبارات الحواف وثغرات الأمان تحت إشراف وتدقيق المهندس البشري.',
-    en: 'Adversarial code reviewer and test generator operating under human oversight and approval.',
+    ar: 'مساعد يصلح ملاحظات التجاوب على الهاتف والأخطاء البسيطة التي نكتشفها أثناء الفحص.',
+    en: 'Assistant fixing specific mobile layout or link issues discovered during inspection.',
   },
   marketConnection: {
-    ar: 'المهندس الذي يقدم كوداً موثقاً ومختبراً وخالياً من الثغرات الأمنية يبني سمعة احترافية تدوم لسنوات.',
-    en: 'Engineers who deliver audited, tested, and secure codebases earn premier reputation and repeat client retainers.',
+    ar: 'الفرق بين الهاوي والمحترف يظهر في التفاصيل: خلو الموقع من الأزرار المعطلة وتناسقه على الهاتف يبني ثقة العميل فوراً.',
+    en: 'Attention to detail separates pros from beginners: working buttons and clean mobile views build instant client trust.',
   },
   startScreen: {
-    badge: 'SESSION 10 / 12 • ENTERPRISE WORKFLOW',
+    badge: 'الدرس 10 من 12 • الفحص والمراجعة (90 دقيقة)',
     headline: {
-      ar: 'الذكاء الاصطناعي كمسار عمل مهني: من التخطيط إلى الشحن الآمن',
-      en: 'AI as a Professional SDLC Workflow: From Blueprint to Secure Ship',
+      ar: 'فحص الموقع واختباره الشامل قبل الإطلاق',
+      en: 'Comprehensive Website Testing & Pre-Launch Inspection',
     },
     description: {
-      ar: 'تعلم كيف يوظف كبار المطورين الذكاء الاصطناعي في كامل دورة حياة المنتج: الاختبارات، التوثيق، مراجعة الأمان، وتجنب فخاخ الهلوسة.',
-      en: 'Discover how lead engineers command AI across the full product lifecycle: automated testing, documentation, and security reviews.',
+      ar: 'في هذا الدرس (ساعة ونصف) نتعلم كيف نفحص موقعنا خطوة بخطوة قبل نشره: وضوح المحتوى، عمل الروابط وأزرار واتساب، تناسق شاشة الهاتف، وأساسيات الأمان.',
+      en: 'In this 90-minute lesson, learn how to inspect your site step by step before launch: copy clarity, working links, mobile view, and safety.',
     },
     sessionGoal: {
-      ar: 'تنفيذ فحص الأمان الشامل، كتابة حالات الاختبار، وتوثيق مشروع تخرجك كمنتج برمجي مكتمل.',
-      en: 'Execute an exhaustive security audit, author automated tests, and produce enterprise documentation for your project.',
+      ar: 'تطبيق قائمة الفحص الرباعية على موقعك وإصلاح أي ملاحظات قبل نشره على الإنترنت.',
+      en: 'Apply the 4-part inspection checklist to your site and fix any issues before publishing online.',
     },
   },
   endScreen: {
     headline: {
-      ar: 'إنجاز استثنائي! مشروعك الآن محصن هندسياً، مختبر، وموثق باحترافية',
-      en: 'Outstanding! Your Codebase is Now Audited, Tested, and Securely Documented',
+      ar: 'أحسنت! موقعك الآن مفحوص بعناية وجاهز للنشر على الإنترنت',
+      en: 'Well Done! Your Website Is Thoroughly Inspected and Ready to Publish',
     },
     keyRecap: [
       {
-        ar: 'القاعدة الدائمة: "AI generates. Human validates" — أنت صمام الأمان والمسؤول الوحيد عن الكود.',
-        en: 'Permanent Rule: "AI generates. Human validates" — you are the ultimate guardian and owner of the code.',
+        ar: 'الفحص المنظم (النصوص، الروابط، الهاتف، الأمان) هو ما يمنح موقعك الجودة والاحترافية.',
+        en: 'Structured inspection (copy, links, mobile, safety) gives your website professional quality.',
       },
       {
-        ar: 'الذكاء الاصطناعي يكتب الاختبارات والتوثيق ببراعة تفوق كتابته للكود الأساسي.',
-        en: 'AI excels exceptionally at authoring exhaustive edge-case test suites and technical documentation.',
+        ar: 'استخدم أداة محاكاة الهاتف في المتصفح دائماً لأن أغلب زوار موقعك سيتصفحونه من هواتفهم.',
+        en: 'Always test with the browser mobile simulator because most visitors browse on their phones.',
       },
       {
-        ar: 'الحذر من الهلوسة والمكتبات غير الموجودة يحميك من ثغرات سلاسل الإمداد البرمجية (Supply Chain Attacks).',
-        en: 'Guarding against hallucinated phantom packages shields your platform from supply chain vulnerabilities.',
+        ar: 'لا تترك أي زر معطل أو نص افتراضي، وجرّب الموقع بنفسك بعد كل تعديل.',
+        en: 'Never leave broken buttons or placeholder text, and test the site yourself after every edit.',
       },
     ],
     nextSessionNumber: '11',
     nextSessionTitle: {
-      ar: 'التسويق وجلب العملاء: تحويل مهارة صناعة الويب إلى خدمة مربحة',
-      en: 'Marketing & Client Acquisition: Turning Web Creation into a Marketable Business',
+      ar: 'نشر الموقع على الإنترنت وعرضه للعملاء بطريقة مقنعة',
+      en: 'Publishing the Website Online & Presenting It Convincingly to Clients',
     },
   },
   slides: [
-    // Slide 1: Title
     {
       id: 's10-slide-01',
       sessionNumber: 10,
       slideNumber: 1,
       totalSlides: 10,
       type: 'title',
-      title: { ar: "الذكاء الاصطناعي كمسار عمل مهني", en: "AI as a Professional SDLC" },
-      estimatedMinutes: 2,
-      teachingGoal: { ar: 'افتتاح الجلسة وإعلان الانتقال من كتابة الأكواد إلى إدارة دورة حياة البرمجيات بالكامل.', en: 'Open session: ascending from isolated coding to full lifecycle software engineering.' },
-      speakerNotes: { ar: "نفّذ: رحب بالطلاب: \"اليوم نتعلم كيف يعمل كبار مهندسي الشركات العالمية مع AI: لا نطلب منه فقط توليد أزرار، بل نوظفه في الاختبار والمراجعة والتوثيق!\".\nاسأل: ما الهدف الذي تتوقع تحقيقه في جلسة «الذكاء الاصطناعي كمسار عمل مهني»؟\nتحقق: افتتاح الجلسة وإعلان الانتقال من كتابة الأكواد إلى إدارة دورة حياة البرمجيات بالكامل.", en: "Cue: Welcome learners: \"Today we discover how enterprise leads pair with AI across testing, security, and audits!\"\nAsk: What outcome do you expect from “AI as a Professional SDLC”?\nCheck: Open session: ascending from isolated coding to full lifecycle software engineering." },
+      title: {
+        ar: 'فحص الموقع واختباره الشامل قبل الإطلاق',
+        en: 'Comprehensive Pre-Launch Website Inspection',
+      },
+      estimatedMinutes: 5,
+      teachingGoal: {
+        ar: 'تهيئة المتدرب لثقافة المراجعة والفحص قبل تسليم الموقع أو نشره.',
+        en: 'Prepare trainees for the habit of structured inspection before publishing or delivering a site.',
+      },
+      speakerNotes: {
+        ar: 'في هذا الدرس ننتقل من مرحلة البناء إلى مرحلة المراجعة المهنية قبل إطلاق الموقع على الإنترنت.',
+        en: 'Transition from building to professional pre-launch quality inspection.',
+      },
       payload: {
         type: 'title',
         data: {
           sessionNumber: '10',
-          kicker: { ar: 'دورة حياة البرمجيات المتقدمة', en: 'Advanced Software Lifecycle' },
-          headline: { ar: 'AI AS A PROFESSIONAL WORKFLOW', en: 'AI AS A PROFESSIONAL WORKFLOW' },
-          subheadline: { ar: 'التخطيط، الاختبار، التوثيق، وفهم حدود ومخاطر الذكاء الاصطناعي', en: 'Planning, testing, documentation, and mitigating critical AI failure modes' },
           totalSessions: '12',
           durationMinutes: 90,
-          tags: ['Full SDLC', 'Automated Testing', 'Security Audit', 'AI Hallucinations', 'Human Validation'],
+          kicker: {
+            ar: 'الدرس العاشر • الفحص والمراجعة قبل النشر',
+            en: 'Lesson 10 • Pre-Launch Quality Inspection',
+          },
+          headline: {
+            ar: 'كيف تتأكد أن موقعك جاهز ويعمل بدون أخطاء قبل أن يراه العميل؟',
+            en: 'How Do You Make Sure Your Website Works Flawlessly Before Clients See It?',
+          },
+          subheadline: {
+            ar: 'قائمة فحص عملية من 4 محطات لمراجعة النصوص، الأزرار، شاشة الهاتف، وأساسيات الأمان.',
+            en: 'A practical 4-part checklist to verify copy, buttons, mobile screens, and basic safety.',
+          },
+          tags: ['وضوح المحتوى', 'فحص الروابط', 'شاشة الهاتف', 'أساسيات الأمان'],
         },
       },
     },
-
-    // Slide 2: Context
     {
       id: 's10-slide-02',
       sessionNumber: 10,
       slideNumber: 2,
       totalSlides: 10,
       type: 'context',
-      title: { ar: "استخدم AI عبر دورة العمل", en: "Use AI Across the Workflow" },
-      subtitle: { ar: 'كيف يدعم الذكاء الاصطناعي مراحل هندسة البرمجيات؟', en: 'How AI can support the software engineering workflow' },
-      estimatedMinutes: 4,
-      teachingGoal: { ar: 'توسيع مدارك الطلاب لاستخدام الذكاء الاصطناعي في المراحل التسع الأخرى من المشروع.', en: 'Broaden student horizons to deploy AI across the other 9 phases of software delivery.' },
-      speakerNotes: { ar: "نفّذ: وضح: كتابة الكود سهلة وسريعة؛ التحدي الأكبر هو التفكير في حالات الفشل، كتابة الاختبارات، توثيق النظام، وضمان عدم وجود ثغرات.\nاسأل: ما المشكلة التي توضّحها «استخدم AI عبر دورة العمل»؟\nتحقق: الاعتماد الأعمى على الكود المتولد دون اختبارات وتدقيق أمني يتسبب في تسريب بيانات العملاء وتوقف الخوادم.", en: "Cue: Generating code is fast; the true bottleneck is edge-case testing, system documentation, and security verification.\nAsk: What problem does “Use AI Across the Workflow” point to?\nCheck: Blind reliance on unverified AI code leads directly to data leaks, performance regressions, and downtime." },
+      title: {
+        ar: 'لماذا نحتاج إلى مراجعة الموقع قبل إطلاقه؟',
+        en: 'Why Must We Inspect the Website Before Launch?',
+      },
+      estimatedMinutes: 10,
+      teachingGoal: {
+        ar: 'إقناع المتدرب بأن الفحص خطوة أساسية تحمي سمعته أمام العميل.',
+        en: 'Show why pre-launch testing is essential to protect credibility with clients.',
+      },
+      speakerNotes: {
+        ar: 'اذكر أمثلة واقعية لأخطاء شائعة يقع فيها المبتدئون عند الاستعجال في إرسال الموقع دون فحصه على الهاتف.',
+        en: 'Share real examples of common beginner mistakes when rushing to send a site without testing.',
+      },
       payload: {
         type: 'context',
         data: {
           industryShift: {
-            ar: 'المهندسون المحترفون يوظفون الذكاء الاصطناعي كمحرك بحث معماري ومولد للاختبارات ومراجع للكود قبل كتابة أي سطر إنتاجي.',
-            en: 'Senior engineers deploy AI as an architectural sounding board, test generator, and code reviewer.',
-          },
-          realWorldProblem: {
-            ar: 'الاعتماد الأعمى على الكود المتولد دون اختبارات وتدقيق أمني يتسبب في تسريب بيانات العملاء وتوقف الخوادم.',
-            en: 'Blind reliance on unverified AI code leads directly to data leaks, performance regressions, and downtime.',
+            ar: 'الموقع المكتمل ليس هو الموقع الذي انتهينا من كتابته، بل الموقع الذي جربناه وتأكدنا أنه يعمل بسلاسة على كل شاشة.',
+            en: 'A finished website is not one we just finished coding, but one we tested and verified across screens.',
           },
           whyItMatters: {
-            ar: 'عندما تفهم دورة حياة المشروع كاملة، تصبح قادراً على قيادة وتسليم مشاريع برمجية متكاملة تضاهي عمل فِرق هندسية كاملة.',
-            en: 'When mastering the end-to-end SDLC with AI, a single creator commands the throughput of an entire agile team.',
+            ar: 'الزائر الحقيقي لا يرى الكود؛ هو يلاحظ فقط إن كان العنوان واضحاً أم مبهماً، وإن كان الزر يعمل أم معطلاً. المراجعة المنظمة لمدة 20 دقيقة توفر عليك الإحراج وتجعل عملك يبدو متقناً من أول نظرة.',
+            en: 'Real visitors do not see your code; they only notice whether the headline is clear and buttons work.',
+          },
+          realWorldProblem: {
+            ar: 'أخطاء بسيطة مثل صورة مقطوعة على الهاتف أو رقم واتساب مكتوب بالخطأ قد تضيع ثقة العميل فوراً عند فتحه للرابط.',
+            en: 'Small mistakes like a cut-off mobile image or a wrong WhatsApp number can instantly cost client trust.',
           },
         },
       },
     },
-
-    // Slide 3: Visual (The 10-Stage SDLC Pipeline)
     {
       id: 's10-slide-03',
       sessionNumber: 10,
       slideNumber: 3,
       totalSlides: 10,
       type: 'visual',
-      title: { ar: "مراحل بناء البرمجيات", en: "The Software Delivery Stages" },
-      subtitle: { ar: 'الرحلة الكاملة لكل ميزة برمجية من الفكرة والبحث وحتى الاختبار والشحن', en: 'The comprehensive lifecycle of every production feature from research to deployment' },
-      estimatedMinutes: 5,
-      teachingGoal: { ar: 'رسم المسار المكتمل المكون من 10 مراحل وتوضيح دور AI في كل منها.', en: 'Map the complete 10-phase engineering lifecycle and highlight AI role in each.' },
-      speakerNotes: { ar: "نفّذ: استعرض المراحل: 1. البحث -> 2. المتطلبات -> 3. التخطيط -> 4. المعمارية -> 5. الكود -> 6. التصحيح -> 7. إعادة الهيكلة -> 8. الاختبار -> 9. التوثيق -> 10. الشحن.\nاسأل: اشرح ترتيب المراحل في «مراحل بناء البرمجيات» بصوتك.\nتحقق: البحث والاستكشاف ← تحديد المتطلبات ← المعمارية والتخطيط ← التنفيذ البرمجي ← الاختبار والتوثيق ← المراجعة والشحن", en: "Cue: Walk through: Research -> Specs -> Planning -> Architecture -> Code -> Debug -> Refactor -> Test -> Docs -> Ship.\nAsk: Ask learners to walk through the stages in “The Software Delivery Stages”.\nCheck: Research → Requirements → Architecture → Coding → Test & Docs → Review & Ship" },
+      title: {
+        ar: 'قائمة الفحص الرباعية قبل إطلاق أي موقع',
+        en: 'The 4-Part Pre-Launch Inspection Checklist',
+      },
+      subtitle: {
+        ar: 'أربع محطات نمرّ عليها بالترتيب قبل نشر الموقع:',
+        en: 'Four stations we check in order before publishing:',
+      },
+      estimatedMinutes: 10,
+      teachingGoal: {
+        ar: 'إعطاء المتدرب إطار عمل واضح ومرتب للمراجعة من 4 محطات.',
+        en: 'Provide a clear 4-step inspection workflow.',
+      },
+      speakerNotes: {
+        ar: 'هذا المخطط هو الدليل الذي سيتبعه المتدرب في هذا الدرس وفي مشروعه النهائي.',
+        en: 'Walk through the 4 inspection stations in order.',
+      },
       payload: {
         type: 'visual',
         data: {
-          caption: { ar: 'دورة حياة هندسية منضبطة تضمن أعلى درجات الموثوقية والأمان.', en: 'Disciplined engineering pipeline ensuring absolute uptime and maintainability.' },
-          diagramType: 'pipeline',
+          diagramType: 'flow',
+          caption: {
+            ar: 'لا ننتقل إلى نشر الموقع على الإنترنت إلا بعد اجتياز هذه المحطات الأربع.',
+            en: 'Only proceed to live deployment after passing all four inspection stations.',
+          },
           nodes: [
-            { id: 's1', stepNumber: '01', title: { ar: 'البحث والاستكشاف', en: 'Research' }, badge: 'Ideation' },
-            { id: 's2', stepNumber: '02', title: { ar: 'تحديد المتطلبات', en: 'Requirements' }, badge: 'Specs' },
-            { id: 's3', stepNumber: '03', title: { ar: 'المعمارية والتخطيط', en: 'Architecture' }, badge: 'Plan' },
-            { id: 's4', stepNumber: '04', title: { ar: 'التنفيذ البرمجي', en: 'Coding' }, badge: 'Build' },
-            { id: 's5', stepNumber: '05', title: { ar: 'الاختبار والتوثيق', en: 'Test & Docs' }, badge: 'Verify' },
-            { id: 's6', stepNumber: '06', title: { ar: 'المراجعة والشحن', en: 'Review & Ship' }, badge: 'Production' },
+            {
+              id: 'check-1',
+              stepNumber: '01',
+              title: { ar: '1. وضوح المحتوى', en: '1. Copy Clarity' },
+              description: { ar: 'عناوين مفهومة، أسعار صحيحة، وحذف أي نص تجريبي', en: 'Clear headings, accurate prices, zero placeholder text' },
+            },
+            {
+              id: 'check-2',
+              stepNumber: '02',
+              title: { ar: '2. الأزرار والروابط', en: '2. Buttons & Links' },
+              description: { ar: 'تجربة كل زر ورابط واتساب للتأكد أنه يفتح المحادثة الصحيحة', en: 'Test every button and WhatsApp link' },
+            },
+            {
+              id: 'check-3',
+              stepNumber: '03',
+              title: { ar: '3. شاشة الهاتف', en: '3. Mobile Screen' },
+              description: { ar: 'التأكد أن جميع الأقسام تقرأ بسهولة باليد الواحدة دون تزاحم', en: 'Verify comfortable one-hand mobile reading' },
+            },
+            {
+              id: 'check-4',
+              stepNumber: '04',
+              title: { ar: '4. السرعة والأمان', en: '4. Speed & Safety' },
+              description: { ar: 'صور خفيفة تفتح بسرعة، وعدم وجود بيانات سرية داخل الكود', en: 'Fast images and zero secrets in code' },
+            },
           ],
         },
       },
     },
-
-    // Slide 4: Comparison (AI Failure Modes & Human Audits)
     {
       id: 's10-slide-04',
       sessionNumber: 10,
       slideNumber: 4,
       totalSlides: 10,
-      type: 'comparison',
-      title: { ar: "تحقق من مخرجات AI", en: "Verify AI Output" },
-      subtitle: { ar: 'فحص موضوعي للثغرات والافتراضات الخاطئة الشائعة التي تنتجها النماذج اللغوية', en: 'An objective audit of common LLM failure modes, hallucinations, and security flaws' },
-      estimatedMinutes: 5,
-      teachingGoal: { ar: 'توعية الطلاب بالثغرات الخفية للـ AI مثل اقتراح مكتبات غير موجودة أو تجاهل التحقق من المدخلات.', en: 'Educate students on phantom package hallucinations and missing input sanitization.' },
-      speakerNotes: { ar: "نفّذ: اشرح ظاهرة الهلوسة وحزم الشبح (Phantom Packages) وثغرات SQL Injection أو XSS التي قد يولدها AI إذا لم تفحصها.\nاسأل: ما معيارك للاختيار بين جانبي «تحقق من مخرجات AI»؟\nتحقق: القاعدة الذهبية الأبدية: الذكاء الاصطناعي يولد المقترحات — والمهندس البشري يملك الفحص والمسؤولية.", en: "Cue: Explain hallucinated dependencies, XSS injection risks, and over-engineered abstractions.\nAsk: What would guide your choice between the two sides of “Verify AI Output”?\nCheck: The inviolable golden rule: AI Generates Proposals — Human Engineers Validate & Own Responsibility." },
+      type: 'concept',
+      title: {
+        ar: 'المحطة الأولى والثانية: فحص النصوص وتجربة جميع الأزرار',
+        en: 'Stations 1 & 2: Checking Copy Clarity & Testing Every Button',
+      },
+      estimatedMinutes: 10,
+      teachingGoal: {
+        ar: 'تدريب المتدرب على تدقيق النصوص وتجربة كل زر ورابط بنفسه.',
+        en: 'Train learners to proofread copy and click-test every button and link.',
+      },
+      speakerNotes: {
+        ar: 'نبه المتدربين إلى أن الذكاء الاصطناعي قد يترك أحياناً أرقام هواتف افتراضية مثل 123456789 إذا لم ننتبه.',
+        en: 'Remind trainees that AI may leave placeholder numbers like 123456789 unless checked.',
+      },
       payload: {
-        type: 'comparison',
+        type: 'concept',
         data: {
-          leftHeader: { ar: 'خطر وثغرة الذكاء الاصطناعي (AI Risk)', en: 'AI Failure Mode' },
-          rightHeader: { ar: 'صمام الأمان البشري (Human Engineering Defense)', en: 'Human Engineering Defense' },
-          dimensions: [
+          tagline: { ar: 'المحطة 1 و 2', en: 'Stations 1 & 2' },
+          principle: {
+            ar: 'اقرأ كل عنوان واضغط على كل زر بنفسك',
+            en: 'Read Every Headline and Click Every Button Yourself',
+          },
+          explanation: {
+            ar: 'لا تفترض أن الزر يعمل بمجرد أن شكله جميل؛ افتح الموقع في المتصفح وتحقق من النقاط التالية:',
+            en: 'Never assume a button works just because it looks nice; test these items in the browser:',
+          },
+          bulletPoints: [
             {
-              dimension: { ar: 'الهلوسة وحزم الشبح', en: 'Phantom Package Hallucinations' },
-              left: { ar: 'اقتراح مكتبات npm غير موجودة أو ملغاة تمثل ثغرة أمنية', en: 'Inventing non-existent npm packages or deprecated libraries' },
-              right: { ar: 'التحقق من سجل npm الرسمي وتفضيل الحلول الأصيلة (Zero-Dep)', en: 'Verifying official npm registry and mandating zero-dep primitives' },
+              ar: '1. اختبار الـ 5 ثوانٍ للنصوص: هل يفهم الزائر من القسم الأول ماذا يقدم الموقع ولمن؟ وهل حذفت أي نص مؤقت مثل Lorem Ipsum؟',
+              en: '1. The 5-Second Copy Test: Does the Hero clearly state what the site offers, with zero Lorem Ipsum?',
             },
             {
-              dimension: { ar: 'الافتراضات الخاطئة والمنطق', en: 'Flawed Logical Assumptions' },
-              left: { ar: 'افتراض وجود بيانات مثالية وتجاهل سيناريوهات الخطأ', en: 'Assuming ideal happy paths while ignoring network failures' },
-              right: { ar: 'كتابة حدود الأمان (Error Boundaries) وتدقيق حالات الفراغ', en: 'Enforcing strict error boundaries and empty state resilience' },
+              ar: '2. روابط القائمة العلوية (Navbar): اضغط على كل كلمة في الشريط العلوي وتأكد أنها تنقلك للقسم الصحيح.',
+              en: '2. Navbar Links: Click every item in the top menu to confirm it scrolls to the right section.',
             },
             {
-              dimension: { ar: 'التضخيم البرمجي (Over-Engineering)', en: 'Over-Engineering Bloat' },
-              left: { ar: 'إنشاء ملفات وأسطر أكثر مما تتطلبه المشكلة', en: 'Generating more files and code than the problem requires' },
-              right: { ar: 'الحذف الصارم وتطبيق مبدأ البساطة الهندسية (KISS Principle)', en: 'Pruning ruthlessly and mandating architectural simplicity (KISS)' },
-            },
-            {
-              dimension: { ar: 'الثغرات الأمنية والتحقق', en: 'Security & Sanitization Flaws' },
-              left: { ar: 'استخدام dangerouslySetInnerHTML دون تعقيم المدخلات', en: 'Blindly injecting unescaped user inputs into the DOM' },
-              right: { ar: 'التعقيم الصارم للمدخلات وتطبيق حماية XSS و CSRF', en: 'Strict sanitization, schema validation, and defense-in-depth' },
+              ar: '3. أزرار الطلب عبر واتساب: اضغط على زر الطلب في البطاقات وتأكد أن الرقم الصحيح (+905382015072 أو رقم العميل) والرسالة التلقائية يظهران بشكل سليم.',
+              en: '3. WhatsApp Buttons: Click card order buttons and verify the phone number and pre-filled message.',
             },
           ],
-          balancedVerdict: {
-            ar: 'القاعدة الذهبية الأبدية: الذكاء الاصطناعي يولد المقترحات — والمهندس البشري يملك الفحص والمسؤولية.',
-            en: 'The inviolable golden rule: AI Generates Proposals — Human Engineers Validate & Own Responsibility.',
+          architecturalRule: {
+            ar: 'زر واحد لا يعمل في الصفحة الرئيسية قد يجعل الزائر يظن أن الموقع كله متوقف.',
+            en: 'A single dead button on the homepage can make visitors think the entire site is broken.',
           },
         },
       },
     },
-
-    // Slide 5: Code (Automated Unit Test Artifact)
     {
       id: 's10-slide-05',
       sessionNumber: 10,
       slideNumber: 5,
       totalSlides: 10,
-      type: 'code',
-      title: { ar: "اختبار آلي مولد بـ AI يحمي المكون من الانهيار", en: "Code Artifact — Automated Component Test" },
-      estimatedMinutes: 5,
-      teachingGoal: { ar: 'إظهار كيف يكتب الذكاء الاصطناعي اختبارات نقية وسريعة تتحقق من صحة عمل المكونات.', en: 'Demonstrate AI scaffolding clean automated test suites verifying component correctness.' },
-      speakerNotes: { ar: "نفّذ: اشرح كيف يختبر هذا الكود أطباق المطعم: هل يتم عرض الاسم والسعر؟ هل يعمل زر الطلب؟ إذا انكسر الكود مستقبلاً سينبهنا الاختبار فوراً.\nاسأل: ما وظيفة المثال في «اختبار آلي مولد بـ AI يحمي المكون من الانهيار»؟\nتحقق: اختبار برمجي آلي يتحقق من ظهور اسم الوجبة وسعرها واستجابة زر الطلب للنقر. وجود الاختبارات الآلية يتيح لك إعادة كتابة أو تحسين الكود مستقبلاً دون خوف من كسر أي ميزة سابقة.", en: "Cue: Explain: test verifies item name, price, and click trigger. If future code breaks, tests catch it instantly.\nAsk: What does the example in “Code Artifact — Automated Component Test” do?\nCheck: Automated unit test verifying component rendering, price formatting, and click dispatch. Automated tests grant fearless refactoring confidence by preventing silent regression bugs." },
+      type: 'demo',
+      title: {
+        ar: 'تطبيق مباشر: كيف تفحص موقعك على شاشات الهواتف من داخل المتصفح؟',
+        en: 'Live Demo: Inspecting Your Site on Mobile Screens in Chrome',
+      },
+      estimatedMinutes: 15,
+      teachingGoal: {
+        ar: 'تعليم المتدرب استخدام أداة محاكاة الهاتف في متصفح Google Chrome.',
+        en: 'Teach trainees how to use Chrome DevTools Device Toolbar to test mobile screens.',
+      },
+      speakerNotes: {
+        ar: 'افتح أداة الفحص أمام المتدربين وأظهر لهم كيف نكتشف عنصراً عريضاً يسبب خروج الصفحة عن شاشة الهاتف وكيف نصلحه.',
+        en: 'Open Chrome DevTools live and show how to test iPhone and Android screen sizes.',
+      },
       payload: {
-        type: 'code',
+        type: 'demo',
         data: {
-          language: 'tsx',
-          codeSnippet: `// tests/DishCard.test.tsx — Production Component Invariant Test
-import { render, screen, fireEvent } from '@testing-library/react';
-import { DishCard } from '@/components/DishCard';
-
-describe('DishCard Component Invariants', () => {
-  const mockDish = {
-    id: 'pasta-1',
-    name: 'Truffle Tagliolini',
-    price: 24,
-    description: 'Fresh black truffles with handmade butter pasta.',
-  };
-
-  it('renders dish name, description, and formatted price correctly', () => {
-    render(<DishCard {...mockDish} />);
-    expect(screen.getByText('Truffle Tagliolini')).toBeInTheDocument();
-    expect(screen.getByText(/\$24/)).toBeInTheDocument();
-  });
-
-  it('triggers onOrder handler when reservation button is clicked', () => {
-    const handleOrder = jest.fn();
-    render(<DishCard {...mockDish} onOrder={handleOrder} />);
-    
-    const orderBtn = screen.getByRole('button', { name: /order/i });
-    fireEvent.click(orderBtn);
-    
-    expect(handleOrder).toHaveBeenCalledTimes(1);
-    expect(handleOrder).toHaveBeenCalledWith('pasta-1');
-  });
-});`,
-          what: { ar: 'اختبار برمجي آلي يتحقق من ظهور اسم الوجبة وسعرها واستجابة زر الطلب للنقر.', en: 'Automated unit test verifying component rendering, price formatting, and click dispatch.' },
-          why: { ar: 'وجود الاختبارات الآلية يتيح لك إعادة كتابة أو تحسين الكود مستقبلاً دون خوف من كسر أي ميزة سابقة.', en: 'Automated tests grant fearless refactoring confidence by preventing silent regression bugs.' },
-          when: { ar: 'يُكتب بعد إنهاء كل مكون أساسي وقبل اعتماد الكود للإطلاق النهائي.', en: 'Authored upon completing core components ahead of final production deployment.' },
+          objective: {
+            ar: 'استخدام أداة محاكاة الهاتف (Device Toolbar) في Google Chrome لفحص تناسق الموقع على الشاشات الصغيرة.',
+            en: 'Use the Mobile Device Toolbar in Google Chrome to verify mobile layout.',
+          },
+          instructorSteps: [
+            {
+              ar: '1. افتح موقعك في متصفح Google Chrome ثم اضغط بزر الفأرة الأيمن واختر Inspect (فحص).',
+              en: '1. Open your site in Google Chrome, right-click anywhere, and select Inspect.',
+            },
+            {
+              ar: '2. اضغط على أيقونة الهاتف والتابلت في أعلى نافذة الفحص (أو اختصار Ctrl + Shift + M).',
+              en: '2. Click the phone/tablet Toggle Device Toolbar icon (or press Ctrl + Shift + M).',
+            },
+            {
+              ar: '3. اختر مقاس شاشة هاتف شائع مثل iPhone 14 Pro أو Samsung Galaxy وتصفح الموقع من الأعلى للأسفل.',
+              en: '3. Select a popular phone size like iPhone 14 Pro and scroll from top to bottom.',
+            },
+            {
+              ar: '4. تأكد من عدم وجود شريط تمرير أفقي (Horizontal Scroll) أو نصوص تخرج خارج حدود الشاشة.',
+              en: '4. Verify there is no unintended horizontal scrolling or text overflowing the screen.',
+            },
+          ],
+          expectedOutput: {
+            ar: 'قدرة كل متدرب على اختبار موقعه على 3 مقاسات هواتف مختلفة في دقيقة واحدة واكتشاف أي عنصر يحتاج إلى تعديل.',
+            en: 'Every trainee can test their site across 3 phone sizes in under a minute.',
+          },
         },
       },
     },
-
-    // Slide 6: AI (The Rigorous Code Review & Security Prompt)
     {
       id: 's10-slide-06',
       sessionNumber: 10,
       slideNumber: 6,
       totalSlides: 10,
-      type: 'ai',
-      title: { ar: "مراجعة الكود والأمان", en: "Code & Security Review" },
-      subtitle: { ar: 'أمر تشغيل الذكاء الاصطناعي كمهندس أمني معارض يبحث عن أدق الثغرات في مشروعك', en: 'Commanding AI as an adversarial security engineer hunting for vulnerabilities' },
-      estimatedMinutes: 6,
-      teachingGoal: { ar: 'تدريب الطلاب على استخدام نبرة المراجع المعارض لاستخراج الثغرات بدلاً من المجاملات.', en: 'Train students to mandate adversarial critique over superficial model flattery.' },
-      speakerNotes: { ar: "نفّذ: اقرأ عبارة: \"Be ruthlessly critical. Do not praise the code\". هذه العبارة توجّه الذكاء الاصطناعي للتركيز على اكتشاف الأخطاء.\nاسأل: أي قيد أو معيار قبول سيحمي الناتج من التخمين؟\nتحقق: معيار قابل للفحص: All security risks flagged with explicit remediation", en: "Cue: Highlight: \"Be ruthlessly critical\". This removes conversational pleasantries and surfaces real vulnerabilities.\nAsk: Which constraint or acceptance criterion will guard against guesswork?\nCheck: A verifiable criterion: All security risks flagged with explicit remediation" },
+      type: 'concept',
+      title: {
+        ar: 'المحطة الرابعة: أساسيات الأمان ومراجعة كود الذكاء الاصطناعي',
+        en: 'Station 4: Basic Security & Reviewing AI Code Before Shipping',
+      },
+      estimatedMinutes: 10,
+      teachingGoal: {
+        ar: 'غرس الوعي الأمني الأساسي لدى المتدرب المبتدئ عند التعامل مع الكود.',
+        en: 'Instill essential beginner security habits when working with AI-generated code.',
+      },
+      speakerNotes: {
+        ar: 'اشرح ببساطة لماذا لا نكتب أي كلمة مرور أو مفتاح سري داخل ملفات الواجهة الأمامية.',
+        en: 'Explain simply why passwords and secret API keys must never be pasted into frontend files.',
+      },
       payload: {
-        type: 'ai',
+        type: 'concept',
         data: {
-          role: 'Principal Security Engineer and Cynical Senior Code Reviewer.',
-          context: 'Conducting pre-merge code review for our capstone web application.',
-          task: `Perform an adversarial audit of this codebase. Hunt specifically for:
-1. Security Risks (Unsanitized inputs, dangerous DOM injections, token exposure)
-2. Dependency Risks (Unnecessary or deprecated external packages)
-3. Performance Anti-Patterns (Unnecessary re-renders, unmemoized expensive calls)
-4. Dead Code or Over-Engineered Abstractions`,
-          constraints: 'Do not compliment the code. Be ruthlessly objective. For every issue found, explain the exploit vector and provide a hardened patch.',
-          output: `Return:
-- Severity Classification (Critical, Medium, Low)
-- Exploit Scenario
-- Hardened Production Patch`,
-          acceptanceCriteria: [
-            'All security risks flagged with explicit remediation',
-            'Zero hallucinated packages',
-            'Defensive programming safeguards validated',
+          tagline: { ar: 'المحطة 4 • الأمان والمراجعة', en: 'Station 4 • Safety & Review' },
+          principle: {
+            ar: '3 قواعد بسيطة تحمي موقعك وموقع عميلك',
+            en: '3 Simple Rules That Protect Your Website and Your Client',
+          },
+          explanation: {
+            ar: 'حتى في المواقع التعريفية والتجارية البسيطة، التزم دائماً بهذه القواعد الثلاث:',
+            en: 'Even on simple business websites, always follow these three safety rules:',
+          },
+          bulletPoints: [
+            {
+              ar: '1. لا تضع كلمات مرور أو مفاتيح سرية داخل الكود: أي كود يُرسل للمتصفح يمكن للناس رؤيته، لذلك تُحفظ المفاتيح الخاصة في ملفات بيئة منفصلة (.env) لا تُرفع للعامة.',
+              en: '1. Never put passwords or secret keys in code: keep private keys in `.env` files excluded from public repos.',
+            },
+            {
+              ar: '2. استخدم روابط آمنة دائماً: تأكد أن جميع الروابط الخارجية تبدأ بـ `https://` وليس `http://` غير المشفر.',
+              en: '2. Always use secure links: ensure external links start with `https://`.',
+            },
+            {
+              ar: '3. راجع تعديلات الذكاء الاصطناعي قبل اعتمادها: لا تقبل تعديلاً كبيراً دون تجربة الصفحة بعده والتأكد أنه لم يحذف قسماً مهماً.',
+              en: '3. Review AI edits before keeping them: test the page after every edit to ensure nothing was accidentally removed.',
+            },
           ],
-          iterationTip: {
-            ar: 'شغل هذا البرومبت على أي كود تولده قبل أن تقبل دمجه في مشروعك الأساسي.',
-            en: 'Run this adversarial review on all AI-scaffolded logic before merging into main.'
+          architecturalRule: {
+            ar: 'لا ترفع ملف `.env` أبداً إلى GitHub؛ تأكد أنه موجود داخل قائمة التجاهل `.gitignore`.',
+            en: 'Never push `.env` files to GitHub; make sure `.env` is listed in `.gitignore`.',
           },
         },
       },
     },
-
-    // Slide 7: Challenge (Student Security & README Lab)
     {
       id: 's10-slide-07',
       sessionNumber: 10,
       slideNumber: 7,
       totalSlides: 10,
-      type: 'challenge',
-      title: { ar: "فحص الأمان وتوثيق README لمشروعك", en: "Student Challenge — Security Audit & Project README" },
-      estimatedMinutes: 8,
-      teachingGoal: { ar: 'قيام كل طالب بتوليد ملف README احترافي وإجراء فحص أمني لكود مشروعه.', en: 'Every student runs a security scan and authors an executive README for their capstone.' },
-      speakerNotes: { ar: "نفّذ: أطلق مؤقت الـ 5 دقائق. اطلب منهم إرسال برومبت المراجعة الأمنية وتوليد وثيقة README تشرح المشروع وكيفية تشغيله.\nاسأل: ما الناتج الذي ستسلّمه؟ إجراء فحص أمني معارض لكود مشروعك وتوليد ملف توثيق README.md احترافي.\nتحقق: ملف README.md احترافي مع تقرير فحص أمني يؤكد جاهزية المشروع.", en: "Cue: Start 5-minute timer. Instruct students to run adversarial review and draft their project README.\nAsk: What will you submit? Execute an adversarial security audit and author a comprehensive README.md specification.\nCheck: Professional README.md specification and verified clean security audit report." },
+      type: 'comparison',
+      title: {
+        ar: 'مقارنة: موقع تم فحصه بعناية مقابل موقع أُطلق باستعجال',
+        en: 'Comparison: Carefully Inspected Site vs. Rushed Unchecked Site',
+      },
+      estimatedMinutes: 7,
+      teachingGoal: {
+        ar: 'توضيح القيمة العملية لقائمة الفحص في انطباع العميل.',
+        en: 'Show the practical impact of pre-launch inspection on client impression.',
+      },
+      speakerNotes: {
+        ar: 'اعرض المقارنة واطلب من المتدربين تقييم مشاريعهم الحالية بناءً عليها.',
+        en: 'Compare both columns and ask trainees to evaluate their own projects.',
+      },
       payload: {
-        type: 'challenge',
+        type: 'comparison',
         data: {
-          mission: {
-            ar: 'إجراء فحص أمني معارض لكود مشروعك وتوليد ملف توثيق README.md احترافي.',
-            en: 'Execute an adversarial security audit and author a comprehensive README.md specification.'
+          leftHeader: {
+            ar: 'موقع بعد تطبيق قائمة الفحص الرباعية',
+            en: 'Site After the 4-Part Inspection',
           },
-          durationMinutes: 5,
-          objective: {
-            ar: 'تحويل مشروعك إلى منتج برمجي موثق ومحصن أمنياً يثير إعجاب أي مهندس أو عميل يفتحه.',
-            en: 'Transform your repo into a hardened, self-documenting asset commanding client respect.'
+          rightHeader: {
+            ar: 'موقع أُطلق باستعجال دون مراجعة',
+            en: 'Site Launched in a Rush Without Review',
           },
-          instructions: [
-            { ar: 'أرسل كود مكوناتك الرئيسية لبرومبت المراجعة الأمنية المعارضة', en: 'Submit your core components to the adversarial security review prompt' },
-            { ar: 'تحقق من عدم وجود أي ثغرات أو نصوص غير معقمة في الأكواد', en: 'Confirm zero unescaped inputs or phantom package dependencies' },
-            { ar: 'أنشئ ملف README.md يوضح اسم المشروع، التقنيات، وكيفية تشغيل الكود', en: 'Create README.md detailing project vision, architecture, and run commands' },
-            { ar: 'شارك جملة التوثيق الافتتاحية لمشروعك في شات Zoom', en: 'Share your project opening README tagline in Zoom chat' },
+          dimensions: [
+            {
+              dimension: { ar: 'الأزرار والروابط', en: 'Buttons & Links' },
+              left: {
+                ar: 'كل زر ينقل الزائر للقسم الصحيح أو يفتح محادثة واتساب جاهزة',
+                en: 'Every button scrolls to the right section or opens a pre-filled WhatsApp chat',
+              },
+              right: {
+                ar: 'بعض الأزرار لا تفعل شيئاً عند الضغط عليها (`href="#"`)',
+                en: 'Some buttons do nothing when clicked (`href="#"`)',
+              },
+            },
+            {
+              dimension: { ar: 'العرض على شاشة الهاتف', en: 'Mobile Screen Display' },
+              left: {
+                ar: 'بطاقات مرتبة في عمود واحد ونصوص واضحة وأزرار مريحة للضغط',
+                en: 'Cards stacked cleanly in one column with readable text and tap-friendly buttons',
+              },
+              right: {
+                ar: 'عناصر متداخلة أو جدول يخرج خارج حدود شاشة الهاتف',
+                en: 'Overlapping elements or tables overflowing outside the phone screen',
+              },
+            },
+            {
+              dimension: { ar: 'بيانات التواصل والعناوين', en: 'Contact Info & Titles' },
+              left: {
+                ar: 'رقم واتساب موحد وصحيح وعنوان تبويب احترافي باسم المشروع',
+                en: 'Consistent accurate WhatsApp number and branded browser tab title',
+              },
+              right: {
+                ar: 'بقايا نصوص تجريبية أو أرقام هواتف افتراضية منسية',
+                en: 'Leftover placeholder copy or forgotten dummy phone numbers',
+              },
+            },
           ],
-          starterPromptOrCode: '# [Project Name]\n\nProduction-ready web platform built with Next.js 16, React 19, and Tailwind CSS.',
-          deliverable: {
-            ar: 'ملف README.md احترافي مع تقرير فحص أمني يؤكد جاهزية المشروع.',
-            en: 'Professional README.md specification and verified clean security audit report.'
+          balancedVerdict: {
+            ar: 'عشرون دقيقة من الفحص المنظم تحول مشروعك من تمرين تدريبي إلى منتج احترافي جاهز للعميل.',
+            en: 'Twenty minutes of structured inspection turns your project into a client-ready product.',
           },
         },
       },
     },
-
-    // Slide 8: Project (Milestone 10)
     {
       id: 's10-slide-08',
       sessionNumber: 10,
       slideNumber: 8,
       totalSlides: 10,
-      type: 'project',
-      title: { ar: "الحصانة الهندسية والتوثيق المكتمل", en: "Project Milestone — Hardened & Documented Repository" },
-      estimatedMinutes: 4,
-      teachingGoal: { ar: 'تثبيت أن المشروع البرمجي اجتاز مراجعات الجودة والأمان التي طبقناها.', en: 'Confirm capstone codebase has passed the quality, security, and documentation checks we performed.' },
-      speakerNotes: { ar: "نفّذ: هنئ الطلاب: \"مشروعك الآن ليس مجرد واجهة؛ إنه منتج برمجي مكتمل المعالم، مفحوص أمنياً، وموثق بأعلى معايير الصناعة!\".\nاسأل: أي مخرج من هذه المرحلة يحتاج إلى استكمال؟\nتحقق: تقرير فحص أمني يؤكد خلو المشروع من الثغرات وحزم الشبح؛ ملف README.md احترافي يشرح معمارية المشروع وكيفية تشغيله؛ مستودع كود نظيف وخالٍ من الأخطاء والتحذيرات جاهز للنشر النهائي", en: "Cue: Congratulate learners: \"Your codebase is now an enterprise-grade asset: tested, documented, and secure!\"\nAsk: Which deliverable from this phase still needs work?\nCheck: Clean security audit report confirming zero vulnerable dependencies; Production-grade README.md explaining architecture and setup; Pristine repository tree ready for production cloud deployment" },
+      type: 'question',
+      title: {
+        ar: 'سؤال للنقاش: كيف تطلب إصلاح مشكلة ظهرت على شاشة الهاتف؟',
+        en: 'Discussion Question: How Do You Ask AI to Fix a Mobile Layout Issue?',
+      },
+      estimatedMinutes: 5,
+      teachingGoal: {
+        ar: 'ربط مهارة الفحص بمهارة صياغة طلب الإصلاح الدقيق.',
+        en: 'Connect inspection findings with clear, targeted AI fix prompts.',
+      },
+      speakerNotes: {
+        ar: 'استمع لصياغات المتدربين وصحح الطلبات العامة مثل "أصلح الهاتف".',
+        en: 'Listen to trainee prompts and refine vague requests like "fix mobile".',
+      },
       payload: {
-        type: 'project',
+        type: 'question',
         data: {
-          phaseName: { ar: 'المرحلة 10: التحصين الأمني والتوثيق والاختبار', en: 'Phase 10: Enterprise Security, Testing & Documentation' },
-          stepNumber: '10',
-          whatWeBuildNow: {
-            ar: 'اكتمال الفحص الأمني الشامل، كتابة ملف التوثيق README، والتأكد من سلامة المعمارية البرمجية.',
-            en: 'Complete exhaustive security audit, author README documentation, and verify architectural integrity.',
+          question: {
+            ar: 'أثناء فحص موقعك على مقاس iPhone، لاحظت أن زرّين بجانب بعضهما يظهران مضغوطين جداً. كيف تطلب من المساعد الذكي إصلاح ذلك؟',
+            en: 'While testing on an iPhone screen size, you notice two side-by-side buttons look cramped. How do you ask AI to fix it?',
           },
-          deliverables: [
-            { ar: 'تقرير فحص أمني يؤكد خلو المشروع من الثغرات وحزم الشبح', en: 'Clean security audit report confirming zero vulnerable dependencies' },
-            { ar: 'ملف README.md احترافي يشرح معمارية المشروع وكيفية تشغيله', en: 'Production-grade README.md explaining architecture and setup' },
-            { ar: 'مستودع كود نظيف وخالٍ من الأخطاء والتحذيرات جاهز للنشر النهائي', en: 'Pristine repository tree ready for production cloud deployment' },
-          ],
-          connectionToFinalProject: {
-            ar: 'في الجلسة 11 سننتقل إلى تحويل هذه المهارة البرمجية إلى خدمة تجارية: التسويق، البورتفوليو، وجلب العملاء.',
-            en: 'In Session 11 we pivot to market monetization: portfolio building, proposals, and landing clients.',
+          contextHint: {
+            ar: 'حدد الملف، وحدد أن التعديل لشاشة الهاتف فقط، مع الحفاظ على شكل الكمبيوتر.',
+            en: 'Specify the file, state that the change is for mobile screens, and preserve desktop layout.',
+          },
+          promptToClass: {
+            ar: 'مثال الصياغة الواضحة: «في ملف HeroSection.tsx، اجعل الزرين يظهران فوق بعضهما بعرض كامل (flex-col) على شاشة الهاتف، وبجانب بعضهما (sm:flex-row) على الكمبيوتر.»',
+            en: '"In HeroSection.tsx, stack the two buttons vertically at full width (flex-col) on mobile, and keep them side by side (sm:flex-row) on desktop."',
           },
         },
       },
     },
-
-    // Slide 9: Takeaway
     {
       id: 's10-slide-09',
       sessionNumber: 10,
       slideNumber: 9,
       totalSlides: 10,
+      type: 'challenge',
+      title: {
+        ar: 'نشاط عملي (20 دقيقة): افحص مشروعك واكتشف 3 تحسينات',
+        en: 'Hands-On Activity (20 Mins): Inspect Your Project & Fix 3 Improvements',
+      },
+      estimatedMinutes: 20,
+      teachingGoal: {
+        ar: 'ممارسة الفحص العملي وإصلاح الملاحظات الحقيقية على مشروع المتدرب.',
+        en: 'Practice inspecting a real project and fixing 3 concrete improvements.',
+      },
+      speakerNotes: {
+        ar: 'مرّ على المتدربين وساعدهم في اكتشاف التفاصيل التي تحتاج إلى تحسين في مشاريعهم.',
+        en: 'Help trainees spot and fix 3 real improvements in their projects.',
+      },
+      payload: {
+        type: 'challenge',
+        data: {
+          mission: {
+            ar: 'تطبيق قائمة الفحص الرباعية على موقعك',
+            en: 'Apply the 4-Part Inspection Checklist to Your Website',
+          },
+          durationMinutes: 20,
+          objective: {
+            ar: 'فحص النصوص والروابط وشاشة الهاتف في مشروعك واكتشاف وإصلاح 3 ملاحظات عملية.',
+            en: 'Inspect copy, links, and mobile layout in your project and fix 3 issues.',
+          },
+          instructions: [
+            {
+              ar: '1. اقرأ جميع النصوص في موقعك وتأكد من عدم وجود أي نص افتراضي أو خطأ إملائي.',
+              en: '1. Read all copy on your site and remove any placeholder text or typos.',
+            },
+            {
+              ar: '2. اضغط على جميع أزرار الموقع وروابط واتساب وتأكد أنها تعمل وتفتح المحادثة الصحيحة.',
+              en: '2. Click every button and WhatsApp link to verify they work properly.',
+            },
+            {
+              ar: '3. افتح أداة محاكاة الهاتف في المتصفح وتصفح موقعك بالكامل، وسجّل 3 ملاحظات لتحسين الشكل أو المسافات.',
+              en: '3. Open Chrome’s mobile simulator, scroll through your site, and note 3 layout improvements.',
+            },
+            {
+              ar: '4. أصلح هذه الملاحظات الثلاث بمساعدة المساعد الذكي ثم أعد الفحص.',
+              en: '4. Fix those 3 items with your AI assistant and re-verify.',
+            },
+          ],
+          deliverable: {
+            ar: 'مشاركة قائمة بالملاحظات الثلاث التي اكتشفتها في موقعك وكيف قمت بإصلاحها.',
+            en: 'Share the 3 issues you found on your site and how you fixed them.',
+          },
+        },
+      },
+    },
+    {
+      id: 's10-slide-10',
+      sessionNumber: 10,
+      slideNumber: 10,
+      totalSlides: 10,
       type: 'takeaway',
-      title: { ar: "خلاصة: الجودة والأمان", en: "Recap: Quality & Security" },
-      estimatedMinutes: 4,
-      teachingGoal: { ar: 'تثبيت مبدأ المسؤولية الهندسية الصارمة وقاعدة التحقق البشري الدائم.', en: 'Cement engineering accountability and the immutable human validation contract.' },
-      speakerNotes: { ar: "نفّذ: اقرأ النقاط الثلاث. أكد: \"أنت كمهندس لست مجرد مستخدم للأداة؛ أنت المراجع النهائي الذي يضمن أمان وسلامة المنتج أمام العميل والعالم\".\nاسأل: أي مبدأ من «خلاصة: الجودة والأمان» ستستخدمه في مشروعك؟\nتحقق: السرعة دون انضباط هندسي هي دين تقني مؤجل؛ السرعة مع الانضباط هي قمة الاحتراف.", en: "Cue: Review takeaways: You are the ultimate reviewer guaranteeing safety, uptime, and integrity.\nAsk: Which principle from “Recap: Quality & Security” will you use in your project?\nCheck: Speed without engineering discipline is deferred technical debt; speed with discipline is pure mastery." },
+      title: {
+        ar: 'خلاصة الدرس العاشر',
+        en: 'Lesson 10 Takeaways',
+      },
+      estimatedMinutes: 5,
+      teachingGoal: {
+        ar: 'تلخيص قواعد الفحص والتشويق لمرحلة النشر الحي في الدرس القادم.',
+        en: 'Summarize inspection rules and preview live deployment in Lesson 11.',
+      },
+      speakerNotes: {
+        ar: 'اختم الدرس بتشجيع المتدربين؛ في الدرس القادم سيحصل كل متدرب على رابط حي لموقعه يشاركه مع العالم.',
+        en: 'Congratulate trainees; next lesson everyone will publish their site live online.',
+      },
       payload: {
         type: 'takeaway',
         data: {
           takeaways: [
             {
               number: '01',
-              title: { ar: 'الذكاء الاصطناعي يقترح — والمهندس يعتمد ويتحمل المسؤولية', en: 'AI Proposes — Humans Audit & Own' },
+              title: { ar: 'الفحص المنظم يصنع الاحترافية', en: 'Structured Inspection Creates Quality' },
               description: {
-                ar: 'لا تنشر كوداً لم تقرأه وتفهم منطقه؛ أنت المسؤول الأول والأخير عن أمان واستقرار موقعك أمام العميل.',
-                en: 'Never ship code you have not reviewed; you bear sole accountability for uptime, security, and integrity.',
+                ar: 'مراجعة النصوص والروابط وشاشة الهاتف قبل التسليم تحميك من الأخطاء المحرجة أمام العميل.',
+                en: 'Reviewing copy, links, and mobile screens before delivery prevents embarrassing mistakes.',
               },
             },
             {
               number: '02',
-              title: { ar: 'التوثيق والاختبارات هما علامة المطور المحترف', en: 'Documentation & Tests Define the Pro' },
+              title: { ar: 'اختبر على شاشة الهاتف أولاً', en: 'Test Mobile Screens First' },
               description: {
-                ar: 'أي شخص يستطيع توليد كود سريع، لكن المهندس الحقيقي هو الذي يرفق معه وثيقة تشغيل وحالات اختبار تضمن استمراريته.',
-                en: 'Anyone can scaffold quick code; true engineers provide documentation and automated tests ensuring longevity.',
+                ar: 'استخدم أداة محاكاة الهاتف في Google Chrome للتأكد من راحة القراءة والضغط باليد الواحدة.',
+                en: 'Use Chrome’s mobile simulator to ensure comfortable reading and tapping.',
               },
             },
             {
               number: '03',
-              title: { ar: 'الحذر من حزم الشبح والافتراضات الوردية', en: 'Guard Against Phantom Dependencies' },
+              title: { ar: 'احفظ البيانات السرية خارج الكود', en: 'Keep Secrets Out of Code' },
               description: {
-                ar: 'درب عينك على اكتشاف المكتبات غير الموثوقة أو الأكواد المفرطة في التعقيد، وحافظ على بساطة المشروع.',
-                en: 'Train your critical eye to prune unverified packages and over-engineered bloat; simplicity is durability.',
+                ar: 'لا تضع أي كلمات مرور أو مفاتيح خاصة داخل ملفات الواجهة، وتأكد من مراجعة تعديلات الذكاء الاصطناعي.',
+                en: 'Never place passwords or private keys in frontend files, and always verify AI edits.',
               },
             },
           ],
           coreMotto: {
-            ar: 'السرعة دون انضباط هندسي هي دين تقني مؤجل؛ السرعة مع الانضباط هي قمة الاحتراف.',
-            en: 'Speed without engineering discipline is deferred technical debt; speed with discipline is pure mastery.',
-          },
-        },
-      },
-    },
-
-    // Slide 10: Next
-    {
-      id: 's10-slide-10',
-      sessionNumber: 10,
-      slideNumber: 10,
-      totalSlides: 10,
-      type: 'next',
-      title: { ar: "التالي: تسويق خدمتك", en: "Next: Market Your Service" },
-      estimatedMinutes: 2,
-      teachingGoal: { ar: 'تشويق الطلاب للجلسة 11 لدخول الجانب التجاري والمهني وصناعة البورتفوليو.', en: 'Build intense anticipation for Session 11: business acquisition, portfolios, and freelancing.' },
-      speakerNotes: { ar: "نفّذ: اختم الجلسة: \"في الجلسة 11 سنتعلم كيف تحول هذا الكود الرائع إلى خدمة تجارية: كيف تبني بورتفوليو، تصيغ العروض، وتجلب أول عميل!\".\nاسأل: ما الذي ستجهزه قبل الجلسة القادمة؟\nتحقق: فكر في القطاع التجاري الذي تريد التخصص فيه لخدمة عملائه (مطاعم، عيادات، متاجر، شركات ناشئة).", en: "Cue: Closing: \"In Session 11 we learn how to commercialize your skill: packaging portfolios, proposals, and landing clients!\"\nAsk: What will you prepare before the next session?\nCheck: Consider the commercial niche you wish to specialize in (dining, healthcare, e-commerce, startups)." },
-      payload: {
-        type: 'next',
-        data: {
-          nextSessionNumber: '11',
-          nextSessionTitle: {
-            ar: 'التسويق وجلب العملاء: تحويل مهارة صناعة الويب إلى خدمة مربحة',
-            en: 'Marketing & Client Acquisition: Turning Web Creation into a Marketable Business',
-          },
-          teaser: {
-            ar: 'كيف تبني هويتك المهنية (Personal Brand)، توثق مشروعك كدراسة حالة (Case Study)، تصيغ عرض خدمات مقنع (Service Offer)، وتتواصل مع العملاء باحترافية.',
-            en: 'Discover how to craft your personal brand, package your capstone into a compelling case study, formulate service offers, and conduct professional client outreach.',
-          },
-          preparationHint: {
-            ar: 'فكر في القطاع التجاري الذي تريد التخصص فيه لخدمة عملائه (مطاعم، عيادات، متاجر، شركات ناشئة).',
-            en: 'Consider the commercial niche you wish to specialize in (dining, healthcare, e-commerce, startups).',
+            ar: 'لا ترسل رابط موقعك لأي عميل قبل أن تضغط على كل زر فيه وتتصفحه من شاشة الهاتف.',
+            en: 'Never send a website link to a client before clicking every button and testing it on mobile.',
           },
         },
       },

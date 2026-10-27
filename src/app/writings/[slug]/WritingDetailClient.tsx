@@ -1,12 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { PageContainer } from '@/components';
+import { PageContainer, WhatsAppActionFeedback } from '@/components';
 import { EngineeringWriting } from '@/types';
 import { usePreferencesStore } from '@/store';
 import { getLocalizedText } from '@/lib/utils';
-import { Clock, Tag, ArrowRight, ArrowLeft, BookOpen, CheckCircle2, UserCheck } from 'lucide-react';
+import { Clock, Tag, ArrowRight, ArrowLeft, BookOpen, CheckCircle2, UserCheck, MessageCircle } from 'lucide-react';
+import { buildClientInquiryMessage, openWhatsAppChat } from '@/lib/whatsapp';
 
 interface WritingDetailClientProps {
   writing: EngineeringWriting;
@@ -15,10 +16,24 @@ interface WritingDetailClientProps {
 export function WritingDetailClient({ writing }: WritingDetailClientProps) {
   const { language } = usePreferencesStore();
   const isRtl = language === 'ar';
+  const [whatsAppMessage, setWhatsAppMessage] = useState<string | null>(null);
 
   const title = getLocalizedText(writing.title, language);
   const summary = getLocalizedText(writing.summary, language);
   const categoryLabel = getLocalizedText(writing.categoryLabel, language);
+
+  const handleDiscussOnWhatsApp = () => {
+    const message = buildClientInquiryMessage({
+      inquiryType: isRtl ? 'مناقشة مقال أو استشارة تقنية' : 'Article Discussion / Technical Consultation',
+      projectOrService: title,
+      message: isRtl
+        ? `مرحبًا عبد الحكيم، قرأت مقالك «${title}» وأود التحدث معك حول تطبيق هذه الأفكار أو استشارة تقنية ذات صلة.`
+        : `Hello Abdulhakim, I read your article "${title}" and would like to discuss applying these concepts or a related consultation.`,
+      language,
+    });
+    setWhatsAppMessage(message);
+    openWhatsAppChat(message);
+  };
 
   return (
     <PageContainer>
@@ -30,7 +45,7 @@ export function WritingDetailClient({ writing }: WritingDetailClientProps) {
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors"
           >
             {isRtl ? <ArrowRight className="w-4 h-4" /> : <ArrowLeft className="w-4 h-4" />}
-            <span>{isRtl ? 'العودة إلى فهرس المقالات والكتابات' : 'Back to All Writings'}</span>
+            <span>{isRtl ? 'العودة إلى جميع المقالات' : 'Back to All Articles'}</span>
           </Link>
         </div>
 
@@ -80,7 +95,7 @@ export function WritingDetailClient({ writing }: WritingDetailClientProps) {
           <div className="p-6 sm:p-8 rounded-2xl bg-[var(--color-surface-sunken)] border border-[var(--color-border)] space-y-4">
             <h3 className="text-base sm:text-lg font-bold text-[var(--color-text)] flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
-              <span>{isRtl ? 'الركائز المعمارية الأساسية في هذا المقال' : 'Key Architectural Takeaways'}</span>
+              <span>{isRtl ? 'أهم النقاط التي يغطيها المقال' : 'Key Takeaways Covered in This Article'}</span>
             </h3>
             <ul className="space-y-2.5">
               {writing.keyTakeaways.map((takeaway, idx) => (
@@ -116,7 +131,7 @@ export function WritingDetailClient({ writing }: WritingDetailClientProps) {
                 <div className="pt-2">
                   <div className="rounded-xl overflow-hidden border border-slate-700 bg-slate-950 font-mono text-xs sm:text-sm">
                     <div className="px-4 py-2 bg-slate-900 border-b border-slate-800 text-slate-400 text-xs flex justify-between items-center">
-                      <span>{getLocalizedText(section.codeSnippet.caption, language) || 'Architecture Snippet'}</span>
+                      <span>{getLocalizedText(section.codeSnippet.caption, language) || 'Code Example'}</span>
                       <span className="uppercase text-[10px] text-blue-400 font-bold">
                         {section.codeSnippet.language}
                       </span>
@@ -131,8 +146,8 @@ export function WritingDetailClient({ writing }: WritingDetailClientProps) {
           ))}
         </div>
 
-        {/* Author Bio Card */}
-        <footer className="pt-10 border-t border-[var(--color-border)]">
+        {/* Author Bio & WhatsApp Discussion Card */}
+        <footer className="pt-10 border-t border-[var(--color-border)] space-y-4">
           <div className="p-6 sm:p-8 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] flex flex-col sm:flex-row items-center sm:items-start gap-6">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -140,7 +155,7 @@ export function WritingDetailClient({ writing }: WritingDetailClientProps) {
               alt="Abdulhakim Kanbr"
               className="w-20 h-20 rounded-2xl object-cover object-top ring-2 ring-[var(--color-border)] shrink-0"
             />
-            <div className="space-y-2 text-center sm:text-start flex-1">
+            <div className="space-y-3 text-center sm:text-start flex-1">
               <div className="flex items-center justify-center sm:justify-start gap-2">
                 <UserCheck className="w-4 h-4 text-[var(--color-secondary)]" />
                 <span className="text-xs font-mono font-bold uppercase text-[var(--color-secondary)] tracking-wider">
@@ -152,20 +167,36 @@ export function WritingDetailClient({ writing }: WritingDetailClientProps) {
               </h4>
               <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">
                 {isRtl
-                  ? 'مهندس برمجيات ومطور ويب بخبرة تتجاوز 8 سنوات في تطوير البرمجيات وتصميم الأنظمة. أشارك هنا ما أتعلمه من العمل الهندسي والمشاريع الواقعية.'
-                  : 'Software engineer and web developer with over 8 years of practical experience in software development and system design, sharing real-world engineering learnings.'}
+                  ? 'مهندس برمجيات ومطور ويب بخبرة تتجاوز 8 سنوات في بناء المواقع والأنظمة المخصصة ومنتجات SaaS. أشارك هنا خلاصة ما أتعلمه من العمل والمشاريع الواقعية.'
+                  : 'Software engineer and web developer with over 8 years of experience building websites, custom systems, and SaaS products.'}
               </p>
-              <div className="pt-2">
+              <div className="pt-2 flex flex-wrap items-center justify-center sm:justify-start gap-3">
+                <button
+                  type="button"
+                  onClick={handleDiscussOnWhatsApp}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-colors cursor-pointer"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>{isRtl ? 'ناقش هذا المقال عبر واتساب' : 'Discuss on WhatsApp'}</span>
+                </button>
                 <Link
                   href="/about"
-                  className="text-xs font-bold text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors inline-flex items-center gap-1"
+                  className="text-xs font-bold text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors inline-flex items-center gap-1 px-3 py-2"
                 >
-                  <span>{isRtl ? 'عن عبد الحكيم وطريقة العمل' : 'About Abdulhakim & Engineering Practice'}</span>
+                  <span>{isRtl ? 'تعرف على عبد الحكيم وطريقة العمل' : 'About Abdulhakim & How I Work'}</span>
                   {isRtl ? <ArrowLeft className="w-3.5 h-3.5" /> : <ArrowRight className="w-3.5 h-3.5" />}
                 </Link>
               </div>
             </div>
           </div>
+
+          {whatsAppMessage && (
+            <WhatsAppActionFeedback
+              message={whatsAppMessage}
+              language={language}
+              onClose={() => setWhatsAppMessage(null)}
+            />
+          )}
         </footer>
       </article>
     </PageContainer>

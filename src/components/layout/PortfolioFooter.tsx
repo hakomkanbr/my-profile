@@ -2,9 +2,11 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { MessageCircle } from 'lucide-react';
 import { usePreferencesStore } from '@/store';
 import { INSTRUCTOR_PROFILE } from '@/content/instructor';
 import { getLocalizedText } from '@/lib/utils';
+import { WHATSAPP_CONFIG, buildWhatsAppUrl } from '@/lib/whatsapp';
 
 const GithubIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -41,11 +43,14 @@ export const PortfolioFooter: React.FC = () => {
   const { language } = usePreferencesStore();
   const isRtl = language === 'ar';
   const name = getLocalizedText(INSTRUCTOR_PROFILE.name, language);
+  const whatsappHref = buildWhatsAppUrl(
+    'مرحبًا أستاذ عبد الحكيم، أتواصل معك من خلال موقعك الشخصي.'
+  );
 
   return (
     <footer className="w-full border-t border-[var(--color-border)] bg-[var(--color-surface)] py-10 sm:py-12 px-4 sm:px-8 mt-auto text-start">
       <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8">
-        {/* Trainer Personal Info */}
+        {/* Personal Info */}
         <div className="flex items-center gap-3">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -60,14 +65,29 @@ export const PortfolioFooter: React.FC = () => {
               {name}
             </span>
             <span className="text-xs text-[var(--color-text-subtle)] font-medium">
-              {isRtl ? 'مهندس برمجيات · مصمم نظم · موجه تقني' : 'Software Engineer · System Designer · Technical Mentor'}
+              {isRtl
+                ? 'أحوّل الأفكار إلى مواقع ومنتجات رقمية'
+                : 'Turning ideas into websites & digital products'}
             </span>
-            <a
-              href="mailto:abdulhekimkanbr@gmail.com"
-              className="text-[11px] font-mono text-[var(--color-text-muted)] hover:text-[var(--color-secondary)] transition-colors mt-0.5"
-            >
-              abdulhekimkanbr@gmail.com
-            </a>
+            <div className="flex flex-wrap items-center gap-3 mt-1">
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                dir="ltr"
+                className="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-600 dark:text-emerald-400 hover:underline"
+              >
+                <MessageCircle className="w-3 h-3" />
+                <span>{WHATSAPP_CONFIG.phoneDisplay}</span>
+              </a>
+              <span className="text-[var(--color-border)]">•</span>
+              <a
+                href="mailto:abdulhekimkanbr@gmail.com"
+                className="text-[11px] font-mono text-[var(--color-text-muted)] hover:text-[var(--color-secondary)] transition-colors"
+              >
+                abdulhekimkanbr@gmail.com
+              </a>
+            </div>
           </div>
         </div>
 
@@ -77,7 +97,10 @@ export const PortfolioFooter: React.FC = () => {
             {isRtl ? 'الرئيسية' : 'Home'}
           </Link>
           <Link href="/projects" className="hover:text-[var(--color-secondary)] transition-colors">
-            {isRtl ? 'المشاريع' : 'Projects'}
+            {isRtl ? 'أعمالي ومنتجاتي' : 'Work & Products'}
+          </Link>
+          <Link href="/web-creator-ai" className="hover:text-[var(--color-secondary)] transition-colors">
+            WEB CREATOR AI
           </Link>
           <Link href="/writings" className="hover:text-[var(--color-secondary)] transition-colors">
             {isRtl ? 'المقالات' : 'Articles'}
@@ -88,14 +111,17 @@ export const PortfolioFooter: React.FC = () => {
           <Link href="/about" className="hover:text-[var(--color-secondary)] transition-colors">
             {isRtl ? 'عنّي' : 'About'}
           </Link>
+          <Link href="/links" className="hover:text-[var(--color-secondary)] transition-colors">
+            {isRtl ? 'روابطي' : 'Links'}
+          </Link>
           <Link href="/contact" className="hover:text-[var(--color-secondary)] transition-colors">
-            {isRtl ? 'تواصل' : 'Contact'}
+            {isRtl ? 'تواصل معي' : 'Contact'}
           </Link>
         </div>
 
         {/* Social Links & Copyright */}
         <div className="flex flex-col md:items-end gap-2.5 text-xs">
-          <div className="flex items-center gap-2 text-[var(--color-text-subtle)]">
+          <div className="flex flex-wrap items-center gap-2 text-[var(--color-text-subtle)]">
             {INSTRUCTOR_PROFILE.socialLinks.map((s) => (
               <a
                 key={s.platform}
@@ -119,4 +145,3 @@ export const PortfolioFooter: React.FC = () => {
     </footer>
   );
 };
-

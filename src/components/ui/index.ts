@@ -17,3 +17,4 @@ export * from './Skeleton';
 export * from './Alert';
 export * from './Modal';
 export * from './Dropdown';
+export * from './WhatsAppActionFeedback';

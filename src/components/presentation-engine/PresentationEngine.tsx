@@ -1,31 +1,29 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-import { PresentationSession, PresentationEngineSlide } from '@/types';
+import React, { useEffect, useState, useCallback } from 'react';
+import { PresentationSession } from '@/types';
 import { usePreferencesStore, useTrainerStore } from '@/store';
 import { PresentationHUD } from './PresentationHUD';
 import { TrainerNotesDrawer } from './TrainerNotesDrawer';
 import { SessionStartModal } from './SessionStartModal';
 import { SessionEndModal } from './SessionEndModal';
-import {
-  TitleSlide,
-  ContextSlide,
-  QuestionSlide,
-  ThinkSlide,
-  RevealSlide,
-  ConceptSlide,
-  VisualSlide,
-  CodeSlide,
-  DemoSlide,
-  ComparisonSlide,
-  AIPromptSlide,
-  ChallengeSlide,
-  ProjectSlide,
-  TakeawaySlide,
-  NextSlide,
-} from './slides';
+import { TitleSlide } from './slides/TitleSlide';
+import { ContextSlide } from './slides/ContextSlide';
+import { QuestionSlide } from './slides/QuestionSlide';
+import { ThinkSlide } from './slides/ThinkSlide';
+import { RevealSlide } from './slides/RevealSlide';
+import { ConceptSlide } from './slides/ConceptSlide';
+import { VisualSlide } from './slides/VisualSlide';
+import { CodeSlide } from './slides/CodeSlide';
+import { DemoSlide } from './slides/DemoSlide';
+import { ComparisonSlide } from './slides/ComparisonSlide';
+import { AIPromptSlide } from './slides/AIPromptSlide';
+import { ChallengeSlide } from './slides/ChallengeSlide';
+import { ProjectSlide } from './slides/ProjectSlide';
+import { TakeawaySlide } from './slides/TakeawaySlide';
+import { NextSlide } from './slides/NextSlide';
 
-interface PresentationEngineProps {
+export interface PresentationEngineProps {
   session: PresentationSession;
   initialSlideIndex?: number;
   exitHref?: string;
@@ -38,18 +36,17 @@ export const PresentationEngine: React.FC<PresentationEngineProps> = ({
   exitHref = '/trainer/presentation',
   nextSessionUrl,
 }) => {
-  const { language } = usePreferencesStore();
+  const { language, theme } = usePreferencesStore();
   const {
     activeSlideIndex,
     setActiveSlideIndex,
-    nextSlide,
-    prevSlide,
     revealedStepIndex,
-    incrementRevealedStep,
+    setRevealedStepIndex,
     viewMode,
-    presentationTheme,
     showTrainerNotes,
     toggleTrainerNotes,
+    isFullscreen,
+    toggleFullscreen,
     isTimerRunning,
     startTimer,
     pauseTimer,
@@ -57,139 +54,103 @@ export const PresentationEngine: React.FC<PresentationEngineProps> = ({
   } = useTrainerStore();
 
   const isRtl = language === 'ar';
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const [hasStarted, setHasStarted] = useState(false);
-  const [isCompleted, setIsCompleted] = useState(false);
-  const [isFullscreen, setIsFullscreen] = useState(false);
-  const [hudVisible, setHudVisible] = useState(true);
-  const hudTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  const slides = useMemo(() => session.slides || [], [session.slides]);
+  const slides = session.slides;
   const totalSlides = slides.length;
-  const currentSlide: PresentationEngineSlide = slides[activeSlideIndex] || slides[0];
-  const nextSlideData: PresentationEngineSlide | undefined = slides[activeSlideIndex + 1];
 
-  // Set initial slide index on mount
-  useEffect(() => {
-    if (initialSlideIndex >= 0 && initialSlideIndex < slides.length) {
-      setActiveSlideIndex(initialSlideIndex);
-    }
-  }, [initialSlideIndex, setActiveSlideIndex, slides.length]);
+  const [showStartModal, setShowStartModal] = useState(false);
+  const [showEndModal, setShowEndModal] = useState(false);
 
-  // Global Presentation Timer tick
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (isTimerRunning) {
-      interval = setInterval(() => {
-        tickTimer();
-      }, 1000);
-    }
+    const validIdx =
+      initialSlideIndex >= 0 && initialSlideIndex < slides.length
+        ? initialSlideIndex
+        : 0;
+    setActiveSlideIndex(validIdx);
+    setRevealedStepIndex(0);
+  }, [
+    session.id,
+    initialSlideIndex,
+    slides.length,
+    setActiveSlideIndex,
+    setRevealedStepIndex,
+  ]);
+
+  useEffect(() => {
+    if (!isTimerRunning) return;
+    const interval = setInterval(() => {
+      tickTimer();
+    }, 1000);
     return () => clearInterval(interval);
   }, [isTimerRunning, tickTimer]);
 
-  // Auto-hide HUD on idle mouse movement
-  const resetHudTimer = useCallback(() => {
-    setHudVisible(true);
-    if (hudTimeoutRef.current) clearTimeout(hudTimeoutRef.current);
-    hudTimeoutRef.current = setTimeout(() => {
-      setHudVisible(false);
-    }, 3500);
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener('mousemove', resetHudTimer);
-    return () => {
-      window.removeEventListener('mousemove', resetHudTimer);
-      if (hudTimeoutRef.current) clearTimeout(hudTimeoutRef.current);
-    };
-  }, [resetHudTimer]);
-
-  // Fullscreen toggle handler
-  const handleToggleFullscreen = useCallback(() => {
-    if (!document.fullscreenElement) {
-      containerRef.current?.requestFullscreen?.().catch(() => {});
-      setIsFullscreen(true);
-    } else {
-      document.exitFullscreen?.().catch(() => {});
-      setIsFullscreen(false);
-    }
-  }, []);
-
   useEffect(() => {
     const handleFsChange = () => {
-      setIsFullscreen(!!document.fullscreenElement);
+      const fsActive = Boolean(document.fullscreenElement);
+      if (fsActive !== isFullscreen) {
+        toggleFullscreen();
+      }
     };
     document.addEventListener('fullscreenchange', handleFsChange);
     return () => document.removeEventListener('fullscreenchange', handleFsChange);
+  }, [isFullscreen, toggleFullscreen]);
+
+  const handleToggleFullscreen = useCallback(() => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen?.().catch(() => {});
+    } else {
+      document.exitFullscreen?.().catch(() => {});
+    }
   }, []);
 
-  // Step or Advance logic for Space bar
+  const currentSlide = slides[activeSlideIndex] || slides[0];
+
   const handleAdvance = useCallback(() => {
-    if (!hasStarted) {
-      setHasStarted(true);
+    if (showStartModal) {
+      setShowStartModal(false);
       return;
     }
+    if (showEndModal) return;
 
-    // If on a reveal slide and steps remain to reveal
-    if (currentSlide?.type === 'reveal' && 'data' in currentSlide.payload) {
-      const data = currentSlide.payload.data as { steps?: unknown[] };
-      const revealSteps = data.steps || [];
-      if (revealedStepIndex < revealSteps.length) {
-        incrementRevealedStep();
-        return;
-      }
+    if (activeSlideIndex < totalSlides - 1) {
+      setActiveSlideIndex(activeSlideIndex + 1);
+    } else {
+      setShowEndModal(true);
     }
-
-    // If at the very last slide, show completion modal
-    if (activeSlideIndex >= totalSlides - 1) {
-      setIsCompleted(true);
-      return;
-    }
-
-    nextSlide();
   }, [
-    hasStarted,
-    currentSlide,
-    revealedStepIndex,
-    incrementRevealedStep,
+    showStartModal,
+    showEndModal,
     activeSlideIndex,
     totalSlides,
-    nextSlide,
+    setActiveSlideIndex,
   ]);
 
   const handlePrevious = useCallback(() => {
-    if (activeSlideIndex > 0) {
-      prevSlide();
+    if (showEndModal) {
+      setShowEndModal(false);
+      return;
     }
-  }, [activeSlideIndex, prevSlide]);
+    if (activeSlideIndex > 0) {
+      setActiveSlideIndex(activeSlideIndex - 1);
+    }
+  }, [showEndModal, activeSlideIndex, setActiveSlideIndex]);
 
-  // Keyboard navigation & shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't intercept form controls
-      if (['input', 'textarea'].includes((e.target as HTMLElement)?.tagName?.toLowerCase())) {
-        return;
-      }
+      const targetTag = (e.target as HTMLElement)?.tagName?.toLowerCase();
+      if (['input', 'textarea', 'select'].includes(targetTag)) return;
 
-      if (e.key === ' ' || e.key === 'Spacebar') {
-        if ((e.target as HTMLElement)?.tagName?.toLowerCase() === 'button') return;
+      if (e.key === ' ') {
+        if (targetTag === 'button') return;
         e.preventDefault();
         handleAdvance();
       } else if (e.key === 'ArrowRight' || e.key === 'PageDown') {
         e.preventDefault();
-        if (isRtl) {
-          handlePrevious();
-        } else {
-          handleAdvance();
-        }
+        if (isRtl) handlePrevious();
+        else handleAdvance();
       } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
         e.preventDefault();
-        if (isRtl) {
-          handleAdvance();
-        } else {
-          handlePrevious();
-        }
+        if (isRtl) handleAdvance();
+        else handlePrevious();
       } else if (e.key === 'f' || e.key === 'F') {
         e.preventDefault();
         handleToggleFullscreen();
@@ -203,11 +164,9 @@ export const PresentationEngine: React.FC<PresentationEngineProps> = ({
           toggleTrainerNotes();
         }
       } else if (e.key === 'd' || e.key === 'D') {
-        // Jump to first demo slide
         const demoIdx = slides.findIndex((s) => s.type === 'demo');
         if (demoIdx >= 0) setActiveSlideIndex(demoIdx);
       } else if (e.key === 'c' || e.key === 'C') {
-        // Jump to first challenge slide
         const chalIdx = slides.findIndex((s) => s.type === 'challenge');
         if (chalIdx >= 0) setActiveSlideIndex(chalIdx);
       } else if (e.key === 'Escape') {
@@ -240,18 +199,27 @@ export const PresentationEngine: React.FC<PresentationEngineProps> = ({
     exitHref,
   ]);
 
-  // Render specific slide by type
   const renderSlideContent = () => {
     if (!currentSlide) return null;
 
-    const { type, title, subtitle, payload } = currentSlide;
+    const { type, title, subtitle, payload, realWorldExample } = currentSlide;
 
     switch (type) {
       case 'title':
-        return payload.type === 'title' ? <TitleSlide payload={payload.data} /> : null;
+        return payload.type === 'title' ? (
+          <TitleSlide
+            payload={payload.data}
+            realWorldExample={realWorldExample}
+          />
+        ) : null;
       case 'context':
         return payload.type === 'context' ? (
-          <ContextSlide title={title} subtitle={subtitle} payload={payload.data} />
+          <ContextSlide
+            title={title}
+            subtitle={subtitle}
+            payload={payload.data}
+            realWorldExample={realWorldExample}
+          />
         ) : null;
       case 'question':
         return payload.type === 'question' ? (
@@ -267,11 +235,19 @@ export const PresentationEngine: React.FC<PresentationEngineProps> = ({
         ) : null;
       case 'concept':
         return payload.type === 'concept' ? (
-          <ConceptSlide title={title} payload={payload.data} />
+          <ConceptSlide
+            title={title}
+            payload={payload.data}
+            realWorldExample={realWorldExample}
+          />
         ) : null;
       case 'visual':
         return payload.type === 'visual' ? (
-          <VisualSlide title={title} subtitle={subtitle} payload={payload.data} />
+          <VisualSlide
+            title={title}
+            subtitle={subtitle}
+            payload={payload.data}
+          />
         ) : null;
       case 'code':
         return payload.type === 'code' ? (
@@ -283,7 +259,11 @@ export const PresentationEngine: React.FC<PresentationEngineProps> = ({
         ) : null;
       case 'comparison':
         return payload.type === 'comparison' ? (
-          <ComparisonSlide title={title} subtitle={subtitle} payload={payload.data} />
+          <ComparisonSlide
+            title={title}
+            subtitle={subtitle}
+            payload={payload.data}
+          />
         ) : null;
       case 'ai':
         return payload.type === 'ai' ? (
@@ -312,54 +292,58 @@ export const PresentationEngine: React.FC<PresentationEngineProps> = ({
 
   return (
     <div
-      ref={containerRef}
-      data-pres-theme={presentationTheme}
-      className="fixed inset-0 z-50 bg-[var(--pres-bg)] text-[var(--pres-text)] flex flex-col select-none overflow-hidden transition-colors duration-300 font-sans"
+      data-pres-theme={theme}
+      className="fixed inset-0 z-50 bg-[var(--pres-bg)] text-[var(--pres-text)] flex flex-col overflow-hidden transition-colors duration-200"
     >
-      {/* 1. Pre-Session Start Briefing Modal */}
-      {!hasStarted && (
-        <SessionStartModal session={session} onStart={() => setHasStarted(true)} />
-      )}
-
-      {/* 2. Minimal, Auto-Hiding Presentation HUD */}
       <PresentationHUD
         sessionNumber={session.number}
+        totalSessions={12}
         currentSlide={currentSlide}
         totalSlides={totalSlides}
         activeSlideIndex={activeSlideIndex}
         exitHref={exitHref}
-        visible={hudVisible}
+        visible={true}
         onNext={handleAdvance}
         onPrev={handlePrevious}
         onToggleFullscreen={handleToggleFullscreen}
         isFullscreen={isFullscreen}
       />
 
-      {/* 3. Main Slide Canvas */}
-      <main className="flex-1 w-full h-full overflow-hidden flex items-center justify-center relative">
-        <div className="w-full h-full max-w-7xl mx-auto flex flex-col justify-center">
+      {/* Main Slide Canvas */}
+      <main
+        key={`${session.id}-${activeSlideIndex}-${revealedStepIndex}`}
+        className="flex-1 w-full h-full pt-14 pb-12 overflow-hidden flex items-center justify-center relative"
+      >
+        <div className="w-full h-full max-w-[1440px] mx-auto flex flex-col justify-center">
           {renderSlideContent()}
         </div>
       </main>
 
-      {/* 4. Trainer Speaker Notes Drawer (Only active when triggered in Trainer Mode) */}
-      {viewMode === 'trainer' && (
-        <TrainerNotesDrawer
-          currentSlide={currentSlide}
-          nextSlide={nextSlideData}
-          onClose={toggleTrainerNotes}
+      <TrainerNotesDrawer
+        currentSlide={currentSlide}
+        nextSlide={slides[activeSlideIndex + 1]}
+        onClose={toggleTrainerNotes}
+      />
+
+      {showStartModal && (
+        <SessionStartModal
+          session={session}
+          onStart={() => {
+            setShowStartModal(false);
+            if (!isTimerRunning) startTimer();
+          }}
         />
       )}
 
-      {/* 5. Session Complete End Modal */}
-      {isCompleted && (
+      {showEndModal && (
         <SessionEndModal
           session={session}
-          onRestart={() => {
-            setIsCompleted(false);
-            setActiveSlideIndex(0);
-          }}
           nextSessionUrl={nextSessionUrl}
+          onRestart={() => {
+            setShowEndModal(false);
+            setActiveSlideIndex(0);
+            setRevealedStepIndex(0);
+          }}
         />
       )}
     </div>

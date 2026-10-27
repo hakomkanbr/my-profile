@@ -6,15 +6,15 @@ export const INITIAL_EDUCATIONAL_SESSIONS: EducationalSession[] = [
     number: 1,
     slug: 'session-01',
     title: {
-      ar: 'المبتكر الجديد للويب: كيف يغير الذكاء الاصطناعي تطوير المواقع؟',
+      ar: 'مقدمة عالم الويب: كيف كانت المواقع سابقاً وكيف نبنيها اليوم + تجهيز الأدوات',
       en: 'The New Web Creator: How AI is Transforming Web Development',
     },
     subtitle: {
-      ar: 'فهم التحول المعماري، متطلبات سوق العمل، والفرق الجوهري بين هندسة البرمجيات والـ Vibe Coding',
+      ar: 'رحلة تعريفية شاملة للمبتدئين: تطور المواقع، الأدوات المطلوب تثبيتها على جهازك، واختيار مشروعك العملي',
       en: 'Understanding architectural shift, market demand, and Engineering vs Vibe Coding',
     },
     description: {
-      ar: 'جلسة التأسيس والانطلاق: كيف تتحول من متلقٍ للأوامر إلى صانع ويب يقود أدوات الذكاء الاصطناعي بعقلية هندسية منضبطة.',
+      ar: 'في هذا الدرس التعريفي (90 دقيقة) نتعرف على الفرق بين المواقع قديماً واليوم، ومكونات أي موقع، ثم نثبت البرامج الأساسية على أجهزتنا ونختار فكرة مشروعنا العملي.',
       en: 'Foundational kickoff: turning into a web creator who orchestrates AI with rigorous engineering judgment.',
     },
     status: 'active',
@@ -463,11 +463,11 @@ export const INITIAL_EDUCATIONAL_SESSIONS: EducationalSession[] = [
     number: 2,
     slug: 'session-02',
     title: {
-      ar: 'هندسة البرومبت لتطوير الويب: صياغة التعليمات البرمجية الدقيقة',
+      ar: 'تخطيط صفحات الموقع وتصميم تجربة واضحة ومريحة للزائر',
       en: 'Prompt Engineering for Web Development: Crafting Rigid Technical Instructions',
     },
     subtitle: {
-      ar: 'أطر العمل المتقدمة، تفادي الهلوسة، وهيكلة واجهات المستخدم باستخدام أحدث نماذج الذكاء الاصطناعي',
+      ar: 'كيف ترتب أقسام الصفحة من الأعلى للأسفل وتختار الألوان والخطوط المناسبة قبل البدء بالكود',
       en: 'Advanced frameworks, hallucination mitigation, and UI architecture with LLMs',
     },
     description: {
@@ -734,11 +734,11 @@ Senior Frontend Developer
     number: 3,
     slug: 'session-03',
     title: {
-      ar: 'أساسيات الويب الحديث: HTML5 الدلالي و CSS المعاصر',
+      ar: 'كيف تصف فكرتك للذكاء الاصطناعي بوضوح؟ (صياغة الطلب خطوة بخطوة)',
       en: 'Modern Web Fundamentals: Semantic HTML5 & Modern CSS',
     },
     subtitle: {
-      ar: 'كيف تفهم بنية الصفحات وتحكم جودة الكود المولد بالذكاء الاصطناعي',
+      ar: 'طريقة عملية من 4 عناصر لكتابة طلبات واضحة يفهمها الذكاء الاصطناعي وينفذها بدقة',
       en: 'Understanding DOM structure to validate and debug AI-generated markup',
     },
     description: {
@@ -996,11 +996,11 @@ Senior Frontend Developer
     number: 4,
     slug: 'session-04',
     title: {
-      ar: 'تصميم واجهات المستخدم السريعة باستخدام Tailwind CSS',
+      ar: 'مراجعة النتيجة وتحسينها خطوة بخطوة مع الذكاء الاصطناعي',
       en: 'Rapid UI Styling with Modern Tailwind CSS',
     },
     subtitle: {
-      ar: 'بناء واجهات عصرية متجاوبة ومتناسقة بسرعة فائقة',
+      ar: 'كيف تفحص ما بناه الذكاء الاصطناعي وتطلب تعديلات دقيقة دون إفساد باقي الصفحة',
       en: 'Crafting responsive, cohesive modern user interfaces at lightning speed',
     },
     description: {
@@ -1244,11 +1244,11 @@ Senior Frontend Developer
     number: 5,
     slug: 'session-05',
     title: {
-      ar: 'مقدمة React 19: المكونات القابلة لإعادة الاستخدام والـ Props',
+      ar: 'تقسيم الصفحة إلى أجزاء منظمة وتجهيز ملفات المشروع',
       en: 'React 19 Foundations: Modular Components & Props',
     },
     subtitle: {
-      ar: 'تحويل عناصر الموقع إلى مكونات ذكية ومنظمة يسهل تطويرها وصيانتها',
+      ar: 'فهم المجلدات الثلاثة الرئيسية في المشروع وكيف نقسم الصفحة إلى أقسام وبطاقات مرتبة',
       en: 'Decomposing sites into clean, maintainable, reusable building blocks',
     },
     description: {
@@ -1518,11 +1518,11 @@ export default function MenuSection() {
     number: 6,
     slug: 'session-06',
     title: {
-      ar: 'التفاعل وحالة التطبيق: State Management و Hooks في React',
+      ar: 'بناء الصفحة الأساسية وتنسيقها للهاتف والكمبيوتر (HTML & CSS)',
       en: 'Interactivity & State Management: React Hooks & Stores',
     },
     subtitle: {
-      ar: 'إضافة سلة المشتريات، القوائم المنبثقة، وتفاعل المستخدم الحي',
+      ar: 'قراءة وتعديل عناصر الصفحة الأساسية وضبط المسافات والشبكة المتجاوبة',
       en: 'Building shopping carts, modals, and reactive user feedback loops',
     },
     description: {
@@ -1775,11 +1775,11 @@ useEffect(() => {
     number: 7,
     slug: 'session-07',
     title: {
-      ar: 'معمارية Next.js App Router والصفحات الديناميكية',
+      ar: 'إضافة التفاعل الحي وتسهيل تجربة الزائر (JavaScript)',
       en: 'Next.js App Router Architecture & Dynamic Routes',
     },
     subtitle: {
-      ar: 'بناء مسارات الصفحات، الروابط السريعة، والتوليد المسبق SSG',
+      ar: 'كيف يستجيب الموقع لضغطات الزائر: تصفية البطاقات، القائمة، وإرسال الطلب عبر واتساب',
       en: 'Routing conventions, layout nesting, and pre-rendering strategies',
     },
     description: {
@@ -2027,11 +2027,11 @@ export default async function ProductDetailPage({
     number: 8,
     slug: 'session-08',
     title: {
-      ar: 'ربط البيانات والواجهات البرمجية APIs و النماذج التفاعلية',
+      ar: 'تنظيم الموقع في قوالب وقطع قابلة لإعادة الاستخدام (React Components)',
       en: 'API Integration, Data Fetching & Interactive Forms',
     },
     subtitle: {
-      ar: 'استقبال طلبات العملاء، إرسال الإشعارات، والتحقق من صحة المدخلات',
+      ar: 'كيف تصمم البطاقة مرة واحدة وتعرض بها 20 منتجاً أو خدمة دون تكرار الكود؟',
       en: 'Submitting client orders, form validation, and external service webhooks',
     },
     description: {
@@ -2305,11 +2305,11 @@ export default async function ProductDetailPage({
     number: 9,
     slug: 'session-09',
     title: {
-      ar: 'الأداء الفائق وتحسين محركات البحث: Technical SEO & Speed',
+      ar: 'ربط الصفحات وتسريع الموقع وتجهيزه لمحركات البحث (Next.js & SEO)',
       en: 'Peak Performance & Technical SEO: Core Web Vitals',
     },
     subtitle: {
-      ar: 'كيف تجعل موقعك يفتح في أقل من ثانية ويتصدر الصفحة الأولى في Google',
+      ar: 'كيف يظهر موقعك في بحث جوجل وكيف تظهر بطاقته الترحيبية عند مشاركة الرابط في واتساب؟',
       en: 'Sub-second load speeds, OpenGraph metadata, and Google search dominance',
     },
     description: {
@@ -2552,11 +2552,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     number: 10,
     slug: 'session-10',
     title: {
-      ar: 'إطلاق الموقع على الإنترنت: الدومين والاستضافة والسيرفرات السحابية',
+      ar: 'فحص الموقع واختباره الشامل قبل الإطلاق (وضوح المحتوى، الروابط، الهواتف، والأمان)',
       en: 'Production Deployment: Domains, SSL & Cloud Hosting',
     },
     subtitle: {
-      ar: 'نشر مشروعك على Vercel وربط نطاق مخصص حقيقي وشهادة SSL مجانية',
+      ar: 'قائمة فحص عملية من 4 محطات للتأكد من جاهزية الموقع قبل إرساله لأي عميل',
       en: 'Deploying to global CDN with custom domains and automatic HTTPS',
     },
     description: {
@@ -2799,11 +2799,11 @@ git push origin main
     number: 11,
     slug: 'session-11',
     title: {
-      ar: 'تسويق خدمات الويب واقتناص أول عميل تجاري Freelancing',
+      ar: 'نشر الموقع على الإنترنت وعرضه للعملاء بطريقة مقنعة',
       en: 'Client Acquisition & Freelancing: Landing Your First Client',
     },
     subtitle: {
-      ar: 'تسعير المشاريع، إعداد عروض الأسعار المقنعة، واستراتيجيات التواصل المباشر',
+      ar: 'رفع المشروع على GitHub و Vercel للحصول على رابط حي وتجهيز عرض العمل للعملاء بوضوح وصدق',
       en: 'Project pricing, high-converting proposals, and direct outreach strategies',
     },
     description: {
@@ -3054,11 +3054,11 @@ git push origin main
     number: 12,
     slug: 'session-12',
     title: {
-      ar: 'يوم التخرج واستعراض المشاريع النهائية: Demo Day',
+      ar: 'المشروع النهائي: خطوات التنفيذ، الفحص، والتسليم',
       en: 'Graduation & Final Projects Showcase: Demo Day',
     },
     subtitle: {
-      ar: 'عرض مشاريع التخرج الحية للطلاب، التقييم المهني، وتسليم شهادات الإنجاز',
+      ar: 'مراجعة شاملة لما تعلمناه، عرض المشاريع النهائية الحية، وتسليم العمل المكتمل عبر واتساب',
       en: 'Live student capstone presentations, professional critique, and graduation',
     },
     description: {

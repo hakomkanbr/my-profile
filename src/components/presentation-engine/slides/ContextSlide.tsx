@@ -9,63 +9,80 @@ interface ContextSlideProps {
   title: LocalizedString;
   subtitle?: LocalizedString;
   payload: ContextSlidePayload;
+  realWorldExample?: LocalizedString;
 }
 
-export const ContextSlide: React.FC<ContextSlideProps> = ({ title, subtitle, payload }) => {
+export const ContextSlide: React.FC<ContextSlideProps> = ({
+  title,
+  subtitle,
+  payload,
+  realWorldExample,
+}) => {
   const { language } = usePreferencesStore();
   const isRtl = language === 'ar';
 
   return (
-    <div className="w-full h-full flex flex-col justify-center px-6 py-12 sm:px-12 lg:px-20 select-none overflow-y-auto text-start">
+    <div className="w-full h-full flex flex-col justify-between p-8 sm:p-14 lg:p-20 select-none overflow-y-auto text-start">
       {/* Header */}
-      <div className="max-w-5xl space-y-3 pb-5">
-        <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--pres-text)] tracking-tight leading-tight">
+      <div className="space-y-2 border-b border-[var(--pres-border)] pb-5">
+        <span className="text-xs sm:text-sm font-mono font-bold text-[var(--pres-primary)] block">
+          {isRtl ? 'مدخل وسياق الموضوع' : 'Context & Overview'}
+        </span>
+        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[var(--pres-text)] tracking-tight leading-tight">
           {getLocalizedText(title, language)}
         </h2>
         {subtitle && (
-          <p className="text-xl sm:text-2xl text-[var(--pres-secondary)] font-medium leading-relaxed">
+          <p className="text-base sm:text-xl text-[var(--pres-text-muted)] font-normal">
             {getLocalizedText(subtitle, language)}
           </p>
         )}
       </div>
 
-      {/* One clear teaching sequence: change, challenge, takeaway. */}
-      <div className="max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-0 md:divide-x md:divide-[var(--pres-border)] border-y border-[var(--pres-border)]">
-        {/* Card 1: Shift */}
-        <div className="py-5 px-4 sm:py-7 sm:px-8 space-y-3">
-          <h3 className="text-lg sm:text-xl font-bold text-[var(--pres-primary)]">
-            {isRtl ? 'التحول في الصناعة' : 'The Industry Shift'}
-          </h3>
-          <p className="text-lg sm:text-xl text-[var(--pres-text)] leading-relaxed">
-            {getLocalizedText(payload.industryShift, language)}
-          </p>
-        </div>
+      {/* Three Clean Editorial Columns */}
+      <div className="my-auto py-8 space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+          <div className="p-6 sm:p-7 rounded-xl bg-[var(--pres-surface)] border border-[var(--pres-border)] flex flex-col justify-between space-y-4">
+            <div className="space-y-3">
+              <span className="text-xs font-mono font-bold text-[var(--pres-primary)] block">
+                01 / {isRtl ? 'الفكرة الأساسية' : 'Core Idea'}
+              </span>
+              <p className="text-base sm:text-lg text-[var(--pres-text)] font-medium leading-relaxed">
+                {getLocalizedText(payload.industryShift, language)}
+              </p>
+            </div>
+          </div>
 
-        {/* Card 2: Problem */}
-        <div className="py-5 px-4 sm:py-7 sm:px-8 space-y-3">
-          <h3 className="text-lg sm:text-xl font-bold text-[var(--pres-accent)]">
-            {isRtl ? 'المشكلة الحقيقية' : 'The Real Challenge'}
-          </h3>
-          <p className="text-lg sm:text-xl text-[var(--pres-text)] leading-relaxed">
-            {getLocalizedText(payload.realWorldProblem, language)}
-          </p>
-        </div>
+          <div className="p-6 sm:p-7 rounded-xl bg-[var(--pres-surface)] border border-[var(--pres-border)] flex flex-col justify-between space-y-4">
+            <div className="space-y-3">
+              <span className="text-xs font-mono font-bold text-[var(--pres-primary)] block">
+                02 / {isRtl ? 'لماذا يهمنا ذلك عمليًا؟' : 'Why It Matters'}
+              </span>
+              <p className="text-base sm:text-lg text-[var(--pres-text)] font-medium leading-relaxed">
+                {getLocalizedText(payload.whyItMatters, language)}
+              </p>
+            </div>
+          </div>
 
-        {/* Card 3: Why it Matters */}
-        <div className="py-5 px-4 sm:py-7 sm:px-8 space-y-3">
-          <h3 className="text-lg sm:text-xl font-bold text-[var(--pres-primary)]">
-            {isRtl ? 'لماذا يهمنا الآن؟' : 'Why This Matters Today'}
-          </h3>
-          <p className="text-lg sm:text-xl text-[var(--pres-text)] font-medium leading-relaxed">
-            {getLocalizedText(payload.whyItMatters, language)}
-          </p>
+          <div className="p-6 sm:p-7 rounded-xl bg-[var(--pres-surface-sunken)] border border-[var(--pres-border)] flex flex-col justify-between space-y-4">
+            <div className="space-y-3">
+              <span className="text-xs font-mono font-bold text-[var(--pres-text-muted)] block">
+                03 / {isRtl ? 'مثال من الواقع' : 'Real Example'}
+              </span>
+              <p className="text-base sm:text-lg text-[var(--pres-text)] font-normal leading-relaxed">
+                {getLocalizedText(
+                  realWorldExample || payload.realWorldProblem,
+                  language
+                )}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Footer Insight */}
-      <div className="max-w-6xl pt-5 text-sm sm:text-base text-[var(--pres-text-muted)] flex items-center justify-between">
-        <span>{isRtl ? 'افهم المشكلة، ثم اختر الحل' : 'Understand the problem before choosing the solution'}</span>
-        <span className="text-xs sm:text-sm">{isRtl ? 'مسافة: التالي' : 'Space: next'}</span>
+      {/* Footer */}
+      <div className="border-t border-[var(--pres-border-subtle)] pt-4 text-xs sm:text-sm text-[var(--pres-text-muted)] flex items-center justify-between">
+        <span>{getLocalizedText(title, language)}</span>
+        <span>{isRtl ? 'التالي ←' : 'Next →'}</span>
       </div>
     </div>
   );

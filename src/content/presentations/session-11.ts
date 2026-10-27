@@ -5,442 +5,615 @@ export const SESSION_11: PresentationSession = {
   number: 11,
   slug: 'session-11',
   title: {
-    ar: 'التسويق وجلب العملاء: تحويل المهارة إلى خدمة تجارية',
-    en: 'Marketing & Client Acquisition: Transforming Skill into Marketable Service',
+    ar: 'نشر الموقع على الإنترنت وعرضه للعملاء بطريقة مقنعة',
+    en: 'Publishing the Website Online & Presenting It Convincingly to Clients',
   },
   subtitle: {
-    ar: 'كيف تنتقل من مجرد مطور تقني إلى مقدم خدمة ذي قيمة عالية يملك بورتفوليو مقنعاً ويجلب عملاء حقيقيين؟',
-    en: 'Transitioning from code builder to high-value service provider commanding premium retainers and landing real clients',
+    ar: 'رفع المشروع على GitHub و Vercel للحصول على رابط حي وتجهيز عرض العمل للعملاء بوضوح وصدق (المدة: 90 دقيقة)',
+    en: 'Deploying your project on GitHub and Vercel for a live link and presenting its value clearly (90 mins)',
   },
   durationMinutes: 90,
   goal: {
-    ar: 'تمكين الطالب من بناء معرض أعماله (Portfolio)، صياغة عروض خدمات احترافية (Value Proposition)، وإتقان مسار التواصل مع العملاء وصياغة عروض الأسعار (Proposals).',
-    en: 'Master personal branding, packaging projects into high-converting case studies, crafting clear service offers, and running disciplined client outreach.',
+    ar: 'تمكين المتدرب من نشر موقعه على الإنترنت برابط حي مجاني وآمن عبر GitHub و Vercel، وتعلم كيف يشرح قيمة الموقع لأصحاب المشاريع بوضوح وصدق دون مبالغة.',
+    en: 'Enable trainees to deploy their website live on GitHub and Vercel and explain its practical value to clients honestly.',
   },
   prerequisites: [
-    { ar: 'إكمال الجلسة 10 وامتلاك مشروع تقني متكامل ومفحوص أمنياً', en: 'Completion of Session 10 with verified capstone project' },
+    {
+      ar: 'إكمال الجلسة 10 وفحص الموقع بالكامل على الهاتف والكمبيوتر',
+      en: 'Completion of Session 10 with a fully inspected website',
+    },
   ],
   objectives: [
-    { ar: 'فهم مسار اكتساب العملاء الواقعي (The Client Acquisition Pipeline) دون أوهام أو وعود كاذبة', en: 'Understand the realistic client acquisition pipeline: Skill → Case Study → Offer → Outreach → Retainer' },
-    { ar: 'تحويل مشروع التخرج إلى دراسة حالة تجارية مقنعة (Case Study) تشرح المشكلة والحل والنتيجة', en: 'Package capstone project into a high-trust commercial case study detailing problem, architecture, and business outcome' },
-    { ar: 'صياغة عرض قيمة فريد (Value Proposition) موجه لقطاع تجاري محدد (Niche Targeting)', en: 'Formulate a distinct niche value proposition speaking directly to commercial client pain points' },
-    { ar: 'إتقان صياغة العروض الفنية والمالية (Proposals) وتحديد الأسعار والتواصل المهني مع العميل', en: 'Master professional client proposals, value-based pricing concepts, and communication cadence' },
+    {
+      ar: 'فهم الفرق بين الرابط المحلي على جهازك (localhost) والرابط العالمي المنشور على الإنترنت',
+      en: 'Understand the difference between local `localhost` and a public live internet URL',
+    },
+    {
+      ar: 'رفع ملفات المشروع إلى حساب GitHub وربطه بمنصة Vercel للحصول على رابط حي (https://)',
+      en: 'Push project files to GitHub and connect Vercel to get a live `https://` URL',
+    },
+    {
+      ar: 'كتابة وصف واضح للمشروع من 3 نقاط (مشكلة العميل، الحل الذي قدمه الموقع، والفائدة العملية)',
+      en: 'Write a clear 3-part project summary: Client Problem, Website Solution, and Practical Benefit',
+    },
+    {
+      ar: 'تقديم العمل للعملاء بلغة الفائدة والتجربة الحية بعيداً عن المصطلحات التقنية المعقدة أو الوعود المبالغ فيها',
+      en: 'Present work to clients using clear business benefits and live links without jargon or hype',
+    },
   ],
   timeline: [
-    { timeRange: '00:00 – 00:10', durationMinutes: 10, label: { ar: 'مقدمة: كيف ينظر العميل وصاحب العمل إلى خدمات الويب اليوم؟', en: 'How clients and businesses perceive web services today' }, type: 'context' },
-    { timeRange: '00:10 – 00:25', durationMinutes: 15, label: { ar: 'مسار العميل: SKILL ← PROJECT ← CASE STUDY ← OFFER ← CLIENT', en: 'The Client Pipeline: Skill to Testimonial' }, type: 'concept' },
-    { timeRange: '00:25 – 00:45', durationMinutes: 20, label: { ar: 'تطبيق حي: صياغة دراسة حالة (Case Study) احترافية لمشروع المطعم', en: 'Live Demo: Crafting a High-Trust Restaurant Case Study' }, type: 'demo' },
-    { timeRange: '00:45 – 01:00', durationMinutes: 15, label: { ar: 'صياغة العرض الفني والمالي (The Professional Proposal) والتسعير', en: 'Crafting Winning Proposals & Value-Based Pricing' }, type: 'concept' },
-    { timeRange: '01:00 – 01:20', durationMinutes: 20, label: { ar: 'تحدي الطلاب: كتابة رسالة تواصل بارد (Cold Outreach) وعرض خدمة', en: 'Student Challenge: Author Targeted Client Outreach Spec' }, type: 'practice' },
-    { timeRange: '01:20 – 01:25', durationMinutes: 5, label: { ar: 'نقد وتحسين رسائل الطلاب في الشات', en: 'Class critique of student outreach messaging' }, type: 'review' },
-    { timeRange: '01:25 – 01:30', durationMinutes: 5, label: { ar: 'الخلاصة والتجهيز لجلسة التخرج والعرض الختامي (Session 12)', en: 'Takeaways & Prep for Final Showcase (Session 12)' }, type: 'takeaway' },
+    {
+      timeRange: '00:00 – 00:25',
+      durationMinutes: 25,
+      label: { ar: 'كيف ينتقل الموقع من جهازك إلى الإنترنت؟ (دور GitHub و Vercel)', en: 'How a site moves from your computer to the internet (GitHub & Vercel)' },
+      type: 'context',
+    },
+    {
+      timeRange: '00:25 – 00:50',
+      durationMinutes: 25,
+      label: { ar: 'تطبيق مباشر: رفع المشروع على GitHub ونشره على Vercel خطوة بخطوة', en: 'Live Demo: Pushing to GitHub & deploying live on Vercel' },
+      type: 'demo',
+    },
+    {
+      timeRange: '00:50 – 01:10',
+      durationMinutes: 20,
+      label: { ar: 'كيف تعرض عملك للعميل؟ (المشكلة، الحل، الفائدة العملية) بوضوح وصدق', en: 'How to present your work to clients clearly and honestly' },
+      type: 'concept',
+    },
+    {
+      timeRange: '01:10 – 01:30',
+      durationMinutes: 20,
+      label: { ar: 'نشاط عملي: نشر مشروع المتدرب وكتابة ملخص عرضه للعميل', en: 'Hands-on Activity: Publish your site & write your project summary' },
+      type: 'practice',
+    },
   ],
   projectMilestone: {
-    ar: 'توثيق مشروع التخرج كدراسة حالة حقيقية وصياغة صفحة العرض التجاري في معرض الأعمال.',
-    en: 'Document capstone project as an authoritative commercial case study and author client offer page.',
+    ar: 'رابط موقع حي على منصة Vercel يفتح على أي هاتف، مع ملخص واضح يشرح فكرة المشروع وفائدته.',
+    en: 'A live Vercel URL accessible on any phone, paired with a clear 3-point project summary.',
   },
   aiRole: {
-    ar: 'مساعد تسويقي يصيغ مسودات العروض الفنية (Proposals) ورسائل التواصل ويحلل المنافسين في السوق.',
-    en: 'Commercial strategist drafting compelling proposal letters, outreach messaging, and competitor market audits.',
+    ar: 'مساعد يساعدنا في حل أي رسالة خطأ قد تظهر أثناء تشغيل `npm run build` قبل النشر.',
+    en: 'Assistant helping resolve any `npm run build` errors before deployment.',
   },
   marketConnection: {
-    ar: 'القدرة على إقناع العميل وتوضيح القيمة التجارية للموقع تحول المطور من ساعٍ وراء الصفقات إلى مستشار مرغوب فيه.',
-    en: 'Communicating business value and ROI transforms a developer from a cheap commodity into a trusted consultant.',
+    ar: 'العميل يقتنع عندما يفتح رابطاً حقيقياً على هاتفه ويجرب التصفح والطلب عبر واتساب بنفسه.',
+    en: 'Clients are convinced when they open a real live link on their phone and test WhatsApp ordering themselves.',
   },
   startScreen: {
-    badge: 'SESSION 11 / 12 • BUSINESS & CLIENTS',
+    badge: 'الدرس 11 من 12 • النشر الحي وعرض العمل (90 دقيقة)',
     headline: {
-      ar: 'التسويق وجلب العملاء: كيف تحول مهاراتك البرمجية إلى عمل حر مربح؟',
-      en: 'Marketing & Client Acquisition: Commercializing Your Web Creation Craft',
+      ar: 'نشر الموقع على الإنترنت وعرضه للعملاء بطريقة مقنعة',
+      en: 'Publishing Your Website Online & Presenting It to Clients',
     },
     description: {
-      ar: 'تعلم أسرار العمل الحر واستقطاب العملاء: صياغة دراسات الحالة، بناء الهوية المهنية، وكتابة العروض المقنعة دون وعود وهمية.',
-      en: 'Master freelancing and client acquisition: authoring case studies, personal branding, and closing deals with professional realism.',
+      ar: 'في هذا الدرس (ساعة ونصف) ننقل مشاريعنا من أجهزتنا إلى الإنترنت الحقيقي عبر GitHub و Vercel، ونتعلم كيف نشرح قيمة أعمالنا للعملاء ببساطة وصدق.',
+      en: 'In this 90-minute lesson, deploy your project live via GitHub and Vercel and learn how to present its value clearly to clients.',
     },
     sessionGoal: {
-      ar: 'تحويل مشروع تخرجك إلى دراسة حالة تجارية وصياغة رسالة تواصل وعرض سعر احترافي.',
-      en: 'Package your capstone into a commercial case study and formulate a bespoke client proposal.',
+      ar: 'الحصول على رابط حي لموقعك على الإنترنت وكتابة ملخص واضح يعرض فائدته للعملاء.',
+      en: 'Get a live public URL for your website and write a clear client-focused summary.',
     },
   },
   endScreen: {
     headline: {
-      ar: 'مبارك! أصبحت الآن تملك الرؤية التجارية والأدوات العملية لدخول السوق',
-      en: 'Congratulations! You Now Command the Business Strategy to Win Real Clients',
+      ar: 'مبارك! موقعك الآن منشور على الإنترنت برابط حي يعمل في كل مكان',
+      en: 'Congratulations! Your Website Is Now Live Online Worldwide',
     },
     keyRecap: [
       {
-        ar: 'العميل لا يشتري لغات برمجة، بل يستثمر في حل لمشكلة تزيد مبيعاته أو مصداقيته.',
-        en: 'Clients never buy code; they invest in solutions that expand revenue, credibility, and operational velocity.',
+        ar: 'منصة GitHub تحفظ كود موقعك بأمان، ومنصة Vercel تحوله إلى رابط حي يعمل على مدار الساعة.',
+        en: 'GitHub safely stores your code, and Vercel turns it into a 24/7 live website link.',
       },
       {
-        ar: 'دراسة الحالة (Case Study) هي أقوى أداة إقناع تملكها لأنها تثبت قدرتك على الإنجاز بالأرقام.',
-        en: 'A documented case study is your supreme sales asset, validating capability with concrete metrics.',
+        ar: 'تشغيل أمر `npm run build` قبل الرفع يضمن خلو المشروع من الأخطاء ونجاح النشر من أول مرة.',
+        en: 'Running `npm run build` locally before pushing guarantees a smooth deployment.',
       },
       {
-        ar: 'التسويق الناجح هو مسار مستمر من بناء العلاقات والتواصل المهني الصادق والمستمر.',
-        en: 'Sustainable client acquisition is a continuous discipline of value delivery and transparent relationships.',
+        ar: 'اشرح للعميل كيف يسهل الموقع تصفح زبائنه ويوجه طلباتهم إلى واتساب، وتجنب الوعود التسويقية المبالغ فيها.',
+        en: 'Explain how the site helps visitors and routes orders to WhatsApp, avoiding exaggerated hype.',
       },
     ],
     nextSessionNumber: '12',
     nextSessionTitle: {
-      ar: 'المشروع النهائي: من الفكرة إلى الإطلاق الكامل والعرض التقديمي',
-      en: 'Final Project Capstone: From Idea to Full Production Launch & Showcase',
+      ar: 'المشروع النهائي: خطوات التنفيذ، الفحص، والتسليم',
+      en: 'Final Project: Execution, Inspection & Submission',
     },
   },
   slides: [
-    // Slide 1: Title
     {
       id: 's11-slide-01',
       sessionNumber: 11,
       slideNumber: 1,
       totalSlides: 10,
       type: 'title',
-      title: { ar: "التسويق وجلب العملاء", en: "Marketing & Clients" },
-      estimatedMinutes: 2,
-      teachingGoal: { ar: 'افتتاح الجلسة وربط المهارات البرمجية بالواقع الاقتصادي والتجاري.', en: 'Open session: bridging technical mastery into economic client engagement.' },
-      speakerNotes: { ar: "نفّذ: رحب بالطلاب: \"اليوم ننتقل من مرحلة كيف نبني، إلى مرحلة كيف نستفيد ونقدم هذه القيمة للعالم والشركات والعملاء!\".\nاسأل: ما الهدف الذي تتوقع تحقيقه في جلسة «التسويق وجلب العملاء»؟\nتحقق: افتتاح الجلسة وربط المهارات البرمجية بالواقع الاقتصادي والتجاري.", en: "Cue: Welcome learners: \"Today we pivot from how we build to how we monetize and deliver real client value!\"\nAsk: What outcome do you expect from “Marketing & Clients”?\nCheck: Open session: bridging technical mastery into economic client engagement." },
+      title: {
+        ar: 'نشر الموقع على الإنترنت وعرضه للعملاء',
+        en: 'Publishing Your Website Online & Presenting It to Clients',
+      },
+      estimatedMinutes: 5,
+      teachingGoal: {
+        ar: 'إزالة رهبة النشر على الإنترنت وتوضيح خطواته البسيطة.',
+        en: 'Demystify publishing a website online and outline its simple steps.',
+      },
+      speakerNotes: {
+        ar: 'اليوم هو أحد أكثر الدروس متعة؛ سيرى المتدربون مواقعهم تعمل على الإنترنت الحقيقي ويفتحونها من هواتفهم.',
+        en: 'Today trainees will see their websites live on the internet and open them on their phones.',
+      },
       payload: {
         type: 'title',
         data: {
           sessionNumber: '11',
-          kicker: { ar: 'الجانب التجاري والمهني', en: 'Commercial Acumen & Monetization' },
-          headline: { ar: 'MARKETING & GETTING CLIENTS', en: 'MARKETING & GETTING CLIENTS' },
-          subheadline: { ar: 'بناء الهوية المهنية، صياغة دراسات الحالة، واستقطاب العملاء باحترافية', en: 'Personal branding, authoritative case studies, and landing high-trust client retainers' },
           totalSessions: '12',
           durationMinutes: 90,
-          tags: ['Personal Brand', 'Case Studies', 'Value Proposition', 'Client Proposals', 'Freelancing'],
+          kicker: {
+            ar: 'الدرس الحادي عشر • الإطلاق الحي وعرض الأعمال',
+            en: 'Lesson 11 • Live Launch & Presenting Work',
+          },
+          headline: {
+            ar: 'كيف تحول مشروعك من ملفات على جهازك إلى رابط حي يفتحه أي شخص في العالم؟',
+            en: 'How Do You Turn Local Files into a Live Link Anyone in the World Can Open?',
+          },
+          subheadline: {
+            ar: 'رفع المشروع على GitHub و Vercel خطوة بخطوة، وتعلم طريقة عرض العمل لأصحاب المشاريع بوضوح ومصداقية.',
+            en: 'Step-by-step deployment on GitHub and Vercel, plus how to present your work clearly and honestly.',
+          },
+          tags: ['GitHub', 'Vercel', 'رابط حي https', 'عرض العمل للعميل'],
         },
       },
     },
-
-    // Slide 2: Context
     {
       id: 's11-slide-02',
       sessionNumber: 11,
       slideNumber: 2,
       totalSlides: 10,
       type: 'context',
-      title: { ar: "الحقيقة الواقعية — كيف يختار العميل مطور موقعه؟", en: "The Realistic Client Decision Matrix" },
-      subtitle: { ar: 'لماذا يفوز مطور متوسط بعقود ممتازة بينما يجلس مبرمج عبقري بلا عملاء؟', en: 'Why an average communicator wins deals while a brilliant coder remains clientless' },
-      estimatedMinutes: 4,
-      teachingGoal: { ar: 'إيضاح أهمية مهارات التواصل، وفهم مشكلة العميل، وبناء الثقة التجارية.', en: 'Expose the decisive role of communication, empathy, and commercial trust over raw syntax.' },
-      speakerNotes: { ar: "نفّذ: أكد بصراحة: العميل لا يعرف ما إذا كان الكود مكتوباً بـ Next.js أو بـ PHP؛ العميل يختار من يفهم أهدافه، يتواصل بوضوح، ويلتزم بالمواعيد.\nاسأل: ما المشكلة التي توضّحها «الحقيقة الواقعية — كيف يختار العميل مطور موقعه؟»؟\nتحقق: قد يفقد العميل اهتمامه عندما نشرح الحل بمصطلحات تقنية معقدة بدل ربطها بهدفه التجاري.", en: "Cue: Be honest: clients rarely inspect framework syntax; they hire creators who listen, articulate value, and deliver on time.\nAsk: What problem does “The Realistic Client Decision Matrix” point to?\nCheck: Clients can lose interest when we use technical jargon instead of explaining the business outcome." },
+      title: {
+        ar: 'لماذا يعمل الموقع على جهازك فقط حتى الآن؟',
+        en: 'Why Does Your Website Only Work on Your Computer So Far?',
+      },
+      estimatedMinutes: 10,
+      teachingGoal: {
+        ar: 'توضيح الفرق بين الرابط المحلي `localhost` والرابط العالمي على الإنترنت.',
+        en: 'Clarify the difference between `localhost` and a hosted public website.',
+      },
+      speakerNotes: {
+        ar: 'شبه localhost بملف محفوظ على سطح مكتبك، و Vercel بمعرض مفتوح للجمهور على مدار الساعة.',
+        en: 'Compare localhost to a file on your desktop, and Vercel to a showroom open 24/7.',
+      },
       payload: {
         type: 'context',
         data: {
           industryShift: {
-            ar: 'سوق العمل اليوم مليء بالمطورين القادرين على توليد الأكواد، لكنه يفتقر بشدة للشركاء الرقميين القادرين على فهم بيئة الأعمال.',
-            en: 'The market is saturated with prompt typists, but starving for strategic partners who understand business ROI.',
-          },
-          realWorldProblem: {
-            ar: 'قد يفقد العميل اهتمامه عندما نشرح الحل بمصطلحات تقنية معقدة بدل ربطها بهدفه التجاري.',
-            en: 'Clients can lose interest when we use technical jargon instead of explaining the business outcome.',
+            ar: 'الرابط `http://localhost:3000` يعمل داخل كمبيوترك أنت فقط؛ لكي يفتح عند أي شخص في العالم نحتاج إلى رفعه على خادم سحابي متصل بالإنترنت طوال اليوم.',
+            en: 'The link `http://localhost:3000` only works on your computer; hosting it on a cloud server makes it accessible 24/7.',
           },
           whyItMatters: {
-            ar: 'عندما تتعلم كيف تتحدث بلغة القيمة (سرعة التحميل = مبيعات أكثر، تجربة هاتف ممتازة = زبائن أكثر)، تصبح أنت الخيار الأول للعميل دون منازع.',
-            en: 'When speaking the language of business value (faster speeds = higher conversions), you become the indisputable top pick.',
+            ar: 'اليوم نوفر الاستضافة مجاناً وفي دقائق عبر ربط منصة GitHub (لحفظ الكود) بمنصة Vercel (لتشغيل الموقع وإعطائه رابط `https://`).',
+            en: 'Today we host for free in minutes by connecting GitHub (code storage) with Vercel (live hosting).',
+          },
+          realWorldProblem: {
+            ar: 'بمجرد ربط Vercel بحسابك في GitHub، أي تعديل ترفعه مستقبلاً يظهر على الموقع الحي تلقائياً خلال دقيقة.',
+            en: 'Once Vercel is linked to GitHub, any future update you push goes live automatically within a minute.',
           },
         },
       },
     },
-
-    // Slide 3: Visual (The Client Acquisition Pipeline)
     {
       id: 's11-slide-03',
       sessionNumber: 11,
       slideNumber: 3,
       totalSlides: 10,
       type: 'visual',
-      title: { ar: "من المهارة إلى العميل", en: "From Skill to Client" },
-      subtitle: { ar: 'الخطوات المنطقية العشر لتحويل المهارة البرمجية إلى عميل دائم وتوصيات مستمرة', en: 'The 10 logical stages converting raw programming skill into recurring client retainers' },
-      estimatedMinutes: 5,
-      teachingGoal: { ar: 'شرح المسار المتكامل خطوة بخطوة وإثبات أنه مسار منهجي متكرر.', en: 'Map the complete systematic client pipeline from skill mastery to client testimonials.' },
-      speakerNotes: { ar: "نفّذ: استعرض السلسلة: مهارة -> مشروع -> دراسة حالة -> معرض أعمال -> عرض قيمة -> تواصل مدروس -> عميل -> تسليم رائع -> شهادة ثقة -> عميل قادم.\nاسأل: اشرح ترتيب المراحل في «من المهارة إلى العميل» بصوتك.\nتحقق: المهارة والمشروع ← دراسة الحالة (Case Study) ← بورتفوليو وعرض القيمة ← التواصل والاتصال ← إغلاق الصفقة والتسليم ← شهادة العميل والفرصة القادمة", en: "Cue: Walk through: Skill -> Project -> Case Study -> Portfolio -> Offer -> Outreach -> Client -> Delivery -> Testimonial -> Next Deal.\nAsk: Ask learners to walk through the stages in “From Skill to Client”.\nCheck: Skill & Project → Case Study → Portfolio & Offer → Outreach & Pitch → Close & Ship → Testimonial & Scale" },
+      title: {
+        ar: 'رحلة نشر الموقع في 3 خطوات واضحة',
+        en: 'The 3-Step Website Publishing Journey',
+      },
+      subtitle: {
+        ar: 'كيف ينتقل الكود من محرر الكود في جهازك إلى رابط حي على الإنترنت؟',
+        en: 'How code moves from your editor to a live internet URL:',
+      },
+      estimatedMinutes: 10,
+      teachingGoal: {
+        ar: 'توضيح العلاقة بين الجهاز و GitHub و Vercel بصرياً.',
+        en: 'Visualize the connection between the local computer, GitHub, and Vercel.',
+      },
+      speakerNotes: {
+        ar: 'اشرح المحطات الثلاث ببساطة: جهازك -> GitHub -> Vercel.',
+        en: 'Walk through the 3 steps: Your Computer -> GitHub -> Vercel.',
+      },
       payload: {
         type: 'visual',
         data: {
-          caption: { ar: 'لا نعد بنتائج سريعة وهمية؛ هذا مسار هندسي وتجاري حقيقي يثبت نجاحه بالاستمرار.', en: 'Zero get-rich-quick claims; this is an authentic, repeatable commercial pipeline built on rigor.' },
-          diagramType: 'pipeline',
+          diagramType: 'flow',
+          caption: {
+            ar: 'كلما عدلت شيئاً على جهازك ورفعته إلى GitHub، تقوم Vercel بتحديث الرابط الحي تلقائياً.',
+            en: 'Whenever you update code on your computer and push to GitHub, Vercel updates the live URL automatically.',
+          },
           nodes: [
-            { id: 'm1', stepNumber: '01', title: { ar: 'المهارة والمشروع', en: 'Skill & Project' }, badge: 'Foundation' },
-            { id: 'm2', stepNumber: '02', title: { ar: 'دراسة الحالة (Case Study)', en: 'Case Study' }, badge: 'Proof' },
-            { id: 'm3', stepNumber: '03', title: { ar: 'بورتفوليو وعرض القيمة', en: 'Portfolio & Offer' }, badge: 'Asset' },
-            { id: 'm4', stepNumber: '04', title: { ar: 'التواصل والاتصال', en: 'Outreach & Pitch' }, badge: 'Action' },
-            { id: 'm5', stepNumber: '05', title: { ar: 'إغلاق الصفقة والتسليم', en: 'Close & Ship' }, badge: 'Delivery' },
-            { id: 'm6', stepNumber: '06', title: { ar: 'شهادة العميل والفرصة القادمة', en: 'Testimonial & Scale' }, badge: 'Flywheel' },
+            {
+              id: 'pub-1',
+              stepNumber: '01',
+              title: { ar: '1. جهازك (VS Code)', en: '1. Your Computer' },
+              description: { ar: 'فحص جاهزية المشروع بأمر npm run build', en: 'Verify project build with npm run build' },
+            },
+            {
+              id: 'pub-2',
+              stepNumber: '02',
+              title: { ar: '2. منصة GitHub', en: '2. GitHub' },
+              description: { ar: 'حفظ نسخة سحابية منظمة وآمنة من ملفات المشروع', en: 'Store a safe, organized cloud copy of project files' },
+            },
+            {
+              id: 'pub-3',
+              stepNumber: '03',
+              title: { ar: '3. منصة Vercel', en: '3. Vercel' },
+              description: { ar: 'تشغيل الموقع ومنحك رابطاً حياً يبدأ بـ https://', en: 'Host the site and generate a live https:// link' },
+            },
           ],
         },
       },
     },
-
-    // Slide 4: Concept (The Case Study Framework)
     {
       id: 's11-slide-04',
       sessionNumber: 11,
       slideNumber: 4,
       totalSlides: 10,
-      type: 'concept',
-      title: { ar: "هندسة دراسة الحالة — كيف تشرح مشروعك للعميل؟", en: "The Case Study Architecture" },
-      estimatedMinutes: 5,
-      teachingGoal: { ar: 'تعليم الطلاب كيف يقدمون مشاريعهم كحلول لمشاكل حقيقية وليس مجرد لقطات شاشة.', en: 'Teach students to present capstone projects as commercial problem-solution case studies.' },
-      speakerNotes: { ar: "نفّذ: اشرح هيكل دراسة الحالة: 1. المشكلة، 2. الفكرة والتحدي، 3. المعمارية والحل التقني، 4. النتيجة والأثر التجاري.\nاسأل: كيف تطبّق هذا المبدأ: دراسة الحالة المحترفة تثبت للعميل أنك لست مجرد كاتب أكواد، بل شريك يحل مشاكل الأعمال بالأرقام.؟\nتحقق: قاعدة التسويق: العميل لا يصدق الوعود النظرية؛ العميل يصدق دراسات الحالة التي يرى فيها نجاحاً مماثلاً.", en: "Cue: Explain the 4-part case study: Problem context, Strategic challenge, Technical solution, Measurable outcome.\nAsk: How would you apply this principle: A rigorous case study proves you are not a code typist, but a strategic partner solving business bottlenecks.?\nCheck: Marketing Rule: Clients never buy abstract promises; they buy proven case studies mirroring their own goals." },
+      type: 'demo',
+      title: {
+        ar: 'تطبيق مباشر: رفع المشروع على GitHub ونشره على Vercel',
+        en: 'Live Demo: Pushing to GitHub & Deploying on Vercel',
+      },
+      estimatedMinutes: 15,
+      teachingGoal: {
+        ar: 'تدريب المتدرب عملياً على خطوات النشر الحي.',
+        en: 'Walk trainees step by step through live deployment.',
+      },
+      speakerNotes: {
+        ar: 'نفذ العملية أمام المتدربين مباشرة، ثم أرسل الرابط الحي في محادثة الزوم ليفتحوه من هواتفهم.',
+        en: 'Deploy live on screen and share the link in Zoom chat so trainees can open it on their phones.',
+      },
       payload: {
-        type: 'concept',
+        type: 'demo',
         data: {
-          principle: {
-            ar: 'دراسة الحالة المحترفة تثبت للعميل أنك لست مجرد كاتب أكواد، بل شريك يحل مشاكل الأعمال بالأرقام.',
-            en: 'A rigorous case study proves you are not a code typist, but a strategic partner solving business bottlenecks.',
+          objective: {
+            ar: 'نشر مشروع كامل على GitHub و Vercel والحصول على رابط حي في 10 دقائق.',
+            en: 'Deploy a complete project on GitHub and Vercel for a live URL in 10 minutes.',
           },
-          tagline: { ar: 'PROOF OVER PROMISES', en: 'PROOF OVER PROMISES' },
-          explanation: {
-            ar: 'بدل أن تضع صورة للموقع وتقول "هذا موقع مطعم بنيته"، اكتب قصة قصيرة واضحة: كان المطعم يعاني من بطء الحجز عبر الهاتف، فبنينا واجهة تفتح في ثانية واحدة وتتيح حجز طاولة في 3 نقرات.',
-            en: 'Instead of posting flat screenshots, articulate the business story: The client lost phone bookings; we engineered a 1-second landing page driving instant reservations.',
-          },
-          bulletPoints: [
-            { ar: 'المشكلة وسياق العميل: ما هو التحدي التجاري الذي كان يواجهه النشاط؟', en: 'Client Problem: The specific commercial friction hindering growth' },
-            { ar: 'الحل المعماري والتصميم: لماذا اخترنا Next.js و Tailwind وكيف وزعنا الأقسام؟', en: 'Architectural Solution: Why Next.js and how sections were composed' },
-            { ar: 'الأثر التجاري القابل للقياس: سرعة تحميل نتيجة Lighthouse الفعلية (أضف الدرجة بعد القياس) وسهولة الحجز بالهاتف', en: 'Measurable Impact: measured Lighthouse result (add the score after testing) and effortless mobile booking' },
-            { ar: 'الدروس المستفادة: ما الذي يجعل هذا المشروع قابلاً للتطبيق في أنشطة تجارية أخرى؟', en: 'Key Takeaways: Why this solution architecture scales to other businesses' },
+          instructorSteps: [
+            {
+              ar: '1. شغّل أمر `npm run build` في الطرفية (Terminal) للتأكد من خلو المشروع من أي أخطاء برمجية.',
+              en: '1. Run `npm run build` in the terminal to confirm zero build errors.',
+            },
+            {
+              ar: '2. ارفع المشروع إلى حسابك في GitHub (عبر أوامر `git add .` ثم `git commit -m "Initial launch"` ثم `git push`).',
+              en: '2. Push the project to your GitHub account.',
+            },
+            {
+              ar: '3. افتح موقع `vercel.com` وسجّل الدخول بحساب GitHub الخاص بك، ثم اضغط `Add New Project`.',
+              en: '3. Open `vercel.com`, sign in with GitHub, and click `Add New Project`.',
+            },
+            {
+              ar: '4. اختر مستودع مشروعك واضغط `Deploy`، وانتظر دقيقة واحدة حتى يظهر رابط موقعك الحي.',
+              en: '4. Select your repository, click `Deploy`, and wait one minute for your live URL.',
+            },
           ],
-          architecturalRule: {
-            ar: 'قاعدة التسويق: العميل لا يصدق الوعود النظرية؛ العميل يصدق دراسات الحالة التي يرى فيها نجاحاً مماثلاً.',
-            en: 'Marketing Rule: Clients never buy abstract promises; they buy proven case studies mirroring their own goals.',
+          expectedOutput: {
+            ar: 'امتلاك رابط حي يعمل على الإنترنت مع شهادة أمان https:// ويفتح على الهواتف فوراً.',
+            en: 'A working public https:// URL that opens immediately on phones.',
           },
         },
       },
     },
-
-    // Slide 5: Code (Case Study Markdown Template Artifact)
     {
       id: 's11-slide-05',
       sessionNumber: 11,
       slideNumber: 5,
       totalSlides: 10,
-      type: 'code',
-      title: { ar: "قالب دراسة الحالة", en: "Case Study Template" },
-      estimatedMinutes: 5,
-      teachingGoal: { ar: 'عرض هيكل دراسة الحالة النصي الذي يستطيع كل طالب ملؤه لمشروعه.', en: 'Provide the canonical markdown case study template ready to adapt for portfolios.' },
-      speakerNotes: { ar: "نفّذ: استعرض أقسام القالب. نبّه الطلاب إلى أن بيانات Trattoria Roma توضيحية، واطلب منهم استبدال كل نتيجة بقياس موثق لمشروعهم.\nاسأل: ما وظيفة المثال في «قالب دراسة الحالة»؟\nتحقق: قالب دراسة حالة احترافي يوثق التحدي، المعمارية الهندسية، والنتائج بالأرقام. هذا القالب يرفع قيمتك من مبرمج يطلب وظيفة إلى استشاري موثوق يقدم دراسات أعمال متكاملة.", en: "Cue: Review the template sections: Background, Challenge, Solution, Tech Stack, and measured results. Clarify that Trattoria Roma is illustrative and sample metrics must be replaced with verified project data.\nAsk: What does the example in “Case Study Template” do?\nCheck: Production case study template documenting challenge, technical architecture, and results. This template positions you as an authoritative consultant commanding respect and premium retainers." },
+      type: 'concept',
+      title: {
+        ar: 'كيف تعرض عملك للعملاء بطريقة مقنعة وصادقة؟',
+        en: 'How Do You Present Your Work Convincingly and Honestly to Clients?',
+      },
+      estimatedMinutes: 10,
+      teachingGoal: {
+        ar: 'تعليم المتدرب كيفية تقديم أعماله بلغة الفائدة الواضحة بعيداً عن التعقيد والمبالغة.',
+        en: 'Teach trainees how to present their projects using clear client benefits without jargon or hype.',
+      },
+      speakerNotes: {
+        ar: 'هذا المبدأ مهم جداً: العملاء يقدرون الشخص الصادق الذي يفهم احتياجهم التجاري ويشرحه ببساطة.',
+        en: 'Clients value honest creators who understand their business needs and explain solutions simply.',
+      },
       payload: {
-        type: 'code',
+        type: 'concept',
         data: {
-          language: 'markdown',
-          codeSnippet: `# Case Study: Trattoria Roma — Digital Table Reservation Engine
-
-## 1. The Commercial Challenge
-Trattoria Roma, an artisan dining room, relied entirely on phone calls for reservations. 
-Illustrative scenario: During busy periods, some booking inquiries went unanswered, risking lost revenue.
-
-## 2. The Architectural Solution
-We architected a bespoke Next.js 16 web platform optimized for mobile visitors:
-- Measure First Paint and Largest Contentful Paint on a mobile connection; report the observed results
-- Zero-friction reservation flow completing bookings in 3 clicks
-- Curated visual menu with local currency pricing and high-contrast typography
-
-## 3. Technology Stack & Tradeoffs
-- Framework: Next.js 16 App Router (Server-side rendered for SEO)
-- Styling: Tailwind CSS v4 with custom warm terracotta design tokens
-- Accessibility: W3C WCAG 2.1 AA compliant across all interactive controls
-
-## 4. Measurable Results
-- Google Lighthouse Performance: [measured score] / 100
-- Mobile responsiveness metric: [measured result and device conditions]
-- Reservations in the launch window: [replace with a verified count and date range]`,
-          what: { ar: 'قالب دراسة حالة احترافي يوثق التحدي، المعمارية الهندسية، والنتائج بالأرقام.', en: 'Production case study template documenting challenge, technical architecture, and results.' },
-          why: { ar: 'هذا القالب يرفع قيمتك من مبرمج يطلب وظيفة إلى استشاري موثوق يقدم دراسات أعمال متكاملة.', en: 'This template positions you as an authoritative consultant commanding respect and premium retainers.' },
-          when: { ar: 'يُكتب بعد اكتمال كل مشروع تجاري ويوضع في بورتفوليو أعمالك ولينكدإن.', en: 'Authored upon completing each capstone project and published on your portfolio and LinkedIn.' },
+          tagline: { ar: 'عرض القيمة بوضوح', en: 'Presenting Value Clearly' },
+          principle: {
+            ar: 'صاحب المشروع لا يشتري مصطلحات برمجية؛ هو يشتري حلاً يسهل عمله ويجذب زبائنه',
+            en: 'Business Owners Do Not Buy Code Jargon; They Buy Solutions That Help Their Customers',
+          },
+          explanation: {
+            ar: 'عندما تعرض موقعاً بنيته في معرض أعمالك أو في رسالة لعميل، اتبع هذه القواعد الثلاث:',
+            en: 'When showcasing a website in your portfolio or pitching a client, follow these three rules:',
+          },
+          bulletPoints: [
+            {
+              ar: '1. تحدث بلغة الفائدة لا بلغة الكود: بدلاً من قول "بنيت الموقع بـ React و Props"، قل: "صممت موقعاً يفتح بسرعة على الهاتف ويعرض القائمة والأسعار بوضوح ويوجه الطلبات مباشرة إلى واتساب."',
+              en: '1. Speak the language of benefit, not code: explain how the site loads fast on phones, displays prices clearly, and routes orders to WhatsApp.',
+            },
+            {
+              ar: '2. اشرح المشروع في 3 نقاط (المشكلة، الحل، الفائدة): ماذا كان ينقص المشروع؟ كيف نظم الموقع العرض؟ وكيف سهّل على الزائر اتخاذ القرار؟',
+              en: '2. Present the project in 3 points (Problem, Solution, Benefit): what was missing, how the site solved it, and how it helps visitors.',
+            },
+            {
+              ar: '3. تجنب الوعود التسويقية المبالغ فيها: كن صادقاً وواقعياً فيما يقدمه الموقع؛ المصداقية والوضوح هما أساس بناء الثقة.',
+              en: '3. Avoid exaggerated marketing claims: be honest and realistic about what the website delivers.',
+            },
+          ],
+          architecturalRule: {
+            ar: 'أرسل للعميل دائماً رابطاً حياً يجربه بنفسه على هاتفه بدلاً من الاكتفاء بصور ثابتة.',
+            en: 'Always send clients a live link they can tap and test on their own phone instead of static images alone.',
+          },
         },
       },
     },
-
-    // Slide 6: AI (The Client Proposal & Outreach Prompt)
     {
       id: 's11-slide-06',
       sessionNumber: 11,
       slideNumber: 6,
       totalSlides: 10,
-      type: 'ai',
-      title: { ar: "اكتب عرضًا واضحًا", en: "Write a Clear Proposal" },
-      subtitle: { ar: 'كيف تستخدم الذكاء الاصطناعي لكتابة عروض أسعار مقنعة ورسائل تواصل مهنية خالية من الركاكة؟', en: 'Directing AI to craft persuasive commercial proposals, deliverables, and respectful outreach' },
-      estimatedMinutes: 6,
-      teachingGoal: { ar: 'تدريب الطلاب على صياغة عروض الأسعار المقنعة الموجهة لقيمة العميل.', en: 'Equip students with a prompt generating tailored commercial client proposals.' },
-      speakerNotes: { ar: "نفّذ: وضح كيف يحول هذا البرومبت تفاصيل المشروع إلى عرض احترافي يشمل: النطاق، المخرجات، الميزانية، والجدول الزمني.\nاسأل: أي قيد أو معيار قبول سيحمي الناتج من التخمين؟\nتحقق: معيار قابل للفحص: Zero confusing developer jargon", en: "Cue: Explain how this prompt synthesizes scope, deliverables, timeline, and value-based pricing tiers.\nAsk: Which constraint or acceptance criterion will guard against guesswork?\nCheck: A verifiable criterion: Zero confusing developer jargon" },
+      type: 'comparison',
+      title: {
+        ar: 'مقارنة: عرض يركز على الفائدة مقابل عرض تقني معقد أو مبالغ فيه',
+        en: 'Comparison: Benefit-Focused Presentation vs. Jargon or Hype',
+      },
+      estimatedMinutes: 10,
+      teachingGoal: {
+        ar: 'تدريب المتدرب على صياغة وصف أعماله بأسلوب إنساني ومقنع.',
+        en: 'Train learners to write human, convincing project descriptions.',
+      },
+      speakerNotes: {
+        ar: 'قارن بين الصياغتين؛ الصياغة اليمنى تجعل صاحب المقهى أو العيادة يهتم فوراً ويرغب في تجربة الرابط.',
+        en: 'Compare both styles; the benefit-focused style immediately resonates with business owners.',
+      },
       payload: {
-        type: 'ai',
+        type: 'comparison',
         data: {
-          role: 'Senior Digital Agency Director and Expert Client Communications Strategist.',
-          context: 'Preparing a high-trust web project proposal for a local business client.',
-          task: `Draft a professional, respectful commercial web development proposal based on these parameters:
-- Client Business: [Insert Business Name & Sector]
-- Problem: Outdated, non-responsive web presence hurting customer inquiries
-- Our Proposed Solution: Custom Next.js 16 high-speed landing page with mobile booking
-- Deliverables: UI Design, Semantic Markup, SEO Configuration, Hosting Setup
-- Timeline: 10 working days`,
-          constraints: 'Avoid technical jargon. Focus on business value, clarity, and transparent expectations. Propose 2 pricing tiers: Standard vs Full-Service.',
-          output: `Return:
-1. Executive Summary & Problem Understanding
-2. Detailed Scope of Work & Deliverables
-3. 10-Day Implementation Milestones
-4. Commercial Investment Tiers (Transparent Pricing)
-5. Next Steps to Initiate the Project`,
-          acceptanceCriteria: [
-            'Zero confusing developer jargon',
-            'Clear ROI explanation for the client',
-            'Transparent milestone breakdown with zero hidden fees',
+          leftHeader: {
+            ar: 'عرض واضح يركز على فائدة العميل (مقنع وصادق)',
+            en: 'Clear Benefit-Focused Presentation (Convincing & Honest)',
+          },
+          rightHeader: {
+            ar: 'عرض تقني معقد أو مبالغ فيه (ينفّر العميل)',
+            en: 'Jargon-Heavy or Exaggerated Pitch (Turns Clients Away)',
+          },
+          dimensions: [
+            {
+              dimension: { ar: 'كيف تصف الموقع؟', en: 'How You Describe the Site' },
+              left: {
+                ar: '«موقع لمقهى مختص يتيح للزائر تصفح المشروبات حسب النوع والطلب عبر واتساب بضغطة واحدة.»',
+                en: '"A specialty café website where visitors filter drinks by category and order via WhatsApp in one tap."',
+              },
+              right: {
+                ar: '«تطبيق مبني بـ React State و Array Filter مع Tailwind Grid.»',
+                en: '"An app built with React State, Array Filter, and Tailwind Grid."',
+              },
+            },
+            {
+              dimension: { ar: 'طريقة استعراض العمل', en: 'How You Show the Work' },
+              left: {
+                ar: 'رابط حي يفتحه العميل على هاتفه ويجرب التصفح والضغط بنفسه',
+                en: 'A live link the client opens on their phone to test browsing and tapping firsthand',
+              },
+              right: {
+                ar: 'لقطة شاشة صغيرة للكود أو كلام نظري بدون رابط يعمل',
+                en: 'A small screenshot of code or abstract talk with no working link',
+              },
+            },
+            {
+              dimension: { ar: 'نبرة الحديث والوعود', en: 'Tone & Promises' },
+              left: {
+                ar: 'يشرح بوضوح كيف يرتب الموقع العرض ويوفر وقت الرد على الأسئلة المتكررة',
+                en: 'Clearly explains how the site organizes offerings and saves time answering repeated questions',
+              },
+              right: {
+                ar: 'عبارات مبالغ فيها مثل «موقع خارق سيضاعف أرباحك 10 مرات فوراً»',
+                en: 'Exaggerated claims like "a revolutionary site that will 10x your profits overnight"',
+              },
+            },
           ],
-          iterationTip: {
-            ar: 'خصص تفاصيل العرض دائماً بناءً على اسم صاحب العمل ونشاطه لتكون الرسالة شخصية ومخلصة.',
-            en: 'Always tailor the proposal with the specific business name and pain point for genuine connection.'
+          balancedVerdict: {
+            ar: 'الوضوح والصدق مع نموذج حي يعمل أمام عين العميل هو أقوى أسلوب للإقناع.',
+            en: 'Clarity and honesty paired with a working live demo is the strongest way to convince any client.',
           },
         },
       },
     },
-
-    // Slide 7: Challenge (Student Outreach Lab)
     {
       id: 's11-slide-07',
       sessionNumber: 11,
       slideNumber: 7,
       totalSlides: 10,
-      type: 'challenge',
-      title: { ar: "اكتب رسالة تواصل مفيدة", en: "Write a Useful Outreach Message" },
-      estimatedMinutes: 8,
-      teachingGoal: { ar: 'كتابة كل طالب لرسالة تواصل مهنية مقتضبة تعرض خدمة حقيقية لنشاط تجاري.', en: 'Every student drafts a respectful, value-first client outreach pitch in their editor.' },
-      speakerNotes: { ar: "نفّذ: أطلق مؤقت الـ 5 دقائق. اطلب منهم كتابة رسالة من 4 أسطر: تحية مهنية، ملاحظة مشكلة في موقع العميل، اقتراح حل محدد، ودعوة لمكالمة سريعة.\nاسأل: ما الناتج الذي ستسلّمه؟ صياغة رسالة تواصل مهني مقتضبة ومحترمة (Outreach Pitch) تعرض خدمة تطوير ويب لنشاط تجاري حقيقي.\nتحقق: مسودة رسالة تواصل مهنية جاهزة للإرسال لأول 5 عملاء محتملين.", en: "Cue: Launch 5-minute timer. Have students craft a 4-line value-first outreach message.\nAsk: What will you submit? Draft a concise, value-first client outreach message proposing a website enhancement.\nCheck: Polished client outreach message ready for real-world distribution to prospective businesses." },
+      type: 'question',
+      title: {
+        ar: 'سؤال للنقاش: ماذا تفعل إذا ظهر خطأ أثناء تشغيل npm run build؟',
+        en: 'Discussion Question: What If an Error Appears During `npm run build`?',
+      },
+      estimatedMinutes: 5,
+      teachingGoal: {
+        ar: 'إزالة الخوف من رسائل خطأ البناء وتوضيح خطوة حلها مع المساعد الذكي.',
+        en: 'Remove fear of build errors and show how to resolve them calmly with AI.',
+      },
+      speakerNotes: {
+        ar: 'طمئن المتدربين أن ظهور خطأ أثناء البناء أمر طبيعي جداً وحله مع المساعد الذكي يستغرق دقيقة واحدة.',
+        en: 'Reassure trainees that build errors are normal and take a minute to fix with AI.',
+      },
       payload: {
-        type: 'challenge',
+        type: 'question',
         data: {
-          mission: {
-            ar: 'صياغة رسالة تواصل مهني مقتضبة ومحترمة (Outreach Pitch) تعرض خدمة تطوير ويب لنشاط تجاري حقيقي.',
-            en: 'Draft a concise, value-first client outreach message proposing a website enhancement.'
+          question: {
+            ar: 'عندما شغّلت أمر `npm run build` قبل النشر، ظهرت رسالة خطأ تشير إلى ملف معين ورقم سطر. ما هي الخطوة الصحيحة لإصلاحها؟',
+            en: 'When running `npm run build` before deployment, an error message points to a specific file and line number. What is the right step to fix it?',
           },
-          durationMinutes: 5,
-          objective: {
-            ar: 'كسر حاجز الخوف من مخاطبة العملاء وتعلم أسلوب العرض المعتمد على القيمة (Value-First).',
-            en: 'Overcome client outreach hesitation and master respectful, value-centered communication.'
+          contextHint: {
+            ar: 'تذكر كيف يتعامل المساعد الذكي في المحرر مع رسائل الخطأ الواضحة.',
+            en: 'Remember how the editor AI assistant handles exact error messages.',
           },
-          instructions: [
-            { ar: 'اختر نشاطاً تجارياً حقيقياً في مدينتك (مثال: عيادة أو مطعم ذو موقع قديم أو بطيء)', en: 'Pick a real local business in your area with an outdated or sluggish site' },
-            { ar: 'ابدأ بالتحية المهنية واذكر نقطة إعجاب حقيقية بخدماتهم أو طعامهم', en: 'Open with genuine appreciation for their service or cuisine' },
-            { ar: 'اذكر باحترام ملاحظة تقنية واحدة تؤثر على مبيعاتهم (مثال: صعوبة الحجز بالهاتف)', en: 'Politely highlight one technical friction point costing them bookings' },
-            { ar: 'اعرض رابط دراسة حالة مشروعك كنموذج عملي واقترح مكالمة قصيرة لـ 10 دقائق', en: 'Reference your capstone case study link and propose a brief 10-minute discovery call' },
-          ],
-          starterPromptOrCode: 'Hello [Name], I noticed your restaurant menu takes 6s to load on phones. I built a prototype loading in 1s...',
-          deliverable: {
-            ar: 'مسودة رسالة تواصل مهنية جاهزة للإرسال لأول 5 عملاء محتملين.',
-            en: 'Polished client outreach message ready for real-world distribution to prospective businesses.'
+          promptToClass: {
+            ar: 'ننسخ رسالة الخطأ كما هي مع اسم الملف ونرسلها للمساعد الذكي قائلين: «ظهر هذا الخطأ أثناء تشغيل npm run build، افحص الملف المحدد وأصلح السبب دون تغيير تصميم القسم»، ثم نعيد تشغيل `npm run build` للتأكد.',
+            en: 'Copy the exact error message and file name to the AI assistant: "This error appeared during npm run build; inspect the file and fix the cause without changing the section design," then re-run `npm run build`.',
           },
         },
       },
     },
-
-    // Slide 8: Project (Milestone 11)
     {
       id: 's11-slide-08',
       sessionNumber: 11,
       slideNumber: 8,
       totalSlides: 10,
-      type: 'project',
-      title: { ar: "حزمة التسويق ودراسة الحالة التجارية", en: "Project Milestone — Commercial Case Study & Offer" },
-      estimatedMinutes: 4,
-      teachingGoal: { ar: 'تثبيت اكتمال دراسة الحالة وحزمة العرض التجاري لمشروع التخرج.', en: 'Confirm capstone project is now fully packaged with a commercial case study and proposal.' },
-      speakerNotes: { ar: "نفّذ: هنئ الطلاب: \"مشروعك الآن يملك وجهاً تجارياً مقنعاً؛ ليس فقط كوداً ممتازاً، بل قصة نجاح وعرض خدمة واضح يفتح لك أبواب التعاقد!\".\nاسأل: أي مخرج من هذه المرحلة يحتاج إلى استكمال؟\nتحقق: وثيقة دراسة حالة متكاملة (Case Study) لمشروع التخرج؛ عرض خدمات فني ومالي محدد النطاق والأسعار؛ رسائل تواصل احترافية جاهزة لبدء أولى محادثات العمل الحر", en: "Cue: Congratulate learners: \"Your repo now carries commercial authority: a living case study ready for client handoffs!\"\nAsk: Which deliverable from this phase still needs work?\nCheck: Comprehensive commercial case study documenting ROI; Packaged commercial service offer with transparent pricing; Battle-tested outreach scripts ready for client acquisition" },
+      type: 'challenge',
+      title: {
+        ar: 'نشاط عملي (20 دقيقة): انشر موقعك واكتب ملخص عرضه',
+        en: 'Hands-On Activity (20 Mins): Publish Your Site & Write Its Summary',
+      },
+      estimatedMinutes: 20,
+      teachingGoal: {
+        ar: 'نشر الموقع فعلياً على Vercel وصياغة تقديم واضح له.',
+        en: 'Deploy the site live on Vercel and write a clear 3-sentence summary.',
+      },
+      speakerNotes: {
+        ar: 'ساعد كل متدرب يواجه أي عقبة في ربط GitHub أو Vercel حتى ينجح الجميع في نشر مواقعهم.',
+        en: 'Assist every trainee with GitHub and Vercel connection so everyone gets a live URL.',
+      },
       payload: {
-        type: 'project',
+        type: 'challenge',
         data: {
-          phaseName: { ar: 'المرحلة 11: التوثيق التجاري ودراسات الحالة', en: 'Phase 11: Commercial Packaging & Case Studies' },
-          stepNumber: '11',
-          whatWeBuildNow: {
-            ar: 'اكتمال صياغة دراسة الحالة وعرض الخدمات ورسائل استقطاب العملاء لمشروع التخرج.',
-            en: 'Complete commercial case study specification and client outreach documentation.',
+          mission: {
+            ar: 'إطلاق موقعك الحي على Vercel وكتابة بطاقة تعريفه للعميل',
+            en: 'Launch Your Live Website on Vercel & Write Your Client Summary',
           },
-          deliverables: [
-            { ar: 'وثيقة دراسة حالة متكاملة (Case Study) لمشروع التخرج', en: 'Comprehensive commercial case study documenting ROI' },
-            { ar: 'عرض خدمات فني ومالي محدد النطاق والأسعار', en: 'Packaged commercial service offer with transparent pricing' },
-            { ar: 'رسائل تواصل احترافية جاهزة لبدء أولى محادثات العمل الحر', en: 'Battle-tested outreach scripts ready for client acquisition' },
+          durationMinutes: 20,
+          objective: {
+            ar: 'رفع مشروعك إلى GitHub وربطه بمنصة Vercel للحصول على رابط حي وكتابة ملخص واضح للمشروع.',
+            en: 'Push your project to GitHub, deploy on Vercel for a live URL, and write a clear project summary.',
+          },
+          instructions: [
+            {
+              ar: '1. شغّل `npm run build` في مشروعك وتأكد من نجاح البناء بدون أخطاء.',
+              en: '1. Run `npm run build` in your project and verify it succeeds with zero errors.',
+            },
+            {
+              ar: '2. ارفع مشروعك إلى GitHub وانشره على Vercel للحصول على الرابط الحي (`https://...`).',
+              en: '2. Push your project to GitHub and deploy it on Vercel to get your live `https://` URL.',
+            },
+            {
+              ar: '3. افتح الرابط الحي من هاتفك المحمول وتأكد أن الموقع يفتح ويعمل بنجاح.',
+              en: '3. Open the live URL on your mobile phone and confirm everything works.',
+            },
+            {
+              ar: '4. اكتب فقرة قصيرة من 3 جمل تصف مشروعك (المشكلة، الحل، الفائدة) كما ستقدمها لعميل حقيقي.',
+              en: '4. Write a short 3-sentence summary of your project (Problem, Solution, Benefit).',
+            },
           ],
-          connectionToFinalProject: {
-            ar: 'في الجلسة 12 (الجلسة الختامية)، ستعرض مشروعك بالكامل من الفكرة وحتى التسويق في عرض تخرج تفاعلي مباشر!',
-            en: 'In Session 12 (our grand finale), you will present your complete end-to-end journey in the live graduation showcase!',
+          deliverable: {
+            ar: 'مشاركة الرابط الحي لموقعك على Vercel مع فقرة تعريف المشروع في محادثة الجلسة.',
+            en: 'Share your live Vercel URL and 3-sentence project summary in the session chat.',
           },
         },
       },
     },
-
-    // Slide 9: Takeaway
     {
       id: 's11-slide-09',
       sessionNumber: 11,
       slideNumber: 9,
       totalSlides: 10,
+      type: 'project',
+      title: {
+        ar: 'خطوة المشروع العملي في هذا الدرس',
+        en: 'Practical Project Milestone in This Lesson',
+      },
+      estimatedMinutes: 3,
+      teachingGoal: {
+        ar: 'تثبيت إنجاز النشر الحي وتجهيز المتدرب للدرس الختامي.',
+        en: 'Confirm live deployment milestone and prepare for the final showcase.',
+      },
+      speakerNotes: {
+        ar: 'بارك للمتدربين؛ لقد انتقلوا من الصفر إلى امتلاك موقع حي منشور على الإنترنت.',
+        en: 'Congratulate trainees on taking their project from zero to a live published website.',
+      },
+      payload: {
+        type: 'project',
+        data: {
+          phaseName: {
+            ar: 'المرحلة الرابعة • الإطلاق وعرض الأعمال',
+            en: 'Phase 4 • Launch & Presenting Work',
+          },
+          stepNumber: '11',
+          whatWeBuildNow: {
+            ar: 'موقع منشور برابط حي على Vercel مع ملخص عرض واضح',
+            en: 'Live Published Website on Vercel with a Clear Project Summary',
+          },
+          deliverables: [
+            { ar: 'رابط حي يعمل عبر https:// على منصة Vercel', en: 'Working https:// live link on Vercel' },
+            { ar: 'مستودع GitHub منظم يحتوي على أحدث نسخة من الكود', en: 'Organized GitHub repository with latest code' },
+            { ar: 'ملخص واضح للمشروع من 3 جمل (المشكلة، الحل، الفائدة)', en: 'Clear 3-sentence project summary (Problem, Solution, Benefit)' },
+          ],
+          connectionToFinalProject: {
+            ar: 'أصبح مشروعك الآن متاحاً على الإنترنت لأي زائر أو عميل، وبقي لنا في الدرس القادم المراجعة النهائية وعرض المشاريع وتسليمها.',
+            en: 'Your project is now live online for any visitor or client, ready for the final showcase in Lesson 12.',
+          },
+        },
+      },
+    },
+    {
+      id: 's11-slide-10',
+      sessionNumber: 11,
+      slideNumber: 10,
+      totalSlides: 10,
       type: 'takeaway',
-      title: { ar: "خلاصة: خدمة العميل", en: "Recap: Client Service" },
-      estimatedMinutes: 4,
-      teachingGoal: { ar: 'تثبيت مبادئ الاحترافية التجارية والتركيز على حل مشاكل العميل.', en: 'Cement business professionalism and client-centered value delivery.' },
-      speakerNotes: { ar: "نفّذ: اقرأ النقاط الثلاث. أكد: \"أنت لست بائعاً متجولاً؛ أنت مهندس وشريك حلول رقمية يساعد الشركات على النجاح والنمو\".\nاسأل: أي مبدأ من «خلاصة: خدمة العميل» ستستخدمه في مشروعك؟\nتحقق: صانع الويب الناجح يتقن فن البرمجة بيده، ويتقن فن بناء الثقة مع عملائه بعقله.", en: "Cue: Review takeaways: You are not a peddler; you are a strategic digital solutions partner.\nAsk: Which principle from “Recap: Client Service” will you use in your project?\nCheck: The masterful Web Creator commands code with their hands, and builds unshakable client trust with their mind." },
+      title: {
+        ar: 'خلاصة الدرس الحادي عشر',
+        en: 'Lesson 11 Takeaways',
+      },
+      estimatedMinutes: 2,
+      teachingGoal: {
+        ar: 'تثبيت خطوات النشر وأسلوب عرض الأعمال.',
+        en: 'Reinforce deployment workflow and honest client presentation.',
+      },
+      speakerNotes: {
+        ar: 'ذكّر المتدربين بتجهيز روابطهم النهائية للدرس القادم حيث سيعرض كل متدرب مشروعه.',
+        en: 'Remind trainees to have their live links ready for the Lesson 12 final showcase.',
+      },
       payload: {
         type: 'takeaway',
         data: {
           takeaways: [
             {
               number: '01',
-              title: { ar: 'تحدث بلغة القيمة لا بلغة التقنيات', en: 'Speak Value, Not Frameworks' },
+              title: { ar: 'GitHub يحفظ الكود و Vercel تشغل الموقع', en: 'GitHub Stores Code & Vercel Hosts the Site' },
               description: {
-                ar: 'العميل يهتم بالمبيعات والسرعة والمصداقية وسهولة تجربة زبائنه؛ اجعل كل محادثاتك تتمحور حول أهداف عمله.',
-                en: 'Clients care about conversions, speed, and customer delight; frame every conversation around business ROI.',
+                ar: 'هذا الثنائي المجاني يمنحك رابطاً حياً يتحدث تلقائياً كلما رفعت تعديلاً جديداً.',
+                en: 'This free pair gives you a live URL that updates automatically on every push.',
               },
             },
             {
               number: '02',
-              title: { ar: 'دراسة الحالة هي شهادة خبرتك الحقيقية', en: 'Case Studies are Your True Credentials' },
+              title: { ar: 'افحص البناء قبل الرفع دائماً', en: 'Always Run `npm run build` Before Pushing' },
               description: {
-                ar: 'وثق مشاكلك وحلولك وأرقام أدائك في دراسة حالة نظيفة؛ هي الأداة التي تقنع العميل وتبرر أسعارك المرتفعة.',
-                en: 'Document your architectural challenges and performance scores; case studies justify premium client pricing.',
+                ar: 'نجاح البناء على جهازك يضمن أن الموقع سيعمل على الإنترنت بدون مفاجآت.',
+                en: 'A clean local build ensures your site deploys online without surprises.',
               },
             },
             {
               number: '03',
-              title: { ar: 'الاستمرارية في التواصل تصنع الفرص', en: 'Consistent Outreach Builds the Pipeline' },
+              title: { ar: 'اعرض الفائدة العملية بوضوح وصدق', en: 'Present Practical Benefits Clearly & Honestly' },
               description: {
-                ar: 'خصص وقتاً أسبوعياً للتواصل المهني المحترم مع أصحاب الأعمال؛ الصفقات الكبرى تأتي من العلاقات المبنية على الثقة.',
-                en: 'Dedicate weekly focus to respectful outreach; premier client contracts stem from long-term trust relationships.',
+                ar: 'اشرح للعميل كيف يخدم الموقع زواره ويوجه طلباتهم إلى واتساب، وأرسل له الرابط ليجربه بنفسه.',
+                en: 'Show clients how the site helps visitors and routes orders to WhatsApp with a live link.',
               },
             },
           ],
           coreMotto: {
-            ar: 'صانع الويب الناجح يتقن فن البرمجة بيده، ويتقن فن بناء الثقة مع عملائه بعقله.',
-            en: 'The masterful Web Creator commands code with their hands, and builds unshakable client trust with their mind.',
-          },
-        },
-      },
-    },
-
-    // Slide 10: Next
-    {
-      id: 's11-slide-10',
-      sessionNumber: 11,
-      slideNumber: 10,
-      totalSlides: 10,
-      type: 'next',
-      title: { ar: "الختام: اعرض مشروعك", en: "Finale: Present Your Project" },
-      estimatedMinutes: 2,
-      teachingGoal: { ar: 'تهيئة وإشعال حماس الطلاب لحفل التخرج وعرض مشاريعهم في الجلسة 12.', en: 'Ignite student anticipation for Session 12: live graduation presentations of their flagship projects.' },
-      speakerNotes: { ar: "نفّذ: اختم بحماس عظيم: \"في الجلسة 12 سنحتفل معاً بإتمام الرحلة كاملة! كل طالب سيعرض مشروعه الحي أمام الجميع: الفكرة، التصميم، الكود، الـ SEO، والتسويق!\".\nاسأل: ما الذي ستجهزه قبل الجلسة القادمة؟\nتحقق: راجع كود مشروعك، تأكد من تشغيل خادم التطوير، وجهز النقاط الـ 10 لعرض مشروعك الختامي.", en: "Cue: Closing: \"In Session 12 we celebrate the complete journey! Every creator presents their live project to the entire class!\"\nAsk: What will you prepare before the next session?\nCheck: Review your codebase, confirm local server runs cleanly, and prepare your 10-point showcase walk." },
-      payload: {
-        type: 'next',
-        data: {
-          nextSessionNumber: '12',
-          nextSessionTitle: {
-            ar: 'المشروع النهائي: من الفكرة إلى الإطلاق الكامل والعرض التقديمي',
-            en: 'Final Project Capstone: From Idea to Full Production Launch & Showcase',
-          },
-          teaser: {
-            ar: 'تتويج الـ 18 ساعة تدريبية: استعراض المسار الكامل (IDEA → PROMPT → DESIGN → SETUP → AUDIT → HTML/CSS → JS → REACT → NEXT.JS → SEO → SHIP) وعرض مشاريع الطلاب المكتملة.',
-            en: 'The 18-hour culmination: showcasing the end-to-end journey from raw idea to live production release and graduation presentations.',
-          },
-          preparationHint: {
-            ar: 'راجع كود مشروعك، تأكد من تشغيل خادم التطوير، وجهز النقاط الـ 10 لعرض مشروعك الختامي.',
-            en: 'Review your codebase, confirm local server runs cleanly, and prepare your 10-point showcase walk.',
+            ar: 'الرابط الحي الذي يعمل على هاتف العميل أبلغ من ألف كلمة شرح نظري.',
+            en: 'A working live link on a client’s phone speaks louder than a thousand words of theory.',
           },
         },
       },

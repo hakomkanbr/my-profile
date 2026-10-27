@@ -10,16 +10,41 @@ export interface StudentSubmission {
   studentAnswer: string;
   completedAt: string;
   isCompleted: boolean;
+  sentViaWhatsAppAt?: string;
 }
 
 const STORAGE_KEY = 'web_creator_ai_student_submissions_v1';
 const DRAFTS_STORAGE_KEY = 'web_creator_ai_student_drafts_v1';
+const STUDENT_NAME_STORAGE_KEY = 'web_creator_ai_student_name_v1';
+
+export function getStudentName(): string {
+  if (typeof window === 'undefined') return '';
+  try {
+    return window.localStorage.getItem(STUDENT_NAME_STORAGE_KEY) || '';
+  } catch {
+    return '';
+  }
+}
+
+export function saveStudentName(name: string): void {
+  if (typeof window === 'undefined') return;
+  try {
+    const trimmed = name.trim();
+    if (trimmed) {
+      window.localStorage.setItem(STUDENT_NAME_STORAGE_KEY, trimmed);
+    } else {
+      window.localStorage.removeItem(STUDENT_NAME_STORAGE_KEY);
+    }
+  } catch (err) {
+    console.error('Failed to save student name to localStorage:', err);
+  }
+}
 
 function getAllDrafts(): Record<string, string> {
   if (typeof window === 'undefined') return {};
   try {
     const raw = window.localStorage.getItem(DRAFTS_STORAGE_KEY);
-    return raw ? JSON.parse(raw) as Record<string, string> : {};
+    return raw ? (JSON.parse(raw) as Record<string, string>) : {};
   } catch (err) {
     console.error('Failed to parse student drafts from localStorage:', err);
     return {};
@@ -65,15 +90,22 @@ export function getAllSubmissions(): Record<string, StudentSubmission> {
 export function saveStudentSubmission(
   sessionId: string,
   activityId: string,
-  studentAnswer: string
+  studentAnswer: string,
+  options?: { markWhatsAppOpened?: boolean }
 ): StudentSubmission {
   const current = getAllSubmissions();
+  const previous = current[activityId];
+  const nowIso = new Date().toISOString();
+
   const submission: StudentSubmission = {
     sessionId,
     activityId,
     studentAnswer: studentAnswer.trim(),
-    completedAt: new Date().toISOString(),
+    completedAt: nowIso,
     isCompleted: true,
+    sentViaWhatsAppAt: options?.markWhatsAppOpened
+      ? nowIso
+      : previous?.sentViaWhatsAppAt,
   };
 
   current[activityId] = submission;

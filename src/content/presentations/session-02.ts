@@ -5,613 +5,703 @@ export const SESSION_02: PresentationSession = {
   number: 2,
   slug: 'session-02',
   title: {
-    ar: 'هندسة البرومبت لتطوير الويب: صياغة التعليمات البرمجية الدقيقة',
-    en: 'Prompt Engineering for Web Development: Rigid Technical Schemas',
+    ar: 'تخطيط صفحات الموقع وتصميم تجربة واضحة ومريحة للزائر',
+    en: 'Planning Website Pages & Designing a Clear Visitor Experience',
   },
   subtitle: {
-    ar: 'كيف تنتقل من البرومبت الساذج ("Build me a website") إلى إطار العمل الهندسي المتكامل؟',
-    en: 'Transitioning from naive prompting to rigorous 8-factor technical prompt architecture',
+    ar: 'كيف نختار الصفحات الرئيسية، ونرتب المعلومات من الأعلى للأسفل، ونحول الفكرة إلى تصميم بصري واضح؟',
+    en: 'How to choose main pages, order information from top to bottom, and create a clean visual design',
   },
   durationMinutes: 90,
   goal: {
-    ar: 'تمكين الطالب من صياغة برومبت احترافي محكم يوجه الذكاء الاصطناعي لتوليد هياكل واجهات برمجية نظيفة وخالية من الهلوسة.',
-    en: 'Master rigid prompt schemas that guide AI to scaffold clean, hallucination-free web interfaces.',
+    ar: 'تمكين المتدرب من رسم خريطة صفحات موقعه وترتيب أقسام الصفحة الرئيسية بصريًا وتجربة توليد تصميم أولي واضح عبر أدوات التصميم الذكية مثل Google Stitch.',
+    en: 'Enable trainees to map their website pages, arrange homepage sections, and generate a clean visual prototype.',
   },
   prerequisites: [
     {
-      ar: 'إكمال الجلسة 01 وتحديد فكرة النشاط التجاري للمشروع',
-      en: 'Completion of Session 01 and chosen project domain',
+      ar: 'إكمال الجلسة 01 وتحديد فكرة المشروع والزائر المستهدف',
+      en: 'Completion of Session 01 and choosing a project idea',
     },
   ],
   objectives: [
     {
-      ar: 'فهم عيوب البرومبت العفوي وأسباب توليد الذكاء الاصطناعي لكود غير قابل للاستخدام',
-      en: 'Diagnose failure modes in naive prompts that lead to generic, bloated code',
+      ar: 'تحديد الصفحات الرئيسية للموقع وترتيب تنقل الزائر بينها بسهولة',
+      en: 'Identify main website pages and simple visitor navigation',
     },
     {
-      ar: 'إتقان إطار العمل الهندسي المكون من 8 عناصر لصياغة البرومبت التقني',
-      en: 'Master the 8-part technical prompt architecture (Role, Context, Goal, Requirements, Constraints, Input, Output, Acceptance)',
+      ar: 'ترتيب أقسام الصفحة الواحدة من الأعلى إلى الأسفل بحسب أهمية المعلومة للزائر',
+      en: 'Order page sections from top to bottom based on visitor priority',
     },
     {
-      ar: 'التطبيق العملي لتحويل برومبت ضعيف إلى برومبت احترافي لصفحة هبوط حقيقية',
-      en: 'Iterate hands-on from Bad Prompt to Professional Production-Ready Prompt',
+      ar: 'التفريق بين العناصر الأساسية الضرورية والعناصر الثانوية التي تسبب الازدحام',
+      en: 'Distinguish between essential elements and decorative clutter',
     },
     {
-      ar: 'فحص مخرجات الذكاء الاصطناعي والتحقق من مطابقتها لمعايير الجودة الهندسية',
-      en: 'Audit generated AI output against technical acceptance criteria',
+      ar: 'تحويل خطة الصفحة المكتوبة إلى تصميم بصري واضح باستخدام Google Stitch وأدوات الذكاء الاصطناعي',
+      en: 'Turn a written page plan into a clean visual mockup using Google Stitch and AI',
     },
   ],
   timeline: [
     {
-      timeRange: '00:00 – 00:10',
-      durationMinutes: 10,
-      label: { ar: 'مراجعة أفكار مشاريع الطلاب وسؤال التحدي الأولي', en: 'Review project ideas & opening challenge' },
+      timeRange: '00:00 – 00:15',
+      durationMinutes: 15,
+      label: { ar: 'مراجعة أفكار المتدربين ورسم خريطة الصفحات الرئيسية', en: 'Review trainee ideas & map main pages' },
       type: 'context',
     },
     {
-      timeRange: '00:10 – 00:25',
+      timeRange: '00:15 – 00:30',
       durationMinutes: 15,
-      label: { ar: 'تشريح البرومبت السيئ مقابل البرومبت المحترف: الفروق المعمارية', en: 'Deconstructing Bad vs Pro Prompts' },
+      label: { ar: 'ترتيب المعلومات داخل الصفحة: ماذا يرى الزائر أولًا ثم ثانيًا؟', en: 'Information order inside a page' },
       type: 'concept',
     },
     {
-      timeRange: '00:25 – 00:45',
+      timeRange: '00:30 – 00:45',
+      durationMinutes: 15,
+      label: { ar: 'العناصر الأساسية مقابل العناصر الثانوية وتناسق الألوان والخطوط', en: 'Essential vs decorative elements & visual harmony' },
+      type: 'comparison',
+    },
+    {
+      timeRange: '00:45 – 01:05',
       durationMinutes: 20,
-      label: { ar: 'إطار الـ 8 عناصر: ROLE, CONTEXT, GOAL, CONSTRAINTS, OUTPUT', en: 'The 8-Factor Prompt Framework in Action' },
+      label: { ar: 'تطبيق عملي: توليد تصميم واجهة مقهى عبر Google Stitch ومراجعته', en: 'Live Demo: Designing a Café UI with Google Stitch' },
       type: 'demo',
     },
     {
-      timeRange: '00:45 – 01:00',
+      timeRange: '01:05 – 01:20',
       durationMinutes: 15,
-      label: { ar: 'تطبيق حي: صياغة برومبت لمشروع مطعم وفحص النتيجة', en: 'Live Demo: Restaurant Prompt & Output Audit' },
-      type: 'ai',
-    },
-    {
-      timeRange: '01:00 – 01:20',
-      durationMinutes: 20,
-      label: { ar: 'تحدي الطلاب: صياغة برومبت احترافي لصفحة هبوط مشروعهم', en: 'Student Challenge: Crafting Homepage Prompt' },
+      label: { ar: 'نشاط المتدرب: رسم ترتيب أقسام صفحته الرئيسية واختيار ألوانه', en: 'Trainee Activity: Arrange homepage sections & colors' },
       type: 'practice',
     },
     {
-      timeRange: '01:20 – 01:25',
-      durationMinutes: 5,
-      label: { ar: 'تقييم نماذج من برومبتات الطلاب في الشات', en: 'Class Critique & Prompt Refinement' },
-      type: 'review',
-    },
-    {
-      timeRange: '01:25 – 01:30',
-      durationMinutes: 5,
-      label: { ar: 'الخلاصة والتجهيز لجلسة Google Stitch (Session 03)', en: 'Takeaways & Prep for Google Stitch' },
+      timeRange: '01:20 – 01:30',
+      durationMinutes: 10,
+      label: { ar: 'مراجعة التصاميم وخلاصة الجلسة الثانية', en: 'Review layouts & Session 02 summary' },
       type: 'takeaway',
     },
   ],
   projectMilestone: {
-    ar: 'صياغة وثيقة البرومبت التأسيسية لصفحة الهبوط الرئيسية لمشروعك التجاري.',
-    en: 'Author the canonical foundational prompt specification for your flagship project homepage.',
+    ar: 'إعداد خريطة أقسام الصفحة الرئيسية والتصميم البصري الأولي مع اختيار لونين متناسقين وخط واضح.',
+    en: 'Create the homepage section map and initial visual design with a clean color palette.',
   },
   aiRole: {
-    ar: 'مفسر ومنفذ للمتطلبات الدقيقة المشروطة بالقيود ومعايير القبول المحددة.',
-    en: 'Strict executor of constrained architectural requirements and explicit output schemas.',
+    ar: 'أداة رسم بصري تحول وصف الأقسام المكتوب إلى نموذج شاشة مرئي نراجعه ونختار الأفضل منه.',
+    en: 'Visual design assistant turning written section plans into visible screen mockups.',
   },
   marketConnection: {
-    ar: 'تساعد القدرة على توجيه نماذج الذكاء الاصطناعي بدقة على إنتاج كود أوضح وأسهل للمراجعة.',
-    en: 'Precise prompt steering helps developers direct models more clearly and review the resulting code.',
+    ar: 'عرض تصميم بصري واضح للعميل قبل البرمجة يختصر التعديلات ويمنحه ثقة كبيرة في مشروعك.',
+    en: 'Showing a clear visual prototype before coding reduces revisions and builds client trust.',
   },
   startScreen: {
-    badge: 'SESSION 02 / 12 • PROMPT ARCHITECTURE',
+    badge: 'الجلسة 02 من 12 • التخطيط والتصميم البصري',
     headline: {
-      ar: 'هندسة البرومبت: كيف تتحدث مع الذكاء الاصطناعي كمهندس وليس كمستخدم عادي؟',
-      en: 'Prompt Engineering: Speaking to AI as a Senior Architect, Not a Casual User',
+      ar: 'تخطيط صفحات الموقع وتصميم تجربة واضحة ومريحة',
+      en: 'Planning Website Pages & Designing a Clear Experience',
     },
     description: {
-      ar: 'تعلم إطار العمل الصارم لتحويل الأفكار العامة إلى تعليمات فنية دقيقة تنتج أكواداً نظيفة ومعيارية.',
-      en: 'Learn the strict 8-factor framework turning fuzzy intents into bulletproof technical instructions.',
+      ar: 'في هذه الجلسة نتعلم كيف نرتب المعلومات داخل الصفحة بحيث يفهمها الزائر بدون جهد، وكيف نحول فكرتنا إلى تصميم مرئي جذاب.',
+      en: 'Learn how to arrange information on a page effortlessly and turn your idea into a clean visual mockup.',
     },
     sessionGoal: {
-      ar: 'إتقان صياغة البرومبتات الاحترافية القابلة لإعادة الاستخدام في بناء واجهات الويب الحقيقية.',
-      en: 'Master reusable, production-grade prompts for scaffolding real-world web interfaces.',
+      ar: 'تحديد ترتيب أقسام صفحتك الرئيسية وتصميم نموذجها البصري الأول بوضوح.',
+      en: 'Define the section order of your homepage and create its first clean visual mockup.',
     },
   },
   endScreen: {
     headline: {
-      ar: 'مبروك! أصبحت تملك إطار عمل هندسي لصياغة البرومبتات البرمجية',
-      en: 'Bravo! You Now Command the Professional Technical Prompt Framework',
+      ar: 'رائع! أصبح لموقعك الآن خريطة صفحات وتصميم بصري واضح',
+      en: 'Awesome! Your Website Now Has a Clear Page Map and Visual Design',
     },
     keyRecap: [
       {
-        ar: 'البرومبت الاحترافي يحدد الدور والسياق والقيود والمخرجات وصيغة القبول بدقة رياضية.',
-        en: 'Professional prompts enforce Role, Context, Constraints, Output schema, and Acceptance criteria.',
+        ar: 'الصفحة الواضحة تبدأ بالعنوان والهدف في الأعلى، ثم التفاصيل والأسعار، ثم زر التواصل.',
+        en: 'A clear page starts with the headline and goal at the top, then details, then the contact button.',
       },
       {
-        ar: 'تحديد القيود (Constraints) هو ما يمنع الذكاء الاصطناعي من الهلوسة واستخدام حزم قديمة.',
-        en: 'Explicit constraints prevent model hallucinations and obsolete dependency drift.',
+        ar: 'حذف العناصر غير الضرورية والمساحات المريحة حول النصوص يجعل الموقع يبدو احترافيًا.',
+        en: 'Removing unnecessary elements and keeping comfortable spacing makes the site look professional.',
       },
       {
-        ar: 'المراجعة والتحسين التكراري (Iteration) هي جوهر العمل وليست مجرد ضغطة زر واحدة.',
-        en: 'Rigorous prompt iteration and output verification are the essence of modern web craftsmanship.',
+        ar: 'أدوات التصميم بالذكاء الاصطناعي مثل Google Stitch تساعدنا على رؤية شكل الموقع قبل بنائه.',
+        en: 'AI design tools like Google Stitch help us preview the website layout before building it.',
       },
     ],
     nextSessionNumber: '03',
     nextSessionTitle: {
-      ar: 'Google Stitch: تحويل الفكرة المكتوبة إلى تصميم واجهة حقيقي',
-      en: 'Google Stitch: Translating Written Ideas into Living UI Prototypes',
+      ar: 'كيف تصف فكرتك للذكاء الاصطناعي بوضوح؟ (صياغة الطلب خطوة بخطوة)',
+      en: 'How to Describe Your Idea Clearly to AI (Step-by-Step Prompting)',
     },
   },
   slides: [
-    // Slide 1: Title
     {
       id: 's02-slide-01',
       sessionNumber: 2,
       slideNumber: 1,
-      totalSlides: 13,
+      totalSlides: 10,
       type: 'title',
-      title: { ar: "هندسة البرومبت لتطوير الويب", en: "Prompt Engineering for Web Dev" },
-      estimatedMinutes: 2,
-      teachingGoal: { ar: 'افتتاح الجلسة وإعلان الانتقال من العشوائية إلى الهندسة.', en: 'Set session tone: engineering precision over random chatting.' },
-      speakerNotes: { ar: "نفّذ: اربط الجلسة بالجلسة السابقة: اليوم سنطبق مبدأ \"التفكير قبل البرمجة\" من خلال صياغة أوامر برمجية دقيقة.\nاسأل: ما الهدف الذي تتوقع تحقيقه في جلسة «هندسة البرومبت لتطوير الويب»؟\nتحقق: افتتاح الجلسة وإعلان الانتقال من العشوائية إلى الهندسة.", en: "Cue: Connect to Session 01: today we materialize \"thinking before coding\" via strict prompt schemas.\nAsk: What outcome do you expect from “Prompt Engineering for Web Dev”?\nCheck: Set session tone: engineering precision over random chatting." },
+      visualType: 'site-pages-map',
+      realWorldExample: {
+        ar: 'عندما تدخل متجرًا مرتبًا تجد لوحة الأقسام عند المدخل، والمنتجات الأكثر طلبًا أمامك، وصندوق الدفع في مكان واضح.',
+        en: 'In a well-organized store, signs are at the entrance, popular items are upfront, and checkout is easy to spot.',
+      },
+      title: {
+        ar: 'تخطيط الصفحات وتصميم الواجهة',
+        en: 'Planning Pages & Designing the Interface',
+      },
+      estimatedMinutes: 5,
+      teachingGoal: {
+        ar: 'تقديم مفهوم تخطيط الصفحات وتجربة المستخدم البسيطة بلغة الحياة اليومية.',
+        en: 'Introduce page planning and simple UX using everyday real-world analogies.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: اربط الجلسة الأولى بالجلسة الثانية: بعد أن اخترنا فكرة الموقع في الجلسة السابقة، سنتعلم اليوم كيف نرتب صفحاته وأقسامه على الشاشة.\nاسأل: لماذا نرتب الغرف والأبواب على الورق قبل بناء أي منزل؟\nتحقق: تأكد أن الجميع يفهم أن التصميم الجيد هو «ترتيب واضح للمعلومات» وليس مجرد تلوين.',
+        en: 'Connect Session 01 to Session 02: now that we have our idea, we organize its pages and layout.',
+      },
       payload: {
         type: 'title',
         data: {
           sessionNumber: '02',
-          kicker: { ar: 'منطق الحوار التقني المنضبط', en: 'Disciplined Technical Dialogue' },
-          headline: { ar: 'PROMPT ENGINEERING', en: 'PROMPT ENGINEERING' },
-          subheadline: { ar: 'صياغة التعليمات البرمجية الصارمة لبناء مواقع الويب الحديثة', en: 'Crafting rigid technical instructions for modern web construction' },
           totalSessions: '12',
           durationMinutes: 90,
-          tags: ['Prompt Framework', 'Role & Context', 'Constraints', 'Acceptance Criteria'],
+          kicker: {
+            ar: 'المرحلة الثانية • التخطيط والتصميم البصري',
+            en: 'Phase 2 • Planning & Visual Design',
+          },
+          headline: {
+            ar: 'كيف نخطط صفحات الموقع ونرتب المعلومات بوضوح؟',
+            en: 'How Do We Plan Website Pages and Arrange Information Clearly?',
+          },
+          subheadline: {
+            ar: 'نتعرف على خريطة الموقع، وترتيب الأقسام من الأعلى للأسفل، وتحويل الفكرة إلى تصميم مرئي مريح للعين.',
+            en: 'Learn website sitemaps, top-to-bottom section ordering, and turning ideas into clean visual designs.',
+          },
+          tags: ['خريطة الصفحات', 'ترتيب الأقسام', 'تصميم مريح للزائر', 'Google Stitch'],
         },
       },
     },
-
-    // Slide 2: Context
     {
       id: 's02-slide-02',
       sessionNumber: 2,
       slideNumber: 2,
-      totalSlides: 13,
-      type: 'context',
-      title: { ar: "وجّه الذكاء الاصطناعي بوضوح", en: "Give AI Clear Direction" },
-      subtitle: { ar: 'الفرق بين الحديث العفوي مع الشات بوت وبين إصدار أوامر معمارية للمترجم', en: 'Conversational chit-chat vs compiling architectural specifications' },
-      estimatedMinutes: 4,
-      teachingGoal: { ar: 'إيضاح أن الذكاء الاصطناعي يعكس دقة المدخلات (Garbage In = Garbage Out).', en: 'Demonstrate that AI output strictly mirrors input precision (Garbage In = Garbage Out).' },
-      speakerNotes: { ar: "نفّذ: اعرض مثال: عندما تطلب \"ابنِ لي موقعاً\"، يضطر الذكاء الاصطناعي لتخمين كثير من التفاصيل. النتيجة: موقع عام بلا روح.\nاسأل: ما المشكلة التي توضّحها «وجّه الذكاء الاصطناعي بوضوح»؟\nتحقق: البرومبت الغامض ينتج كوداً يعتمد على حزم غير ضرورية، ثغرات أمنية، وهيكل غير متناسق.", en: "Cue: When asking \"build me a site\", AI has to guess many of the missing parameters, yielding generic soulless junk.\nAsk: What problem does “Give AI Clear Direction” point to?\nCheck: Vague prompts inject bloated dependencies, security oversights, and fragile architectures." },
+      totalSlides: 10,
+      type: 'visual',
+      visualType: 'site-pages-map',
+      title: {
+        ar: 'الصفحات الرئيسية للموقع وكيف ترتبط ببعضها',
+        en: 'Main Website Pages and How They Connect',
+      },
+      subtitle: {
+        ar: 'ابدأ بصفحة رئيسية قوية تقود الزائر إلى ما يبحث عنه في خطوة واحدة',
+        en: 'Start with a strong homepage that guides visitors in one step',
+      },
+      estimatedMinutes: 8,
+      teachingGoal: {
+        ar: 'تعليم المبتدئ أن الموقع البسيط لا يحتاج إلى 20 صفحة؛ بل يكفيه هيكل واضح من 3 أو 4 أقسام/صفحات أساسية.',
+        en: 'Teach beginners that a great starter website only needs 3–4 clear sections or pages.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: اشرح خريطة الموقع المعروضة: الصفحة الرئيسية هي نقطة الانطلاق، ومنها يصل الزائر إلى القائمة/الخدمات، ولماذا يختارنا، وزر الطلب عبر واتساب.\nاسأل: هل الأفضل للمبتدئ أن يبني 10 صفحات نصفها فارغ أم صفحة رئيسية واحدة متكاملة وواضحة؟\nتحقق: وجه المتدربين للتركيز على إتقان الصفحة الرئيسية أولًا.',
+        en: 'Explain the sitemap diagram: Homepage -> Menu/Services, Why Us, and WhatsApp Contact.',
+      },
       payload: {
-        type: 'context',
+        type: 'visual',
         data: {
-          industryShift: {
-            ar: 'النماذج اللغوية تستجيب بدقة للقيود والشروط؛ كلما كانت القيود واضحة، تحسنت ملاءمة الكود بفضل وضوح المطلوب.',
-            en: 'LLMs thrive under explicit constraints; defined boundaries improve how well the code matches the request.',
+          diagramType: 'flow',
+          caption: {
+            ar: 'كلما كان عدد الخطوات للوصول إلى المنتج أو زر الطلب أقل، كان الموقع أسهل وأنجح.',
+            en: 'The fewer steps needed to reach the product or order button, the better the website.',
           },
-          realWorldProblem: {
-            ar: 'البرومبت الغامض ينتج كوداً يعتمد على حزم غير ضرورية، ثغرات أمنية، وهيكل غير متناسق.',
-            en: 'Vague prompts inject bloated dependencies, security oversights, and fragile architectures.',
-          },
-          whyItMatters: {
-            ar: 'المطور الذي يكتب مواصفات واضحة يقلل التخمين، ثم يراجع الناتج ويكرّر التحسين عند الحاجة.',
-            en: 'Clear prompt specifications reduce guesswork, while review and iteration remain necessary.',
-          },
+          nodes: [
+            {
+              id: 'p1',
+              stepNumber: '01',
+              badge: 'المدخل',
+              title: { ar: 'الصفحة الرئيسية', en: 'Homepage' },
+              description: { ar: 'تعريف سريع بالمشروع وما يقدمه للزائر.', en: 'Quick intro to the project and what it offers.' },
+            },
+            {
+              id: 'p2',
+              stepNumber: '02',
+              badge: 'العرض',
+              title: { ar: 'الخدمات أو المنتجات', en: 'Services or Products' },
+              description: { ar: 'بطاقات واضحة بالصور والأسعار والتفاصيل.', en: 'Clear cards with photos, prices, and details.' },
+            },
+            {
+              id: 'p3',
+              stepNumber: '03',
+              badge: 'الثقة',
+              title: { ar: 'لماذا نحن؟ والآراء', en: 'Why Us & Reviews' },
+              description: { ar: 'مميزات الخدمة وتجارب العملاء السابقين.', en: 'Service benefits and customer testimonials.' },
+            },
+            {
+              id: 'p4',
+              stepNumber: '04',
+              badge: 'الهدف',
+              title: { ar: 'الطلب عبر واتساب', en: 'WhatsApp Ordering' },
+              description: { ar: 'زر تواصل مباشر وساعات العمل والعنوان.', en: 'Direct WhatsApp button, hours, and location.' },
+            },
+          ],
         },
       },
     },
-
-    // Slide 3: Question
     {
       id: 's02-slide-03',
       sessionNumber: 2,
       slideNumber: 3,
-      totalSlides: 13,
-      type: 'question',
-      title: { ar: "ما الخطأ في هذا البرومبت؟", en: "Diagnostic — What is Wrong With This Prompt?" },
-      estimatedMinutes: 4,
-      teachingGoal: { ar: 'تدريب عيون الطلاب على اكتشاف الغموض في الأوامر الشائعة.', en: 'Train student eyes to spot ambiguity and missing parameters.' },
-      speakerNotes: { ar: "نفّذ: اعرض العبارة: \"Build me a modern responsive landing page for a coffee shop with cool animations.\" واسأل الطلاب في الشات عما ينقصها.\nاسأل: اكتب في الشات: اذكر معلومة أساسية واحدة غابت عن هذا الطلب؟\nتحقق: استمع لأفكار مثل: لا يوجد تحديد للتقنية أو الإصدار (Next.js vs HTML)؛ لا توجد قيود على مكتبات الـ CSS أو الـ Icons المستخدمة", en: "Cue: Display the naive prompt and ask students what critical constraints are missing.\nAsk: Drop in Zoom chat: Name one critical missing parameter in this prompt.\nCheck: Listen for ideas such as: No framework or version specified; No styling constraints (Tailwind, pure CSS, etc.)" },
+      totalSlides: 10,
+      type: 'concept',
+      visualType: 'page-anatomy',
+      realWorldExample: {
+        ar: 'الصفحة المرتبة تشبه الصفحة الأولى من جريدة واضحة: عنوان رئيسي كبير في الأعلى، ثم تفاصيل الخبر، ثم أرقام التواصل في الأسفل.',
+        en: 'A clean webpage is like a clear front page: big headline at the top, key details in the middle, contact info at the bottom.',
+      },
+      title: {
+        ar: 'ترتيب المعلومات داخل الصفحة من الأعلى إلى الأسفل',
+        en: 'Ordering Information Inside a Page from Top to Bottom',
+      },
+      estimatedMinutes: 10,
+      teachingGoal: {
+        ar: 'توضيح التسلسل الطبيعي لأقسام الصفحة الأربعة (الشريط العلوي، القسم الترحيبي، البطاقات، التذييل).',
+        en: 'Clarify the natural 4-part anatomy of a webpage (Header, Hero, Cards, Footer).',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: تتبع الرسم التوضيحي من رقم 1 إلى رقم 4 مع المتدربين. هذا الترتيب القياسي مألوف لكل مستخدم إنترنت في العالم.\nاسأل: ماذا لو وضعنا ساعات العمل في أعلى الصفحة وخبأنا اسم المقهى في الأسفل؟ سيشعر الزائر بالارتباك!\nتحقق: تأكد أن الجميع يحفظ الأقسام الأربعة بالترتيب.',
+        en: 'Trace sections 1 to 4 on the Page Anatomy illustration.',
+      },
       payload: {
-        type: 'question',
+        type: 'concept',
         data: {
-          question: {
-            ar: 'ما الخطأ المعماري في هذا الطلب الشائع: "Build me a modern responsive landing page for a coffee shop"؟',
-            en: 'What architectural flaws exist in: "Build me a modern responsive landing page for a coffee shop"?',
+          tagline: { ar: 'تشريح الصفحة القياسي', en: 'Standard Page Structure' },
+          principle: {
+            ar: 'نرتب الصفحة بحسب الأسئلة التي تدور في ذهن الزائر',
+            en: 'Arrange the Page in the Order Visitors Ask Questions',
           },
-          contextHint: {
-            ar: 'فكر في التقنيات، هيكل البيانات، الألوان، الخطوط، الأمان، وما هو الهدف التجاري للموقع؟',
-            en: 'Consider framework, data schema, palette, fonts, accessibility, and business conversion goal.',
+          explanation: {
+            ar: 'عندما يفتح الزائر الصفحة، تتحرك عينه من الأعلى إلى الأسفل بحثًا عن إجابات سريعة ومرتبة.',
+            en: 'When a visitor opens a page, their eyes scan from top to bottom looking for quick answers.',
           },
-          promptToClass: {
-            ar: 'اكتب في الشات: اذكر معلومة أساسية واحدة غابت عن هذا الطلب؟',
-            en: 'Drop in Zoom chat: Name one critical missing parameter in this prompt.',
-          },
-          expectedAnswers: [
-            { ar: 'لا يوجد تحديد للتقنية أو الإصدار (Next.js vs HTML)', en: 'No framework or version specified' },
-            { ar: 'لا توجد قيود على مكتبات الـ CSS أو الـ Icons المستخدمة', en: 'No styling constraints (Tailwind, pure CSS, etc.)' },
-            { ar: 'لم يتم تحديد أقسام الصفحة أو هوية الزبون المستهدف', en: 'No section inventory or target audience persona' },
-            { ar: 'غياب معايير القبول وسلوك الهواتف المحمولة', en: 'Missing acceptance criteria and mobile behavior' },
+          bulletPoints: [
+            {
+              ar: '1. الشريط العلوي (Header) والقسم الترحيبي (Hero): من نحن وماذا نقدم؟ مع زر طلب سريع.',
+              en: '1. Header & Hero: Who are we and what do we offer? Plus a quick action button.',
+            },
+            {
+              ar: '2. قسم البطاقات والمميزات: ما الأصناف أو الخدمات المتوفرة وكم أسعارها؟',
+              en: '2. Cards & Benefits Section: What items or services are available and at what price?',
+            },
+            {
+              ar: '3. قسم التواصل والتذييل (Footer): كيف أطلب الآن وأين يقع المكان؟',
+              en: '3. Contact & Footer: How do I order right now and where are you located?',
+            },
           ],
+          architecturalRule: {
+            ar: 'ضع المعلومة الأهم في أعلى الصفحة دائمًا قبل أن يحتاج الزائر للتمرير إلى الأسفل.',
+            en: 'Always place the most important message at the top before scrolling.',
+          },
         },
       },
     },
-
-    // Slide 4: Think (30s Reflection)
     {
       id: 's02-slide-04',
       sessionNumber: 2,
       slideNumber: 4,
-      totalSlides: 13,
-      type: 'think',
-      title: { ar: "تأمل — البرومبت هو مواصفة معمارية", en: "Think — A Prompt is a Specification" },
-      estimatedMinutes: 2,
-      teachingGoal: { ar: 'ترسيخ أن البرومبت البرمجي ليس محادثة بل هو وثيقة مواصفات فنية (Spec).', en: 'Embed the mental model: A technical prompt is an engineering spec document.' },
-      speakerNotes: { ar: "نفّذ: ابدأ العد التنازلي. ذكّرهم: \"لا تتحدث مع الذكاء الاصطناعي كصديق في مقهى، بل اكتب له كمهندس رئيسي يوجه مطوراً مساعداً\".\nاسأل: ما الفكرة التي تغيّرت لديك بعد هذا التأمل؟\nتحقق: إذا لم تكن واضحاً في قيودك، سيتطوع الذكاء الاصطناعي باتخاذ القرارات نيابة عنك.", en: "Cue: Trigger timer. Remind them: write like a lead architect briefing an accelerated junior engineer.\nAsk: What changed in your thinking after this pause?\nCheck: If you do not specify your constraints, the AI will invent them for you." },
+      totalSlides: 10,
+      type: 'comparison',
+      visualType: 'before-after-ui',
+      title: {
+        ar: 'الفرق بين العناصر الأساسية والعناصر الثانوية',
+        en: 'Essential Elements vs. Secondary Decorative Elements',
+      },
+      subtitle: {
+        ar: 'كيف نبرز المعلومة المهمة ونحذف الفوضى التي تشتت عين الزائر؟',
+        en: 'How to highlight what matters and remove distracting clutter',
+      },
+      estimatedMinutes: 9,
+      teachingGoal: {
+        ar: 'تدريب عين المبتدئ على تمييز العناصر الأساسية (العنوان، السعر، زر الطلب) وإعطائها حجمًا وتباينًا أوضح.',
+        en: 'Train beginners to prioritize essential elements (Title, Price, Action Button) with size and spacing.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: قارن بين بطاقة القهوة قبل التحسين وبعد التحسين في الرسم التوضيحي. لاحظ كيف أن نفس الكلمات أصبحت مريحة وجذابة فقط عندما كبرنا العنوان وفصلنا السعر وأبرزنا زر واتساب.\nاسأل: في البطاقة المحسنة (الخضراء)، ما أول شيء تقع عليه عينك؟\nتحقق: هذا ما نسميه في التصميم «ترتيب الأهمية البصرية (Visual Hierarchy)».',
+        en: 'Compare the Before and After coffee cards in the illustration.',
+      },
       payload: {
-        type: 'think',
+        type: 'comparison',
         data: {
-          prompt: {
-            ar: 'إذا لم تكن واضحاً في قيودك، سيتطوع الذكاء الاصطناعي باتخاذ القرارات نيابة عنك.',
-            en: 'If you do not specify your constraints, the AI will invent them for you.',
+          leftHeader: {
+            ar: 'العناصر الأساسية (نبرزها بوضوح)',
+            en: 'Essential Elements (Highlight Clearly)',
           },
-          durationSeconds: 30,
-          guidancePoints: [
-            { ar: 'كل قيد لا تكتبه هو احتمال لخطأ برمجي مستقبلي.', en: 'Every unstated constraint is a future bug vector.' },
-            { ar: 'الوضوح الكامل يمنع التخمين والهلوسة العشوائية.', en: 'Explicit parameters eliminate hallucinations.' },
+          rightHeader: {
+            ar: 'العناصر الثانوية أو الزائدة (نقللها أو نحذفها)',
+            en: 'Secondary or Extra Elements (Minimize or Remove)',
+          },
+          dimensions: [
+            {
+              dimension: { ar: 'النصوص والعناوين', en: 'Text & Headings' },
+              left: {
+                ar: 'اسم المنتج أو الخدمة بخط كبير ووصف مختصر في سطر واحد',
+                en: 'Product/service name in bold and a 1-line description',
+              },
+              right: {
+                ar: 'فقرات إنشائية طويلة تتحدث عن تاريخ الشركة بالتفصيل الممل',
+                en: 'Long paragraphs of filler text that distract from the offer',
+              },
+            },
+            {
+              dimension: { ar: 'الألوان والخلفيات', en: 'Colors & Backgrounds' },
+              left: {
+                ar: 'خلفية هادئة ومريحة مع لون مميز واحد فقط للأزرار المهمة',
+                en: 'Calm background with one accent color for main buttons',
+              },
+              right: {
+                ar: '5 أو 6 ألوان صارخة في نفس القسم تسبب إجهادًا للعين',
+                en: '5 or 6 loud colors competing in the same section',
+              },
+            },
+            {
+              dimension: { ar: 'الأزرار في القسم الواحد', en: 'Buttons per Section' },
+              left: {
+                ar: 'زر إجراء أساسي واحد واضح (مثل: اطلب عبر واتساب)',
+                en: 'One clear primary action button (e.g., Order via WhatsApp)',
+              },
+              right: {
+                ar: 'عدة أزرار متزاحمة بنفس الحجم تجعل الزائر يحتار أيها يضغط',
+                en: 'Multiple crowded buttons of the same size',
+              },
+            },
           ],
+          balancedVerdict: {
+            ar: 'كل عنصر تضيفه للصفحة إما أن يساعد الزائر على الفهم والطلب، أو يشوش عليه؛ احذف كل ما لا يخدم الزائر.',
+            en: 'Every element either helps the visitor act or distracts them—keep only what helps.',
+          },
         },
       },
     },
-
-    // Slide 5: Concept (The 8-Part Framework)
     {
       id: 's02-slide-05',
       sessionNumber: 2,
       slideNumber: 5,
-      totalSlides: 13,
-      type: 'concept',
-      title: { ar: "إطار العمل الهندسي للبرومبت (8 ركائز)", en: "The 8-Factor Prompt Architecture" },
-      estimatedMinutes: 5,
-      teachingGoal: { ar: 'تقديم عناصر الإطار الثمانية بوضوح وحفظها كقالب معياري.', en: 'Present the canonical 8-factor prompt structure as our course standard.' },
-      speakerNotes: { ar: "نفّذ: اشرح العناصر الثمانية: ROLE, CONTEXT, GOAL, REQUIREMENTS, CONSTRAINTS, INPUT, OUTPUT, ACCEPTANCE CRITERIA.\nاسأل: كيف تطبّق هذا المبدأ: إطار العمل الموحد: ROLE + CONTEXT + GOAL + REQUIREMENTS + CONSTRAINTS + INPUT + OUTPUT + CRITERIA؟\nتحقق: القاعدة: كلما كانت الممنوعات (Constraints) صارمة، كان الكود المتولد أنظف وأكثر استقراراً.", en: "Cue: Break down the 8 building blocks: Role, Context, Goal, Requirements, Constraints, Input, Output, Acceptance.\nAsk: How would you apply this principle: Unified Framework: ROLE + CONTEXT + GOAL + REQS + CONSTRAINTS + INPUT + OUTPUT + CRITERIA?\nCheck: Rule: Strict negative constraints produce exponentially cleaner code than vague positive wishes." },
+      totalSlides: 10,
+      type: 'question',
+      visualType: 'cluttered-vs-clean',
+      title: {
+        ar: 'اختبر عينك التصميمية الآن',
+        en: 'Test Your Design Eye Now',
+      },
+      estimatedMinutes: 6,
+      teachingGoal: {
+        ar: 'تفعيل مشاركة المتدربين في نقد تصميم مزدحم واقتراح تحسينه.',
+        en: 'Engage trainees in spotting clutter and suggesting improvements.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: اطرح السؤال واطلب من المتدربين كتابة عنصر واحد سيحذفونه أو يرتبونه لو رأوا صفحة مزدحمة.\nاسأل: كم لونًا أساسيًا يكفي لتصميم موقع أنيق ومرتب؟\nتحقق: أكد لهم أن لونًا أساسيًا واحدًا (مثل الأخضر أو الأزرق أو البرتقالي الدافئ) مع خلفية فاتحة أو داكنة مريحة يكفي تمامًا.',
+        en: 'Ask trainees how many primary colors are needed for a clean site (1 main accent + calm neutrals).',
+      },
       payload: {
-        type: 'concept',
+        type: 'question',
         data: {
-          principle: {
-            ar: 'إطار العمل الموحد: ROLE + CONTEXT + GOAL + REQUIREMENTS + CONSTRAINTS + INPUT + OUTPUT + CRITERIA',
-            en: 'Unified Framework: ROLE + CONTEXT + GOAL + REQS + CONSTRAINTS + INPUT + OUTPUT + CRITERIA',
+          question: {
+            ar: 'لو طلب منك صاحب متجر وضع 10 أزرار و6 ألوان مختلفة في أول الصفحة، بماذا تنصحه؟',
+            en: 'If a store owner asks for 10 buttons and 6 colors at the top of the page, what would you advise?',
           },
-          tagline: { ar: 'THE RIGID SPECIFICATION FRAMEWORK', en: 'THE RIGID SPECIFICATION FRAMEWORK' },
-          explanation: {
-            ar: 'هذا الإطار يحول تفكيرك من مجرد تمني النتيجة إلى تصميم تجربة الإخراج بالكامل، مما يضمن كوداً متوافقاً مع أفضل الممارسات.',
-            en: 'This framework elevates your instruction into a deterministic spec, ensuring production-grade code output.',
+          contextHint: {
+            ar: 'تذكر كيف يتصفح الزبون الموقع من شاشة هاتفه الصغيرة.',
+            en: 'Remember how customers browse on a small phone screen.',
           },
-          bulletPoints: [
-            { ar: 'ROLE: من هو الذكاء الاصطناعي؟ (Senior Frontend Architect)', en: 'ROLE: Who is the AI? (Senior Frontend Architect)' },
-            { ar: 'CONTEXT: ما هو المشروع والتقنيات المستخدمة؟ (Next.js 16 + Tailwind v4)', en: 'CONTEXT: Stack and environment (Next.js 16 + Tailwind v4)' },
-            { ar: 'CONSTRAINTS: ما الممنوعات؟ (No external libraries, semantic HTML only)', en: 'CONSTRAINTS: Explicit negatives (No external dependencies)' },
-            { ar: 'ACCEPTANCE: كيف نقيس نجاح الكود؟ (Valid HTML, responsive at 375px)', en: 'ACCEPTANCE: Testable pass criteria (Responsive at 375px)' },
+          promptToClass: {
+            ar: 'اكتب نصيحتك لصاحب المتجر في جملة واحدة في شات Zoom 💬',
+            en: 'Write your 1-sentence advice in Zoom chat 💬',
+          },
+          expectedAnswers: [
+            {
+              ar: 'نكتفي بزر أساسي واحد واضح في الأعلى (اطلب الآن) حتى لا يتشتت الزبون.',
+              en: 'Keep one clear main button at the top so the customer is not confused.',
+            },
+            {
+              ar: 'نستخدم لونًا أساسيًا واحدًا للهوية مع خلفية هادئة تبرز صور المنتجات.',
+              en: 'Use one main brand color with a calm background so product photos stand out.',
+            },
           ],
-          architecturalRule: {
-            ar: 'القاعدة: كلما كانت الممنوعات (Constraints) صارمة، كان الكود المتولد أنظف وأكثر استقراراً.',
-            en: 'Rule: Strict negative constraints produce exponentially cleaner code than vague positive wishes.',
-          },
         },
       },
     },
-
-    // Slide 6: Comparison (Bad vs Better vs Professional)
     {
       id: 's02-slide-06',
       sessionNumber: 2,
       slideNumber: 6,
-      totalSlides: 13,
-      type: 'comparison',
-      title: { ar: "تطور البرومبت — سيئ ← أفضل ← احترافي", en: "Prompt Evolution — Bad → Better → Pro" },
-      subtitle: { ar: 'مقارنة حية لثلاثة مستويات من البرومبت لنفس المهمة البرمجية', en: 'Side-by-side evolution of three prompt tiers for the same feature' },
-      estimatedMinutes: 5,
-      teachingGoal: { ar: 'إظهار الفارق الهائل في دقة المخرجات بين المستويات الثلاثة.', en: 'Illustrate the vast gulf in output quality between the three tiers.' },
-      speakerNotes: { ar: "نفّذ: قارن بين المستوى العفوي الساذج وبين المستوى الاحترافي المقيد. وضح كيف يقضي المستوى الاحترافي على التخمين.\nاسأل: ما معيارك للاختيار بين جانبي «تطور البرومبت — سيئ ← أفضل ← احترافي»؟\nتحقق: كتابة مواصفات واضحة تستغرق وقتاً، لكنها تقلل التخمين وتسهّل مراجعة الناتج.", en: "Cue: Compare the naive casual prompt with the professional spec-driven tier.\nAsk: What would guide your choice between the two sides of “Prompt Evolution — Bad → Better → Pro”?\nCheck: A clear specification takes deliberate effort, but can reduce guesswork and make review easier." },
+      totalSlides: 10,
+      type: 'concept',
+      visualType: 'idea-to-website',
+      realWorldExample: {
+        ar: 'بدل رسم الواجهة يدويًا لساعات، نصف الأقسام الأربعة لأداة مثل Google Stitch فترسم لنا نموذجًا مرئيًا في ثوانٍ لنختار منه.',
+        en: 'Instead of drawing manually for hours, we describe our 4 sections to Google Stitch and get a visual draft in seconds.',
+      },
+      title: {
+        ar: 'كيف تساعدنا أدوات الذكاء الاصطناعي في تصميم شكل الموقع؟',
+        en: 'How AI Tools Help Us Design the Website Look',
+      },
+      estimatedMinutes: 10,
+      teachingGoal: {
+        ar: 'تعريف المتدرب بكيفية استخدام أدوات التصميم بالذكاء الاصطناعي (مثل Google Stitch) لتحويل خطة الأقسام إلى صورة مرئية.',
+        en: 'Show how AI UI tools like Google Stitch turn a written section plan into a visual screen design.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: اشرح للمتدربين أننا لا نحتاج إلى إتقان برامج تصميم معقدة؛ نحن نكتب وصف الأقسام التي خططناها، وأداة التصميم الذكية ترسم لنا الشاشة.\nاسأل: هل نقبل أول رسم يخرجه الذكاء الاصطناعي كما هو أم نراجعه ونطلب تبسيطه؟\nتحقق: نراجعه دائمًا ونحذف أي عناصر زائدة ونختار الألوان والخطوط الواضحة (Design Tokens).',
+        en: 'Explain how Google Stitch generates visual UI mockups from our section list.',
+      },
       payload: {
-        type: 'comparison',
+        type: 'concept',
         data: {
-          leftHeader: { ar: 'برومبت ساذج / عفوي (Bad Prompt)', en: 'Naive / Casual Prompt' },
-          rightHeader: { ar: 'برومبت هندسي احترافي (Professional Spec)', en: 'Professional Spec Prompt' },
-          dimensions: [
+          tagline: { ar: 'التصميم الذكي بدون تعقيد', en: 'Smart Visual Prototyping' },
+          principle: {
+            ar: 'نحول خطة الأقسام المكتوبة إلى شاشة مرئية قبل كتابة الكود',
+            en: 'Turn Your Written Plan into a Visible Screen Before Coding',
+          },
+          explanation: {
+            ar: 'تساعدنا أدوات مثل Google Stitch على رؤية شكل الصفحة وتجربة الألوان والمسافات بسرعة كبيرة.',
+            en: 'Tools like Google Stitch help us see the page layout and test colors and spacing quickly.',
+          },
+          bulletPoints: [
             {
-              dimension: { ar: 'الطلب الأساسي', en: 'Core Request' },
-              left: { ar: '"Make a header with a logo and links"', en: '"Make a header with a logo and links"' },
-              right: { ar: 'مكون Header متجاوب بدقة مع قائمة همبرغر للهواتف', en: 'Accessible <header> with semantic nav & mobile toggle' },
+              ar: '1. نكتب للأداة: نوع الموقع + الأقسام الأربعة بالترتيب + اللون المفضل.',
+              en: '1. Give the tool: site type + 4 ordered sections + preferred color.',
             },
             {
-              dimension: { ar: 'التقنيات المحددة', en: 'Tech Specification' },
-              left: { ar: 'غير محددة (يختار الذكاء الاصطناعي ما يشاء)', en: 'Unspecified (AI picks random CSS)' },
-              right: { ar: 'React 19 + TypeScript + Tailwind CSS v4', en: 'React 19 + TypeScript + Tailwind CSS v4' },
+              ar: '2. نفحص التصميم الناتج: هل العنوان واضح؟ هل البطاقات مريحة للعين؟',
+              en: '2. Inspect the result: Is the headline clear? Are the cards comfortable to read?',
             },
             {
-              dimension: { ar: 'الوصولية (Accessibility)', en: 'Accessibility' },
-              left: { ar: 'تجاهل تام (divs مع onClick عشوائي)', en: 'Ignored (divs with random onClicks)' },
-              right: { ar: 'استخدام <header>, <nav>, aria-expanded, aria-label', en: 'Strict semantic elements & ARIA attributes' },
-            },
-            {
-              dimension: { ar: 'صيغة المخرج (Output)', en: 'Output Format' },
-              left: { ar: 'كود مخلوط بشروحات طويلة مكررة', en: 'Code mixed with chatty paragraphs' },
-              right: { ar: 'كود TypeScript نقي فقط داخل مكون منفصل', en: 'Single self-contained TSX component block only' },
+              ar: '3. نحتفظ بدرجات الألوان المختارة (لون الخلفية، لون النص، ولون الأزرار) لنستخدمها في موقعنا.',
+              en: '3. Save the chosen colors (background, text, button color) to use in our project.',
             },
           ],
-          balancedVerdict: {
-            ar: 'كتابة مواصفات واضحة تستغرق وقتاً، لكنها تقلل التخمين وتسهّل مراجعة الناتج.',
-            en: 'A clear specification takes deliberate effort, but can reduce guesswork and make review easier.',
+          architecturalRule: {
+            ar: 'رؤية شكل الصفحة قبل بنائها يوفر عليك نصف وقت العمل والتعديل.',
+            en: 'Seeing the page layout before building saves half your time.',
           },
         },
       },
     },
-
-    // Slide 7: AI (Visual Prompt Artifact)
     {
       id: 's02-slide-07',
       sessionNumber: 2,
       slideNumber: 7,
-      totalSlides: 13,
-      type: 'ai',
-      title: { ar: "نموذج عملي — برومبت هندسي لصفحة هبوط مطعم", en: "Canonical Prompt Artifact — Restaurant Landing" },
-      subtitle: { ar: 'أثر بصري يوضح التطبيق الصارم لعناصر إطار العمل الثمانية', en: 'A living visual artifact showcasing the complete 8-factor architecture' },
-      estimatedMinutes: 6,
-      teachingGoal: { ar: 'عرض برومبت حقيقي متكامل يستطيع الطلاب نسخه وتعديله لمشاريعهم.', en: 'Provide an end-to-end production prompt ready to copy, study, and tailor.' },
-      speakerNotes: { ar: "نفّذ: اشرح كل قسم في هذا البرومبت. اطلب من الطلاب الضغط على زر Copy واستكشاف أقسام الـ Constraints والـ Acceptance Criteria.\nاسأل: أي قيد أو معيار قبول سيحمي الناتج من التخمين؟\nتحقق: معيار قابل للفحص: Fully responsive across 375px mobile, 768px tablet, and 1280px desktop viewports", en: "Cue: Deconstruct each section. Encourage learners to click Copy and inspect the constraints and criteria.\nAsk: Which constraint or acceptance criterion will guard against guesswork?\nCheck: A verifiable criterion: Fully responsive across 375px mobile, 768px tablet, and 1280px desktop viewports" },
-      payload: {
-        type: 'ai',
-        data: {
-          role: 'Senior Frontend Architect and UI/UX Specialist with deep Next.js and Tailwind expertise.',
-          context: 'We are building a production-ready homepage for an artisan Italian restaurant named "Trattoria Roma". Target audience: local food enthusiasts and dinner reservations.',
-          task: 'Scaffold the full responsive Landing Page structure including Hero, Signature Menu preview, Chef Story, Table Reservation CTA, and Footer.',
-          constraints: 'Use semantic HTML5 elements exclusively. Zero external icon libraries (use inline SVG). Mobile-first layout using Tailwind CSS. High color contrast meeting WCAG AAA.',
-          input: 'Brand primary: #641a01, Canvas: #fff8f5, Menu items: 4 signature pastas with prices in local currency.',
-          output: 'Return clean, modular, typed React 19 / Next.js code with clear section separation and zero markdown commentary.',
-          acceptanceCriteria: [
-            'Fully responsive across 375px mobile, 768px tablet, and 1280px desktop viewports',
-            'All interactive buttons have visible hover and focus-visible states',
-            'Reservation CTA button triggers a clear accessible interaction hook',
-            'Page performance budget: minimal DOM depth, zero layout shifts',
-          ],
-          iterationTip: {
-            ar: 'إذا جاء الكود طويلًا جدًا، اطلب أولاً الهيكل العام والمكونات، ثم اطلب كل قسم على حدة في برومبت منفصل.',
-            en: 'If output hits token limits, request the page layout skeleton first, then prompt sections individually.',
-          },
-        },
-      },
-    },
-
-    // Slide 8: Code (Code Produced by Good Prompt)
-    {
-      id: 's02-slide-08',
-      sessionNumber: 2,
-      slideNumber: 8,
-      totalSlides: 13,
-      type: 'code',
-      title: { ar: "كيف يبدو الكود المعماري المنضبط؟", en: "Output Artifact — Disciplined Component Structure" },
-      estimatedMinutes: 5,
-      teachingGoal: { ar: 'إظهار جودة ونظافة الكود الناتج عن برومبت محكم مقارنة بكود الـ Vibe العشوائي.', en: 'Demonstrate the immaculate clarity of code scaffolded via rigid prompt constraints.' },
-      speakerNotes: { ar: "نفّذ: ركز على استخدام <header>, <nav>, semantic tags, والأزرار ذات الـ accessibility. هذا هو الفرق بين كود الهواة وكود المحترفين.\nاسأل: ما وظيفة المثال في «كيف يبدو الكود المعماري المنضبط؟»؟\nتحقق: مكون Hero نقي ودلالي (Semantic) مع عناوين واضحة وأزرار إجراءات بارزة. استخدام aria-labelledby و <section> يمنح محركات البحث وقارئات الشاشة فهماً كاملاً للمحتوى.", en: "Cue: Point out semantic header, accessible buttons, and mobile-friendly utility classes.\nAsk: What does the example in “Output Artifact — Disciplined Component Structure” do?\nCheck: Semantic Hero component with ARIA labeling and prominent conversion CTAs. ARIA attributes and semantic elements satisfy both SEO bots and accessibility tools." },
-      payload: {
-        type: 'code',
-        data: {
-          language: 'tsx',
-          codeSnippet: `// Trattoria Roma — Production-Grade Hero Component
-export function HeroSection() {
-  return (
-    <section 
-      aria-labelledby="hero-title"
-      className="relative min-h-[85vh] flex items-center justify-center px-6 py-20 bg-[#fff8f5] text-[#140905]"
-    >
-      <div className="max-w-4xl mx-auto text-center space-y-6">
-        <span className="inline-block px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#641a01]/10 text-[#641a01] uppercase tracking-widest">
-          Artisan Italian Dining
-        </span>
-        <h1 id="hero-title" className="text-4xl sm:text-6xl font-extrabold tracking-tight">
-          Handmade Pasta & Timeless Roman Flavors
-        </h1>
-        <p className="text-lg text-neutral-700 max-w-2xl mx-auto leading-relaxed">
-          Crafted fresh daily with heritage semolina and centuries-old tradition in the heart of the city.
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
-          <a href="#reserve" className="px-6 py-3 rounded-xl bg-[#641a01] text-white font-bold hover:opacity-90 transition-opacity">
-            Reserve Your Table
-          </a>
-          <a href="#menu" className="px-6 py-3 rounded-xl border border-neutral-300 font-semibold hover:bg-neutral-100 transition-colors">
-            Explore Menu
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}`,
-          what: { ar: 'مكون Hero نقي ودلالي (Semantic) مع عناوين واضحة وأزرار إجراءات بارزة.', en: 'Semantic Hero component with ARIA labeling and prominent conversion CTAs.' },
-          why: { ar: 'استخدام aria-labelledby و <section> يمنح محركات البحث وقارئات الشاشة فهماً كاملاً للمحتوى.', en: 'ARIA attributes and semantic elements satisfy both SEO bots and accessibility tools.' },
-          when: { ar: 'الجزء الظاهر من صفحة الهبوط يعرّف بالعرض ويوجه الزائر نحو الحجز.', en: 'The first screen introduces the offer and points visitors toward booking.' },
-        },
-      },
-    },
-
-    // Slide 9: Demo (Live Prompt Iteration)
-    {
-      id: 's02-slide-09',
-      sessionNumber: 2,
-      slideNumber: 9,
-      totalSlides: 13,
+      totalSlides: 10,
       type: 'demo',
-      title: { ar: "مراجعة المخرجات وتدقيق الكود المتولد", en: "Live Demo — Auditing & Refining AI Output" },
-      estimatedMinutes: 6,
-      teachingGoal: { ar: 'نمذجة عملية المراجعة: فحص الكود، اكتشاف ما نسيه النموذج، وإرسال برومبت تصحيحي مقتضب.', en: 'Demonstrate prompt iteration: inspect output, identify gaps, dispatch surgical follow-up.' },
-      speakerNotes: { ar: "نفّذ: أظهر للطلاب كيف نطلب تعديلاً صغيراً دون إعادة توليد كل شيء. مثال: \"Keep the exact layout, but make the reservation button sticky on mobile\".\nاسأل: تدقيق كود صفحة الهبوط وتطبيق برومبت تعديلي مركز لتحسين استجابة الهواتف.\nتحقق: كود محدث يحتوي شارة ساعات العمل وأزرار هاتف متراصة رأسياً بأناقة.", en: "Cue: Demonstrate surgical follow-ups: modify one element without destroying existing architecture.\nAsk: Audit scaffolded page code and execute a surgical follow-up for mobile polish.\nCheck: Polished markup featuring live hours badge and vertically stacked mobile CTAs." },
+      visualType: 'page-anatomy',
+      title: {
+        ar: 'تطبيق عملي: تصميم واجهة مقهى القهوة المختصة خطوة بخطوة',
+        en: 'Live Demo: Designing the Specialty Café Interface Step by Step',
+      },
+      estimatedMinutes: 15,
+      teachingGoal: {
+        ar: 'عرض تجربة حية لتوليد تصميم واجهة المقهى ومراجعة ترتيب الأقسام والألوان أمام المتدربين.',
+        en: 'Demonstrate live generation of the café UI mockup and review its sections and colors.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: افتح أداة التصميم أو اعرض النموذج الحي، وأدخل الوصف البسيط للمقهى، ثم ناقش مع المتدربين كيف ظهرت الأقسام الأربعة.\nاسأل: ما رأيكم في تباين لون زر الطلب مع لون الخلفية؟ هل هو واضح؟\nتحقق: أرِ المتدربين كيف نحدد 3 ألوان أساسية فقط للمشروع (لون خلفية هادئ، لون نص واضح، ولون مميز للأزرار).',
+        en: 'Run the live demo showing the café interface layout and its 3 core colors.',
+      },
       payload: {
         type: 'demo',
         data: {
           objective: {
-            ar: 'تدقيق كود صفحة الهبوط وتطبيق برومبت تعديلي مركز لتحسين استجابة الهواتف.',
-            en: 'Audit scaffolded page code and execute a surgical follow-up for mobile polish.',
+            ar: 'تحويل خطة موقع المقهى إلى تصميم مرئي مرتب من 4 أقسام',
+            en: 'Turn our café website plan into a clean 4-section visual design',
           },
-          promptToUse: `Review the generated Hero component:
-1. Ensure the primary CTA button remains accessible on screens narrower than 400px.
-2. Add an accessible badge showing "Open Today: 12:00 PM – 11:00 PM".
-3. Return ONLY the updated code snippet without conversational intro.`,
           instructorSteps: [
-            { ar: 'فحص الكود المتولد على محاكي الهاتف الصغير (375px)', en: 'Test responsive behavior in mobile viewport emulator (375px)' },
-            { ar: 'ملاحظة أي مشاكل في المسافات أو تداخل الأزرار', en: 'Inspect button spacing and visual hierarchy' },
-            { ar: 'كتابة برومبت تعديلي موجه ومباشر (Surgical Follow-up)', en: 'Dispatch targeted surgical refinement prompt' },
-            { ar: 'التحقق من أن التعديل لم يكسر بقية العناصر', en: 'Verify that change did not regress existing markup' },
+            {
+              ar: 'ندخل وصف الأقسام الأربعة: الشريط العلوي، الترحيب، بطاقات المشروبات الست، والتذييل.',
+              en: 'Enter the 4 sections: Header, Hero, 6 drink cards, and Footer.',
+            },
+            {
+              ar: 'نختار ألوانًا مريحة تناسب المقهى (خلفية كريمية فاتحة، نص بني داكن، وزر أخضر واضح للطلب).',
+              en: 'Choose warm café colors (light cream background, dark espresso text, emerald order button).',
+            },
+            {
+              ar: 'نراجع المسافات بين البطاقات ونتأكد أن كل بطاقة تعرض (الاسم + السعر + زر الطلب) بوضوح.',
+              en: 'Verify card spacing so each card clearly shows Name + Price + Order button.',
+            },
           ],
+          promptToUse:
+            'صمم واجهة صفحة رئيسية لمقهى قهوة مختصة تتكون من 4 أقسام بالترتيب: 1. شريط علوي بسيط 2. قسم ترحيبي بعنوان واضح وزر طلب عبر واتساب 3. شبكة من 6 بطاقات مشروبات مع السعر 4. تذييل بساعات العمل والعنوان. استخدم ألواناً هادئة ومريحة للعين.',
           expectedOutput: {
-            ar: 'كود محدث يحتوي شارة ساعات العمل وأزرار هاتف متراصة رأسياً بأناقة.',
-            en: 'Polished markup featuring live hours badge and vertically stacked mobile CTAs.',
+            ar: 'تصميم بصري واضح ومرتب نعرف منه شكل كل قسم وألوان الموقع قبل البدء بالبناء.',
+            en: 'A clean visual layout showing every section and color before we start building.',
           },
         },
       },
     },
-
-    // Slide 10: Challenge (Student Prompt Lab)
     {
-      id: 's02-slide-10',
+      id: 's02-slide-08',
       sessionNumber: 2,
-      slideNumber: 10,
-      totalSlides: 13,
+      slideNumber: 8,
+      totalSlides: 10,
       type: 'challenge',
-      title: { ar: "صياغة برومبت احترافي لمشروعك", en: "Student Challenge — Craft Your Project Spec Prompt" },
-      estimatedMinutes: 8,
-      teachingGoal: { ar: 'قيام كل طالب بكتابة برومبت متكامل لمشروعه الخاص مستخدماً عناصر الإطار الثمانية.', en: 'Each student writes a full 8-factor spec prompt for their chosen business domain.' },
-      speakerNotes: { ar: "نفّذ: أطلق مؤقت الـ 5 دقائق. اطلب منهم ملء أقسام: ROLE, TASK, CONSTRAINTS, OUTPUT لمشروعهم (مطعم، عيادة، جيم).\nاسأل: ما الناتج الذي ستسلّمه؟ كتابة برومبت هندسي متكامل لصفحة الهبوط الخاصة بنشاطك التجاري المختار.\nتحقق: مسودة برومبت هندسي جاهزة للإدخال في أدوات التوليد في الجلسة 03.", en: "Cue: Start 5-minute countdown. Have learners draft Role, Task, Constraints, and Output for their niche.\nAsk: What will you submit? Author an 8-factor specification prompt for your flagship project landing page.\nCheck: A battle-tested specification prompt ready for UI generation in Session 03." },
+      visualType: 'page-anatomy',
+      title: {
+        ar: 'نشاطك العملي: رتب أقسام صفحتك الرئيسية واختر ألوانها',
+        en: 'Your Practical Activity: Order Your Homepage Sections & Pick Colors',
+      },
+      estimatedMinutes: 15,
+      teachingGoal: {
+        ar: 'جعل كل متدرب يكتب الترتيب النهائي لأقسام صفحته الرئيسية من الأعلى للأسفل ويختار ألوانها الهادئة.',
+        en: 'Have each trainee write the top-to-bottom section order and color palette for their homepage.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: شغّل المؤقت لمدة 15 دقيقة واطلب من كل متدرب ترتيب أقسام مشروعه الأربعة من الأعلى للأسفل.\nاسأل: ماذا ستكتب في العنوان الرئيسي (Hero) في أعلى صفحتك ليجذب الزائر؟\nتحقق: راجع مشاركات المتدربين وتأكد من عدم وجود ازدحام في الأقسام.',
+        en: 'Run the 15-minute timer and review trainee section plans in Zoom chat.',
+      },
       payload: {
         type: 'challenge',
         data: {
           mission: {
-            ar: 'كتابة برومبت هندسي متكامل لصفحة الهبوط الخاصة بنشاطك التجاري المختار.',
-            en: 'Author an 8-factor specification prompt for your flagship project landing page.',
+            ar: 'ارسم خطة أقسام صفحتك الرئيسية من الأعلى إلى الأسفل',
+            en: 'Map Your Homepage Sections from Top to Bottom',
           },
-          durationMinutes: 5,
+          durationMinutes: 15,
           objective: {
-            ar: 'التحول من مستهلك عشوائي للذكاء الاصطناعي إلى موجه ومحدد للمواصفات الهندسية.',
-            en: 'Transform from a passive AI prompter into an exacting technical spec author.',
+            ar: 'تحديد ترتيب المعلومات والعناوين والألوان التي سيراها زائر موقعك.',
+            en: 'Define the exact order of sections, headlines, and colors your visitor will see.',
           },
           instructions: [
-            { ar: 'حدد ROLE و CONTEXT لمشروعك بدقة (المجال، الاسم، الجمهور)', en: 'State explicit Role and Context (domain, brand name, audience)' },
-            { ar: 'اكتب TASK يحدد الأقسام الأربعة التي اخترتها في الجلسة 01', en: 'Define Task with the 4 core sections chosen in Session 01' },
-            { ar: 'ضع 3 قيود صارمة على الأقل (CONSTRAINTS) تمنع الأكواد غير المرغوبة', en: 'Enforce at least 3 strict negative constraints' },
-            { ar: 'حدد معيارين للقبول (ACCEPTANCE CRITERIA) يمكن اختبارهما', en: 'Specify 2 testable acceptance criteria' },
+            {
+              ar: 'اكتب العنوان الترحيبي الكبير الذي سيظهر في أعلى صفحتك (من 4 إلى 8 كلمات واضحة).',
+              en: 'Write the main welcome headline at the top of your page (4–8 clear words).',
+            },
+            {
+              ar: 'رتب 4 أقسام لصفحتك من الأعلى إلى الأسفل (مثال: ترحيب ← خدماتنا ← آراء العملاء ← تواصل عبر واتساب).',
+              en: 'Order 4 sections from top to bottom (e.g., Welcome -> Services -> Reviews -> WhatsApp Contact).',
+            },
+            {
+              ar: 'اختر لونًا أساسيًا واحدًا للأزرار المهمة ولون خلفية مريحًا يناسب فكرة موقعك.',
+              en: 'Pick 1 primary button color and a calm background color that fits your project.',
+            },
           ],
-          starterPromptOrCode: `ROLE: Senior Web Architect
-CONTEXT: [Your Business Name & Sector]
-TASK: Scaffold responsive landing page with [Section 1, 2, 3, 4]
-CONSTRAINTS: Semantic HTML, Tailwind CSS, no external libraries, mobile-first
-OUTPUT: Clean TypeScript React component`,
           deliverable: {
-            ar: 'مسودة برومبت هندسي جاهزة للإدخال في أدوات التوليد في الجلسة 03.',
-            en: 'A battle-tested specification prompt ready for UI generation in Session 03.',
+            ar: 'أرسل ترتيب أقسام صفحتك وألوانك المختارة في شات Zoom أو عبر زر واتساب في صفحة الجلسة.',
+            en: 'Share your section order and chosen colors in Zoom chat or via WhatsApp.',
           },
         },
       },
     },
-
-    // Slide 11: Project (Milestone 02)
     {
-      id: 's02-slide-11',
+      id: 's02-slide-09',
       sessionNumber: 2,
-      slideNumber: 11,
-      totalSlides: 13,
+      slideNumber: 9,
+      totalSlides: 10,
       type: 'project',
-      title: { ar: "وثيقة المواصفات البرمجية", en: "Project Milestone — The Specification Spec" },
+      visualType: 'before-after-ui',
+      title: {
+        ar: 'الخطوة الثانية في مشروعك: خريطة التصميم البصري',
+        en: 'Step 2 in Your Project: Visual Design Map',
+      },
       estimatedMinutes: 4,
-      teachingGoal: { ar: 'ربط مخرجات تحدي اليوم بمشروع التخرج المستمر.', en: 'Ground today deliverable into the ongoing capstone project repository.' },
-      speakerNotes: { ar: "نفّذ: أكد للطلاب أن هذا البرومبت ليس تمريناً ورقياً، بل هو ما سنستخدمه في الجلسة القادمة مباشرة داخل Google Stitch لإنتاج التصميم.\nاسأل: أي مخرج من هذه المرحلة يحتاج إلى استكمال؟\nتحقق: برومبت صفحة الهبوط المكتمل وفق إطار العمل الهندسي؛ قائمة الأقسام والمكونات المستهدفة بدقة؛ نصوص العناوين الرئيسية وأزرار الدعوة لاتخاذ إجراء", en: "Cue: Stress that this prompt will be fed directly into Google Stitch in Session 03.\nAsk: Which deliverable from this phase still needs work?\nCheck: Complete 8-factor landing page specification prompt; Exact inventory of intended components and sections; Draft headlines and primary conversion callouts" },
+      teachingGoal: {
+        ar: 'ربط خريطة الأقسام والألوان بالمشروع المتكامل الذي يبنيه المتدرب.',
+        en: 'Connect the section map and color palette to the trainee ongoing project.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: وضح للمتدربين كيف أصبحت فكرتهم الآن أقرب للواقع بعد تحديد ترتيب الأقسام والألوان.\nاسأل: هل أصبحتم تتخيلون شكل موقعكم على الشاشة الآن بوضوح أكبر؟\nتحقق: في الجلسة القادمة سنتعلم كيف نصف هذا التصميم للذكاء الاصطناعي بدقة ليبنيه لنا.',
+        en: 'Show how today’s visual layout prepares us for Session 03 prompting.',
+      },
       payload: {
         type: 'project',
         data: {
-          phaseName: { ar: 'المرحلة 02: وثيقة المتطلبات والبرومبت التأسيسي', en: 'Phase 02: Prompt Spec & Requirements Blueprint' },
           stepNumber: '02',
+          phaseName: {
+            ar: 'المرحلة الثانية: التخطيط والتصميم البصري',
+            en: 'Phase 2: Planning & Visual Design',
+          },
           whatWeBuildNow: {
-            ar: 'تجهيز وثيقة البرومبت المعتمدة التي ستقود توليد الواجهات والتصميم البصري في الجلسة القادمة.',
-            en: 'Finalize the approved specification prompt steering UI generation in the next session.',
+            ar: 'مخطط ترتيب أقسام الصفحة الرئيسية + لوحة الألوان الأساسية',
+            en: 'Homepage Section Order Blueprint + Core Color Palette',
           },
           deliverables: [
-            { ar: 'برومبت صفحة الهبوط المكتمل وفق إطار العمل الهندسي', en: 'Complete 8-factor landing page specification prompt' },
-            { ar: 'قائمة الأقسام والمكونات المستهدفة بدقة', en: 'Exact inventory of intended components and sections' },
-            { ar: 'نصوص العناوين الرئيسية وأزرار الدعوة لاتخاذ إجراء', en: 'Draft headlines and primary conversion callouts' },
+            {
+              ar: 'العنوان الترحيبي الرئيسي والرسالة التوضيحية في أول الصفحة',
+              en: 'Main welcome headline and short subtitle at the top of the page',
+            },
+            {
+              ar: 'ترتيب واضح للأقسام الأربعة من الأعلى إلى الأسفل',
+              en: 'Clear top-to-bottom order of the 4 main sections',
+            },
+            {
+              ar: 'تحديد محتوى البطاقات (الاسم + الوصف المختصر + السعر أو الميزة)',
+              en: 'Card content structure (Title + Short description + Price/Benefit)',
+            },
+            {
+              ar: 'اختيار لون الخلفية ولون النص ولون زر الإجراء الأساسي',
+              en: 'Selected background color, text color, and primary action button color',
+            },
           ],
           connectionToFinalProject: {
-            ar: 'جودة هذا البرومبت تؤثر في وضوح الواجهة وسرعة تنفيذها في Google Stitch والأكواد اللاحقة.',
-            en: 'The fidelity of this prompt helps shape the visual quality in Google Stitch in Session 03.',
+            ar: 'هذا المخطط البصري هو المرجع الذي سنعتمد عليه في الجلسة القادمة عندما نطلب من الذكاء الاصطناعي بناء الصفحة.',
+            en: 'This visual blueprint is what we will hand to AI in the next session to build our page.',
           },
         },
       },
     },
-
-    // Slide 12: Takeaway
     {
-      id: 's02-slide-12',
+      id: 's02-slide-10',
       sessionNumber: 2,
-      slideNumber: 12,
-      totalSlides: 13,
+      slideNumber: 10,
+      totalSlides: 10,
       type: 'takeaway',
-      title: { ar: "خلاصة: هندسة البرومبت", en: "Recap: Prompt Engineering" },
-      estimatedMinutes: 4,
-      teachingGoal: { ar: 'تثبيت القواعد الثلاث الأساسية لهندسة البرومبت التقني.', en: 'Crystallize the 3 unbreakable rules of technical prompt engineering.' },
-      speakerNotes: { ar: "نفّذ: اقرأ القواعد الثلاث بوضوح. كرر: \"البرومبت هو كود، عامل النص ككود مصدري يحتاج هندسة وتدقيقاً\".\nاسأل: أي مبدأ من «خلاصة: هندسة البرومبت» ستستخدمه في مشروعك؟\nتحقق: الدقة في كتابة التعليمات البرمجية تصنع الفارق بين كود الهواة وبنية المحترفين.", en: "Cue: Deliver takeaways: \"A prompt is code. Treat your prompt like source code requiring versioning and audit\".\nAsk: Which principle from “Recap: Prompt Engineering” will you use in your project?\nCheck: Precision in technical instruction marks the divide between amateur play and professional engineering." },
+      title: {
+        ar: 'خلاصة الجلسة الثانية في 3 نقاط',
+        en: 'Session 02 Summary in 3 Points',
+      },
+      estimatedMinutes: 3,
+      teachingGoal: {
+        ar: 'تلخيص قواعد التخطيط والتصميم البسيط والتمهيد للجلسة الثالثة.',
+        en: 'Summarize page planning and simple UX rules and preview Session 03.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: اختم الجلسة بمراجعة النقاط الثلاث وتذكير المتدربين بحفظ مخطط صفحتهم.\nاسأل: أي قسم في صفحتك متحمس لرؤيته مبنيًا في الجلسة القادمة؟\nتحقق: شجع المتدربين على إرسال نشاط الجلسة عبر واتساب للمراجعة.',
+        en: 'Wrap up with the 3 key takeaways and preview Session 03.',
+      },
       payload: {
         type: 'takeaway',
         data: {
           takeaways: [
             {
               number: '01',
-              title: { ar: 'البرومبت وثيقة مواصفات وليس دردشة', en: 'Prompt is a Spec, Not a Chat' },
+              title: {
+                ar: 'ابدأ بالأهم في أعلى الصفحة',
+                en: 'Start with What Matters Most at the Top',
+              },
               description: {
-                ar: 'عامل البرومبت كملف مواصفات فنية يحدد بدقة متناهية الدور والهدف والقيود والشكل النهائي للمخرج.',
-                en: 'Treat prompts as technical architecture contracts defining role, context, constraints, and schema.',
+                ar: 'العنوان الواضح وزر الطلب السريع يجب أن يظهرا فور فتح الموقع دون بحث.',
+                en: 'A clear headline and quick action button should be visible immediately.',
               },
             },
             {
               number: '02',
-              title: { ar: 'قوة القيود الصارمة (Constraints)', en: 'The Power of Negative Constraints' },
+              title: {
+                ar: 'البساطة والمساحات المريحة سر الجمال',
+                en: 'Simplicity and Breathing Room Create Beauty',
+              },
               description: {
-                ar: 'تحديد ما لا تريده يمنع الذكاء الاصطناعي من إضافة مكتبات خارجية ثقيلة أو أكواد قديمة غير آمنة.',
-                en: 'Specifying what NOT to do eliminates bloated packages and legacy anti-patterns.',
+                ar: 'عدد قليل من الأقسام المرتبة وألوان هادئة أفضل دائمًا من شاشة مزدحمة.',
+                en: 'A few organized sections and calm colors always beat a crowded screen.',
               },
             },
             {
               number: '03',
-              title: { ar: 'التدقيق والتعديل الجراحي (Surgical Iteration)', en: 'Surgical Output Auditing' },
+              title: {
+                ar: 'التصميم البصري يختصر وقت البناء',
+                en: 'Visual Planning Saves Building Time',
+              },
               description: {
-                ar: 'لا تعيد توليد الصفحة كاملة عند حدوث خطأ بسيط؛ اطلب تعديلاً دقيقاً ومستهدفاً للسطر أو المكون المطلوب.',
-                en: 'Never re-scaffold whole pages for minor bugs; dispatch surgical follow-up prompts.',
+                ar: 'عندما تعرف ترتيب أقسامك مسبقًا، يصبح توجيه الذكاء الاصطناعي لبنائها سهلًا ودقيقًا.',
+                en: 'Knowing your section order upfront makes guiding AI fast and accurate.',
               },
             },
           ],
           coreMotto: {
-            ar: 'الدقة في كتابة التعليمات البرمجية تصنع الفارق بين كود الهواة وبنية المحترفين.',
-            en: 'Precision in technical instruction marks the divide between amateur play and professional engineering.',
-          },
-        },
-      },
-    },
-
-    // Slide 13: Next
-    {
-      id: 's02-slide-13',
-      sessionNumber: 2,
-      slideNumber: 13,
-      totalSlides: 13,
-      type: 'next',
-      title: { ar: "التالي: من الفكرة إلى التصميم", en: "Next: Idea to Interface" },
-      estimatedMinutes: 2,
-      teachingGoal: { ar: 'تشويق الطلاب لرؤية أفكارهم تتحول إلى واجهات بصرية حقيقية في الجلسة 03.', en: 'Build excitement for translating text prompts into live UI layouts in Session 03.' },
-      speakerNotes: { ar: "نفّذ: اختم الجلسة: \"في الجلسة القادمة سنأخذ هذا البرومبت وندخله في Google Stitch لنشاهد الواجهة تتولد أمام أعيننا في ثوانٍ!\".\nاسأل: ما الذي ستجهزه قبل الجلسة القادمة؟\nتحقق: احتفظ بمسودة البرومبت التي كتبتها اليوم جاهزة على جهازك لنبدأ بها فوراً في الجلسة القادمة.", en: "Cue: Close session: \"Next session we feed our spec prompt into Google Stitch and watch our UI ignite live!\"\nAsk: What will you prepare before the next session?\nCheck: Have your Session 02 prompt spec ready on your clipboard for immediate launch in Session 03." },
-      payload: {
-        type: 'next',
-        data: {
-          nextSessionNumber: '03',
-          nextSessionTitle: {
-            ar: 'Google Stitch: تحويل الفكرة المكتوبة إلى تصميم واجهة حقيقي',
-            en: 'Google Stitch: Translating Written Ideas into Living UI Prototypes',
-          },
-          teaser: {
-            ar: 'سنحول وثيقة البرومبت التي بنيناها اليوم إلى تصاميم UI ملموسة، وسنتعلم كيف نراجع التصميم ونستخرج عناصر الهوية.',
-            en: 'We will convert our prompt specs into live interactive UI designs, review layouts, and export design tokens.',
-          },
-          preparationHint: {
-            ar: 'احتفظ بمسودة البرومبت التي كتبتها اليوم جاهزة على جهازك لنبدأ بها فوراً في الجلسة القادمة.',
-            en: 'Have your Session 02 prompt spec ready on your clipboard for immediate launch in Session 03.',
+            ar: 'الخطوة القادمة في الجلسة 03: كيف تصف فكرتك وتصميمك للذكاء الاصطناعي بوضوح ليبني لك الصفحة؟',
+            en: 'Up Next in Session 03: How to describe your idea and layout clearly to AI.',
           },
         },
       },

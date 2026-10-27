@@ -1,50 +1,91 @@
 'use client';
 
 import React from 'react';
-import { TitleSlidePayload } from '@/types';
+import { TitleSlidePayload, LocalizedString } from '@/types';
 import { getLocalizedText } from '@/lib/utils';
 import { usePreferencesStore } from '@/store';
+import { Clock } from 'lucide-react';
 
 interface TitleSlideProps {
   payload: TitleSlidePayload;
+  realWorldExample?: LocalizedString;
 }
 
-export const TitleSlide: React.FC<TitleSlideProps> = ({ payload }) => {
+export const TitleSlide: React.FC<TitleSlideProps> = ({
+  payload,
+  realWorldExample,
+}) => {
   const { language } = usePreferencesStore();
   const isRtl = language === 'ar';
 
   return (
-    <div className="relative w-full h-full flex flex-col justify-center px-6 py-12 sm:px-12 lg:px-20 select-none overflow-hidden text-start">
-
-      {/* Top Session Breadcrumb */}
-      <div className="absolute top-7 inset-x-6 sm:inset-x-12 lg:inset-x-20 flex items-center justify-between border-b border-[var(--pres-border-subtle)] pb-3">
-        <span className="text-sm font-semibold text-[var(--pres-primary)]">WEB CREATOR AI</span>
-        <span className="text-sm text-[var(--pres-text-muted)]">
-          {isRtl ? `الجلسة ${payload.sessionNumber} من ${payload.totalSessions}` : `Session ${payload.sessionNumber} of ${payload.totalSessions}`}
-          <span className="mx-2">·</span>{payload.durationMinutes} {isRtl ? 'دقيقة' : 'min'}
-        </span>
+    <div className="w-full h-full flex flex-col justify-between p-8 sm:p-14 lg:p-20 relative overflow-y-auto select-none text-start">
+      {/* Subtle Session Number Watermark */}
+      <div className="absolute top-12 end-14 text-[140px] sm:text-[200px] font-mono font-black text-[var(--pres-watermark)] leading-none pointer-events-none select-none">
+        {payload.sessionNumber}
       </div>
 
-      {/* Center Cinematic Content */}
-      <div className="relative z-10 max-w-5xl space-y-6 py-8">
-        <div className="text-base sm:text-lg font-semibold text-[var(--pres-primary)]">
-          {getLocalizedText(payload.kicker, language)}
+      {/* Top Meta Bar */}
+      <div className="flex flex-wrap items-center justify-between gap-4 relative z-10 border-b border-[var(--pres-border)] pb-5">
+        <div className="flex items-center gap-3">
+          <span className="px-3.5 py-1 rounded-md text-xs sm:text-sm font-mono font-bold bg-[var(--pres-text)] text-[var(--pres-bg)]">
+            {isRtl
+              ? `الدرس ${payload.sessionNumber} من ${payload.totalSessions}`
+              : `Lesson ${payload.sessionNumber} / ${payload.totalSessions}`}
+          </span>
+          <span className="text-xs sm:text-sm font-semibold text-[var(--pres-text-muted)]">
+            {getLocalizedText(payload.kicker, language)}
+          </span>
         </div>
 
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--pres-text)] tracking-tight leading-[1.08]">
+        <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-[var(--pres-text-muted)]">
+          <Clock className="w-4 h-4 text-[var(--pres-primary)]" />
+          <span>
+            {isRtl
+              ? `مدة الدرس: ${payload.durationMinutes} دقيقة (ساعة ونصف)`
+              : `Duration: ${payload.durationMinutes} minutes`}
+          </span>
+        </div>
+      </div>
+
+      {/* Main Editorial Title Block */}
+      <div className="max-w-4xl space-y-6 my-auto py-8 relative z-10">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[var(--pres-text)] tracking-tight leading-[1.18]">
           {getLocalizedText(payload.headline, language)}
         </h1>
 
-        <p className="text-2xl sm:text-3xl text-[var(--pres-secondary)] font-medium leading-relaxed max-w-4xl">
+        <p className="text-lg sm:text-2xl text-[var(--pres-text-muted)] font-normal leading-relaxed max-w-3xl">
           {getLocalizedText(payload.subheadline, language)}
         </p>
 
+        {realWorldExample && (
+          <div className="pt-2 border-s-4 border-[var(--pres-primary)] ps-5 py-1 max-w-3xl">
+            <p className="text-base sm:text-lg font-medium text-[var(--pres-text)] leading-relaxed">
+              {getLocalizedText(realWorldExample, language)}
+            </p>
+          </div>
+        )}
+
+        {payload.tags && payload.tags.length > 0 && (
+          <div className="flex flex-wrap items-center gap-2.5 pt-4">
+            {payload.tags.map((tag, idx) => (
+              <span
+                key={idx}
+                className="px-3.5 py-1.5 rounded-md text-xs sm:text-sm font-medium bg-[var(--pres-surface)] border border-[var(--pres-border)] text-[var(--pres-text-muted)]"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
 
-      {/* Bottom Footer Ribbon */}
-      <div className="absolute bottom-7 inset-x-6 sm:inset-x-12 lg:inset-x-20 border-t border-[var(--pres-border-subtle)] pt-3 text-sm text-[var(--pres-text-muted)] flex items-center justify-between">
-        <span>{isRtl ? 'هدف اليوم: فهم الفكرة وتطبيقها' : 'Today: understand the idea, then apply it'}</span>
-        <span className="text-xs">{isRtl ? 'مسافة: ابدأ' : 'Space: begin'}</span>
+      {/* Bottom Footer */}
+      <div className="flex items-center justify-between border-t border-[var(--pres-border-subtle)] pt-4 text-xs sm:text-sm text-[var(--pres-text-muted)] relative z-10">
+        <span>{isRtl ? 'مسار WEB CREATOR AI التدريبي' : 'WEB CREATOR AI Course'}</span>
+        <span className="font-semibold text-[var(--pres-text)]">
+          {isRtl ? 'اضغط المسافة أو السهم للمتابعة ←' : 'Press Space or Arrow to continue →'}
+        </span>
       </div>
     </div>
   );

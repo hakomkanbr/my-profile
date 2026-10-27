@@ -5,904 +5,1090 @@ export const SESSION_01: PresentationSession = {
   number: 1,
   slug: 'session-01',
   title: {
-    ar: 'المبتكر الجديد للويب: كيف يغير الذكاء الاصطناعي تطوير المواقع؟',
-    en: 'The New Web Creator: How AI is Transforming Web Development',
+    ar: 'مدخل إلى صناعة المواقع: المواقع سابقًا والآن، وتجهيز أدوات العمل',
+    en: 'Introduction to Web Creation: Websites Past & Present, and Setting Up Your Tools',
   },
   subtitle: {
-    ar: 'فهم التحول المعماري وسوق العمل، وتحديد الفرق الجوهري بين هندسة البرمجيات والـ Vibe Coding',
-    en: 'Understanding industry evolution, job market reality, and Software Engineering vs Vibe Coding',
+    ar: 'الدرس الأول (90 دقيقة): كيف تطورت صناعة المواقع، وما الأدوات التي سنثبتها على أجهزتنا، وكيف نختار فكرة مشروعنا؟',
+    en: 'Lesson 01 (90 min): How websites evolved, what tools to install on your computer, and choosing your project idea',
   },
   durationMinutes: 90,
   goal: {
-    ar: 'فهم موقعك الجديد كـ Web Creator يتحكم في أدوات الذكاء الاصطناعي بعقلية هندسية منضبطة، والتعرف على خارطة طريق الدورة الممتدة لـ 12 جلسة.',
-    en: 'Understand your role as a Web Creator directing AI with rigorous engineering judgment, and grasp the 12-session course journey.',
+    ar: 'أن يفهم المتدرب كيف كانت المواقع تُبنى سابقًا وكيف أصبحت تُبنى اليوم بمساعدة الذكاء الاصطناعي، ويثبّت الأدوات الأساسية على جهازه، ويحدد فكرة موقعه الذي سيبنيه خلال الدورة.',
+    en: 'Understand how websites evolved from the past to today, install the required tools on your machine, and define your course project idea.',
   },
   prerequisites: [
     {
-      ar: 'شغف ببناء منتجات رقمية حقيقية للمتصفح',
-      en: 'Curiosity to build tangible web products for browsers',
-    },
-    {
-      ar: 'معرفة أساسية بكيفية تصفح الإنترنت واستخدام الحاسوب',
-      en: 'Basic familiarity with browsing and computer workflows',
+      ar: 'جهاز كمبيوتر متصل بالإنترنت — لا يشترط أي خبرة برمجية سابقة',
+      en: 'A computer with internet connection — no prior coding experience required',
     },
   ],
   objectives: [
     {
-      ar: 'إدراك أثر أدوات الذكاء الاصطناعي على سرعة النمذجة مع الحفاظ على أهمية الأساسيات الهندسية',
-      en: 'Appreciate AI-accelerated prototyping while upholding engineering fundamentals',
+      ar: 'معرفة الفرق بين المواقع في السابق والمواقع الحديثة اليوم من حيث الشكل وطريقة البناء والوقت',
+      en: 'Understand the difference between websites in the past and modern websites today',
     },
     {
-      ar: 'التمييز الموضوعي بين منهجية هندسة البرمجيات (Software Engineering) وأسلوب الـ Vibe Coding',
-      en: 'Differentiate Software Engineering methodology from the Vibe Coding approach',
+      ar: 'التعرف على المكونات الثلاثة لأي موقع ويب (الهيكل HTML، المظهر CSS، والتفاعل JavaScript) بلغة مبسطة',
+      en: 'Learn the 3 building blocks of any website (HTML, CSS, JavaScript) in plain language',
     },
     {
-      ar: 'استيعاب خريطة طريق الدورة كاملة من الفكرة وحتى الإطلاق والتسويق',
-      en: 'Internalize the full 12-session curriculum pipeline from idea to launch and client acquisition',
+      ar: 'تنزيل وتثبيت الأدوات الأساسية على الجهاز (Google Chrome، محرر الأكواد VS Code / Antigravity، و Node.js)',
+      en: 'Download and install the essential tools on your computer (Chrome, Code Editor, Node.js)',
     },
     {
-      ar: 'التدريب العملي على تفكيك طلب العميل واستخراج متطلبات العمل قبل كتابة أول سطر أو برومبت',
-      en: 'Hands-on practice decomposing client requirements into structural specs before writing prompts',
+      ar: 'اختيار فكرة المشروع العملي وتحديد الجمهور المستهدف والأقسام الأساسية للصفحة الرئيسية',
+      en: 'Choose your practical project idea and define its target visitor and core homepage sections',
     },
   ],
   timeline: [
     {
-      timeRange: '00:00 – 00:15',
-      durationMinutes: 15,
+      timeRange: '00:00 – 00:25',
+      durationMinutes: 25,
       label: {
-        ar: 'الترحيب، التعارف، والرؤية الكبرى لـ WEB CREATOR AI',
-        en: 'Welcome, orientation & the core vision of WEB CREATOR AI',
+        ar: 'الجزء الأول: المواقع سابقًا والآن — كيف تطورت صناعة الويب؟',
+        en: 'Part 1: Websites Past vs. Present — How Web Creation Evolved',
       },
       type: 'context',
     },
     {
-      timeRange: '00:15 – 00:35',
+      timeRange: '00:25 – 00:45',
       durationMinutes: 20,
       label: {
-        ar: 'مفهوم التحول: التطوير التقليدي مقابل التطوير المعزز بالذكاء الاصطناعي',
-        en: 'The Paradigm Shift: Traditional vs AI-assisted development workflows',
+        ar: 'الجزء الثاني: مما يتكون أي موقع إلكتروني وكيف يعمل؟',
+        en: 'Part 2: What Makes Up a Website and How It Works',
       },
       type: 'concept',
     },
     {
-      timeRange: '00:35 – 00:50',
-      durationMinutes: 15,
+      timeRange: '00:45 – 01:10',
+      durationMinutes: 25,
       label: {
-        ar: 'هندسة البرمجيات مقابل أسلوب الـ Vibe Coding: مقارنة موضوعية متزنة',
-        en: 'Software Engineering vs Vibe Coding Approach: Balanced comparison',
-      },
-      type: 'concept',
-    },
-    {
-      timeRange: '00:50 – 01:05',
-      durationMinutes: 15,
-      label: {
-        ar: 'تطبيق حي: كيف يحلل صانع الويب فكرة مشروع تجاري حقيقي؟',
-        en: 'Live Demo: Deconstructing a commercial web project with engineering eye',
+        ar: 'الجزء الثالث: الأدوات التي يجب تنزيلها وتثبيتها على جهازك اليوم',
+        en: 'Part 3: Downloading and Installing Essential Tools on Your Computer',
       },
       type: 'demo',
     },
     {
-      timeRange: '01:05 – 01:20',
-      durationMinutes: 15,
+      timeRange: '01:10 – 01:30',
+      durationMinutes: 20,
       label: {
-        ar: 'تحدي الطلاب: تفكيك طلب عميل مطعم إلى متطلبات وصفحات',
-        en: 'Student Challenge: Requirement breakdown for a restaurant business',
+        ar: 'الجزء الرابع: النشاط العملي — فحص جاهزية الجهاز وتحديد فكرة موقعك',
+        en: 'Part 4: Hands-On Activity — Tool Check & Defining Your Website Idea',
       },
       type: 'practice',
     },
-    {
-      timeRange: '01:20 – 01:25',
-      durationMinutes: 5,
-      label: {
-        ar: 'مراجعة جماعية وتقييم مخرجات الطلاب في الشات',
-        en: 'Class review and evaluating student breakdowns',
-      },
-      type: 'review',
-    },
-    {
-      timeRange: '01:25 – 01:30',
-      durationMinutes: 5,
-      label: {
-        ar: 'الخلاصة الهندسية والتجهيز لجلسة هندسة البرومبت (Session 02)',
-        en: 'Core takeaways & preparing for Session 02 (Prompt Engineering)',
-      },
-      type: 'takeaway',
-    },
   ],
   projectMilestone: {
-    ar: 'تحديد معالم فكرة المشروع التجاري واختيار قطاع الأعمال للمشروع المستمر طوال الدورة.',
-    en: 'Define project scope and select business domain for the semester-long portfolio project.',
+    ar: 'تثبيت بيئة العمل الكاملة على جهازك + اعتماد بطاقة فكرة موقعك وأقسامه الرئيسية.',
+    en: 'Install your complete local workspace + finalize your website idea card and core sections.',
   },
   aiRole: {
-    ar: 'مساعد تسريع البحث الأولي وتلخيص متطلبات السوق دون ترك القرارات الهندسية له.',
-    en: 'Research accelerator and market requirement synthesizer under human architectural supervision.',
+    ar: 'مساعد في تنفيذ الكود وتنظيم الأقسام بعد أن يحدد الإنسان الفكرة والخطة.',
+    en: 'Execution assistant that builds sections after the human defines the idea and plan.',
   },
   marketConnection: {
-    ar: 'فهم احتياجات العملاء والشركات اليوم: حلول سريعة ومتقنة وموثوقة تحل مشكلة تجارية واضحة.',
-    en: 'Modern client demand: high-reliability, fast-iteration solutions that solve actual business problems.',
+    ar: 'أصحاب الأعمال اليوم يبحثون عمن ينجز لهم موقعًا واضحًا وسريعًا يخدم عملاءهم على الهاتف والكمبيوتر.',
+    en: 'Business owners today want a clear, fast website that serves customers on phone and desktop.',
   },
   startScreen: {
-    badge: 'SESSION 01 / 12 • FOUNDATION',
+    badge: 'الدرس 01 من 12 • مدة الدرس: 90 دقيقة (ساعة ونصف)',
     headline: {
-      ar: 'المبتكر الجديد للويب: من متلقٍ للأوامر إلى قائد للمنتج الرقمي',
-      en: 'The New Web Creator: From Ticket Taker to Product Orchestrator',
+      ar: 'الدرس الأول: المواقع سابقًا والآن، وتجهيز أدوات العمل على جهازك',
+      en: 'Lesson 01: Websites Past & Present, and Setting Up Your Tools',
     },
     description: {
-      ar: 'جلسة التأسيس الذهني: كيف تبني مواقع ويب متقدمة بالذكاء الاصطناعي دون التنازل عن معايير هندسة البرمجيات الرصينة.',
-      en: 'Foundational mental models: leveraging AI velocity without sacrificing rigorous engineering standards.',
+      ar: 'نبدأ رحلتنا بفهم كيف تغيرت صناعة المواقع بين الماضي واليوم، ونتعرف على مكونات أي موقع إلكتروني، ثم ننزل ونثبّت الأدوات التي سنعمل عليها طوال الدورة.',
+      en: 'Understand how web development evolved, learn what makes up a website, and install the tools we will use throughout the course.',
     },
     sessionGoal: {
-      ar: 'إعادة ضبط بوصلتك المهنية: فهم كيف يفكر صانع الويب المعاصر، وكيف يحول فكرة عميل مجردة إلى نظام رقمي قابل للإطلاق.',
-      en: 'Recalibrate your mental model: think like a modern Web Creator turning abstract client ideas into shippable systems.',
+      ar: 'الخروج من الدرس الأول بفهم واضح لطريقة بناء المواقع الحديثة، وتثبيت الأدوات على جهازك، وتحديد فكرة مشروعك.',
+      en: 'Finish Lesson 01 with a clear understanding of modern websites, installed tools, and a chosen project idea.',
     },
   },
   endScreen: {
     headline: {
-      ar: 'أحسنت! أكملت بنجاح الجلسة التأسيسية الأولى',
-      en: 'Session 01 Complete! Foundation Successfully Built',
+      ar: 'أحسنت! أتممت الدرس الأول وجهزت أدواتك وفكرة مشروعك',
+      en: 'Well Done! You Completed Lesson 01 and Prepared Your Tools & Project Idea',
     },
     keyRecap: [
       {
-        ar: 'الذكاء الاصطناعي أداة تسريع تنفيذ خارقة، لكن الحكم الهندسي والمسؤولية تظل مسؤولية الإنسان.',
-        en: 'AI is a powerful execution accelerator, but engineering judgment and accountability remain a human responsibility.',
+        ar: 'تطورت صناعة المواقع من كتابة كل سطر يدويًا لشهور طويلة إلى بناء منظم وسريع بمساعدة الذكاء الاصطناعي.',
+        en: 'Web creation evolved from months of manual coding to fast, structured building with AI.',
       },
       {
-        ar: 'الـ Vibe Coding أسلوب مفيد للاستكشاف والـ MVP، بينما هندسة البرمجيات تضمن الجودة وقابلية الصيانة.',
-        en: 'Vibe Coding excels at quick exploration and prototypes; Software Engineering ensures maintainability and scale.',
+        ar: 'الأدوات الأساسية على جهازك هي: متصفح Chrome، محرر الأكواد (VS Code / Antigravity)، وبيئة التشغيل Node.js.',
+        en: 'Your core local tools are Google Chrome, a Code Editor (VS Code / Antigravity), and Node.js.',
       },
       {
-        ar: 'العميل لا يشتري أسطر كود مجردة، بل يشتري حلولاً رقمية سريعة وموثوقة تحقق أهدافه التجارية.',
-        en: 'Clients do not buy raw code lines; they invest in reliable digital solutions that solve real business needs.',
+        ar: 'نجاح الموقع يبدأ من وضوح الفكرة وتحديد ما يحتاجه الزائر قبل كتابة أي أمر أو كود.',
+        en: 'A successful website starts with a clear idea and visitor needs before writing any code.',
       },
     ],
     nextSessionNumber: '02',
     nextSessionTitle: {
-      ar: 'هندسة البرومبت لتطوير الويب: صياغة التعليمات البرمجية الدقيقة',
-      en: 'Prompt Engineering for Web Development: Crafting Rigid Technical Instructions',
+      ar: 'تخطيط صفحات الموقع وتصميم تجربة واضحة ومريحة للزائر',
+      en: 'Planning Website Pages & Designing a Clear Visitor Experience',
     },
   },
   slides: [
-    // Slide 1: Title
+    // SLIDE 01: TITLE
     {
       id: 's01-slide-01',
       sessionNumber: 1,
       slideNumber: 1,
-      totalSlides: 16,
+      totalSlides: 15,
       type: 'title',
-      title: { ar: "المبتكر الجديد للويب", en: "The New Web Creator" },
-      estimatedMinutes: 2,
-      teachingGoal: {
-        ar: 'افتتاح الجلسة بطاقة عالية وتركيز مباشر على الهوية الجديدة للمتعلم في عصر الذكاء الاصطناعي.',
-        en: 'Open session with high energy and set the student identity in the AI era.',
+      realWorldExample: {
+        ar: 'خطة الساعة والنصف اليوم: 1. المواقع سابقًا والآن (25 د) — 2. كيف يعمل الموقع؟ (20 د) — 3. تنزيل وتثبيت الأدوات على جهازك (25 د) — 4. اختيار فكرة موقعك (20 د).',
+        en: 'Today’s 90-Minute Agenda: 1. Websites Past & Present (25m) — 2. How Websites Work (20m) — 3. Installing Your Tools (25m) — 4. Choosing Your Project Idea (20m).',
       },
-      speakerNotes: { ar: "نفّذ: ابدأ بالترحيب بالطلاب في Zoom. اطلب منهم كتابة مدنهم وخلفياتهم البرمجية السابقة في الشات. أكد أن هذه الدورة لا تتطلب حفظًا مسبقًا للأكواد، بل تتطلب عقلية فضولية هندسية منظمة.\nاسأل: ما الهدف الذي تتوقع تحقيقه في جلسة «المبتكر الجديد للويب»؟\nتحقق: افتتاح الجلسة بطاقة عالية وتركيز مباشر على الهوية الجديدة للمتعلم في عصر الذكاء الاصطناعي.", en: "Cue: Welcome learners on Zoom. Ask them to share backgrounds in chat. Reassure them that memorization is obsolete; curiosity and mental architecture are what matter.\nAsk: What outcome do you expect from “The New Web Creator”?\nCheck: Open session with high energy and set the student identity in the AI era." },
+      title: {
+        ar: 'مدخل إلى صناعة المواقع وتجهيز الأدوات',
+        en: 'Introduction to Web Creation & Tool Setup',
+      },
+      estimatedMinutes: 5,
+      teachingGoal: {
+        ar: 'الترحيب بالمتدربين واستعراض محاور الدرس الأول الأربعة وتوزيع وقت الساعة والنصف بوضوح.',
+        en: 'Welcome trainees and present the 4 parts of the 90-minute introductory lesson.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: رحّب بالمتدربين في الدرس الأول، واشرح لهم تقسيم الساعة والنصف (90 دقيقة) إلى 4 أجزاء واضحة: نبدأ بفهم كيف كانت المواقع سابقًا وكيف أصبحت اليوم، ثم نفهم مما يتكون الموقع، ثم ننزل الأدوات معًا على أجهزتنا، ونختم باختيار فكرة المشروع الذي سيبنيه كل متدرب.\nاسأل: من منكم جرب بناء موقع من قبل، ومن هذه هي تجربته الأولى تمامًا؟\nتحقق: طمئن المبتدئين أننا نسير خطوة بخطوة من الصفر.',
+        en: 'Welcome trainees and walk through the 4 parts of today’s 90-minute session.',
+      },
       payload: {
         type: 'title',
         data: {
           sessionNumber: '01',
-          kicker: {
-            ar: 'جلسة الافتتاح والتأسيس المعماري',
-            en: 'Kickoff & Architectural Foundation',
-          },
-          headline: {
-            ar: 'THE NEW WEB CREATOR',
-            en: 'THE NEW WEB CREATOR',
-          },
-          subheadline: {
-            ar: 'كيف تبني مواقع ويب متقدمة بالذكاء الاصطناعي مع الحفاظ على الانضباط الهندسي الصارم؟',
-            en: 'How to build state-of-the-art web apps with AI without abandoning rigorous engineering discipline',
-          },
           totalSessions: '12',
           durationMinutes: 90,
-          tags: ['AI-Assisted', 'Software Engineering', 'Mental Models', 'Live Classroom'],
+          kicker: {
+            ar: 'الدرس التأسيسي الأول • مدخل شامل وتجهيز بيئة العمل',
+            en: 'Lesson 01 • Comprehensive Introduction & Workspace Setup',
+          },
+          headline: {
+            ar: 'المواقع سابقًا والآن، وكيف نجهز أدواتنا لنبني موقعنا الأول؟',
+            en: 'Websites Past & Present, and Preparing Our Tools to Build',
+          },
+          subheadline: {
+            ar: 'تعرف على تطور المواقع الإلكترونية، ومكونات أي موقع ناجح، والبرامج الأساسية التي سننزلها على أجهزتنا اليوم للبدء بالتطبيق العملي.',
+            en: 'Learn how websites evolved, what makes up a successful site, and the essential programs we will install on our computers today.',
+          },
+          tags: [
+            'المواقع سابقًا والآن',
+            'مكونات الموقع الثلاثة',
+            'تنزيل البرامج والأدوات',
+            'اختيار فكرة المشروع',
+          ],
         },
       },
     },
 
-    // Slide 2: Context
+    // SLIDE 02: WEBSITES IN THE PAST
     {
       id: 's01-slide-02',
       sessionNumber: 1,
       slideNumber: 2,
-      totalSlides: 16,
+      totalSlides: 15,
       type: 'context',
-      title: { ar: "التحول الكبير في صناعة الويب", en: "The Great Shift in Web Development" },
+      realWorldExample: {
+        ar: 'في السابق، كان تغيير حجم صورة أو نقل زر من يمين الصفحة إلى يسارها قد يحتاج إلى التواصل مع المبرمج والانتظار عدة أيام.',
+        en: 'In the past, resizing an image or moving a button could require contacting a developer and waiting several days.',
+      },
+      title: {
+        ar: 'كيف كانت المواقع الإلكترونية في السابق؟',
+        en: 'What Were Websites Like in the Past?',
+      },
       subtitle: {
-        ar: 'لماذا تختلف بيئة تطوير الويب اليوم جذرياً عما كانت عليه قبل عامين فقط؟',
-        en: 'Why web development today fundamentally differs from two years ago',
+        ar: 'المرحلة التقليدية: صفحات جامدة، وقت طويل في الكتابة اليدوية، وتكلفة عالية',
+        en: 'The Traditional Era: Static pages, long manual coding, and high cost',
       },
-      estimatedMinutes: 4,
+      estimatedMinutes: 7,
       teachingGoal: {
-        ar: 'وضع الطلاب في قلب الواقع الصناعي والتقني المعاصر بأسلوب موضوعي دون تهويل أو تقليل.',
-        en: 'Contextualize the current market state realistically without hype or fear.',
+        ar: 'توضيح شكل المواقع قديمًا وطريقة بنائها التقليدية ليدرك المتدرب حجم التطور والتسهيل الذي نعيشه اليوم.',
+        en: 'Explain how websites looked and were built in the past so trainees appreciate today’s tools.',
       },
-      speakerNotes: { ar: "نفّذ: ركز على أن حواجز الدخول انخفضت جداً، مما يعني أن كتابة Syntax لم تعد وحدها ميزة تنافسية. القيمة الحقيقية انتقلت إلى فهم المنتج، معمارية الحل، والتسليم السريع.\nاسأل: ما المشكلة التي توضّحها «التحول الكبير في صناعة الويب»؟\nتحقق: توليد الكود أصبح سهلاً، لكن التأكد من أمانه، بنيته المعمارية، وسرعة أدائه أصبح يتطلب عيناً هندسية فاحصة.", en: "Cue: Emphasize that syntax barriers collapsed. Competitive advantage shifted to product understanding, architecture, and reliable delivery.\nAsk: What problem does “The Great Shift in Web Development” point to?\nCheck: Generating code is easy; ensuring security, clean architecture, and performance demands sharp engineering review." },
+      speakerNotes: {
+        ar: 'نفّذ: اشرح للمتدربين كيف كانت المواقع في بدايات الإنترنت وحتى سنوات قريبة: كانت أشبه بنشرات ورقية معروضة على شاشة كمبيوتر فقط (قبل انتشار الهواتف الذكية).\nاسأل: هل تتذكرون شكل المواقع القديمة عندما كنت تفتحها من الهاتف فتضطر لتكبير الشاشة بإصبعيك لقراءة سطر واحد؟\nتحقق: وضح أن المشكلة لم تكن في الشكل فقط، بل في صعوبة وطول وقت البناء اليدوي.',
+        en: 'Describe old desktop-only websites and how slow manual coding from scratch used to be.',
+      },
       payload: {
         type: 'context',
         data: {
           industryShift: {
-            ar: 'يمكن لأدوات الذكاء الاصطناعي تسريع كتابة الأكواد التأسيسية (Boilerplate)، مع ضرورة مراجعة الناتج.',
-            en: 'AI tools can speed up boilerplate drafting, while the result still needs review.',
-          },
-          realWorldProblem: {
-            ar: 'توليد الكود أصبح سهلاً، لكن التأكد من أمانه، بنيته المعمارية، وسرعة أدائه أصبح يتطلب عيناً هندسية فاحصة.',
-            en: 'Generating code is easy; ensuring security, clean architecture, and performance demands sharp engineering review.',
+            ar: 'كانت المواقع في السابق صفحات نصية ثابتة مصممة لشاشات الكمبيوتر الكبيرة فقط، ولا تتكيف مع شاشات الهواتف.',
+            en: 'Websites used to be static text pages designed only for large desktop monitors, not phones.',
           },
           whyItMatters: {
-            ar: 'الجمع بين سرعة الذكاء الاصطناعي والانضباط الهندسي يساعد على تقديم عمل موثوق.',
-            en: 'Creators combining AI speed with engineering fundamentals work more effectively than either approach alone.',
+            ar: 'كان بناء موقع بسيط يتطلب كتابة آلاف الأسطر البرمجية يدويًا حرفًا بحرف، ويستغرق أسابيع أو شهورًا من العمل.',
+            en: 'Building a simple site required typing thousands of lines of code manually over weeks or months.',
+          },
+          realWorldProblem: {
+            ar: 'كان صاحب المشروع الصغير يعجز غالبًا عن امتلاك موقع خاص به بسبب التكلفة المرتفعة والحاجة إلى فريق تقني كامل.',
+            en: 'Small business owners often could not afford a website due to high cost and needing a full tech team.',
           },
         },
       },
     },
 
-    // Slide 3: Question
+    // SLIDE 03: WEBSITES TODAY
     {
       id: 's01-slide-03',
       sessionNumber: 1,
       slideNumber: 3,
-      totalSlides: 16,
-      type: 'question',
-      title: { ar: "سؤال افتتاحي", en: "Opening question" },
-      estimatedMinutes: 4,
-      teachingGoal: {
-        ar: 'تحفيز الطلاب على التفكير في جوهر مهنة المطور في ظل انتشار نماذج LLMs.',
-        en: 'Ignite student reflection on what defines an engineer in the LLM era.',
+      totalSlides: 15,
+      type: 'context',
+      realWorldExample: {
+        ar: 'اليوم يستطيع زبون المقهى أو المتجر أن يفتح الرابط من هاتفه، يتصفح الأصناف بالصور والأسعار، ويضغط زرًا واحدًا فيصل طلبه جاهزًا عبر واتساب.',
+        en: 'Today, a café customer can open a link on their phone, browse items with prices, and tap one button to send their order via WhatsApp.',
       },
-      speakerNotes: { ar: "نفّذ: اطرح السؤال بصوت واضح: \"ماذا يعني أن تكون مطور ويب اليوم؟ هل دورك هو كتابة الحلقات التكرارية والـ CSS فقط؟\" اقرأ إجابات الشات المباشرة وعلّق عليها.\nاسأل: اكتب في شات Zoom بكلمة أو اثنتين: ما هي وظيفتك الحقيقية الآن؟\nتحقق: استمع لأفكار مثل: فهم رغبة العميل وتحويلها لمتطلبات دقيقة؛ اتخاذ القرارات المعمارية واختيار التقنيات المناسبة", en: "Cue: Ask clearly: \"What does it mean to be a web developer today?\" Read live Zoom chat responses and validate insightful points.\nAsk: Drop in Zoom chat in 1-2 words: What is your primary role now?\nCheck: Listen for ideas such as: Deconstructing client intent into precise technical requirements; Making architectural decisions and technology tradeoffs" },
+      title: {
+        ar: 'كيف أصبحت المواقع الإلكترونية اليوم؟',
+        en: 'What Are Websites Like Today?',
+      },
+      subtitle: {
+        ar: 'المرحلة الحديثة: واجهات مريحة للهاتف، تفاعل مباشر، وبناء سريع بمساعدة الذكاء الاصطناعي',
+        en: 'The Modern Era: Mobile-first interfaces, direct interaction, and fast AI-assisted building',
+      },
+      estimatedMinutes: 7,
+      teachingGoal: {
+        ar: 'توضيح خصائص الموقع الحديث اليوم وكيف غير الذكاء الاصطناعي طريقة بنائه.',
+        en: 'Explain the characteristics of modern websites and how AI transformed building them.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: انتقل الآن إلى الحاضر: كيف تغيرت المواقع اليوم في نقطتين أساسيتين: (1) تجربة الزائر أصبحت مصممة للهاتف أولًا ومربوطة بالتواصل الفوري، و(2) طريقة البناء أصبحت تعتمد على أدوات حديثة ومساعد ذكي يختصر الوقت.\nاسأل: كم نسبة الزوار الذين يفتحون مواقع المطاعم والمتاجر من هواتفهم اليوم في رأيكم؟ (أكثر من 80%!).\nتحقق: لذلك سنركز طوال الدورة على أن يكون موقعنا واضحًا ومريحًا على الهاتف والكمبيوتر معًا.',
+        en: 'Explain how modern websites are mobile-first, interactive, and built much faster with AI assistance.',
+      },
       payload: {
-        type: 'question',
+        type: 'context',
         data: {
-          question: {
-            ar: 'ماذا يعني أن تكون "مطور ويب" في عصر الذكاء الاصطناعي التوليدي؟',
-            en: 'What does it truly mean to be a "Web Developer" in the generative AI era?',
+          industryShift: {
+            ar: 'أصبحت المواقع اليوم تطبيقات حية وسريعة تفتح في ثوانٍ، وتتكيف تلقائيًا مع شاشة الهاتف والتابلت والكمبيوتر.',
+            en: 'Websites today are fast, living interfaces that adapt automatically to phones, tablets, and desktops.',
           },
-          contextHint: {
-            ar: 'إذا كان الذكاء الاصطناعي يستطيع كتابة صفحة هبوط في 30 ثانية، فأين تكمن قيمتك المضافة؟',
-            en: 'If AI can quickly scaffold a landing page, where does your human value lie?',
+          whyItMatters: {
+            ar: 'بفضل أدوات الذكاء الاصطناعي الحديثة، لم نعد نكتب الكود الروتيني المتكرر يدويًا؛ بل نركز على الفكرة وتنظيم الصفحة ومراجعة النتيجة.',
+            en: 'With modern AI tools, we no longer type repetitive code manually; we focus on the idea, page structure, and review.',
           },
-          promptToClass: {
-            ar: 'اكتب في شات Zoom بكلمة أو اثنتين: ما هي وظيفتك الحقيقية الآن؟',
-            en: 'Drop in Zoom chat in 1-2 words: What is your primary role now?',
+          realWorldProblem: {
+            ar: 'ما كان يستغرق شهرًا من العمل اليدوي سابقًا، أصبح بالإمكان تخطيطه وبناؤه ومراجعته ونشره في ساعات قليلة عندما نسير بخطة منظمة.',
+            en: 'What used to take a month of manual work can now be planned, built, reviewed, and published in hours with a clear plan.',
           },
-          expectedAnswers: [
-            {
-              ar: 'فهم رغبة العميل وتحويلها لمتطلبات دقيقة',
-              en: 'Deconstructing client intent into precise technical requirements',
-            },
-            {
-              ar: 'اتخاذ القرارات المعمارية واختيار التقنيات المناسبة',
-              en: 'Making architectural decisions and technology tradeoffs',
-            },
-            {
-              ar: 'مراجعة الكود، اختبار الأمان، وضمان تجربة المستخدم',
-              en: 'Code review, security verification, and UX fidelity',
-            },
-            {
-              ar: 'ربط الأنظمة وتجهيز المنتج للنشر والنمو',
-              en: 'System integration, production deployment, and business alignment',
-            },
-          ],
         },
       },
     },
 
-    // Slide 4: Think (30s Reflection)
+    // SLIDE 04: COMPARISON (PAST VS PRESENT)
     {
       id: 's01-slide-04',
       sessionNumber: 1,
       slideNumber: 4,
-      totalSlides: 16,
-      type: 'think',
-      title: { ar: "توقف وتأمل — الأداة مقابل العقلية", en: "Think & Reflect — Tool vs Mindset" },
-      estimatedMinutes: 2,
-      teachingGoal: {
-        ar: 'تهدئة وتيرة الشرح لدقيقة واحدة وإتاحة 30 ثانية للطالب لترسيخ مفهوم أن الذكاء الاصطناعي أداة وليس قائداً.',
-        en: 'Provide a 30-second silent contemplative window: AI is an instrument, not the orchestrator.',
+      totalSlides: 15,
+      type: 'comparison',
+      title: {
+        ar: 'مقارنة شاملة: المواقع وطريقة بنائها سابقًا والآن',
+        en: 'Comprehensive Comparison: Websites & Building Methods Past vs. Present',
       },
-      speakerNotes: { ar: "نفّذ: شغل المؤقت لـ 30 ثانية. اطلب من الجميع الصمت والتأمل في العبارة المعروضة على الشاشة.\nاسأل: ما الفكرة التي تغيّرت لديك بعد هذا التأمل؟\nتحقق: الذكاء الاصطناعي يمنحك سرعة الرياح، لكن عقلك الهندسي هو الذي يمسك بدفة السفينة.", en: "Cue: Trigger the 30-second countdown. Encourage silence and reflection on the principle displayed.\nAsk: What changed in your thinking after this pause?\nCheck: AI provides the speed of the wind; your engineering mind holds the ship rudder." },
+      subtitle: {
+        ar: 'كيف تغير دور صانع الموقع من كاتب أسطر يدوية إلى مخطط وموجه للمشروع؟',
+        en: 'How the web creator role shifted from manual typist to project planner and director',
+      },
+      estimatedMinutes: 7,
+      teachingGoal: {
+        ar: 'مقارنة منظمة في جدول واضح بين المواقع وطريقة العمل سابقًا والآن.',
+        en: 'Provide a clear side-by-side table comparing past and present web creation.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: اقرأ مع المتدربين صفوف المقارنة الأربعة. هذه الشريحة تلخص التحول الكبير الذي جعل تعلم بناء المواقع متاحًا وممتعًا للمبتدئين اليوم.\nاسأل: في العمود الأيمن (الآن)، ما المهارة الأهم التي يحتاجها الإنسان؟ (فهم حاجة الزائر، التخطيط الواضح، ومراجعة النتيجة!).\nتحقق: أكد أن الذكاء الاصطناعي لم يلغِ دور الإنسان، بل رفع دوره من الكتابة اليدوية المرهقة إلى التخطيط والقيادة.',
+        en: 'Walk through the 4 comparison rows contrasting traditional web development with modern AI-assisted creation.',
+      },
       payload: {
-        type: 'think',
+        type: 'comparison',
         data: {
-          prompt: {
-            ar: 'الذكاء الاصطناعي يمنحك سرعة الرياح، لكن عقلك الهندسي هو الذي يمسك بدفة السفينة.',
-            en: 'AI provides the speed of the wind; your engineering mind holds the ship rudder.',
+          leftHeader: {
+            ar: 'المواقع وطريقة بنائها اليوم (الحديثة)',
+            en: 'Websites & Building Today (Modern)',
           },
-          durationSeconds: 30,
-          guidancePoints: [
+          rightHeader: {
+            ar: 'المواقع وطريقة بنائها سابقًا (التقليدية)',
+            en: 'Websites & Building in the Past (Traditional)',
+          },
+          dimensions: [
             {
-              ar: 'سرعة التنفيذ بلا توجيه معماري تؤدي لكوارث أمنية وفوضى في الكود.',
-              en: 'Execution speed without architectural guidance yields technical debt.',
+              dimension: { ar: 'شكل الموقع وتجربة الزائر', en: 'Site Look & Visitor Experience' },
+              left: {
+                ar: 'واجهة مرتبة ومريحة تتكيف مع الهاتف والكمبيوتر وتقود الزائر مباشرة للطلب أو التواصل',
+                en: 'Clean layout adapting to phone and desktop with direct ordering/contact actions',
+              },
+              right: {
+                ar: 'صفحات مزدحمة بالنصوص مصممة لشاشة الكمبيوتر فقط وصعبة القراءة على الجوال',
+                en: 'Text-heavy pages built only for desktop monitors and hard to use on phones',
+              },
             },
             {
-              ar: 'المطور المحترف يقود المحادثة مع الذكاء الاصطناعي ولا يتبعها بشكل أعمى.',
-              en: 'Professional creators lead the conversation with AI rather than following blindly.',
+              dimension: { ar: 'طريقة كتابة وبناء الموقع', en: 'How the Site Is Built' },
+              left: {
+                ar: 'نخطط الأقسام بوضوح، ثم نوجه المساعد الذكي لبناء كل قسم ونراجعه خطوة بخطوة',
+                en: 'Plan sections clearly, then guide the AI assistant to build and review step by step',
+              },
+              right: {
+                ar: 'كتابة جميع الأكواد والأسطر التأسيسية يدويًا من الصفر وحفظ مئات القواعد غيبًا',
+                en: 'Typing all boilerplate code manually from scratch and memorizing syntax rules',
+              },
+            },
+            {
+              dimension: { ar: 'الوقت اللازم لإطلاق النسخة الأولى', en: 'Time to First Live Version' },
+              left: {
+                ar: 'ساعات أو أيام قليلة للوصول إلى موقع حقيقي يعمل على الإنترنت',
+                en: 'Hours or a few days to launch a real working website online',
+              },
+              right: {
+                ar: 'أسابيع أو شهور طويلة قبل أن يرى صاحب المشروع أول شاشة حية',
+                en: 'Weeks or months before the business owner sees a live working screen',
+              },
+            },
+            {
+              dimension: { ar: 'سهولة التعديل والتحديث', en: 'Ease of Updating' },
+              left: {
+                ar: 'سهلة وسريعة لأن الموقع مقسم إلى أجزاء واضحة (ترحيب، بطاقات، تذييل)',
+                en: 'Fast and easy because the site is organized into clear modular sections',
+              },
+              right: {
+                ar: 'صعبة ومعقدة لأن الكود متشابك في ملفات طويلة يصعب قراءتها',
+                en: 'Slow and risky because code was tangled in long monolithic files',
+              },
             },
           ],
+          balancedVerdict: {
+            ar: 'اليوم لا تحتاج إلى قضاء سنوات في حفظ الأكواد لتبدأ؛ تحتاج إلى فهم صحيح لمكونات الموقع وخطة عمل واضحة تقود بها أدواتك.',
+            en: 'Today you do not need years of memorizing syntax to start; you need a clear understanding of website structure and a disciplined workflow.',
+          },
         },
       },
     },
 
-    // Slide 5: Comparison (Before AI vs AI-Assisted)
+    // SLIDE 05: QUESTION
     {
       id: 's01-slide-05',
       sessionNumber: 1,
       slideNumber: 5,
-      totalSlides: 16,
-      type: 'comparison',
-      title: { ar: "مقارنة مساري التطوير", en: "Two Development Workflows" },
-      subtitle: {
-        ar: 'كيف أعاد الذكاء الاصطناعي هيكلة خطوات بناء مواقع الويب من الفكرة إلى النشر؟',
-        en: 'How AI restructured the end-to-end web construction lifecycle',
+      totalSlides: 15,
+      type: 'question',
+      title: {
+        ar: 'سؤال للنقاش: ما دورك أنت إذا كان الذكاء الاصطناعي يكتب الكود؟',
+        en: 'Discussion: What Is Your Role If AI Writes the Code?',
       },
       estimatedMinutes: 5,
       teachingGoal: {
-        ar: 'توضيح المسار الحقيقي خطوة بخطوة وإثبات أن خطوات التفكير والمراجعة لم تختف بل ازدادت أهميتها.',
-        en: 'Demonstrate step-by-step how the pipeline transformed without discarding verification.',
+        ar: 'إشراك المتدربين في استنتاج الدور الحقيقي للإنسان (تحديد الهدف، فهم الزبون، تنظيم المعلومات، واختبار النتيجة).',
+        en: 'Engage trainees in identifying the essential human role (goal, visitor empathy, organization, verification).',
       },
-      speakerNotes: { ar: "نفّذ: اشرح المقارنة بين العمودين. لاحظ أن مرحلة \"Research with AI\" و\"AI-assisted Architecture\" و\"Human Review\" أصبحت محطات صريحة تمنع الأخطاء.\nاسأل: ما معيارك للاختيار بين جانبي «مقارنة مساري التطوير»؟\nتحقق: الذكاء الاصطناعي يختصر وقت التنفيذ اليدوي، لكنه لا يقرر بالنيابة عنك ما الذي يجب بناؤه.", en: "Cue: Walk through both columns. Point out that Research, AI Scaffolding, and Human Review are now explicit stages.\nAsk: What would guide your choice between the two sides of “Two Development Workflows”?\nCheck: AI compresses manual execution time, but never decides what should be built for the user." },
+      speakerNotes: {
+        ar: 'نفّذ: اطرح السؤال على المتدربين وانتظر إجاباتهم في شات Zoom.\nاسأل: إذا كان الذكاء الاصطناعي يستطيع كتابة الكود في ثوانٍ، فلماذا تخرج بعض المواقع المصنوعة به عشوائية ومليئة بالأخطاء بينما تخرج مواقع أخرى احترافية جدًا؟\nتحقق: الفرق كله يكمن في الشخص الذي يوجه الأداة ويراجع خلفها!',
+        en: 'Ask why some AI-built sites look messy while others look professional—the difference is human planning and review.',
+      },
+      expectedResponse: {
+        ar: 'تحديد فكرة الموقع، معرفة ما يريده الزبون، ترتيب الأقسام، ومراجعة النتيجة للتأكد من خلوها من الأخطاء.',
+        en: 'Defining the idea, understanding the customer, ordering sections, and testing the result.',
+      },
       payload: {
-        type: 'comparison',
+        type: 'question',
         data: {
-          leftHeader: {
-            ar: 'التطوير التقليدي (Before AI)',
-            en: 'Traditional Workflow (Before AI)',
+          question: {
+            ar: 'إذا كان الذكاء الاصطناعي يكتب الكود بسرعة، فما المهمة التي لا يستطيع القيام بها بدونك؟',
+            en: 'If AI can write code quickly, what essential task can it NOT do without you?',
           },
-          rightHeader: {
-            ar: 'التطوير المعزز بالذكاء الاصطناعي (AI-Assisted)',
-            en: 'AI-Assisted Workflow',
+          contextHint: {
+            ar: 'فكر في صاحب مقهى أو عيادة يريد موقعًا يخدم زبائنه الحقيقيين في مدينته.',
+            en: 'Think about a real café or clinic owner serving real local customers.',
           },
-          dimensions: [
+          promptToClass: {
+            ar: 'شارك رأيك في جملة قصيرة في شات Zoom 💬',
+            en: 'Share your thought in one short sentence in Zoom chat 💬',
+          },
+          expectedAnswers: [
             {
-              dimension: { ar: 'البحث والاستكشاف', en: 'Research & Exploration' },
-              left: { ar: 'ساعات في تصفح المقالات والتوثيق والمنتديات', en: 'Hours manually combing docs and forums' },
-              right: { ar: 'استكشاف موجه مع LLMs وتلخيص الخيارات في ثوانٍ', en: 'Targeted synthesis and trade-off evaluation with AI' },
+              ar: 'فهم المشكلة الحقيقية للعميل وما الذي يبحث عنه الزائر عند دخول الموقع.',
+              en: 'Understanding the client’s real problem and what visitors look for.',
             },
             {
-              dimension: { ar: 'تصميم الواجهة والـ Wireframe', en: 'UI Wireframing' },
-              left: { ar: 'رسم يدوي بطيء على Figma من الصفر', en: 'Manual wireframing from empty canvas' },
-              right: { ar: 'توليد سريع للنماذج الأولية عبر أدوات مثل Stitch', en: 'Rapid interface generation via generative UI tools' },
+              ar: 'اختيار المعلومات الأساسية وترتيبها في الصفحة دون ازدحام أو حشو.',
+              en: 'Selecting essential information and ordering it cleanly without clutter.',
             },
             {
-              dimension: { ar: 'كتابة الهيكل التأسيسي (Boilerplate)', en: 'Boilerplate Scaffolding' },
-              left: { ar: 'كتابة ملفات التكوين والـ CSS يدوياً سطر بسطر', en: 'Writing configs and layout CSS line by line' },
-              right: { ar: 'توليد الهيكل المنضبط ومراجعته هندسياً فوراً', en: 'Instant scaffolding followed by architectural audit' },
-            },
-            {
-              dimension: { ar: 'تصحيح الأخطاء (Debugging)', en: 'Debugging & Fixes' },
-              left: { ar: 'البحث عن أخطاء الـ Syntax والطباعة المفقودة', en: 'Hours tracking typos and syntax quirks' },
-              right: { ar: 'تحليل دقيق لأسباب الخلل واقتراح حلول بديلة فورية', en: 'Root-cause analysis and instant regression remedies' },
-            },
-            {
-              dimension: { ar: 'المسؤولية النهائية', en: 'Final Responsibility' },
-              left: { ar: 'المطور البشري', en: 'Human Developer' },
-              right: { ar: 'المطور البشري (لا تتغير أبداً)', en: 'Human Developer (Never changes)' },
+              ar: 'فحص الموقع وتجربة الأزرار على الهاتف للتأكد من أنه يعمل فعلًا كما نريد.',
+              en: 'Testing the site and buttons on mobile to verify everything actually works.',
             },
           ],
-          balancedVerdict: {
-            ar: 'الذكاء الاصطناعي يختصر وقت التنفيذ اليدوي، لكنه لا يقرر بالنيابة عنك ما الذي يجب بناؤه.',
-            en: 'AI compresses manual execution time, but never decides what should be built for the user.',
-          },
         },
       },
     },
 
-    // Slide 6: Concept (Developer vs Web Creator)
+    // SLIDE 06: CONCEPT (3 BUILDING BLOCKS OF ANY WEBSITE)
     {
       id: 's01-slide-06',
       sessionNumber: 1,
       slideNumber: 6,
-      totalSlides: 16,
+      totalSlides: 15,
       type: 'concept',
-      title: { ar: "من مطور أكواد إلى صانع ويب متكامل", en: "From Coder to Web Creator" },
-      estimatedMinutes: 5,
-      teachingGoal: {
-        ar: 'ترسيخ مفهوم "Web Creator" كشخص يفهم المنتج بالكامل من التصميم وحتى التسويق والعملاء.',
-        en: 'Define "Web Creator" as a full-spectrum orchestrator covering design, engineering, and market delivery.',
+      realWorldExample: {
+        ar: 'تشبيه المبنى: الهيكل الخرساني وتقسيم الغرف هو (HTML)، والدهان والديكور والإضاءة هو (CSS)، والكهرباء والمصعد الذي يتحرك بضغطة زر هو (JavaScript).',
+        en: 'Building Analogy: Concrete walls and rooms are HTML, paint and lighting are CSS, and electricity/elevators triggered by buttons are JavaScript.',
       },
-      speakerNotes: { ar: "نفّذ: اشرح أن العميل لا يهتم إن كنت تستخدم Flexbox أو Grid بقدر ما يهتم بأن موقعه سريع، أنيق، ويجلب له مبيعات ومستخدمين.\nاسأل: كيف تطبّق هذا المبدأ: صانع الويب (Web Creator) لا ينحصر في كتابة الدوال، بل يقود رحلة المنتج كاملة.؟\nتحقق: التقنية وسيلة لتحقيق قيمة تجارية وإنسانية، وليست غاية في حد ذاتها.", en: "Cue: Explain that clients care less about whether you chose Flexbox vs Grid and care most that the site is fast, stunning, and converts.\nAsk: How would you apply this principle: A Web Creator orchestrates the entire product journey from concept to revenue.?\nCheck: Technology is an instrument for delivering human and business value, never an end in itself." },
+      title: {
+        ar: 'مما يتكون أي موقع إلكتروني في العالم؟',
+        en: 'What Are the 3 Building Blocks of Every Website?',
+      },
+      estimatedMinutes: 8,
+      teachingGoal: {
+        ar: 'شرح المكونات التقنية الثلاثة لأي موقع (`HTML`, `CSS`, `JavaScript`) بالإضافة إلى إطار العمل (`React / Next.js`) بلغة بسيطة جدًا.',
+        en: 'Explain HTML, CSS, JavaScript, and React/Next.js in beginner-friendly terms.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: اشرح للمتدربين أن كل موقع يفتحونه في حياتهم (من أصغر متجر إلى أكبر منصة) يتكون من هذه الطبقات الثلاث التي تعمل معًا.\nاسأل: عندما نريد تغيير لون زر التواصل إلى الأخضر، في أي طبقة يكون هذا التعديل؟ (في طبقة المظهر CSS!).\nتحقق: هذا الفهم البسيط يجعل المتدرب يعرف المصطلحات الأساسية التي سيراها في الدروس القادمة دون أي خوف.',
+        en: 'Explain the 3 core web layers so trainees understand the terms they will see throughout the course.',
+      },
       payload: {
         type: 'concept',
         data: {
-          principle: {
-            ar: 'صانع الويب (Web Creator) لا ينحصر في كتابة الدوال، بل يقود رحلة المنتج كاملة.',
-            en: 'A Web Creator orchestrates the entire product journey from concept to revenue.',
-          },
           tagline: {
-            ar: 'ORCHESTRATOR OVER TICKET TAKER',
-            en: 'ORCHESTRATOR OVER TICKET TAKER',
+            ar: 'الجزء الثاني • كيف يعمل الموقع الإلكتروني؟',
+            en: 'Part 2 • How a Website Works',
+          },
+          principle: {
+            ar: 'كل صفحة ويب تتكون من 3 طبقات أساسية تكمل بعضها',
+            en: 'Every Webpage Is Made of 3 Complementary Layers',
           },
           explanation: {
-            ar: 'المطور التقليدي ينتظر تذكرة (Ticket) مكتوبة بدقة لينفذها. صانع الويب يجلس مع صاحب الفكرة، يفهم جمهوره، يولد التصميم، يبني الكود بالذكاء الاصطناعي، يربطه بمحركات البحث، ويطلقه للعالم.',
-            en: 'Traditional coders wait for tickets. Web Creators collaborate with stakeholders, define audience needs, scaffold UI, audit code, optimize SEO, and ship.',
+            ar: 'لست بحاجة إلى حفظ قواميس برمجية، بل يكفيك أن تعرف وظيفة كل طبقة من هذه الطبقات الثلاث التي سنبنيها بمساعدة الذكاء الاصطناعي:',
+            en: 'You do not need to memorize coding dictionaries—just understand the role of each of these 3 layers:',
           },
           bulletPoints: [
             {
-              ar: 'فهم تجربة المستخدم (UI/UX) والتسلسل البصري الواضح',
-              en: 'Grasping UI/UX hierarchy and responsive visual rhythm',
+              ar: 'الهيكل والمحتوى (HTML): يحدد العناصر الموجودة في الصفحة (أين العنوان الرئيسي؟ أين النص؟ أين الصورة؟ وأين الزر؟).',
+              en: 'Structure & Content (HTML): Defines what elements are on the page (headline, text, image, button).',
             },
             {
-              ar: 'القدرة على توظيف الذكاء الاصطناعي كمهندس مساعد فائق السرعة',
-              en: 'Harnessing AI models as hyper-accelerated junior pair programmers',
+              ar: 'المظهر والتنسيق (CSS / Tailwind): يمنح الصفحة جمالها (الألوان، نوع الخط، المسافات المريحة، وترتيب البطاقات على الهاتف والكمبيوتر).',
+              en: 'Styling & Layout (CSS / Tailwind): Gives the page its colors, fonts, spacing, and mobile/desktop arrangement.',
             },
             {
-              ar: 'معرفة أساسيات تحسين محركات البحث (SEO) والأداء الرقمي',
-              en: 'Commanding performance budgets and SEO discoverability',
+              ar: 'التفاعل والحركة (JavaScript & React): يجعل الصفحة تستجيب لضغطة الزائر (فتح قائمة الهاتف، تصفية المنتجات، أو تجهيز رسالة الطلب).',
+              en: 'Interactivity (JavaScript & React): Makes the page respond to visitor clicks (menus, filters, order actions).',
             },
             {
-              ar: 'تحويل المشروع البرمجي إلى دراسة حالة تجلب عملاء مستمرين',
-              en: 'Packaging deployed code into high-trust client case studies',
+              ar: 'محرك الموقع الكامل (Next.js): الإطار الحديث الذي يجمع هذه الأجزاء الثلاثة معًا ويجعل الموقع سريعًا وجاهزًا لمحرك بحث Google.',
+              en: 'Full Website Framework (Next.js): Combines all parts into a fast, search-friendly website.',
             },
           ],
-          architecturalRule: {
-            ar: 'التقنية وسيلة لتحقيق قيمة تجارية وإنسانية، وليست غاية في حد ذاتها.',
-            en: 'Technology is an instrument for delivering human and business value, never an end in itself.',
-          },
         },
       },
     },
 
-    // Slide 7: Comparison (Software Engineering vs Vibe Coding Approach)
+    // SLIDE 07: VISUAL (THE SINGLE INFOGRAPHIC IN LESSON 01)
     {
       id: 's01-slide-07',
       sessionNumber: 1,
       slideNumber: 7,
-      totalSlides: 16,
-      type: 'comparison',
-      title: { ar: "هندسة البرمجيات مقابل أسلوب الـ Vibe Coding", en: "Software Engineering vs Vibe Coding Approach" },
+      totalSlides: 15,
+      type: 'visual',
+      title: {
+        ar: 'مراحل بناء الموقع الأربع في دورتنا التدريبية',
+        en: 'The 4 Website Building Stages in Our Course',
+      },
       subtitle: {
-        ar: 'مقارنة موضوعية ومتزنة تفكك المفاهيم دون تحيز أو تبسيط تسويقي',
-        en: 'An objective, balanced comparison without marketing hype or oversimplification',
+        ar: 'التسلسل العملي الذي سنسير عليه من الدرس الأول حتى إطلاق المشروع النهائي',
+        en: 'The practical sequence we follow from Lesson 01 to final project launch',
       },
       estimatedMinutes: 6,
       teachingGoal: {
-        ar: 'تعليم الطلاب متى يفيد الـ Vibe Coding السريع (النماذج الأولية) ولماذا تحتاج المشاريع الحقيقية إلى منهجية هندسية منضبطة.',
-        en: 'Teach students where Vibe Coding shines (rapid prototypes) and why production requires disciplined engineering.',
+        ar: 'عرض مخطط انسيابي واحد نظيف يوضح المراحل الأربع لبناء الموقع بالترتيب الصحيح.',
+        en: 'Show a single clean 4-step flowchart of the website building lifecycle.',
       },
-      speakerNotes: { ar: "نفّذ: أكد بقوة على ألا نصف أي أسلوب بأنه \"سيء\" أو \"خاطئ\". الـ Vibe Coding ممتع وسريع للـ MVP، لكن عندما يتعلق الأمر بالأمان والـ scalability، نحتاج عقلية المهندس.\nاسأل: ما معيارك للاختيار بين جانبي «هندسة البرمجيات مقابل أسلوب الـ Vibe Coding»؟\nتحقق: النموذج الأمثل للدورة: نستخدم سرعة الـ Vibe Coding لتوليد الخيارات، ونطبق انضباط هندسة البرمجيات لاعتمادها وتأمينها.", en: "Cue: Do not label either approach as bad. Vibe Coding is fantastic for weekend MVPs, while Software Engineering is vital for uptime, security, and scale.\nAsk: What would guide your choice between the two sides of “Software Engineering vs Vibe Coding Approach”?\nCheck: Our course synthesis: Use Vibe velocity for rapid options, apply Engineering rigor for production safety." },
+      speakerNotes: {
+        ar: 'نفّذ: استعرض المراحل الأربع بالترتيب من اليمين إلى اليسار. وضح للمتدربين لماذا لا نبدأ بالبناء قبل الفهم والتخطيط.\nاسأل: ماذا يحدث لو قفزنا إلى المرحلة 03 (البناء) قبل المرحلة 01 و02؟\nتحقق: سنبني شيئًا لا نعرف لمن هو ولا كيف تترتب صفحاته!',
+        en: 'Walk through the 4 stages in order: Understand -> Design -> Build with AI -> Test & Launch.',
+      },
       payload: {
-        type: 'comparison',
+        type: 'visual',
         data: {
-          leftHeader: {
-            ar: 'منهجية هندسة البرمجيات (Software Engineering)',
-            en: 'Software Engineering Methodology',
+          diagramType: 'pipeline',
+          caption: {
+            ar: 'كل مرحلة تسلم المرحلة التي تليها بوضوح، مما يجعل بناء الموقع سهلًا ومنظمًا للمبتدئ.',
+            en: 'Each stage feeds cleanly into the next, making web creation structured and approachable.',
           },
-          rightHeader: {
-            ar: 'أسلوب الـ Vibe Coding التوليدي',
-            en: 'Vibe Coding Approach',
-          },
-          dimensions: [
+          nodes: [
             {
-              dimension: { ar: 'نقطة الانطلاق', en: 'Starting Point' },
-              left: { ar: 'متطلبات واضحة، معمارية مدروسة، ونموذج بيانات', en: 'System requirements, architectural schema & data flow' },
-              right: { ar: 'برومبت استكشافي عفوي ووصف شعوري للواجهة', en: 'Conversational prompt and intuitive vibe descriptions' },
+              id: 'st-1',
+              stepNumber: '01',
+              badge: 'المرحلة الأولى',
+              title: { ar: 'فهم الفكرة والزائر', en: 'Understand Idea & Visitor' },
+              description: {
+                ar: 'نحدد هدف الموقع، ومن سيزوره، وما المعلومات الأساسية التي يبحث عنها.',
+                en: 'Define the site goal, target visitor, and essential information needed.',
+              },
             },
             {
-              dimension: { ar: 'سرعة النمذجة الأولى', en: 'Initial Prototyping Speed' },
-              left: { ar: 'متأنية ومحسوبة بالمللي ثانية', en: 'Measured and methodically deliberate' },
-              right: { ar: 'توليد سريع لنموذج أولي يحتاج إلى مراجعة', en: 'Rapid prototype generation that still needs review' },
+              id: 'st-2',
+              stepNumber: '02',
+              badge: 'المرحلة الثانية',
+              title: { ar: 'تخطيط الصفحات والتصميم', en: 'Plan Pages & Design' },
+              description: {
+                ar: 'نرتب أقسام الصفحة من الأعلى للأسفل ونختار ألوانًا وخطوطًا مريحة للعين.',
+                en: 'Order page sections top-to-bottom and pick clean colors and fonts.',
+              },
             },
             {
-              dimension: { ar: 'قابلية الصيانة على المدى الطويل', en: 'Long-Term Maintainability' },
-              left: { ar: 'عالية جداً بفضل المكونات المعزولة والاختبارات', en: 'High due to modular boundaries and automated tests' },
-              right: { ar: 'تتدهور بسرعة كلما كبر حجم المشروع', en: 'Fragile and degrades as file complexity compounds' },
+              id: 'st-3',
+              stepNumber: '03',
+              badge: 'المرحلة الثالثة',
+              title: { ar: 'البناء مع المساعد الذكي', en: 'Build with AI Assistant' },
+              description: {
+                ar: 'نكتب وصفًا واضحًا لكل قسم، ونبنيه ونراجعه ونحسنه خطوة بخطوة.',
+                en: 'Write clear section prompts, build, review, and refine step by step.',
+              },
             },
             {
-              dimension: { ar: 'الأمان والتعامل مع الأخطاء', en: 'Security & Error Boundaries' },
-              left: { ar: 'تدقيق صارم للثغرات والتحقق من المدخلات', en: 'Strict validation, sanitization & boundary defense' },
-              right: { ar: 'اعتماد على ما ينتجه النموذج دون فحص عميق', en: 'Implicit trust in model defaults until breakage' },
-            },
-            {
-              dimension: { ar: 'ملكية الكود وفهمه', en: 'Code Ownership & Mastery' },
-              left: { ar: 'المهندس يفهم كل سطر ويعرف سبب وجوده', en: 'Engineer understands every abstraction & tradeoff' },
-              right: { ar: 'المستخدم يرجو أن يعمل الكود دون فهم بنيته الداخلية', en: 'User hopes it works without inspecting inner mechanics' },
+              id: 'st-4',
+              stepNumber: '04',
+              badge: 'المرحلة الرابعة',
+              title: { ar: 'الاختبار والنشر الحي', en: 'Test & Publish Live' },
+              description: {
+                ar: 'نجرب الموقع على الهاتف ونتأكد من عمل أزرار واتساب ثم ننشره على رابط حي.',
+                en: 'Test on mobile, verify WhatsApp buttons, and publish on a live URL.',
+              },
             },
           ],
-          balancedVerdict: {
-            ar: 'النموذج الأمثل للدورة: نستخدم سرعة الـ Vibe Coding لتوليد الخيارات، ونطبق انضباط هندسة البرمجيات لاعتمادها وتأمينها.',
-            en: 'Our course synthesis: Use Vibe velocity for rapid options, apply Engineering rigor for production safety.',
-          },
         },
       },
     },
 
-    // Slide 8: Concept (What AI Can Do)
+    // SLIDE 08: COMPARISON (RANDOM VIBE CODING VS STRUCTURED BUILDING)
     {
       id: 's01-slide-08',
       sessionNumber: 1,
       slideNumber: 8,
-      totalSlides: 16,
-      type: 'concept',
-      title: { ar: "ما الذي يتقنه الذكاء الاصطناعي بكفاءة خارقة؟", en: "What AI Excels At Exceptionally Well" },
-      estimatedMinutes: 4,
-      teachingGoal: {
-        ar: 'تحديد نقاط القوة الحقيقية لأدوات الذكاء الاصطناعي لتوظيفها دون إضاعة الوقت في مهام لا تناسبها.',
-        en: 'Pinpoint the true super-strengths of AI tools so students leverage them effectively.',
+      totalSlides: 15,
+      type: 'comparison',
+      title: {
+        ar: 'الفرق بين البناء العشوائي السريع وبين البناء المنظم',
+        en: 'Random Blind Prompting vs. Structured Step-by-Step Building',
       },
-      speakerNotes: { ar: "نفّذ: وضّح أن الذكاء الاصطناعي قد يساعد في تحويل JSON إلى واجهة، وصياغة Regex، وتوليد بيانات تجريبية، وتحويل التصميم إلى CSS.\nاسأل: أيّ مهمة من هذه المهام ستجرّب فيها مساعدًا ذكيًا، وكيف ستراجع الناتج؟\nتحقق: يذكر الطالب مهمة محددة، ثم يوضح أن الناتج يحتاج إلى مراجعة وتجربة.", en: "Cue: Explain that AI can help turn JSON into a UI, draft a regular expression, generate sample data, or translate a design into CSS.\nAsk: Which task would you try with an AI assistant, and how would you review its output?\nCheck: Learners name a concrete task and explain that the result still needs review and testing." },
+      subtitle: {
+        ar: 'كيف تتجنب أخطاء المبتدئين الشائعة عند استخدام الذكاء الاصطناعي؟',
+        en: 'How to avoid common beginner mistakes when working with AI',
+      },
+      estimatedMinutes: 6,
+      teachingGoal: {
+        ar: 'توضيح الفرق العملي بين الـ Vibe Coding العشوائي وبين البناء المنظم خطوة بخطوة.',
+        en: 'Contrast blind "Vibe Coding" with structured step-by-step web building.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: اشرح للمتدربين مصطلحًا قد يسمعونه كثيرًا اليوم وهو (Vibe Coding) أي الطلب العشوائي من الذكاء الاصطناعي بدون خطة ولا مراجعة، وقارنه بطريقتنا المنظمة.\nاسأل: أيهما يوفر وقتك في النهاية: أن تخطط 10 دقائق قبل البناء، أم أن تقضي 5 ساعات في إصلاح موقع عشوائي؟\nتحقق: التخطيط البسيط المسبق هو سر السرعة الحقيقية.',
+        en: 'Compare unstructured Vibe Coding with our planned step-by-step approach.',
+      },
       payload: {
-        type: 'concept',
+        type: 'comparison',
         data: {
-          principle: {
-            ar: 'الذكاء الاصطناعي هو أعظم مُعامل تسريع تنفيذي في تاريخ صناعة البرمجيات.',
-            en: 'AI is the most potent execution multiplier in software engineering history.',
+          leftHeader: {
+            ar: 'البناء المنظم خطوة بخطوة (منهجنا في الدورة)',
+            en: 'Structured Step-by-Step Building (Our Method)',
           },
-          tagline: {
-            ar: 'UNLEASH THE EXECUTION ENGINE',
-            en: 'UNLEASH THE EXECUTION ENGINE',
+          rightHeader: {
+            ar: 'البناء العشوائي بدون خطة (Vibe Coding)',
+            en: 'Unplanned Blind Prompting (Vibe Coding)',
           },
-          explanation: {
-            ar: 'يمكن للنماذج اللغوية اقتراح أنماط برمجية مألوفة، لكن على المطور مراجعة ملاءمتها واختبارها.',
-            en: 'Language models can suggest familiar coding patterns, but developers still need to review and test their fit.',
-          },
-          bulletPoints: [
+          dimensions: [
             {
-              ar: 'توليد الهياكل المكررة (Scaffolding & Boilerplate) في ثوانٍ',
-              en: 'Instant generation of repetitive boilerplate and route files',
+              dimension: { ar: 'نقطة البداية', en: 'Starting Point' },
+              left: {
+                ar: 'نحدد هدف الموقع والزائر والأقسام الأربعة على الورق أولًا',
+                en: 'Define the site goal, visitor, and 4 main sections upfront',
+              },
+              right: {
+                ar: 'كتابة جملة عامة مستعجلة مثل: «اصنع لي موقع متجر كامل» دفعة واحدة',
+                en: 'Typing a vague one-liner like "Make me a full store website" all at once',
+              },
             },
             {
-              ar: 'شرح الأخطاء البرمجية المعقدة ورسائل الـ Terminal المحيرة',
-              en: 'Deconstructing cryptic terminal stack traces and build errors',
+              dimension: { ar: 'طريقة التنفيذ والتعديل', en: 'Execution & Editing' },
+              left: {
+                ar: 'نبني الصفحة قسمًا بقسم، ونفحص كل قسم قبل الانتقال للذي يليه',
+                en: 'Build section by section, inspecting each part before moving on',
+              },
+              right: {
+                ar: 'قبول مئات الأسطر دفعة واحدة دون معرفة ما بداخلها، وعندما يحدث خطأ يتعطل الموقع كله',
+                en: 'Accepting hundreds of lines blindly; when a bug happens, everything breaks',
+              },
             },
             {
-              ar: 'تحويل التصاميم البصرية إلى كود HTML و Tailwind CSS نظيف',
-              en: 'Translating visual layouts into modern HTML & Tailwind tokens',
-            },
-            {
-              ar: 'كتابة حالات الاختبار (Unit Tests) وتوليد بيانات وهمية للاختبار',
-              en: 'Authoring unit tests and synthetic data fixtures',
+              dimension: { ar: 'النتيجة النهائية للزائر', en: 'Final Result for Visitors' },
+              left: {
+                ar: 'موقع مرتب، واضح الرسالة، وتعمل جميع أزراره على الهاتف والكمبيوتر',
+                en: 'A clean, clear website where every button works on phone and desktop',
+              },
+              right: {
+                ar: 'صفحة مزدحمة بنصوص عشوائية وأزرار شكلية لا تعمل عند الضغط عليها',
+                en: 'A cluttered page with placeholder text and broken decorative buttons',
+              },
             },
           ],
+          balancedVerdict: {
+            ar: 'الذكاء الاصطناعي أداة قوية جدًا عندما تقوده بخطة واضحة وتفحص نتيجته خطوة بخطوة.',
+            en: 'AI is an extraordinary tool when guided by a clear plan and verified step by step.',
+          },
         },
       },
     },
 
-    // Slide 9: Concept (What AI Cannot Replace)
+    // SLIDE 09: REVEAL (TOOLS TO DOWNLOAD ON YOUR COMPUTER - PART 1)
     {
       id: 's01-slide-09',
       sessionNumber: 1,
       slideNumber: 9,
-      totalSlides: 16,
-      type: 'concept',
-      title: { ar: "ما الذي يعجز الذكاء الاصطناعي عن تعويضه؟", en: "What AI Cannot Replace — The Human Frontier" },
-      estimatedMinutes: 5,
-      teachingGoal: {
-        ar: 'طمأنة الطلاب وبناء ثقتهم بأن قيمتهم الإنسانية والفكرية هي صمام الأمان لأي مشروع ناجح.',
-        en: 'Reassure students and solidify confidence in human critical thinking, ethics, and empathy.',
+      totalSlides: 15,
+      type: 'reveal',
+      title: {
+        ar: 'الأدوات الأساسية التي يجب تنزيلها على جهازك (1/2)',
+        en: 'Essential Programs to Download & Install on Your Computer (1/2)',
       },
-      speakerNotes: { ar: "نفّذ: هذه شريحة محورية جداً. أكد أن الذكاء الاصطناعي لا يملك حس التذوق الجمالي الدقيق، ولا يفهم مشاعر العميل، ولا يتحمل المسؤولية القانونية أو الأخلاقية عند حدوث اختراق.\nاسأل: كيف تطبّق هذا المبدأ: المسؤولية، الحكم الهندسي، والتواصل الإنساني تظل حكراً على العقل البشري.؟\nتحقق: القاعدة الذهبية: الذكاء الاصطناعي يولد الاقتراحات — والمهندس البشري يقرر ويعتمد.", en: "Cue: Crucial slide. Reiterate that AI lacks design taste, cannot empathize with a client, and never shoulders legal liability when data breaches occur.\nAsk: How would you apply this principle: Accountability, architectural judgment, and client empathy remain uniquely human.?\nCheck: Golden Rule: AI Generates Proposals — Human Engineers Audit and Approve." },
+      estimatedMinutes: 8,
+      teachingGoal: {
+        ar: 'تعريف المتدرب بالبرامج الأربعة التي يجب تنزيلها وتثبيتها على جهازه الشخصي ووظيفة كل برنامج ببساطة.',
+        en: 'Introduce the 4 desktop programs trainees need to download and install on their machines.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: انتقل الآن إلى الجزء الثالث والمهم جدًا من الدرس: الأدوات التي يجب تنزيلها على الكمبيوتر. اشرح كل أداة من الأدوات الأربع ولماذا نحتاجها بلغة بسيطة.\nاسأل: من منكم لديه متصفح Google Chrome مثبتًا بالفعل؟ ومن قام بتنزيل VS Code أو Antigravity؟\nتحقق: شارك روابط التنزيل الرسمية في شات Zoom (`nodejs.org`, `code.visualstudio.com`, `git-scm.com`).',
+        en: 'Walk through the 4 programs to install: Google Chrome, Code Editor (VS Code / Antigravity), Node.js LTS, and Git.',
+      },
       payload: {
-        type: 'concept',
+        type: 'reveal',
         data: {
-          principle: {
-            ar: 'المسؤولية، الحكم الهندسي، والتواصل الإنساني تظل حكراً على العقل البشري.',
-            en: 'Accountability, architectural judgment, and client empathy remain uniquely human.',
+          premise: {
+            ar: 'للعمل بشكل عملي طوال الدورة، سنقوم بتنزيل وتثبيت هذه البرامج المجانية الأربعة على جهاز الكمبيوتر:',
+            en: 'To work hands-on throughout the course, download and install these 4 free programs on your computer:',
           },
-          tagline: {
-            ar: 'THE IRREPLACEABLE HUMAN CORE',
-            en: 'THE IRREPLACEABLE HUMAN CORE',
-          },
-          explanation: {
-            ar: 'الذكاء الاصطناعي لا يعرف أهداف العميل الخفية، ولا يتحمل مسؤولية تعطل السيرفر في ليلة إطلاق منتج، ولا يمتلك الذوق الذي يجعل الموقع محبوباً للمستخدمين.',
-            en: 'AI models cannot decipher hidden client anxieties, assume legal liability for downtime, or inject genuine brand charisma.',
-          },
-          bulletPoints: [
+          steps: [
             {
-              ar: 'فهم أهداف العمل الحقيقية والموازنة بين التكلفة وسرعة الإطلاق',
-              en: 'Synthesizing business goals with budget and timeline tradeoffs',
+              number: '01',
+              title: {
+                ar: 'متصفح Google Chrome',
+                en: '1. Google Chrome Browser',
+              },
+              description: {
+                ar: 'نستخدمه لمعاينة الموقع الذي نبنيه، ولتجربة شكل الصفحات على مقاسات شاشات الهواتف المختلفة عبر أداة الفحص المدمجة (F12).',
+                en: 'Used to preview the website we build and test mobile screen sizes using built-in DevTools (F12).',
+              },
             },
             {
-              ar: 'التحقق الأمني واختبار سيناريوهات الفشل والاختراق المحتملة',
-              en: 'Rigorous security verification and threat boundary modeling',
+              number: '02',
+              title: {
+                ar: 'محرر الأكواد والمساعد الذكي (VS Code / Antigravity / Cursor)',
+                en: '2. Code Editor & AI Assistant (VS Code / Antigravity / Cursor)',
+              },
+              description: {
+                ar: 'غرفة العمل الرئيسية التي نفتح فيها مجلد المشروع، ونكتب فيها تعليماتنا للمساعد الذكي ليبني ويعدل ملفات الموقع.',
+                en: 'Your main workspace where you open the project folder and instruct the AI assistant to build and edit files.',
+              },
             },
             {
-              ar: 'التواصل المقنع مع العميل وبناء علاقة ثقة طويلة الأمد',
-              en: 'High-trust client relationships and empathetic communication',
+              number: '03',
+              title: {
+                ar: 'بيئة التشغيل Node.js (اختر نسخة LTS المستقرة من nodejs.org)',
+                en: '3. Node.js Runtime (Download the LTS version from nodejs.org)',
+              },
+              description: {
+                ar: 'المحرك الأساسي الذي يسمح لجهازك بتشغيل مشاريع الويب الحديثة (React و Next.js) ومعاينتها محليًا على جهازك.',
+                en: 'The core engine that lets your computer run modern web projects (React & Next.js) locally.',
+              },
             },
             {
-              ar: 'الحس الجمالي والتناسق البصري الذي يميز المواقع الاحترافية',
-              en: 'Curating refined visual typography and distinctive brand presence',
+              number: '04',
+              title: {
+                ar: 'أداة حفظ النسخ Git (من git-scm.com)',
+                en: '4. Git Version Control (from git-scm.com)',
+              },
+              description: {
+                ar: 'أداة تحفظ مراحل تقدمك في المشروع، وتتيح لك رفع موقعك إلى الإنترنت أو التراجع عن أي تعديل غير مرغوب فيه بأمان.',
+                en: 'Saves checkpoints of your project progress and lets you push your website online safely.',
+              },
             },
           ],
-          architecturalRule: {
-            ar: 'القاعدة الذهبية: الذكاء الاصطناعي يولد الاقتراحات — والمهندس البشري يقرر ويعتمد.',
-            en: 'Golden Rule: AI Generates Proposals — Human Engineers Audit and Approve.',
-          },
         },
       },
     },
 
-    // Slide 10: Visual (The 12-Session Journey)
+    // SLIDE 10: REVEAL (PLATFORMS & ACCOUNTS - PART 2)
     {
       id: 's01-slide-10',
       sessionNumber: 1,
       slideNumber: 10,
-      totalSlides: 16,
-      type: 'visual',
-      title: { ar: "خارطة طريق رحلة الـ 12 جلسة (18 ساعة)", en: "The 12-Session Learning Roadmap (18 Hours)" },
-      subtitle: {
-        ar: 'مسار تصاعدي مترابط ينقلك من الفكرة المجردة إلى إطلاق منتج ويب متكامل وقابل للبيع',
-        en: 'A progressive end-to-end flight path from abstract idea to market-ready web service',
+      totalSlides: 15,
+      type: 'reveal',
+      title: {
+        ar: 'المنصات والحسابات المجانية المكملة لعملنا (2/2)',
+        en: 'Free Online Platforms & Accounts We Will Use (2/2)',
       },
-      estimatedMinutes: 6,
+      estimatedMinutes: 7,
       teachingGoal: {
-        ar: 'إعطاء الطلاب الصورة البانورامية الكبرى للدورة ليرى كل طالب موقعه الحالي وأين سيصل.',
-        en: 'Present the grand architectural curriculum roadmap so students see how every session connects.',
+        ar: 'تعريف المتدرب بالمنصات السحابية المجانية التي سيستخدمها للتصميم وحفظ الكود ونشر الموقع على رابط حي.',
+        en: 'Introduce the free web platforms used for UI design, cloud backup, and live hosting.',
       },
-      speakerNotes: { ar: "نفّذ: استعرض المحطات الست الرئيسية في الخريطة: التأسيس -> هندسة البرومبت والتصميم -> المشروع والتحليل -> أساسيات الويب وReact -> Next.js والـ AI الاحترافي -> التسويق والمشروع النهائي.\nاسأل: اشرح ترتيب المراحل في «خارطة طريق رحلة الـ 12 جلسة (18 ساعة)» بصوتك.\nتحقق: المبتكر الجديد ← هندسة البرومبت ← Google Stitch ← تأسيس المشروع ← Antigravity ← HTML + CSS", en: "Cue: Walk through the 6 major pipeline stages: Foundation -> Prompt & Design -> Setup & Antigravity -> Fundamentals & React -> Production Next.js -> Marketing & Launch.\nAsk: Ask learners to walk through the stages in “The 12-Session Learning Roadmap (18 Hours)”.\nCheck: New Creator → Prompt Eng → UI Design → Project Setup → Analyze First → Web Basics" },
+      speakerNotes: {
+        ar: 'نفّذ: اشرح المنصات الأربع التي تعمل من المتصفح مباشرة بدون تثبيت، وكيف تكمل البرامج التي نزلناها في الشريحة السابقة.\nاسأل: كيف سيفتح العميل أو صديقك الموقع الذي بنيته على جهازك؟ (عبر نشره على منصة Vercel التي تعطينا رابطًا حيًا مجانيًا!).\nتحقق: اطلب من المتدربين إنشاء حساب مجاني على GitHub و Vercel بالبريد الإلكتروني.',
+        en: 'Explain the 4 online platforms: AI Assistant, Google Stitch, GitHub, and Vercel.',
+      },
       payload: {
-        type: 'visual',
+        type: 'reveal',
         data: {
-          caption: {
-            ar: 'رحلة متصلة: كل جلسة تبني مباشرة على مخرجات الجلسة السابقة دون انقطاع.',
-            en: 'Continuous progression: Every session compounds directly on previous milestones.',
+          premise: {
+            ar: 'إلى جانب البرامج المثبتة على جهازك، سننشئ حسابات مجانية في هذه المنصات الأربع عبر المتصفح:',
+            en: 'Alongside your installed desktop programs, create free accounts on these 4 web platforms:',
           },
-          diagramType: 'pipeline',
-          nodes: [
-            { id: 'n1', stepNumber: '01', title: { ar: 'المبتكر الجديد', en: 'New Creator' }, badge: 'Mindset' },
-            { id: 'n2', stepNumber: '02', title: { ar: 'هندسة البرومبت', en: 'Prompt Eng' }, badge: 'Syntax' },
-            { id: 'n3', stepNumber: '03', title: { ar: 'Google Stitch', en: 'UI Design' }, badge: 'Visual' },
-            { id: 'n4', stepNumber: '04', title: { ar: 'تأسيس المشروع', en: 'Project Setup' }, badge: 'Codebase' },
-            { id: 'n5', stepNumber: '05', title: { ar: 'Antigravity', en: 'Analyze First' }, badge: 'Audit' },
-            { id: 'n6', stepNumber: '06', title: { ar: 'HTML + CSS', en: 'Web Basics' }, badge: 'Structure' },
+          steps: [
+            {
+              number: '01',
+              title: {
+                ar: 'منصة الذكاء الاصطناعي (Claude أو ChatGPT أو Antigravity)',
+                en: '1. AI Assistant (Claude, ChatGPT, or Antigravity)',
+              },
+              description: {
+                ar: 'نستعين بها في ترتيب أفكار الموقع، وصياغة نصوص الصفحات، وتوليد ومراجعة الكود البرمجي خطوة بخطوة.',
+                en: 'Helps structure website ideas, draft page copy, and generate/review code step by step.',
+              },
+            },
+            {
+              number: '02',
+              title: {
+                ar: 'أداة التصميم البصري (Google Stitch)',
+                en: '2. Visual Prototyping Tool (Google Stitch)',
+              },
+              description: {
+                ar: 'نستخدمها في مرحلة التصميم لتحويل وصف الصفحة المكتوب إلى تصميم واجهة مرئي نختار منه الألوان والترتيب.',
+                en: 'Turns written page descriptions into visual screen designs before coding.',
+              },
+            },
+            {
+              number: '03',
+              title: {
+                ar: 'منصة حفظ المشاريع (GitHub.com)',
+                en: '3. Cloud Code Repository (GitHub.com)',
+              },
+              description: {
+                ar: 'خزنة سحابية آمنة نحفظ فيها ملفات مشروعنا على الإنترنت حتى لا تضيع أبدًا.',
+                en: 'Secure cloud storage where we back up our project files online.',
+              },
+            },
+            {
+              number: '04',
+              title: {
+                ar: 'منصة النشر والاستضافة المجانية (Vercel.com)',
+                en: '4. Free Live Hosting Platform (Vercel.com)',
+              },
+              description: {
+                ar: 'تربط مشروعك من GitHub وتنشره على رابط حي حقيقي (https://...) يفتحه أي شخص من هاتفه في العالم.',
+                en: 'Connects to GitHub and publishes your website on a live URL accessible from any phone or computer.',
+              },
+            },
           ],
         },
       },
     },
 
-    // Slide 11: Concept (Market Changes)
+    // SLIDE 11: DEMO (LIVE INSTALLATION & VERIFICATION WALKTHROUGH)
     {
       id: 's01-slide-11',
       sessionNumber: 1,
       slideNumber: 11,
-      totalSlides: 16,
-      type: 'concept',
-      title: { ar: "ما الذي يقدّره العملاء؟", en: "What Clients Value" },
-      estimatedMinutes: 4,
-      teachingGoal: {
-        ar: 'ربط المعرفة التقنية بسوق العمل والفرص المالية الواقعية بدون وعود تسويقية وهمية.',
-        en: 'Ground technical competencies in economic reality without fraudulent earning guarantees.',
-      },
-      speakerNotes: { ar: "نفّذ: اشرح أن العميل يبحث عن حل يناسب حاجته، وأن وضوح النطاق والاتفاق على الأولويات يساعدان على تقدير وقت التنفيذ.\nاسأل: كيف تطبّق هذا المبدأ: العملاء لا يشترون لغات برمجة؛ العملاء يشترون حلولاً تزيد مبيعاتهم ومصداقيتهم؟\nتحقق: يربط الطالب بين احتياج العميل ومخرج قابل للتسليم، ويتجنب الوعد بوقت أو نتيجة قبل فهم نطاق العمل.", en: "Cue: Explain that clients seek a solution to a need, and that clear scope and priorities help estimate delivery time.\nAsk: How would you apply this principle: clients are buying solutions to business needs, not a programming language?\nCheck: Learners connect a client need to a deliverable and avoid promising a timeline or outcome before understanding the scope." },
-      payload: {
-        type: 'concept',
-        data: {
-          principle: {
-            ar: 'العملاء لا يشترون لغات برمجة؛ العملاء يشترون حلولاً تزيد مبيعاتهم ومصداقيتهم.',
-            en: 'Clients never buy programming languages; they invest in solutions that expand revenue.',
-          },
-          tagline: {
-            ar: 'MARKET REALITY & ECONOMIC VALUE',
-            en: 'MARKET REALITY & ECONOMIC VALUE',
-          },
-          explanation: {
-            ar: 'يقدّر العملاء فهم احتياجهم والاتفاق على نطاق واضح وتسليم تجربة سريعة الاستجابة مع مراعاة البحث والأداء والأمان.',
-            en: 'Clients value a clear understanding of their needs, agreed scope, and responsive experiences built with search, performance, and security in mind.',
-          },
-          bulletPoints: [
-            {
-              ar: 'سرعة الإطلاق واختبار الفكرة في السوق بأقل تكلفة ممكنة',
-              en: 'Rapid time-to-market and low-cost product validation',
-            },
-            {
-              ar: 'تجربة مستخدم راقية تعمل بسلاسة على الهواتف والشاشات المختلفة',
-              en: 'Impeccable responsive UX across mobile and desktop viewports',
-            },
-            {
-              ar: 'الظهور في نتائج البحث وجلب زوار حقيقيين ومبيعات للمشروع',
-              en: 'High search rankings and organic customer acquisition via SEO',
-            },
-            {
-              ar: 'الوضوح والشفافية في التواصل دون تعقيدات تقنية مربكة',
-              en: 'Transparent client communication without confusing jargon',
-            },
-          ],
-        },
-      },
-    },
-
-    // Slide 12: Project (First Project Overview)
-    {
-      id: 's01-slide-12',
-      sessionNumber: 1,
-      slideNumber: 12,
-      totalSlides: 16,
-      type: 'project',
-      title: { ar: "مشروع واحد، يتطور كل جلسة", en: "One Project, Built Session by Session" },
-      estimatedMinutes: 5,
-      teachingGoal: {
-        ar: 'شرح مفهوم المشروع الممتد عبر الجلسات الـ 12 ليدرك الطالب أن كل درس سيضيف لبنة ملموسة لمشروعه النهائي.',
-        en: 'Clarify the course-long project architecture: every session contributes directly to a portfolio piece.',
-      },
-      speakerNotes: { ar: "نفّذ: أوضح للطلاب أنهم لن يبنوا مشاريع عشوائية تنتهي في سلة المهملات، بل سيختار كل طالب نشاطاً تجارياً حقيقياً (مطعم، عيادة، نادي رياضي، أو متجر) ويطوره طوال الدورة.\nاسأل: أي مخرج من هذه المرحلة يحتاج إلى استكمال؟\nتحقق: اختيار اسم وفكرة النشاط التجاري للمشروع؛ تحديد الجمهور المستهدف والقيمة المقدمة للعميل؛ حصر الصفحات والأقسام المطلوبة في الواجهة الرئيسية؛ تجهيز ملف المتطلبات الأولية لجلسة البرومبت القادمة", en: "Cue: Reassure students that projects are not throwaway exercises. Each chooses a realistic domain (clinic, restaurant, gym) that matures across all 12 sessions.\nAsk: Which deliverable from this phase still needs work?\nCheck: Select business name and sector niche; Define target persona and unique value proposition; Inventory required sections for the flagship landing page; Prepare initial requirements doc for Session 02 prompt design" },
-      payload: {
-        type: 'project',
-        data: {
-          phaseName: { ar: 'المرحلة 01: اختيار الفكرة وتفكيك المتطلبات', en: 'Phase 01: Domain & Requirements' },
-          stepNumber: '01',
-          whatWeBuildNow: {
-            ar: 'تحديد الهوية والقطاع التجاري لمشروعك الرقمي الذي سينمو معك حتى حفل التخرج.',
-            en: 'Define the commercial identity and scope of your flagship portfolio project.',
-          },
-          deliverables: [
-            { ar: 'اختيار اسم وفكرة النشاط التجاري للمشروع', en: 'Select business name and sector niche' },
-            { ar: 'تحديد الجمهور المستهدف والقيمة المقدمة للعميل', en: 'Define target persona and unique value proposition' },
-            { ar: 'حصر الصفحات والأقسام المطلوبة في الواجهة الرئيسية', en: 'Inventory required sections for the flagship landing page' },
-            { ar: 'تجهيز ملف المتطلبات الأولية لجلسة البرومبت القادمة', en: 'Prepare initial requirements doc for Session 02 prompt design' },
-          ],
-          connectionToFinalProject: {
-            ar: 'هذا المشروع هو ما ستعرضه في الجلسة 12 أمام الجميع، وسيكون حجر الأساس في بورتفوليو خدماتك.',
-            en: 'This exact asset will be showcased in Session 12 and will anchor your freelance portfolio.',
-          },
-        },
-      },
-    },
-
-    // Slide 13: Demo (Live Deconstruction of Client Request)
-    {
-      id: 's01-slide-13',
-      sessionNumber: 1,
-      slideNumber: 13,
-      totalSlides: 16,
+      totalSlides: 15,
       type: 'demo',
-      title: { ar: "كيف يحلل صانع الويب طلب عميل تجاري؟", en: "Live Demo — How a Web Creator Analyzes a Client Brief" },
-      estimatedMinutes: 6,
-      teachingGoal: {
-        ar: 'نمذجة التفكير الهندسي عملياً أمام الطلاب عند استلام طلب غامض من العميل.',
-        en: 'Model professional deconstruction of ambiguous client requests in real time.',
+      title: {
+        ar: 'تطبيق عملي مباشر: تثبيت الأدوات والتأكد من جاهزية الجهاز',
+        en: 'Live Walkthrough: Installing the Tools & Verifying Your Computer Setup',
       },
-      speakerNotes: { ar: "نفّذ: افتح الشات واعرض طلب عميل نمطي: \"أريد موقعاً لمطعمي الجديد\". أظهر للطلاب كيف يحوله المهندس إلى 5 أسئلة استراتيجية قبل كتابة أي برومبت أو كود.\nاسأل: تحويل رسالة عميل عفوية إلى وثيقة متطلبات برمجية واضحة ومحددة المعالم.\nتحقق: هيكل واجهة مكون من 5 أقسام رئيسية مع زر حجز طاولة بارز وموقع خرائط واضح.", en: "Cue: Share screen with a raw brief: \"I want a site for my restaurant.\" Demonstrate how an engineer converts this into 5 strategic technical specs before touching AI.\nAsk: Transforming an informal client brief into actionable architectural specifications.\nCheck: A 5-section landing page blueprint with primary reservation CTA and integrated Google Map." },
+      estimatedMinutes: 10,
+      teachingGoal: {
+        ar: 'تنفيذ خطوات التحقق من تثبيت Node.js ومحرر الأكواد أمام المتدربين مباشرة على الشاشة.',
+        en: 'Demonstrate verifying Node.js and the code editor live on screen with trainees.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: افتح موقع `nodejs.org` أمام المتدربين وأرهم زر نسخة `LTS`، ثم افتح محرر الأكواد (VS Code أو Antigravity)، وافتح نافذة الأوامر المدمجة (`Terminal`) واكتب `node -v` و `npm -v` ليروا كيف يظهر رقم النسخة.\nاسأل: من ظهر لديه رقم النسخة عند كتابة `node -v`؟\nتحقق: ساعد أي متدرب يواجه سؤالًا أثناء التثبيت حتى يطمئن الجميع أن أجهزتهم جاهزة.',
+        en: 'Show nodejs.org (LTS button), open the editor terminal, and run `node -v` and `npm -v`.',
+      },
+      demoInstructions: {
+        ar: 'افتح المحرر، ثم افتح الـ Terminal عبر القائمة العلوية (Terminal -> New Terminal) وشغّل أوامر الفحص.',
+        en: 'Open the editor, open a New Terminal, and run the verification commands.',
+      },
       payload: {
         type: 'demo',
         data: {
           objective: {
-            ar: 'تحويل رسالة عميل عفوية إلى وثيقة متطلبات برمجية واضحة ومحددة المعالم.',
-            en: 'Transforming an informal client brief into actionable architectural specifications.',
+            ar: 'التأكد من تثبيت Node.js ومحرر الأكواد بنجاح على جهاز الكمبيوتر',
+            en: 'Verify that Node.js and the Code Editor are properly installed on your computer',
           },
-          promptToUse: `Analyze this client brief for a new Mediterranean artisan restaurant:
-"We need an elegant website for our new restaurant opening next month. We want online reservations, our menu with prices, photos, and location."
-
-Extract:
-1. Target Customer Persona
-2. Essential Landing Page Sections (Hero, Menu, Story, Booking, Footer)
-3. Technical Requirements (Mobile-first, Fast images, Local SEO)
-4. Call to Action (CTA) Priority`,
           instructorSteps: [
-            { ar: 'قراءة طلب العميل وتحديد الثغرات والمعلومات الناقصة', en: 'Inspect the raw brief and flag missing business constraints' },
-            { ar: 'تطبيق إطار التفكيك الهندسي (من هو الزائر؟ ما هو الهدف التجاري؟)', en: 'Apply requirement deconstruction: Who is the user? What converts?' },
-            { ar: 'استخدام الذكاء الاصطناعي كأداة عصف ذهني لاستخراج هيكل الأقسام', en: 'Leverage LLM as an accelerated brainstorming partner' },
-            { ar: 'مراجعة المخرجات وتعديلها بحس واقعي يتوافق مع السوق المحلي', en: 'Audit and tailor generated output with local market sensibility' },
+            {
+              ar: 'ندخل إلى الموقع الرسمي (nodejs.org) ونقوم بتنزيل وتثبيت النسخة المكتوب بجانبها (LTS - الموصى بها لمعظم المستخدمين).',
+              en: 'Visit nodejs.org and download/install the version labeled LTS (Recommended for Most Users).',
+            },
+            {
+              ar: 'نفتح محرر الأكواد (VS Code أو Antigravity) وننشئ مجلدًا جديدًا على سطح المكتب باسم (my-first-website).',
+              en: 'Open the code editor (VS Code or Antigravity) and create a new folder named `my-first-website`.',
+            },
+            {
+              ar: 'نفتح نافذة الأوامر داخل المحرر (Terminal) ونكتب الأمر البسيط أدناه للتأكد من أن المحرك يعمل بنجاح.',
+              en: 'Open the built-in Terminal inside the editor and run the command below to verify installation.',
+            },
           ],
+          promptToUse: `node -v
+npm -v
+git --version`,
           expectedOutput: {
-            ar: 'هيكل واجهة مكون من 5 أقسام رئيسية مع زر حجز طاولة بارز وموقع خرائط واضح.',
-            en: 'A 5-section landing page blueprint with primary reservation CTA and integrated Google Map.',
+            ar: 'ظهور أرقام الإصدارات (مثل v20.x أو v22.x) تحت كل أمر، مما يعني أن جهازك جاهز تمامًا لبناء وتشغيل المواقع.',
+            en: 'Version numbers (such as v20.x or v22.x) appear below each command, confirming your computer is ready.',
           },
         },
       },
     },
 
-    // Slide 14: Challenge (Deconstruct a Client Brief)
+    // SLIDE 12: CONCEPT (CHOOSING YOUR PROJECT IDEA)
     {
-      id: 's01-slide-14',
+      id: 's01-slide-12',
       sessionNumber: 1,
-      slideNumber: 14,
-      totalSlides: 16,
-      type: 'challenge',
-      title: { ar: "تفكيك طلب عميل في 5 دقائق", en: "Student Challenge — Deconstruct a Client Brief (5 Mins)" },
-      estimatedMinutes: 7,
-      teachingGoal: {
-        ar: 'جعل الطالب يمارس التفكير الهندسي بيده ويكتب في الشات أو في محرر نصوصه.',
-        en: 'Engage students in hands-on requirement decomposition with active Zoom chat participation.',
+      slideNumber: 12,
+      totalSlides: 15,
+      type: 'concept',
+      realWorldExample: {
+        ar: 'مثال واضح: «مقهى قهوة مختصة» — الزائر: محبو القهوة في المدينة — الأقسام: 1. ترحيب ووصف 2. قائمة المشروبات والأسعار 3. موقع الفرع وساعات العمل — الزر الأساسي: اطلب الآن عبر واتساب.',
+        en: 'Clear Example: "Specialty Café" — Visitor: Local coffee lovers — Sections: 1. Welcome 2. Drinks Menu & Prices 3. Location & Hours — Main Button: Order via WhatsApp.',
       },
-      speakerNotes: { ar: "نفّذ: شغل مؤقت الـ 5 دقائق. اطلب من الطلاب اختيار قطاع (مطعم أو عيادة) وتحديد: ما هي الأقسام الـ 4 الأساسية للموقع؟ وما هو الزر الرئيسي (CTA)؟\nاسأل: ما الناتج الذي ستسلّمه؟ تفكيك طلب عميل لنشاط تجاري محلي وتحديد هيكل الموقع وأهدافه.\nتحقق: مخطط نصي للأقسام الأربعة مع زر الدعوة لاتخاذ إجراء (CTA) الأساسي.", en: "Cue: Launch the 5-minute countdown. Instruct students to pick a clinic or restaurant and list 4 essential sections plus the primary CTA.\nAsk: What will you submit? Deconstruct a local business client brief into structural sections and CTA.\nCheck: A concise 4-section layout blueprint with primary call-to-action." },
+      title: {
+        ar: 'كيف تختار فكرة الموقع الذي ستبنيه خلال الدورة؟',
+        en: 'How to Choose the Website Idea You Will Build During the Course',
+      },
+      estimatedMinutes: 6,
+      teachingGoal: {
+        ar: 'توجيه المتدرب لاختيار فكرة مشروع واقعية ومحددة يطبق عليها جميع مهارات الدروس القادمة.',
+        en: 'Guide trainees to pick a concrete, realistic website idea to build across the 12 lessons.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: اشرح للمتدربين أننا في هذه الدورة لن نتعلم نظريات منفصلة، بل كل متدرب سيختار اليوم مشروعًا واحدًا حقيقيًا (مقهى، مطعم، متجر عطور، عيادة، معرض أعمال شخصي، أو مكتب استشارات) ويبنيه خطوة بخطوة في كل درس حتى ينشره في نهاية الدورة.\nاسأل: ما الأسئلة الأربعة التي نحدد بها بطاقة مشروعنا اليوم؟\nتحقق: استعرض الأسئلة الأربعة الواضحة على الشريحة.',
+        en: 'Explain that each trainee picks one real project today and builds it progressively across all 12 lessons.',
+      },
+      payload: {
+        type: 'concept',
+        data: {
+          tagline: {
+            ar: 'الجزء الرابع • مشروعك العملي في الدورة',
+            en: 'Part 4 • Your Practical Course Project',
+          },
+          principle: {
+            ar: 'اختر فكرة واقعية وحدد ملامحها في 4 نقاط بسيطة',
+            en: 'Choose a Real-World Idea and Define It in 4 Simple Points',
+          },
+          explanation: {
+            ar: 'لتكون تجربتك عملية ومثمرة، اختر مشروعًا حقيقيًا (خاصًا بك أو لعميل تعرفه) وأجب عن هذه الأسئلة الأربعة قبل البدء:',
+            en: 'Pick a real project (for yourself or a local business) and answer these 4 questions:',
+          },
+          bulletPoints: [
+            {
+              ar: 'ما هو المشروع ونوع النشاط؟ (مثال: مقهى، متجر عطور، عيادة أسنان، مدرب شخصي، أو معرض أعمال).',
+              en: 'What is the project and domain? (e.g., café, perfume shop, dental clinic, personal trainer, portfolio).',
+            },
+            {
+              ar: 'من هو الزائر المستهدف؟ وما أهم معلومة يبحث عنها فور دخوله للموقع؟',
+              en: 'Who is the target visitor, and what is the main info they look for first?',
+            },
+            {
+              ar: 'ما الأقسام الثلاثة أو الأربعة الأساسية التي يجب أن تظهر في الصفحة الرئيسية؟',
+              en: 'What 3 or 4 essential sections should appear on the homepage?',
+            },
+            {
+              ar: 'ما هو الإجراء الأساسي المطلوب من الزائر؟ (مثال: زر «اطلب الآن عبر واتساب» أو «احجز موعدك عبر واتساب»).',
+              en: 'What is the primary visitor action? (e.g., "Order via WhatsApp" or "Book Appointment via WhatsApp").',
+            },
+          ],
+        },
+      },
+    },
+
+    // SLIDE 13: CHALLENGE (HANDS-ON ACTIVITY)
+    {
+      id: 's01-slide-13',
+      sessionNumber: 1,
+      slideNumber: 13,
+      totalSlides: 15,
+      type: 'challenge',
+      title: {
+        ar: 'النشاط العملي للدرس الأول: تجهيز الأدوات وبطاقة فكرة الموقع',
+        en: 'Lesson 01 Practical Activity: Tool Setup & Website Idea Card',
+      },
+      estimatedMinutes: 12,
+      teachingGoal: {
+        ar: 'تخصيص وقت عملي داخل الدرس للتأكد من تثبيت البرامج وكتابة بطاقة تعريف المشروع لكل متدرب.',
+        en: 'Give trainees hands-on time to verify their tool installation and write their project idea card.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: شغّل المؤقت لمدة 12–15 دقيقة. اطلب من كل متدرب إنجاز المهمتين المحددتين: التأكد من تنزيل الأدوات، وكتابة النقاط الأربع لمشروعه في شات Zoom أو إرسالها عبر زر واتساب في صفحة الجلسة.\nاسأل: من يشاركنا فكرة مشروعه والأقسام الثلاثة التي اختارها لنناقشها معًا؟\nتحقق: اقرأ مشاركات المتدربين وشجعهم وتأكد من وضوح زر الإجراء الأساسي في كل فكرة.',
+        en: 'Start the activity timer and review trainee project ideas and tool setup status in Zoom chat.',
+      },
       payload: {
         type: 'challenge',
         data: {
           mission: {
-            ar: 'تفكيك طلب عميل لنشاط تجاري محلي وتحديد هيكل الموقع وأهدافه.',
-            en: 'Deconstruct a local business client brief into structural sections and CTA.',
+            ar: 'تأكد من تثبيت أدواتك واكتب بطاقة فكرة موقعك من 4 نقاط',
+            en: 'Verify Your Installed Tools and Write Your 4-Point Website Idea Card',
           },
-          durationMinutes: 5,
+          durationMinutes: 15,
           objective: {
-            ar: 'التفكير كمهندس منتج قبل الاندفاع نحو البرمجة أو سؤال الذكاء الاصطناعي.',
-            en: 'Cultivate product-engineering intuition before writing code or prompting AI.',
+            ar: 'الخروج من الدرس الأول بجهاز جاهز للعمل وفكرة موقع واضحة المعالم.',
+            en: 'Finish Lesson 01 with a ready computer workspace and a clearly defined website idea.',
           },
           instructions: [
-            { ar: 'اختر فكرة مشروعك: (مطعم راقٍ، عيادة أسنان، نادي لياقة، أو بورتفوليو شخصي)', en: 'Select your project niche: artisan dining, dental clinic, gym, or portfolio' },
-            { ar: 'حدد الهدف التجاري الأول للموقع (مثال: حجز موعد، طلب طعام، اتصال مباشر)', en: 'Define the #1 business conversion goal (Book appointment, Call now)' },
-            { ar: 'حدد 4 أقسام رئيسية يحتاجها الزائر في الصفحة الأولى', en: 'Specify 4 non-negotiable sections needed on the homepage' },
-            { ar: 'شارك ملخصك في شات Zoom خلال 5 دقائق', en: 'Drop your 3-line summary into Zoom chat within 5 minutes' },
+            {
+              ar: 'تأكد من تنزيل وتثبيت متصفح Chrome ومحرر الأكواد (VS Code أو Antigravity) ونسخة Node.js LTS على جهازك.',
+              en: 'Confirm Chrome, your Code Editor (VS Code / Antigravity), and Node.js LTS are installed on your machine.',
+            },
+            {
+              ar: 'اختر فكرة الموقع الذي ستبنيه خلال الدورة، واكتب اسمه ونوع الخدمة أو المنتج الذي يقدمه.',
+              en: 'Pick the website idea you will build during the course and write its name and service/product.',
+            },
+            {
+              ar: 'حدد 3 أقسام رئيسية ستظهر في الصفحة الرئيسية لموقعك (مثل: قسم الترحيب، قسم الخدمات/المنتجات، قسم التواصل).',
+              en: 'List 3 main sections that will appear on your homepage (e.g., Welcome, Services/Products, Contact).',
+            },
+            {
+              ar: 'اكتب نص الزر الرئيسي الذي سيضغط عليه الزائر للتواصل أو الطلب عبر واتساب.',
+              en: 'Write the exact text of the main WhatsApp button visitors will tap to order or contact you.',
+            },
           ],
-          starterPromptOrCode: 'Project: [Name] | Goal: [Main CTA] | Sections: 1. Hero, 2. Services, 3. Reviews, 4. Contact',
           deliverable: {
-            ar: 'مخطط نصي للأقسام الأربعة مع زر الدعوة لاتخاذ إجراء (CTA) الأساسي.',
-            en: 'A concise 4-section layout blueprint with primary call-to-action.',
+            ar: 'شارك بطاقة فكرة موقعك وحالة تثبيت الأدوات في شات Zoom أو أرسلها مباشرة عبر واتساب من صفحة الدرس.',
+            en: 'Share your website idea card and tool setup status in Zoom chat or send it via WhatsApp.',
           },
         },
       },
     },
 
-    // Slide 15: Takeaway (3 Principles)
+    // SLIDE 14: PROJECT MILESTONE
+    {
+      id: 's01-slide-14',
+      sessionNumber: 1,
+      slideNumber: 14,
+      totalSlides: 15,
+      type: 'project',
+      title: {
+        ar: 'الحصيلة العملية للدرس الأول في مشروعك',
+        en: 'Lesson 01 Practical Milestone in Your Project',
+      },
+      estimatedMinutes: 3,
+      teachingGoal: {
+        ar: 'تلخيص المخرجات الملموسة التي أنجزها المتدرب في الدرس الأول وكيف تؤسس للدرس الثاني.',
+        en: 'Summarize the tangible deliverables completed in Lesson 01 and how they set up Lesson 02.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: راجع مع المتدربين ما أنجزوه اليوم: بيئة العمل أصبحت مثبتة وجاهزة، وفكرة المشروع أصبحت محددة وواضحة.\nاسأل: هل الجميع احتفظ بملف أو ملاحظة فيها النقاط الأربع لموقعه؟\nتحقق: في الدرس الثاني سنأخذ هذه النقاط الأربع ونحولها إلى خريطة صفحات وتصميم بصري مريح للعين.',
+        en: 'Review today’s completed deliverables and connect them to Lesson 02.',
+      },
+      payload: {
+        type: 'project',
+        data: {
+          stepNumber: '01',
+          phaseName: {
+            ar: 'المرحلة الأولى: تجهيز بيئة العمل وتحديد فكرة الموقع',
+            en: 'Phase 1: Workspace Setup & Defining the Website Idea',
+          },
+          whatWeBuildNow: {
+            ar: 'بيئة عمل جاهزة على الكمبيوتر + وثيقة تعريف المشروع وأقسامه الأساسية',
+            en: 'Ready Local Computer Workspace + Project Definition Card',
+          },
+          deliverables: [
+            {
+              ar: 'تثبيت متصفح Google Chrome ومحرر الأكواد وبيئة Node.js LTS بنجاح',
+              en: 'Installed Google Chrome, Code Editor, and Node.js LTS',
+            },
+            {
+              ar: 'إنشاء حساب مجاني على GitHub و Vercel لحفظ ونشر المشاريع',
+              en: 'Created free GitHub and Vercel accounts for saving and publishing projects',
+            },
+            {
+              ar: 'تحديد اسم الموقع، والزائر المستهدف، والأقسام الثلاثة الرئيسية للصفحة',
+              en: 'Defined website name, target visitor, and 3 main homepage sections',
+            },
+            {
+              ar: 'تحديد نص زر الإجراء المباشر عبر واتساب',
+              en: 'Defined the primary WhatsApp action button text',
+            },
+          ],
+          connectionToFinalProject: {
+            ar: 'في الدرس القادم سنحول بطاقة فكرة موقعك هذه إلى تخطيط صفحات وتصميم واجهة مرئية واضحة خطوة بخطوة.',
+            en: 'In the next lesson, we will turn this project card into a clear page layout and visual interface design.',
+          },
+        },
+      },
+    },
+
+    // SLIDE 15: TAKEAWAYS
     {
       id: 's01-slide-15',
       sessionNumber: 1,
       slideNumber: 15,
-      totalSlides: 16,
+      totalSlides: 15,
       type: 'takeaway',
-      title: { ar: "خلاصة: ثلاث ركائز", en: "Recap: Three Principles" },
-      estimatedMinutes: 4,
-      teachingGoal: {
-        ar: 'تلخيص الجلسة في 3 قواعد ذهبية لا تُنسى ترافق الطالب طوال رحلته البرمجية.',
-        en: 'Crystallize the session into 3 memorable pillars that anchor the rest of the course.',
+      title: {
+        ar: 'خلاصة الدرس الأول في 3 نقاط',
+        en: 'Lesson 01 Summary in 3 Points',
       },
-      speakerNotes: { ar: "نفّذ: اقرأ الركائز الثلاث بتركيز شديد ونبرة واثقة. اطلب من الطلاب تدوينها أو تصوير الشاشة لأنها تمثل ميثاق العمل للدورة بأكملها.\nاسأل: أي مبدأ من «خلاصة: ثلاث ركائز» ستستخدمه في مشروعك؟\nتحقق: نحن لا نكتفي بكتابة الكود؛ نحن نصنع حلول ويب رقمية متكاملة تغير واقع الأعمال.", en: "Cue: Deliver these 3 principles with conviction. Encourage learners to screenshot or journal them as our course code of conduct.\nAsk: Which principle from “Recap: Three Principles” will you use in your project?\nCheck: We do not just write code; we engineer end-to-end web products that power real businesses." },
+      estimatedMinutes: 2,
+      teachingGoal: {
+        ar: 'ختم الدرس الأول بتلخيص النقاط الثلاث الأهم وتذكير المتدربين بموضوع الدرس الثاني.',
+        en: 'Conclude Lesson 01 with 3 key takeaways and preview Lesson 02.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: اختم الدرس الأول بمراجعة النقاط الثلاث بهدوء، واشكر المتدربين على تفاعلهم وتجهيز أدواتهم.\nاسأل: هل بقي لدى أي شخص سؤال حول تثبيت أي أداة من الأدوات قبل لقاء الدرس القادم؟\nتحقق: ذكّرهم بإرسال بطاقة فكرة الموقع عبر زر واتساب في صفحة الدرس ليراجعها المدرب.',
+        en: 'Review the 3 key takeaways and answer any final tool installation questions.',
+      },
       payload: {
         type: 'takeaway',
         data: {
           takeaways: [
             {
               number: '01',
-              title: { ar: 'الذكاء الاصطناعي أداة — والقرار للمهندس', en: 'AI is a Tool — Judgment is Human' },
+              title: {
+                ar: 'بناء المواقع اليوم يعتمد على وضوح الفكرة والتخطيط',
+                en: 'Building Websites Today Relies on Clear Ideas & Planning',
+              },
               description: {
-                ar: 'نستعين بالذكاء الاصطناعي لتسريع بناء الكود واستكشاف الخيارات، لكن الحكم النهائي والاختبار والمسؤولية تظل دائماً بيدك.',
-                en: 'We leverage AI for scaffolding speed and options, but testing, security, and accountability remain human.',
+                ar: 'انتقلنا من عصر كتابة كل سطر يدويًا لشهور طويلة إلى عصر قيادة أدوات الذكاء الاصطناعي بخطة منظمة.',
+                en: 'We moved from months of manual typing to guiding AI tools with a clear, structured plan.',
               },
             },
             {
               number: '02',
-              title: { ar: 'الفهم قبل البرومبت والبرمجة', en: 'Deconstruct Before Prompting' },
+              title: {
+                ar: 'كل موقع يتكون من هيكل ومظهر وتفاعل',
+                en: 'Every Website Combines Structure, Style & Interactivity',
+              },
               description: {
-                ar: 'كتابة برومبت غامض تنتج كوداً عشوائياً. تفكيك طلب العميل وتحديد المتطلبات بدقة هو ما ينتج مواقع احترافية تخدم الأعمال.',
-                en: 'Vague prompts produce chaotic code. Meticulous requirement breakdown generates reliable client systems.',
+                ar: 'HTML يبني الهيكل والعناوين، وCSS ينسق الألوان والمسافات للهاتف، وJavaScript/React يضيف التفاعل الحي.',
+                en: 'HTML builds structure, CSS styles colors and mobile spacing, and JavaScript/React adds interactivity.',
               },
             },
             {
               number: '03',
-              title: { ar: 'سرعة الـ Vibe مع انضباط الهندسة', en: 'Vibe Velocity + Engineering Rigor' },
+              title: {
+                ar: 'أدواتك جاهزة وفكرة مشروعك واضحة',
+                en: 'Your Tools Are Ready & Your Project Idea Is Clear',
+              },
               description: {
-                ar: 'نجمع بين خفة وسرعة توليد النماذج الأولية وبين المعمارية النظيفة القابلة للصيانة والتوسع والتسليم الحقيقي للعملاء.',
-                en: 'Combine rapid prototyping velocity with clean architecture that survives in production environments.',
+                ar: 'بتثبيت المتصفح والمحرر وNode.js وتحديد فكرة موقعك، أصبحت جاهزًا للبدء بالتخطيط والتصميم العملي.',
+                en: 'With Chrome, your editor, and Node.js installed and your idea chosen, you are ready to design and build.',
               },
             },
           ],
           coreMotto: {
-            ar: 'نحن لا نكتفي بكتابة الكود؛ نحن نصنع حلول ويب رقمية متكاملة تغير واقع الأعمال.',
-            en: 'We do not just write code; we engineer end-to-end web products that power real businesses.',
-          },
-        },
-      },
-    },
-
-    // Slide 16: Next (Preparing for Session 02)
-    {
-      id: 's01-slide-16',
-      sessionNumber: 1,
-      slideNumber: 16,
-      totalSlides: 16,
-      type: 'next',
-      title: { ar: "المحطة القادمة — هندسة البرومبت لتطوير الويب", en: "Next Waypoint — Prompt Engineering for Web Development" },
-      estimatedMinutes: 2,
-      teachingGoal: {
-        ar: 'تشويق الطلاب للجلسة القادمة وتحديد المهمة التحضيرية البسيطة المطلوبة منهم.',
-        en: 'Build anticipation for Session 02 and assign a concise pre-class preparation task.',
-      },
-      speakerNotes: { ar: "نفّذ: اختم الجلسة بتوجيه تحية للجميع. اطلب منهم تثبيت فكرة مشروعهم (مطعم أو عيادة أو غيرها) لندخل بها مباشرة في ورشة البرومبت في الجلسة 02.\nاسأل: ما الذي ستجهزه قبل الجلسة القادمة؟\nتحقق: اختر اسم ونشاط مشروعك التجاري الذي ستطبق عليه هندسة البرومبت في الجلسة القادمة.", en: "Cue: Conclude with applause. Instruct learners to lock in their project idea so Session 02 launches straight into hands-on prompt workshops.\nAsk: What will you prepare before the next session?\nCheck: Finalize your chosen business name and sector for Session 02 prompt lab exercises." },
-      payload: {
-        type: 'next',
-        data: {
-          nextSessionNumber: '02',
-          nextSessionTitle: {
-            ar: 'هندسة البرومبت لتطوير الويب: صياغة التعليمات البرمجية الدقيقة',
-            en: 'Prompt Engineering for Web Development: Crafting Rigid Technical Instructions',
-          },
-          teaser: {
-            ar: 'سننتقل من البرومبت العشوائي إلى إطار العمل الاحترافي (ROLE + CONTEXT + TASK + CONSTRAINTS + OUTPUT) لبناء صفحات ويب متكاملة.',
-            en: 'Moving from naive prompts to our 8-part framework: Role, Context, Goal, Requirements, Constraints, Input, Output, and Acceptance Criteria.',
-          },
-          preparationHint: {
-            ar: 'اختر اسم ونشاط مشروعك التجاري الذي ستطبق عليه هندسة البرومبت في الجلسة القادمة.',
-            en: 'Finalize your chosen business name and sector for Session 02 prompt lab exercises.',
+            ar: 'في الدرس الثاني (الجلسة 02): سنتعلم كيف نخطط صفحات الموقع ونرتب أقسامه ونصمم واجهته البصرية.',
+            en: 'Up Next in Lesson 02: How to plan website pages, order sections, and design its visual interface.',
           },
         },
       },

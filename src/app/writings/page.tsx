@@ -6,9 +6,10 @@ import { PortfolioShell, PageContainer } from '@/components';
 import { ALL_WRITINGS } from '@/content/writings';
 import { usePreferencesStore } from '@/store';
 import { getLocalizedText } from '@/lib/utils';
-import { BookOpen, Clock, Tag, ArrowLeft, ArrowRight, Sparkles } from 'lucide-react';
+import { BookOpen, Clock, Tag, ArrowLeft, ArrowRight, Sparkles, MessageCircle } from 'lucide-react';
 import { Reveal } from '@/components/motion';
 import { WritingCategory } from '@/types';
+import { buildClientInquiryMessage, openWhatsAppChat } from '@/lib/whatsapp';
 
 export default function WritingsPage() {
   const { language } = usePreferencesStore();
@@ -16,16 +17,27 @@ export default function WritingsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   const categories = [
-    { id: 'all', label: { ar: 'كل الكتابات', en: 'All Writings' } },
-    { id: 'architecture', label: { ar: 'معمارية الأنظمة', en: 'System Architecture' } },
-    { id: 'web-engineering', label: { ar: 'هندسة الويب', en: 'Web Engineering' } },
-    { id: 'devops-cloud', label: { ar: 'السحابة و DevOps', en: 'Cloud & DevOps' } },
+    { id: 'all', label: { ar: 'جميع المقالات', en: 'All Articles' } },
+    { id: 'architecture', label: { ar: 'تصميم الأنظمة والمعمارية', en: 'System Architecture' } },
+    { id: 'web-engineering', label: { ar: 'تطوير الويب وتجربة المستخدم', en: 'Web Development & UX' } },
+    { id: 'devops-cloud', label: { ar: 'التشغيل والنشر السحابي', en: 'Cloud & Operations' } },
   ];
 
   const filteredWritings =
     selectedCategory === 'all'
       ? ALL_WRITINGS
       : ALL_WRITINGS.filter((w) => w.category === (selectedCategory as WritingCategory));
+
+  const handleAskOnWhatsApp = () => {
+    const msg = buildClientInquiryMessage({
+      inquiryType: isRtl ? 'سؤال أو استشارة حول المقالات التقنية' : 'Technical Article Question / Consultation',
+      message: isRtl
+        ? 'مرحبًا عبد الحكيم، كنت أقرأ مقالاتك وأود مناقشة فكرة أو استشارة تقنية لمشروعي.'
+        : 'Hello Abdulhakim, I was reading your articles and would like to discuss a technical question for my project.',
+      language,
+    });
+    openWhatsAppChat(msg);
+  };
 
   return (
     <PortfolioShell>
@@ -35,19 +47,19 @@ export default function WritingsPage() {
           <div className="p-8 sm:p-12 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-surface-sunken)] border border-[var(--color-border-subtle)] text-xs font-mono font-bold text-[var(--color-secondary)] uppercase">
               <BookOpen className="w-3.5 h-3.5" />
-              <span>{isRtl ? 'الكتابات والتدوينات الهندسية' : 'Engineering Writings'}</span>
+              <span>{isRtl ? 'المقالات والتجارب العملية' : 'Articles & Practical Notes'}</span>
             </div>
 
             <h1 className="text-h1 font-extrabold text-[var(--color-text)] tracking-tight">
               {isRtl
-                ? 'مقالات في معمارية النظم وهندسة الويب'
-                : 'Architectural Essays & Engineering Notes'}
+                ? 'مقالات وتجارب في بناء المواقع والأنظمة الرقمية'
+                : 'Practical Articles on Building Websites & Software Systems'}
             </h1>
 
             <p className="text-body sm:text-lg text-[var(--color-text-muted)] max-w-3xl leading-relaxed">
               {isRtl
-                ? 'رؤى هندسية تطبيقية، أنماط معمارية متقدمة في النظم الموزعة والميكروسيرفس، واستراتيجيات تحسين الأداء والموثوقية من واقع الخبرة الإنتاجية.'
-                : 'Applied architectural perspectives, distributed patterns, clean code discipline, and practical performance strategies for mission-critical software systems.'}
+                ? 'أشارك هنا خلاصة تجاربي في تصميم الأنظمة، وتطوير تطبيقات الويب، وتحسين الأداء والاعتمادية. كُتبت هذه المقالات بلغة منظمة تجمع بين الفائدة العملية والعمق التقني للمطورين وأصحاب المنتجات.'
+                : 'Sharing practical lessons in system design, web development, and performance optimization—organized clearly for both developers and product builders.'}
             </p>
 
             {/* Category Filter Pills */}
@@ -83,7 +95,7 @@ export default function WritingsPage() {
                       </span>
                       <span className="inline-flex items-center gap-1">
                         <Clock className="w-3.5 h-3.5" />
-                        {writing.readTimeMinutes} {isRtl ? 'دقائق' : 'min read'}
+                        {writing.readTimeMinutes} {isRtl ? 'دقائق قراءة' : 'min read'}
                       </span>
                     </div>
 
@@ -102,7 +114,7 @@ export default function WritingsPage() {
                       <div className="p-3.5 rounded-xl bg-[var(--color-surface-sunken)] border border-[var(--color-border-subtle)] text-xs text-[var(--color-text-muted)] flex items-start gap-2.5">
                         <Sparkles className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                         <span className="leading-relaxed">
-                          <strong>{isRtl ? 'نقطة معمارية: ' : 'Key Takeaway: '}</strong>
+                          <strong>{isRtl ? 'الفكرة الأساسية: ' : 'Key Takeaway: '}</strong>
                           {getLocalizedText(writing.keyTakeaways[0], language)}
                         </span>
                       </div>
@@ -126,7 +138,7 @@ export default function WritingsPage() {
                       href={`/writings/${writing.slug}`}
                       className="inline-flex items-center gap-2 text-sm font-bold text-[var(--color-secondary)] group-hover:text-[var(--color-primary)] transition-colors"
                     >
-                      <span>{isRtl ? 'قراءة المقال والتحليل المعماري' : 'Read Full Architecture Essay'}</span>
+                      <span>{isRtl ? 'قراءة المقال كاملًا' : 'Read Full Article'}</span>
                       {isRtl ? (
                         <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                       ) : (
@@ -137,6 +149,28 @@ export default function WritingsPage() {
                 </article>
               </Reveal>
             ))}
+          </div>
+
+          {/* Bottom Consultation Box */}
+          <div className="p-6 sm:p-8 rounded-2xl bg-[var(--color-surface-sunken)] border border-[var(--color-border)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="space-y-1">
+              <h3 className="text-base sm:text-lg font-bold text-[var(--color-text)]">
+                {isRtl ? 'هل لديك سؤال تقني أو تحتاج إلى مراجعة معمارية لمشروعك؟' : 'Have a technical question or need an architectural review for your project?'}
+              </h3>
+              <p className="text-xs sm:text-sm text-[var(--color-text-muted)]">
+                {isRtl
+                  ? 'يمكنك مراسلتي مباشرة عبر واتساب لمناقشة التحديات التقنية التي تواجهك.'
+                  : 'You can message me directly on WhatsApp to discuss your technical challenges.'}
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={handleAskOnWhatsApp}
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-bold transition-all shrink-0 cursor-pointer"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>{isRtl ? 'تواصل عبر واتساب' : 'Chat on WhatsApp'}</span>
+            </button>
           </div>
         </div>
       </PageContainer>

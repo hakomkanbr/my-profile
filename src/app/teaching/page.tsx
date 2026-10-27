@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import {
   PortfolioShell,
@@ -8,15 +8,31 @@ import {
   PageHeader,
   PageSection,
   Button,
+  WhatsAppActionFeedback,
 } from '@/components';
 import { INSTRUCTOR_PROFILE } from '@/content/instructor';
 import { usePreferencesStore } from '@/store';
 import { getLocalizedText } from '@/lib/utils';
-import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle2, MessageCircle } from 'lucide-react';
+import { buildClientInquiryMessage, openWhatsAppChat } from '@/lib/whatsapp';
 
 export default function TeachingPage() {
   const { language } = usePreferencesStore();
   const isRtl = language === 'ar';
+  const [whatsAppMessage, setWhatsAppMessage] = useState<string | null>(null);
+
+  const handleTrainingInquiry = () => {
+    const message = buildClientInquiryMessage({
+      inquiryType: isRtl ? 'استفسار عن التدريب أو WEB CREATOR AI' : 'Training / WEB CREATOR AI Inquiry',
+      projectOrService: 'WEB CREATOR AI',
+      message: isRtl
+        ? 'مرحبًا عبد الحكيم، أود الاستفسار عن برنامج WEB CREATOR AI التدريبي وكيفية الاستفادة منه.'
+        : 'Hello Abdulhakim, I would like to inquire about the WEB CREATOR AI training program.',
+      language,
+    });
+    setWhatsAppMessage(message);
+    openWhatsAppChat(message);
+  };
 
   return (
     <PortfolioShell>
@@ -26,13 +42,13 @@ export default function TeachingPage() {
           subtitle={getLocalizedText(INSTRUCTOR_PROFILE.whatITeach.description, language)}
           breadcrumbs={[
             { id: '1', label: isRtl ? 'الرئيسية' : 'Home', href: '/' },
-            { id: '2', label: isRtl ? 'التدريس' : 'Teaching', isCurrent: true },
+            { id: '2', label: isRtl ? 'التدريب' : 'Teaching', isCurrent: true },
           ]}
         />
 
         {/* Core Tracks */}
         <PageSection
-          title={isRtl ? 'المسارات التي أعلّمها' : 'Core Teaching Tracks'}
+          title={isRtl ? 'المهارات والمسارات التي أدرّب عليها' : 'Core Teaching Tracks'}
         >
           <div className="space-y-3">
             {INSTRUCTOR_PROFILE.whatITeach.coreTracks.map((track, idx) => (
@@ -58,7 +74,7 @@ export default function TeachingPage() {
             {/* Developer side */}
             <div className="p-7 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-xs space-y-4">
               <span className="text-xs font-mono font-bold text-[var(--color-secondary)] uppercase tracking-wider">
-                ENGINEERING PRAGMATISM
+                {isRtl ? 'خبرة العمل الفعلي' : 'PRACTICAL ENGINEERING'}
               </span>
               <h3 className="text-h3 font-bold text-[var(--color-text)]">
                 {getLocalizedText(INSTRUCTOR_PROFILE.developerPlusInstructor.developerSide.headline, language)}
@@ -76,7 +92,7 @@ export default function TeachingPage() {
             {/* Instructor side */}
             <div className="p-7 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-xs space-y-4">
               <span className="text-xs font-mono font-bold text-[var(--color-accent)] uppercase tracking-wider">
-                PEDAGOGICAL EMPATHY
+                {isRtl ? 'وضوح الشرح والتدرج' : 'CLEAR TEACHING'}
               </span>
               <h3 className="text-h3 font-bold text-[var(--color-text)]">
                 {getLocalizedText(INSTRUCTOR_PROFILE.developerPlusInstructor.instructorSide.headline, language)}
@@ -124,30 +140,50 @@ export default function TeachingPage() {
 
         {/* Flagship Course CTA */}
         <PageSection>
-          <div className="p-8 sm:p-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 text-start">
-            <div className="space-y-1 max-w-xl">
-              <span className="font-mono text-xs font-bold text-[var(--color-secondary)] uppercase">
-                THE PEDAGOGY IN ACTION
-              </span>
-              <h3 className="text-h3 font-bold text-[var(--color-text)]">
-                WEB CREATOR AI
-              </h3>
-              <p className="text-body-sm text-[var(--color-text-muted)] leading-relaxed">
-                {isRtl
-                  ? 'المنصة التدريبية التفاعلية الكاملة التي تجسّد هذا المنهج في مسار عملي خطوة بخطوة من الفكرة إلى السوق.'
-                  : 'The interactive training platform embodying this pedagogy from concept to market.'}
-              </p>
+          <div className="space-y-4">
+            <div className="p-8 sm:p-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 text-start">
+              <div className="space-y-1 max-w-xl">
+                <span className="font-mono text-xs font-bold text-[var(--color-secondary)] uppercase">
+                  {isRtl ? 'البرنامج التدريبي التطبيقي' : 'PRACTICAL TRAINING PROGRAM'}
+                </span>
+                <h3 className="text-h3 font-bold text-[var(--color-text)]">
+                  WEB CREATOR AI
+                </h3>
+                <p className="text-body-sm text-[var(--color-text-muted)] leading-relaxed">
+                  {isRtl
+                    ? 'البرنامج التدريبي التفاعلي الذي ينقلك خطوة بخطوة من الفكرة والتخطيط إلى بناء وإطلاق موقعك بدعم أدوات الذكاء الاصطناعي.'
+                    : 'The interactive training program that guides you step by step from concept and planning to building and launching your website with AI tools.'}
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center gap-3">
+                <Link href="/web-creator-ai">
+                  <Button
+                    size="lg"
+                    variant="primary"
+                    className="font-bold"
+                    rightIcon={isRtl ? <ArrowLeft className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
+                  >
+                    {isRtl ? 'ادخل إلى منصة التدريب' : 'Enter Training Platform'}
+                  </Button>
+                </Link>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={handleTrainingInquiry}
+                  leftIcon={<MessageCircle className="w-4 h-4 text-emerald-500" />}
+                >
+                  {isRtl ? 'استفسر عبر واتساب' : 'Ask on WhatsApp'}
+                </Button>
+              </div>
             </div>
-            <Link href="/web-creator-ai">
-              <Button
-                size="lg"
-                variant="primary"
-                className="font-bold"
-                rightIcon={isRtl ? <ArrowLeft className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
-              >
-                {isRtl ? 'استكشف المنهج' : 'Explore Platform'}
-              </Button>
-            </Link>
+
+            {whatsAppMessage && (
+              <WhatsAppActionFeedback
+                message={whatsAppMessage}
+                language={language}
+                onClose={() => setWhatsAppMessage(null)}
+              />
+            )}
           </div>
         </PageSection>
       </PageContainer>

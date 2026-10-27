@@ -5,394 +5,539 @@ export const SESSION_12: PresentationSession = {
   number: 12,
   slug: 'session-12',
   title: {
-    ar: 'المشروع النهائي: من الفكرة المجردة إلى الإطلاق والعرض الحي',
-    en: 'Final Capstone Project: From Raw Concept to Production Launch & Showcase',
+    ar: 'المشروع النهائي: خطوات التنفيذ، الفحص، والتسليم',
+    en: 'Final Project: Execution, Inspection & Submission',
   },
   subtitle: {
-    ar: 'تتويج الرحلة الكاملة (18 ساعة تدريبية): استعراض المسار الهندسي الكامل وتقديم عروض تخرج الطلاب',
-    en: 'The 18-hour culmination: reviewing the end-to-end architectural flight path and student graduation showcase',
+    ar: 'مراجعة شاملة لما تعلمناه، عرض المشاريع النهائية الحية، وتسليم العمل المكتمل عبر واتساب (المدة: 90 دقيقة)',
+    en: 'Comprehensive review, live final project presentations, and submitting completed work via WhatsApp (90 mins)',
   },
   durationMinutes: 90,
   goal: {
-    ar: 'تتويج رحلة الدورة كاملة: استعراض كيف تحولت فكرة مجردة عبر الـ 12 جلسة إلى موقع ويب حي متكامل، وتقديم الطلاب لمشاريعهم بثقة واحترافية.',
-    en: 'Celebrate the full 12-session curriculum arc: demonstrating how an abstract concept became a live production web service, and hosting the student showcase.',
+    ar: 'تمكين المتدرب من مراجعة مشروعه النهائي وفق المعايير الخمسة، تقديمه بثقة في 3 دقائق أمام المجموعة، وتسليمه عبر واتساب (+905382015072)، مع وضع خطة عملية للاستمرار بعد التخرج.',
+    en: 'Enable trainees to verify their final project against the 5 criteria, present it live in 3 minutes, submit it via WhatsApp, and follow a clear post-course roadmap.',
   },
   prerequisites: [
-    { ar: 'إكمال الجلسات من 01 إلى 11 وامتلاك مشروع التخرج المكتمل والموثق', en: 'Completion of Sessions 01 through 11 with finalized capstone repository' },
+    {
+      ar: 'إكمال الجلسة 11 ونشر الموقع برابط حي على منصة Vercel',
+      en: 'Completion of Session 11 with a live deployed URL on Vercel',
+    },
   ],
   objectives: [
-    { ar: 'استعراض المسار الهندسي الكامل للـ 12 جلسة وتثبيت الرؤية الشاملة لـ Web Creator', en: 'Review the holistic 12-session architectural flight path and cement the Web Creator identity' },
-    { ar: 'إتقان تقديم العرض الفني النهائي (The 10-Point Technical Pitch) أمام أصحاب المصلحة والعملاء', en: 'Master the 10-point technical graduation pitch in front of stakeholders and peers' },
-    { ar: 'تقديم كل طالب لمشروعه المكتمل (الفكرة، التصميم، الكود، الـ SEO، والأثر التجاري)', en: 'Host live student graduation presentations covering idea, design, codebase, SEO, and business value' },
-    { ar: 'وضع خطة التطور المهني المستمر لما بعد الدورة والانطلاق في سوق العمل الحر والتوظيف', en: 'Establish a concrete post-course career acceleration roadmap for freelancing and industry roles' },
+    {
+      ar: 'مراجعة المنهجية الكاملة التي تعلمناها من تخطيط الفكرة إلى النشر الحي على الإنترنت',
+      en: 'Review the complete workflow from planning an idea to live deployment',
+    },
+    {
+      ar: 'التأكد من استيفاء المشروع النهائي للمعايير الخمسة المعتمدة للتخرج',
+      en: 'Verify the final project meets all 5 graduation criteria',
+    },
+    {
+      ar: 'تقديم عرض مباشر لمدة 3 دقائق للمشروع الحي أمام المدرب وزملاء المجموعة',
+      en: 'Deliver a structured 3-minute live demo of the published website',
+    },
+    {
+      ar: 'إرسال رابط المشروع النهائي للتقييم عبر واتساب (+905382015072) ووضع خطة بناء المعرض الشخصي',
+      en: 'Submit the final project link via WhatsApp (+905382015072) and plan the next portfolio projects',
+    },
   ],
   timeline: [
-    { timeRange: '00:00 – 00:15', durationMinutes: 15, label: { ar: 'الافتتاح: استعراض رحلة الـ 18 ساعة والتحول الكبير لكل طالب', en: 'Opening: The 18-hour journey & individual transformation' }, type: 'context' },
-    { timeRange: '00:15 – 00:30', durationMinutes: 15, label: { ar: 'المسار المعماري الكامل: من الفكرة إلى البرومبت والتصميم والكود والشحن', en: 'The Full Architectural Synthesis: Idea to Ship' }, type: 'concept' },
-    { timeRange: '00:30 – 00:45', durationMinutes: 15, label: { ar: 'هيكل العرض التقديمي النموذجي (The 10-Point Capstone Pitch)', en: 'The 10-Point Technical Capstone Pitch Architecture' }, type: 'demo' },
-    { timeRange: '00:45 – 01:15', durationMinutes: 30, label: { ar: 'عروض الطلاب الحية: استعراض مشاريع التخرج ونقدها احتفائياً', en: 'Live Student Graduation Presentations' }, type: 'practice' },
-    { timeRange: '01:15 – 01:25', durationMinutes: 10, label: { ar: 'التقييم الشامل والشهادات التقديرية لمخرجات المشاريع', en: 'Comprehensive Evaluation & Milestone Recognition' }, type: 'review' },
-    { timeRange: '01:25 – 01:30', durationMinutes: 5, label: { ar: 'الميثاق الهندسي الدائم والانطلاق نحو المستقبل', en: 'The Permanent Engineering Creed & Future Waypoints' }, type: 'takeaway' },
+    {
+      timeRange: '00:00 – 00:20',
+      durationMinutes: 20,
+      label: { ar: 'مراجعة الرحلة الكاملة من الفكرة إلى الموقع المنشور والمعايير الـ 5 للمشروع', en: 'Reviewing the full journey & the 5 final project criteria' },
+      type: 'context',
+    },
+    {
+      timeRange: '00:20 – 00:35',
+      durationMinutes: 15,
+      label: { ar: 'كيف تعرض مشروعك في 3 دقائق وكيف تسلمه عبر واتساب (+905382015072)؟', en: 'How to present in 3 minutes & submit via WhatsApp' },
+      type: 'demo',
+    },
+    {
+      timeRange: '00:35 – 01:15',
+      durationMinutes: 40,
+      label: { ar: 'عروض مشاريع المتدربين الحية وملاحظات المدرب البناءة', en: 'Live trainee project demos & constructive instructor feedback' },
+      type: 'practice',
+    },
+    {
+      timeRange: '01:15 – 01:30',
+      durationMinutes: 15,
+      label: { ar: 'ماذا بعد التخرج؟ خارطة طريقك لبناء معرض أعمالك القادم', en: 'What after graduation? Your roadmap for building your portfolio' },
+      type: 'takeaway',
+    },
   ],
   projectMilestone: {
-    ar: 'العرض النهائي وإطلاق مشروع التخرج المتكامل كخدمة رقمية حية في معرض أعمالك.',
-    en: 'Live graduation showcase and deployment of your capstone web platform as an active portfolio piece.',
+    ar: 'عرض المشروع النهائي المكتمل وتسليم رابطه الحي عبر واتساب (+905382015072).',
+    en: 'Present the completed final project live and submit its URL via WhatsApp (+905382015072).',
   },
   aiRole: {
-    ar: 'شريك دائم ومساعد شخصي يرافقك في كافة مشاريعك المستقبلية كمهندس ومصمم ومراجع.',
-    en: 'Permanent junior pair programmer and research multiplier accompanying your future career journey.',
+    ar: 'شريكك المستمر في بناء مشاريعك القادمة بنفس المنهجية المنظمة التي أتقنتها.',
+    en: 'Your ongoing partner in building future projects using the structured workflow you mastered.',
   },
   marketConnection: {
-    ar: 'امتلاك مشروع متكامل مبني ومختبر وموثق يجعلك مؤهلاً فورياً للتعاقد مع العملاء أو التوظيف في الشركات.',
-    en: 'Possessing a deployed, tested, and documented capstone qualifies you immediately for client contracts and senior roles.',
+    ar: 'مشروعك المنشور اليوم هو أول عمل حقيقي في معرض أعمالك الذي ستعرضه للعملاء وأصحاب المشاريع.',
+    en: 'Your published project today is the first real case study in your client portfolio.',
   },
   startScreen: {
-    badge: 'SESSION 12 / 12 • THE GRAND FINALE',
+    badge: 'الدرس 12 من 12 • المشروع النهائي والتخرج (90 دقيقة)',
     headline: {
-      ar: 'حفل التخرج والعرض النهائي: من الفكرة المجردة إلى الإطلاق الكامل',
-      en: 'The Grand Finale: From Abstract Concept to Full Production Showcase',
+      ar: 'المشروع النهائي: خطوات التنفيذ، الفحص، والتسليم',
+      en: 'Final Project: Execution, Inspection & Submission',
     },
     description: {
-      ar: 'اليوم تتوج 18 ساعة من العمل والتعلم الهندسي؛ ستعرض موقعك الحي وتثبت قدرتك كـ Web Creator متكامل يقود الذكاء الاصطناعي ويبني منتجات رقمية حقيقية.',
-      en: 'Today crowns 18 hours of disciplined engineering; showcase your live platform and cement your standing as an autonomous Web Creator.',
+      ar: 'في هذا الدرس الختامي (ساعة ونصف) نراجع معايير المشروع النهائي، ونستعرض مشاريعكم الحية المنشورة على الإنترنت، ونسلم الروابط عبر واتساب، ونضع خطة واضحة لخطوتكم القادمة.',
+      en: 'In this final 90-minute lesson, review final criteria, showcase live projects, submit via WhatsApp, and map out your next steps.',
     },
     sessionGoal: {
-      ar: 'تقديم عرض مشروع تخرجك المكتمل والاحتفال بإتمام رحلة الـ 12 جلسة بنجاح باهر.',
-      en: 'Deliver your final capstone graduation presentation and celebrate completing the 12-session curriculum.',
+      ar: 'عرض مشروعك النهائي الحي بثقة وتسليمه رسمياً عبر واتساب.',
+      en: 'Present your live final project with confidence and submit it officially via WhatsApp.',
     },
   },
   endScreen: {
     headline: {
-      ar: 'مبارك التخرج! أصبحت الآن صانع ويب متكاملاً (WEB CREATOR AI)',
-      en: 'Graduation Complete! You are Now a Certified Autonomous Web Creator',
+      ar: 'مبارك تخرجكم من WEB CREATOR AI وإتمام مشاريعكم بنجاح!',
+      en: 'Congratulations on Graduating from WEB CREATOR AI!',
     },
     keyRecap: [
       {
-        ar: 'لقد قطعت الرحلة كاملة: فكرت، صممت، أسست، برمجت، وثقت، وأطلقت منتجاً حقيقياً.',
-        en: 'You conquered the full pipeline: conceived, prompted, designed, coded, tested, and shipped a real product.',
+        ar: 'أنت اليوم قادر على تحويل أي فكرة واضحة إلى موقع حي منشور على الإنترنت يخدم زواره بفعالية.',
+        en: 'You can now turn any clear idea into a live published website that serves visitors effectively.',
       },
       {
-        ar: 'الذكاء الاصطناعي أداة معك للأبد، وعقلك الهندسي هو القائد الذي لا غنى عنه.',
-        en: 'AI is your permanent execution lever; your human critical judgment remains the irreplaceable captain.',
+        ar: 'الذكاء الاصطناعي أداة مساعدة قوية بين يديك، لكن تخطيطك وتوجيهك ومراجعتك هي ما يصنع الجودة الحقيقية.',
+        en: 'AI is a powerful assistant in your hands, while your planning, guidance, and review create true quality.',
       },
       {
-        ar: 'هذه ليست نهاية الرحلة، بل هي بداية مسيرتك المهنية كصانع منتجات ويب رائدة.',
-        en: 'This is not the destination, but the launchpad of your career building impactful web systems.',
+        ar: 'كل موقع جديد تبنيه سيكون أسرع وأسهل من سابقه — استمر في التجربة وبناء معرض أعمالك.',
+        en: 'Every new site you build will be faster and easier than the last—keep building your portfolio.',
       },
     ],
-    nextSessionNumber: 'END',
+    nextSessionNumber: '01',
     nextSessionTitle: {
-      ar: 'انطلق إلى سوق العمل وابنِ موقعك القادم بثقة وهندسة رصينة!',
-      en: 'Launch into the Market and Engineer Your Next Digital Product with Unshakable Confidence!',
+      ar: 'العودة إلى فهرس الدروس والمشاريع',
+      en: 'Return to Course Hub & Projects',
     },
   },
   slides: [
-    // Slide 1: Title
     {
       id: 's12-slide-01',
       sessionNumber: 12,
       slideNumber: 1,
-      totalSlides: 9,
+      totalSlides: 8,
       type: 'title',
-      title: { ar: "المشروع النهائي وحفل التخرج", en: "Final Project Capstone" },
-      estimatedMinutes: 2,
-      teachingGoal: { ar: 'افتتاح الجلسة الختامية بطاقة احتفالية وفخر كبير بإنجاز الطلاب.', en: 'Open the grand finale session with celebration, pride, and executive energy.' },
-      speakerNotes: { ar: "نفّذ: رحب بالطلاب بحرارة بالغة: \"اليوم هو يوم التتويج! 12 جلسة، 18 ساعة، ومشاريع حقيقية حية بنيتموها بأيديكم وعقولكم!\".\nاسأل: ما الهدف الذي تتوقع تحقيقه في جلسة «المشروع النهائي وحفل التخرج»؟\nتحقق: افتتاح الجلسة الختامية بطاقة احتفالية وفخر كبير بإنجاز الطلاب.", en: "Cue: Give an inspiring opening: \"Today crowns 18 hours of dedicated craftsmanship: real live web products built by your hands!\"\nAsk: What outcome do you expect from “Final Project Capstone”?\nCheck: Open the grand finale session with celebration, pride, and executive energy." },
+      title: {
+        ar: 'المشروع النهائي: التنفيذ، الفحص، والتسليم',
+        en: 'Final Project: Execution, Inspection & Submission',
+      },
+      estimatedMinutes: 5,
+      teachingGoal: {
+        ar: 'الاحتفاء بإنجاز المتدربين وتنظيم عملية العرض والتسليم النهائي.',
+        en: 'Celebrate trainee achievements and structure the final presentation and submission flow.',
+      },
+      speakerNotes: {
+        ar: 'رحب بالمتدربين بحماس؛ هذا الدرس هو تتويج لجهدهم طوال البرنامج التدريبي.',
+        en: 'Welcome trainees warmly; this lesson crowns their work across all 12 lessons.',
+      },
       payload: {
         type: 'title',
         data: {
           sessionNumber: '12',
-          kicker: { ar: 'جلسة التتويج والعرض الختامي', en: 'Graduation Showcase & Finale' },
-          headline: { ar: 'THE CAPSTONE SHOWCASE', en: 'THE CAPSTONE SHOWCASE' },
-          subheadline: { ar: 'من الفكرة المجردة إلى الإطلاق الكامل: عرض مشاريع الطلاب الحية', en: 'From raw concept to full production release: Live capstone student showcase' },
           totalSessions: '12',
           durationMinutes: 90,
-          tags: ['Grand Finale', 'Capstone Project', 'Live Demos', 'Graduation Showcase', 'Next Milestones'],
+          kicker: {
+            ar: 'الدرس الثاني عشر والأخير • استعراض المشاريع والتخرج',
+            en: 'Lesson 12 • Final Project Showcase & Graduation',
+          },
+          headline: {
+            ar: 'عرض مشاريعكم الحية، مراجعة المعايير النهائية، والانطلاق في بناء أعمالكم القادمة',
+            en: 'Showcasing Your Live Projects, Final Review & Launching Your Next Work',
+          },
+          subheadline: {
+            ar: 'اليوم نحتفل بتحويل أفكاركم إلى مواقع حقيقية منشورة على الإنترنت ونستعرضها معاً.',
+            en: 'Today we celebrate turning your ideas into real websites published on the internet.',
+          },
+          tags: ['معايير المشروع النهائي', 'عرض حي 3 دقائق', 'تسليم عبر واتساب', 'خارطة ما بعد التخرج'],
         },
       },
     },
-
-    // Slide 2: Context
     {
       id: 's12-slide-02',
       sessionNumber: 12,
       slideNumber: 2,
-      totalSlides: 9,
-      type: 'context',
-      title: { ar: "تأمل الرحلة — من أين بدأنا وأين نقف اليوم؟", en: "Reflecting on the 18-Hour Transformation" },
-      subtitle: { ar: 'التحول المذهل من متلقٍ ومتردد أمام الكود إلى مهندس يقود الذكاء الاصطناعي باقتدار', en: 'The radical shift from passive coding hesitancy to confident, AI-augmented engineering leadership' },
-      estimatedMinutes: 4,
-      teachingGoal: { ar: 'مراجعة نقطة البداية في الجلسة 01 ومقارنتها بالمستوى المعماري الرفيع الذي وصل إليه الطلاب اليوم.', en: 'Compare the initial hesitancy of Session 01 with the formidable architectural confidence mastered today.' },
-      speakerNotes: { ar: "نفّذ: ذكرهم بالجلسة الأولى عندما تساءلنا: \"ماذا يعني أن تكون مطور ويب اليوم؟\". اليوم يملك كل طالب الإجابة العملية في مشروعه.\nاسأل: ما المشكلة التي توضّحها «تأمل الرحلة — من أين بدأنا وأين نقف اليوم؟»؟\nتحقق: تنتهي هذه الدورة بمشروع حي يمكن عرضه ومراجعته؛ استخدمه لتوضيح ما تعلمته عملياً.", en: "Cue: Remind them of Session 01 question: \"What does it mean to be a web developer today?\" Today everyone holds the tangible answer in code.\nAsk: What problem does “Reflecting on the 18-Hour Transformation” point to?\nCheck: This course concludes with a live project learners can present and review as evidence of their work." },
+      totalSlides: 8,
+      type: 'visual',
+      title: {
+        ar: 'رحلتنا الكاملة في WEB CREATOR AI: كيف بنينا مواقعنا خطوة بخطوة؟',
+        en: 'Our Complete Journey in WEB CREATOR AI: Step by Step',
+      },
+      subtitle: {
+        ar: 'النظام المتكامل الذي تعلمت تطبيقه لبناء أي موقع مستقبلاً:',
+        en: 'The repeatable 4-phase system you learned to build any future website:',
+      },
+      estimatedMinutes: 10,
+      teachingGoal: {
+        ar: 'ترسيخ المنهجية الكاملة في ذهن المتدرب ليكررها في أي مشروع جديد.',
+        en: 'Cement the complete 4-phase methodology so trainees can repeat it on any future project.',
+      },
+      speakerNotes: {
+        ar: 'ذكّر المتدربين بأن هذه المراحل الأربع تصلح لبناء موقع ثانٍ وثالث وعاشر بنفس السهولة والترتيب.',
+        en: 'Remind trainees that these exact 4 phases work for their 2nd, 3rd, and 10th websites.',
+      },
       payload: {
-        type: 'context',
+        type: 'visual',
         data: {
-          industryShift: {
-            ar: 'بدأت رحلتنا بمجرد فكرة نظرية، واليوم تمتلك مشروعاً برمجياً متكاملاً مبنياً بأحدث تقنيات الويب العالمية (Next.js 16 + React 19).',
-            en: 'We started with a speculative idea; today you command an enterprise Next.js 16 web application.',
+          diagramType: 'flow',
+          caption: {
+            ar: 'لم تتعلم مجرد أداة مؤقتة، بل تعلمت طريقة عمل منظمة تبني بها أي موقع من الفكرة إلى الإطلاق.',
+            en: 'You did not just learn a tool; you learned a structured workflow from idea to launch.',
           },
-          realWorldProblem: {
-            ar: 'تنتهي هذه الدورة بمشروع حي يمكن عرضه ومراجعته؛ استخدمه لتوضيح ما تعلمته عملياً.',
-            en: 'This course concludes with a live project learners can present and review as evidence of their work.',
-          },
-          whyItMatters: {
-            ar: 'أصبحت تملك المنهجية الكاملة: لم تعد خائفاً من أي فكرة أو مشروع جديد، لأنك تعرف بالضبط كيف تفككه، تطلب من AI تحليله، وتبنيه باحتراف.',
-            en: 'You now possess an immutable mental system: fearless in the face of any client brief, knowing exactly how to deconstruct, audit, and build.',
-          },
+          nodes: [
+            {
+              id: 'journey-1',
+              stepNumber: '01',
+              title: { ar: '1. التخطيط وتحديد الفكرة', en: '1. Planning & Idea' },
+              description: { ar: 'تحديد الهدف والجمهور ورسم خريطة الأقسام الـ 5 قبل الكود', en: 'Define goal, audience, and 5-section map before code' },
+            },
+            {
+              id: 'journey-2',
+              stepNumber: '02',
+              title: { ar: '2. التوجيه الذكي والتنظيم', en: '2. Clear AI Prompting' },
+              description: { ar: 'كتابة طلبات واضحة لقسم واحد في كل مرة وتنظيم مجلدات المشروع', en: 'Prompt one section at a time and organize project folders' },
+            },
+            {
+              id: 'journey-3',
+              stepNumber: '03',
+              title: { ar: '3. البناء والتفاعل والتجاوب', en: '3. Build & Interactivity' },
+              description: { ar: 'تنسيق البطاقات للهاتف والكمبيوتر وإضافة التصفية والطلب عبر واتساب', en: 'Responsive layout, category filtering, and WhatsApp ordering' },
+            },
+            {
+              id: 'journey-4',
+              stepNumber: '04',
+              title: { ar: '4. الفحص والنشر الحي', en: '4. Inspection & Launch' },
+              description: { ar: 'إعداد معاينة الرابط، الفحص الشامل، والنشر على GitHub و Vercel', en: 'SEO preview, 4-part check, and live Vercel deployment' },
+            },
+          ],
         },
       },
     },
-
-    // Slide 3: Visual (The Complete 12-Session Pipeline)
     {
       id: 's12-slide-03',
       sessionNumber: 12,
       slideNumber: 3,
-      totalSlides: 9,
-      type: 'visual',
-      title: { ar: "رحلة المشروع من البداية للنهاية", en: "The Project Journey, Start to Finish" },
-      subtitle: { ar: 'الرحلة المتصلة من الفكرة والبرومبت وحتى التصميم والكود والـ SEO والتسويق والإطلاق', en: 'The unbroken chain: Idea → Prompt → Stitch → Scaffolding → Antigravity → Foundations → JS → React → Next.js → SEO → Market' },
-      estimatedMinutes: 6,
-      teachingGoal: { ar: 'استعراض كل محطة في الرحلة كلوحة شرف تلخص المهارات المكتسبة.', en: 'Review every waypoint in the journey as a testament to mastered competencies.' },
-      speakerNotes: { ar: "نفّذ: استعرض المحطات الاثنتي عشرة واطلب من الطلاب تذكر كيف أضافت كل جلسة قطعة جديدة لبناء مشروعهم.\nاسأل: اشرح ترتيب المراحل في «رحلة المشروع من البداية للنهاية» بصوتك.\nتحقق: الفكرة والمعمارية ← التصميم بـ Stitch ← تحليل Antigravity ← HTML + CSS ← مكونات React ← Next.js + SEO ← دراسة الحالة والتسويق ← الإطلاق والعرض الحي", en: "Cue: Walk through all 12 stations, highlighting how each session contributed an essential building block.\nAsk: Ask learners to walk through the stages in “The Project Journey, Start to Finish”.\nCheck: Idea & Mindset → UI Prototype → Analysis First → Semantic Core → React Tree → Production SEO → Case Study → Live Launch" },
+      totalSlides: 8,
+      type: 'concept',
+      title: {
+        ar: 'المعايير الـ 5 للمشروع النهائي المكتمل',
+        en: 'The 5 Criteria for a Complete Final Project',
+      },
+      estimatedMinutes: 8,
+      teachingGoal: {
+        ar: 'توضيح معايير قبول المشروع النهائي بدقة.',
+        en: 'Clarify the 5 final project requirements clearly.',
+      },
+      speakerNotes: {
+        ar: 'هذه المعايير الخمسة واضحة وعملية وتضمن أن كل مشروع يصلح لوضعه في معرض أعمال المتدرب فوراً.',
+        en: 'These 5 practical criteria ensure every trainee project is portfolio-ready.',
+      },
       payload: {
-        type: 'visual',
+        type: 'concept',
         data: {
-          caption: { ar: 'هذه ليست مجرد دورة تعليمية؛ هذه رحلة تأسيس صانع ويب حقيقي قادر على المنافسة عالمياً.', en: 'This is the complete operational blueprint of an autonomous modern Web Creator.' },
-          diagramType: 'pipeline',
-          nodes: [
-            { id: 'f1', stepNumber: '01', title: { ar: 'الفكرة والمعمارية', en: 'Idea & Mindset' }, badge: 'Think' },
-            { id: 'f2', stepNumber: '03', title: { ar: 'التصميم بـ Stitch', en: 'UI Prototype' }, badge: 'Design' },
-            { id: 'f3', stepNumber: '05', title: { ar: 'تحليل Antigravity', en: 'Analysis First' }, badge: 'Audit' },
-            { id: 'f4', stepNumber: '06', title: { ar: 'HTML + CSS', en: 'Semantic Core' }, badge: 'Build' },
-            { id: 'f5', stepNumber: '08', title: { ar: 'مكونات React', en: 'React Tree' }, badge: 'Develop' },
-            { id: 'f6', stepNumber: '09', title: { ar: 'Next.js + SEO', en: 'Production SEO' }, badge: 'Enhance' },
-            { id: 'f7', stepNumber: '11', title: { ar: 'دراسة الحالة والتسويق', en: 'Case Study' }, badge: 'Market' },
-            { id: 'f8', stepNumber: '12', title: { ar: 'الإطلاق والعرض الحي', en: 'Live Launch' }, badge: 'Showcase' },
+          tagline: { ar: 'معايير التسليم النهائي', en: 'Final Submission Criteria' },
+          principle: {
+            ar: 'تأكد من توفر هذه النقاط الخمس في موقعك قبل إرساله للتسليم',
+            en: 'Verify These 5 Points in Your Website Before Submitting',
+          },
+          explanation: {
+            ar: 'كل مشروع نهائي في البرنامج يُقيّم بناءً على هذه الركائز العملية الخمس:',
+            en: 'Every final project in the program is evaluated across these five practical pillars:',
+          },
+          bulletPoints: [
+            {
+              ar: '1. وضوح الرسالة في القسم الأول (Hero): عنوان ووصف يشرحان ماذا يقدم الموقع ولمن في 5 ثوانٍ، مع زر إجراء واضح.',
+              en: '1. Clear Hero Message: Headline and subtitle explaining what the site offers and for whom within 5 seconds.',
+            },
+            {
+              ar: '2. هيكل متكامل ومنظم: 4 إلى 5 أقسام مرتبة منطقياً مع بيانات عربية حقيقية وصور واضحة.',
+              en: '2. Complete Section Structure: 4 to 5 logical sections with real Arabic copy and clear visuals.',
+            },
+            {
+              ar: '3. تفاعل عملي يخدم الزائر: ميزة تفاعلية شغالة (مثل تصفية البطاقات حسب التصنيف أو قائمة أسئلة شائعة).',
+              en: '3. Working Visitor Interactivity: Functional interactive feature such as category filtering.',
+            },
+            {
+              ar: '4. تواصل وطلب مباشر عبر واتساب: أزرار طلب وتواصل تفتح محادثة واتساب برسالة جاهزة ومرتبة.',
+              en: '4. Direct WhatsApp Ordering: Action buttons opening WhatsApp with a pre-filled formatted message.',
+            },
+            {
+              ar: '5. توافق مع الهاتف ورابط حي: تصميم مريح على شاشة الهاتف ومنشور برابط يعمل على منصة Vercel.',
+              en: '5. Mobile-Friendly & Live URL: Clean mobile layout deployed on a working Vercel URL.',
+            },
           ],
+          architecturalRule: {
+            ar: 'المشروع الذي يستوفي هذه النقاط الخمس هو مشروع حقيقي جاهز للعرض على أي عميل.',
+            en: 'A project meeting all five points is a real product ready to show any client.',
+          },
         },
       },
     },
-
-    // Slide 4: Concept (The 10-Point Graduation Pitch)
     {
       id: 's12-slide-04',
       sessionNumber: 12,
       slideNumber: 4,
-      totalSlides: 9,
-      type: 'concept',
-      title: { ar: "هيكل العرض التقديمي الختامي (The 10-Point Pitch)", en: "The 10-Point Capstone Pitch Structure" },
-      estimatedMinutes: 5,
-      teachingGoal: { ar: 'تحديد النقاط الـ 10 التي يجب أن يغطيها كل طالب أثناء استعراض مشروعه أمام الزملاء.', en: 'Provide the structured 10-point roadmap for student graduation presentations.' },
-      speakerNotes: { ar: "نفّذ: اشرح النقاط العشر التي سيتحدث فيها كل طالب خلال دقيقتين إلى 3 دقائق أثناء مشاركة شاشته في Zoom.\nاسأل: كيف تطبّق هذا المبدأ: العرض الهندسي المحترف يشرح: المشكلة، الفكرة، المعمارية، الكود الحي، والأثر التجاري في 3 دقائق.؟\nتحقق: قاعدة العرض: ابدأ دائماً بالمشكلة التي تحلها قبل أن تعرض أي سطر كود أو واجهة.", en: "Cue: Explain the 10 points students will present in their 2-3 minute live Zoom screen share.\nAsk: How would you apply this principle: Professional technical pitches articulate problem, architecture, live code, and business ROI in 3 minutes.?\nCheck: Presentation Rule: Always ground your presentation in the commercial problem before opening code." },
+      totalSlides: 8,
+      type: 'reveal',
+      title: {
+        ar: 'كيف تعرض مشروعك اليوم في 3 دقائق؟',
+        en: 'How to Present Your Project Today in 3 Minutes',
+      },
+      estimatedMinutes: 7,
+      teachingGoal: {
+        ar: 'تنظيم عروض المتدربين بطريقة مهنية ومختصرة.',
+        en: 'Structure trainee demos into a clear, confident 3-minute format.',
+      },
+      speakerNotes: {
+        ar: 'اعرض هذه النقاط الثلاث واتركها أمام المتدربين أثناء تقديم عروضهم.',
+        en: 'Keep these 3 steps visible to guide trainees during their live presentations.',
+      },
       payload: {
-        type: 'concept',
+        type: 'reveal',
         data: {
-          principle: {
-            ar: 'العرض الهندسي المحترف يشرح: المشكلة، الفكرة، المعمارية، الكود الحي، والأثر التجاري في 3 دقائق.',
-            en: 'Professional technical pitches articulate problem, architecture, live code, and business ROI in 3 minutes.',
+          premise: {
+            ar: 'خطة بسيطة من 3 دقائق لعرض موقعك أمام المجموعة (أو أمام أي عميل مستقبلاً):',
+            en: 'A simple 3-minute plan for presenting your website to the group or future clients:',
           },
-          tagline: { ar: 'THE 10-POINT EXECUTIVE SHOWCASE', en: 'THE 10-POINT EXECUTIVE SHOWCASE' },
-          explanation: {
-            ar: 'عندما تعرض مشروعك أمام عميل أو في مقابلة عمل، لا تفتح الكود عشوائياً. اتبع هذا التسلسل المنضبط لتأسر انتباه الحاضرين.',
-            en: 'When presenting to clients or hiring managers, follow this rigorous 10-step sequence to captivate your audience.',
-          },
-          bulletPoints: [
-            { ar: '1. المشكلة والنشاط التجاري | 2. الفكرة والقيمة المقدمة | 3. الجمهور المستهدف', en: '1. Problem Context | 2. Core Value Idea | 3. Target Persona' },
-            { ar: '4. التصميم البصري والـ Tokens | 5. التقنيات المختارة ولماذا؟ | 6. المعمارية وتفكيك المكونات', en: '4. Visual Design & Tokens | 5. Tech Stack Rationale | 6. Component Architecture' },
-            { ar: '7. مسار توظيف الذكاء الاصطناعي | 8. استعراض الموقع الحي والتجاوب | 9. إعدادات الـ SEO والأداء', en: '7. AI Pairing Workflow | 8. Live Responsive Demo | 9. Production SEO Setup' },
-            { ar: '10. الدروس المستفادة والخطوة القادمة للمشروع', en: '10. Key Engineering Takeaways & Next Commercial Milestones' },
+          steps: [
+            {
+              number: '01',
+              title: { ar: 'الدقيقة الأولى: فكرة المشروع والجمهور المستهدف', en: 'Minute 1: Project Idea & Target Audience' },
+              description: {
+                ar: 'اذكر اسم الموقع، لمن صممته، وما هي الفائدة الأساسية التي يقدمها للزائر.',
+                en: 'State the site name, who it is designed for, and the main benefit it offers visitors.',
+              },
+            },
+            {
+              number: '02',
+              title: { ar: 'الدقيقة الثانية: جولة حية في أقسام الموقع والتفاعل', en: 'Minute 2: Live Tour of Sections & Interactivity' },
+              description: {
+                ar: 'شارك شاشتك، استعرض الأقسام من الأعلى للأسفل، وجرّب أزرار التصفية وزر الطلب عبر واتساب.',
+                en: 'Share your screen, scroll through the sections, and test category filters and WhatsApp ordering.',
+              },
+            },
+            {
+              number: '03',
+              title: { ar: 'الدقيقة الثالثة: أهم درس تعلمته أثناء البناء', en: 'Minute 3: Key Lesson Learned While Building' },
+              description: {
+                ar: 'شارك تحدياً واجهك أثناء التخطيط أو التعديل مع المساعد الذكي وكيف تغلبت عليه.',
+                en: 'Share one challenge you faced during planning or AI refinement and how you solved it.',
+              },
+            },
           ],
-          architecturalRule: {
-            ar: 'قاعدة العرض: ابدأ دائماً بالمشكلة التي تحلها قبل أن تعرض أي سطر كود أو واجهة.',
-            en: 'Presentation Rule: Always ground your presentation in the commercial problem before opening code.',
-          },
         },
       },
     },
-
-    // Slide 5: Demo (Instructor Walkthrough of Trattoria Roma)
     {
       id: 's12-slide-05',
       sessionNumber: 12,
       slideNumber: 5,
-      totalSlides: 9,
+      totalSlides: 8,
       type: 'demo',
-      title: { ar: "عرض مشروع Trattoria Roma", en: "Trattoria Roma Walkthrough" },
-      estimatedMinutes: 6,
-      teachingGoal: { ar: 'تقديم المدرب لعرض نموذجي يطبق النقاط الـ 10 أمام الطلاب قبل أن يبدأ دورهم.', en: 'Instructor models the 10-point showcase live as an inspirational benchmark for students.' },
-      speakerNotes: { ar: "نفّذ: قم بعرض مشروع Trattoria Roma كاملاً في 3 دقائق: المشكلة، التصميم في Stitch، شجرة المكونات، تجاوب الموقع، وفحص الـ SEO.\nاسأل: نمذجة العرض الهندسي المكتمل في 3 دقائق ليكون دليلاً استرشادياً لعروض الطلاب.\nتحقق: عرض هندسي احترافي يربط الأكواد بالأثر التجاري ويثبت تمكن صانع الويب.", en: "Cue: Deliver a punchy 3-minute showcase of Trattoria Roma demonstrating problem, components, mobile responsiveness, and SEO.\nAsk: Model a punchy, senior-level 3-minute capstone showcase anchoring student presentations.\nCheck: Masterful 3-minute pitch fusing code elegance with tangible business value." },
+      title: {
+        ar: 'تطبيق مباشر: كيف تسلم مشروعك النهائي عبر واتساب؟',
+        en: 'Live Demo: How to Submit Your Final Project via WhatsApp',
+      },
+      estimatedMinutes: 8,
+      teachingGoal: {
+        ar: 'توضيح آلية التسليم النهائي خطوة بخطوة عبر واتساب (+905382015072).',
+        en: 'Demonstrate the exact WhatsApp submission workflow (+905382015072).',
+      },
+      speakerNotes: {
+        ar: 'أظهر للمتدربين نموذج التسليم في الموقع وكيف يفتح محادثة واتساب بالرسالة المنسقة جاهزة للإرسال إلى +905382015072.',
+        en: 'Show trainees the submission form on the site and how it formats the WhatsApp message to +905382015072.',
+      },
       payload: {
         type: 'demo',
         data: {
           objective: {
-            ar: 'نمذجة العرض الهندسي المكتمل في 3 دقائق ليكون دليلاً استرشادياً لعروض الطلاب.',
-            en: 'Model a punchy, senior-level 3-minute capstone showcase anchoring student presentations.',
+            ar: 'إرسال بيانات المشروع والرابط الحي للمراجعة والتقييم عبر واتساب (+905382015072).',
+            en: 'Submit project details and live URL via WhatsApp (+905382015072).',
           },
-          promptToUse: `Capstone Project Summary: Trattoria Roma
-- Domain: Artisan Italian Restaurant in Rome
-- Problem Solved: Inefficient telephone bookings eliminated via 1-second mobile reservation engine
-- Tech Stack: Next.js 16, React 19, Tailwind CSS v4, Semantic HTML5
-- Lighthouse Score: 99 Performance, 100 SEO, 100 Accessibility`,
           instructorSteps: [
-            { ar: 'استعراض صفحة الهبوط في المتصفح وتجربة حجز طاولة حي', en: 'Demonstrate live landing page and execute interactive reservation booking' },
-            { ar: 'فتح محاكي الهاتف وإظهار التجاوب السلس لقائمة الطعام', en: 'Switch to 375px mobile viewport showing flawless card responsiveness' },
-            { ar: 'إلقاء نظرة سريعة على كود المكونات النظيف في VS Code', en: 'Flash the clean component tree and typed interfaces in VS Code' },
-            { ar: 'عرض نتيجة فحص الـ SEO والـ Metadata في أدوات المطورين', en: 'Inspect document metadata and Open Graph tags in DevTools' },
+            {
+              ar: '1. افتح صفحة الجلسة الثانية عشرة أو نموذج تسليم المشروع في مسار WEB CREATOR AI.',
+              en: '1. Open the Session 12 page or project submission form in WEB CREATOR AI.',
+            },
+            {
+              ar: '2. اكتب اسمك، اسم المشروع وفكرته، رابط الموقع الحي على Vercel، ورابط مستودع GitHub.',
+              en: '2. Enter your name, project concept, live Vercel URL, and GitHub repository link.',
+            },
+            {
+              ar: '3. اضغط على زر «إرسال عبر واتساب» ليتم تجهيز رسالتك المنسقة وإرسالها مباشرة إلى المدرب على الرقم `+905382015072`.',
+              en: '3. Click "Send via WhatsApp" to open a formatted message directly to `+905382015072`.',
+            },
           ],
           expectedOutput: {
-            ar: 'عرض هندسي احترافي يربط الأكواد بالأثر التجاري ويثبت تمكن صانع الويب.',
-            en: 'Masterful 3-minute pitch fusing code elegance with tangible business value.',
+            ar: 'وصول جميع بيانات المشروع والروابط في رسالة واتساب واحدة منظمة وواضحة.',
+            en: 'All project details and links arrive in one clean, structured WhatsApp message.',
           },
         },
       },
     },
-
-    // Slide 6: Challenge (Student Live Presentations on Zoom)
     {
       id: 's12-slide-06',
       sessionNumber: 12,
       slideNumber: 6,
-      totalSlides: 9,
+      totalSlides: 8,
       type: 'challenge',
-      title: { ar: "منصة عروض الطلاب — استعراض مشاريع التخرج الحية", en: "Student Showcase Stage — Live Capstone Presentations" },
-      estimatedMinutes: 30,
-      teachingGoal: { ar: 'إتاحة الفرصة لكل طالب لمشاركة شاشته وتقديم مشروعه بثقة أمام زملائه والمدرب.', en: 'Facilitate live student screen shares and capstone pitches with celebratory constructive feedback.' },
-      speakerNotes: { ar: "نفّذ: هذا هو الجزء الأهم في الجلسة. ادعُ الطلاب بالاسم لمشاركة شاشاتهم، واستمع باهتمام، واحتفِ بتميز كل مشروع ونقاط قوته.\nاسأل: ما الناتج الذي ستسلّمه؟ مشاركة شاشتك عبر Zoom وتقديم مشروع تخرجك في 3 دقائق وفق هيكل النقاط الـ 10.\nتحقق: تقديم عرض التخرج الفني لمشروعك واعتماده رسمياً في سجل خريجي WEB CREATOR AI.", en: "Cue: The heart of Session 12. Invite students to share screens, celebrate their wins, and applaud their milestones.\nAsk: What will you submit? Share your screen on Zoom and deliver your 3-minute capstone graduation presentation.\nCheck: Successful live graduation showcase and formal milestone certification as a Web Creator." },
+      title: {
+        ar: 'عروض المشاريع والتسليم المباشر (40 دقيقة)',
+        en: 'Live Project Presentations & Direct Submission (40 Mins)',
+      },
+      estimatedMinutes: 40,
+      teachingGoal: {
+        ar: 'إتمام العروض النهائية للمتدربين وتسليم الروابط الحية.',
+        en: 'Complete live trainee project presentations and WhatsApp submissions.',
+      },
+      speakerNotes: {
+        ar: 'استمع لكل متدرب باهتمام، وأعطه ملاحظة إيجابية محددة حول ما أتقنه في موقعه وملاحظة تطويرية واحدة.',
+        en: 'Give each trainee specific positive feedback on what they did well plus one constructive tip.',
+      },
       payload: {
         type: 'challenge',
         data: {
           mission: {
-            ar: 'مشاركة شاشتك عبر Zoom وتقديم مشروع تخرجك في 3 دقائق وفق هيكل النقاط الـ 10.',
-            en: 'Share your screen on Zoom and deliver your 3-minute capstone graduation presentation.'
+            ar: 'استعراض أعمالكم الحية وإرسال التسليم النهائي',
+            en: 'Showcase Your Live Projects & Send Final Submission',
           },
-          durationMinutes: 15,
+          durationMinutes: 40,
           objective: {
-            ar: 'ترسيخ الثقة المهنية ومهارة الإلقاء والتحدث التقني أمام العملاء وأصحاب المصلحة.',
-            en: 'Cement professional confidence, technical storytelling, and client presentation poise.'
+            ar: 'تقديم عرض مباشر لمدة 3 دقائق لموقعك الحي على Vercel وإرسال رابط التسليم عبر واتساب.',
+            en: 'Deliver a 3-minute live demo of your Vercel site and submit the link via WhatsApp.',
           },
           instructions: [
-            { ar: 'شارك شاشة متصفحك وافتح مشروعك المحلي أو المنشور', en: 'Share browser window displaying your live project' },
-            { ar: 'اشرح مشكلة النشاط التجاري وكيف صممت الواجهة لحلها', en: 'Articulate the commercial problem and how your UI solves it' },
-            { ar: 'أظهر التجاوب على شاشة الهاتف واشرح كيف وظفت الذكاء الاصطناعي في المسار', en: 'Demonstrate mobile responsiveness and explain your AI workflow' },
-            { ar: 'اذكر أهم درس هندسي خرجت به من رحلة الـ 12 جلسة', en: 'Share your #1 engineering insight from this 12-session journey' },
+            {
+              ar: '1. جهّز رابط موقعك الحي على Vercel مفتوحاً في المتصفح.',
+              en: '1. Have your live Vercel URL open and ready in your browser.',
+            },
+            {
+              ar: '2. عند دورك، شارك شاشتك وقدم مشروعك في 3 دقائق (الفكرة، الجولة الحية، والدرس المستفاد).',
+              en: '2. When it is your turn, share your screen and present your project in 3 minutes.',
+            },
+            {
+              ar: '3. أرسل رابط مشروعك النهائي وملخصه عبر زر التسليم إلى واتساب (`+905382015072`).',
+              en: '3. Send your final project link and summary via WhatsApp (`+905382015072`).',
+            },
           ],
-          starterPromptOrCode: 'Pitch: 1. Business | 2. Problem | 3. Architecture | 4. Live Demo | 5. Results & Takeaway',
           deliverable: {
-            ar: 'تقديم عرض التخرج الفني لمشروعك واعتماده رسمياً في سجل خريجي WEB CREATOR AI.',
-            en: 'Successful live graduation showcase and formal milestone certification as a Web Creator.'
+            ar: 'عرض المشروع أمام المجموعة وإرسال رسالة التسليم النهائية عبر واتساب.',
+            en: 'Present the project live to the group and submit the final WhatsApp message.',
           },
         },
       },
     },
-
-    // Slide 7: Project (Milestone 12 - Capstone Complete)
     {
       id: 's12-slide-07',
       sessionNumber: 12,
       slideNumber: 7,
-      totalSlides: 9,
-      type: 'project',
-      title: { ar: "الإطلاق الكامل والاعتماد النهائي", en: "Project Milestone — Certified Capstone Deployment" },
-      estimatedMinutes: 4,
-      teachingGoal: { ar: 'الاحتفال باكتمال المشروع ومراجعته لاعتماده في بورتفوليو كل طالب.', en: 'Formally review and celebrate the capstone built across all 12 modules.' },
-      speakerNotes: { ar: "نفّذ: أكد للجميع: \"مشروعك الآن أصل رقمي حقيقي. ضعه في سيرتك الذاتية، انشره على لينكدإن، واستخدمه كدليل قاطع على قدرتك!\".\nاسأل: أي مخرج من هذه المرحلة يحتاج إلى استكمال؟\nتحقق: موقع ويب متكامل الميزات يعمل بأحدث معايير Next.js و React؛ معمارية دلالية مراجعة أمنياً ومحسنة لمحركات البحث وفق قائمة التحقق؛ دراسة حالة تجارية وعرض خدمات جاهز للتقديم للعملاء", en: "Cue: Remind learners: \"Your project is an authentic digital asset. Anchor it on your CV, LinkedIn, and portfolio!\"\nAsk: Which deliverable from this phase still needs work?\nCheck: Fully featured production web application built on Next.js 16; Semantic, hardened, SEO-optimized architecture; Documented case study and commercial proposal ready for client outreach" },
+      totalSlides: 8,
+      type: 'concept',
+      title: {
+        ar: 'ماذا بعد التخرج من البرنامج؟ خارطة طريقك العملية',
+        en: 'What After Graduation? Your Practical Roadmap Ahead',
+      },
+      estimatedMinutes: 7,
+      teachingGoal: {
+        ar: 'إعطاء المتدرب خطة واضحة للاستمرار وبناء معرض أعمال قوي بعد انتهاء الجلسات.',
+        en: 'Provide a clear actionable plan for building a portfolio after the course.',
+      },
+      speakerNotes: {
+        ar: 'شجع المتدربين على البدء بمشروعهم الثاني خلال هذا الأسبوع بينما المعلومات والخطوات حاضرة في أذهانهم.',
+        en: 'Encourage trainees to start their second project this week while the workflow is fresh.',
+      },
       payload: {
-        type: 'project',
+        type: 'concept',
         data: {
-          phaseName: { ar: 'المرحلة 12: تتويج المشروع النهائي والاعتماد', en: 'Phase 12: Final Capstone Certification & Launch' },
-          stepNumber: '12',
-          whatWeBuildNow: {
-            ar: 'اكتمال واعتماد مشروع التخرج كأصل تجاري وبرمجي حي في معرض أعمالك.',
-            en: 'Formal certification and launch of your flagship project as an active commercial portfolio asset.',
+          tagline: { ar: 'الخطوة القادمة بعد التخرج', en: 'Your Next Step After Graduation' },
+          principle: {
+            ar: 'حول مهارتك الجديدة إلى معرض أعمال من 3 مشاريع متنوعة',
+            en: 'Turn Your New Skill into a 3-Project Portfolio',
           },
-          deliverables: [
-            { ar: 'موقع ويب متكامل الميزات يعمل بأحدث معايير Next.js و React', en: 'Fully featured production web application built on Next.js 16' },
-            { ar: 'معمارية دلالية مراجعة أمنياً ومحسنة لمحركات البحث وفق قائمة التحقق', en: 'Semantic, hardened, SEO-optimized architecture' },
-            { ar: 'دراسة حالة تجارية وعرض خدمات جاهز للتقديم للعملاء', en: 'Documented case study and commercial proposal ready for client outreach' },
+          explanation: {
+            ar: 'لكي تثبت هذه المهارة وتبدأ بتقديم خدماتك بثقة، اتبع هذه الخطوات الثلاث خلال الشهر القادم:',
+            en: 'To solidify your skill and start offering your services with confidence, follow these three steps:',
+          },
+          bulletPoints: [
+            {
+              ar: '1. ابنِ مشروعين إضافيين في مجالات مختلفة: أضف إلى مشروعك الحالي موقعين آخرين (مثلاً: مطعم أو مقهى، عيادة أو خدمة محلية، وصفحة شخصية لمستقل) لتكوين معرض أعمال من 3 مشاريع حية.',
+              en: '1. Build 2 additional projects in different niches (e.g., café, local clinic, freelancer page) to form a 3-project live portfolio.',
+            },
+            {
+              ar: '2. بادر ببناء موقع لمشروع حقيقي قريب منك: اعرض على صاحب متجر أو خدمة تعرفه تصميم موقع واضح يربط طلباته بواتساب، واستخدمه كقصة نجاح حقيقية.',
+              en: '2. Build a site for a real business near you: offer a local shop or service a clean website connected to WhatsApp.',
+            },
+            {
+              ar: '3. التزم بنفس العادة المنظمة: خطط على الورق أولاً، وجّه الذكاء الاصطناعي لقسم واحد في كل مرة، وافحص الهاتف قبل النشر.',
+              en: '3. Stick to the same structured habit: plan on paper first, prompt one section at a time, and inspect mobile before publishing.',
+            },
           ],
-          connectionToFinalProject: {
-            ar: 'هذا المشروع هو برهانك العملي الأول الذي سينطلق بك نحو مشاريع أكبر وعملاء دائمين في المستقبل.',
-            en: 'This capstone is your undisputed proof of craftsmanship propelling you into major client contracts.',
+          architecturalRule: {
+            ar: 'الممارسة العملية في بناء مشاريع حقيقية هي أسرع طريق للإتقان.',
+            en: 'Hands-on practice building real projects is the fastest path to mastery.',
           },
         },
       },
     },
-
-    // Slide 8: Takeaway (The Permanent Creator Creed)
     {
       id: 's12-slide-08',
       sessionNumber: 12,
       slideNumber: 8,
-      totalSlides: 9,
+      totalSlides: 8,
       type: 'takeaway',
-      title: { ar: "ميثاق صانع الويب الدائم (The Creator Creed)", en: "The Web Creator Permanent Creed" },
-      estimatedMinutes: 4,
-      teachingGoal: { ar: 'تثبيت المبادئ الثلاثة الكبرى التي يجب أن ترافق الطالب طوال حياته المهنية.', en: 'Engrave the 3 supreme principles governing the student career indefinitely.' },
-      speakerNotes: { ar: "نفّذ: اقرأ الميثاق بكل هيبة وثقة: \"1. الذكاء الاصطناعي أداتك وعقلك هو القائد، 2. ابنِ حلولاً تحل مشاكل حقيقية، 3. لا تتوقف عن التعلم والتجربة\".\nاسأل: أي مبدأ من «ميثاق صانع الويب الدائم (The Creator Creed)» ستستخدمه في مشروعك؟\nتحقق: فكر كمهندس، صمم كفنان، ابنِ بالذكاء الاصطناعي، وأطلق حلولاً تغير العالم الرقمي.", en: "Cue: Deliver the creed with profound conviction: AI is your instrument, build solutions that solve real problems, never stop growing.\nAsk: Which principle from “The Web Creator Permanent Creed” will you use in your project?\nCheck: Think like an architect, design like an artist, build with AI, and ship solutions that reshape the web." },
+      title: {
+        ar: 'ختام البرنامج: أهم ما تملكه اليوم',
+        en: 'Program Conclusion: What You Own Today',
+      },
+      estimatedMinutes: 5,
+      teachingGoal: {
+        ar: 'اختتام البرنامج التدريبي بروح إيجابية ودافعة للعمل.',
+        en: 'Close the program on an encouraging, action-oriented note.',
+      },
+      speakerNotes: {
+        ar: 'اختم البرنامج بكلمة شكر وتقدير لالتزام المتدربين وتفاعلهم طوال الجلسات الـ 12.',
+        en: 'Thank trainees for their commitment and active participation across all 12 lessons.',
+      },
       payload: {
         type: 'takeaway',
         data: {
           takeaways: [
             {
               number: '01',
-              title: { ar: 'أنت المهندس والقائد — والذكاء الاصطناعي أداتك', en: 'You are the Architect — AI is the Multiplier' },
+              title: { ar: 'التخطيط والوضوح قبل الكود', en: 'Planning & Clarity Before Code' },
               description: {
-                ar: 'لا تكن مجرد مستهلك للأدوات؛ حافظ على عقلية التفكيك والتحليل والتدقيق الهندسي في كل سطر كود وكل برومبت.',
-                en: 'Never degenerate into a passive prompt consumer; uphold engineering analysis, critical review, and architectural discipline.',
+                ar: 'أي موقع ناجح يبدأ بفهم الزائر وتحديد الهدف وترتيب الأقسام بوضوح قبل فتح محرر الكود.',
+                en: 'Every successful website starts with understanding the visitor and ordering sections clearly.',
               },
             },
             {
               number: '02',
-              title: { ar: 'ركز على القيمة الحقيقية للأعمال والناس', en: 'Focus on Concrete Human & Business Value' },
+              title: { ar: 'أنت القائد والذكاء الاصطناعي مساعدك', en: 'You Lead, AI Assists' },
               description: {
-                ar: 'أعظم المواقع هي التي تسهل حياة المستخدمين وتزيد من نجاح أصحاب الأعمال؛ اجعل القيمة هي بوصلتك الأولى.',
-                en: 'Premier web systems simplify user lives and expand client prosperity; make genuine value your singular compass.',
+                ar: 'توجيهك الواضح ومراجعتك الدقيقة للنصوص والتصميم والهاتف هي ما يصنع الجودة الحقيقية.',
+                en: 'Your clear direction and careful review of copy, layout, and mobile view create real quality.',
               },
             },
             {
               number: '03',
-              title: { ar: 'البناء المستمر والتطور الذي لا يتوقف', en: 'Continuous Iteration & Lifelong Craftsmanship' },
+              title: { ar: 'البناء التراكمي المستمر', en: 'Continuous Step-by-Step Building' },
               description: {
-                ar: 'عالم التقنية يتطور كل يوم؛ واصل بناء المشاريع، تجربة الأدوات الجديدة، وتطوير معرض أعمالك دون انقطاع.',
-                en: 'The tech frontier expands daily; continue shipping projects, evaluating emerging tools, and honing your portfolio.',
+                ar: 'كل موقع جديد تبنيه وتنشره على الإنترنت سيزيد من ثقتك وسرعتك وخبرتك العملية.',
+                en: 'Every new website you build and publish online grows your confidence, speed, and portfolio.',
               },
             },
           ],
           coreMotto: {
-            ar: 'فكر كمهندس، صمم كفنان، ابنِ بالذكاء الاصطناعي، وأطلق حلولاً تغير العالم الرقمي.',
-            en: 'Think like an architect, design like an artist, build with AI, and ship solutions that reshape the web.',
-          },
-        },
-      },
-    },
-
-    // Slide 9: Next (Future Milestones)
-    {
-      id: 's12-slide-09',
-      sessionNumber: 12,
-      slideNumber: 9,
-      totalSlides: 9,
-      type: 'next',
-      title: { ar: "إلى الأمام — انطلق وابنِ مشروعك القادم!", en: "Forward Waypoints — Build Your Next Great Web Asset" },
-      estimatedMinutes: 2,
-      teachingGoal: { ar: 'ختام الدورة بتصفيق حار وتوجيه الطلاب نحو خطواتهم المهنية القادمة في سوق العمل.', en: 'Conclude curriculum with standing ovation and direct students toward active client freelancing.' },
-      speakerNotes: { ar: "نفّذ: اختم الدورة بكلمة مؤثرة وتصفيق حار: \"أهنئكم جميعاً من أعماق قلبي! لقد أصبحتم اليوم صناع ويب معاصرين مؤهلين للريادة. انطلقوا واصنعوا المستقبل!\".\nاسأل: ما الذي ستجهزه قبل الجلسة القادمة؟\nتحقق: شارك شهادة إنجازك ورابط مشروعك على لينكدإن وابدأ بالتواصل مع أول 5 عملاء هذا الأسبوع!", en: "Cue: Final heartfelt words: \"Congratulations to every single creator! You conquered the journey. Step forward and shape the digital future!\"\nAsk: What will you prepare before the next session?\nCheck: Publish your capstone case study on LinkedIn and initiate your first client outreach dialogues this week!" },
-      payload: {
-        type: 'next',
-        data: {
-          nextSessionNumber: '★',
-          nextSessionTitle: {
-            ar: 'انطلق في سوق العمل: عملاؤك ومشاريعك القادمة بانتظارك!',
-            en: 'Step into the Market: Your Next Clients and Projects Await!',
-          },
-          teaser: {
-            ar: 'لقد أكملت بنجاح 12 جلسة و 18 ساعة من التدريب الهندسي المكثف وأصبحت تمتلك كل الأدوات لصناعة وإطلاق مواقع ويب عالمية المستوى.',
-            en: 'You have mastered 18 hours of intensive engineering training and now command all capabilities to design, scaffold, optimize, and ship world-class web systems.',
-          },
-          preparationHint: {
-            ar: 'شارك شهادة إنجازك ورابط مشروعك على لينكدإن وابدأ بالتواصل مع أول 5 عملاء هذا الأسبوع!',
-            en: 'Publish your capstone case study on LinkedIn and initiate your first client outreach dialogues this week!',
+            ar: 'تواصلوا دائماً عبر واتساب (+905382015072) لمشاركة أعمالكم ومشاريعكم الجديدة — بالتوفيق لكم جميعاً!',
+            en: 'Stay in touch via WhatsApp (+905382015072) to share your new projects—wishing you all the best!',
           },
         },
       },

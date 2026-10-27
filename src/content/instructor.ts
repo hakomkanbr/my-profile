@@ -1,413 +1,372 @@
 /**
- * WEB CREATOR AI — Instructor Profile Data
- * Instructor: Abdulhakim Kanbr
- * Role: Senior Software Developer & Instructor
- * Message: "I don't just build software. I teach others how to build it."
+ * Abdulhakim Kanbr — Instructor & Developer Profile Registry
+ * Strictly typed against InstructorProfile in src/types/instructor.ts
  */
 
-import { InstructorProfile } from "@/types";
+import { InstructorProfile } from '@/types';
+import { WHATSAPP_CONFIG } from '@/lib/whatsapp';
 
 export const INSTRUCTOR_PROFILE: InstructorProfile = {
   name: {
-    ar: "عبد الحكيم قنبر",
-    en: "Abdulhakim Kanbr",
+    ar: 'عبد الحكيم قنبر',
+    en: 'Abdulhakim Kanbr',
   },
   roleTitle: {
-    ar: "مهندس برمجيات ومطور ويب",
-    en: "Software Engineer & Web Developer",
+    ar: 'مطور مواقع ومنتجات رقمية • مهندس برمجيات ومدرب تقني',
+    en: 'Web & Digital Product Developer • Software Engineer & Instructor',
   },
   coreMessage: {
-    ar: "أعمل على تصميم وبناء تطبيقات ويب وأنظمة برمجية متينة وقابلة للتوسع.",
-    en: "I design and build resilient, scalable web applications and software systems.",
+    ar: 'أحوّل الأفكار إلى مواقع ومنتجات رقمية، وأشارك خبرتي العملية مع المطورين والمتدربين.',
+    en: 'I turn ideas into websites and digital products, and share practical experience with developers and trainees.',
   },
   briefIntro: {
-    ar: "أنا عبد الحكيم قنبر، مهندس برمجيات ومطور ويب، لدي أكثر من 8 سنوات من الخبرة العملية في تطوير البرمجيات وتصميم الأنظمة. أشارك هنا مشاريعي، وما أتعلمه من العمل الهندسي، والأفكار التي أجدها مفيدة للمطورين وأصحاب المنتجات التقنية.",
-    en: "I'm Abdulhakim Kanbr, a software engineer and web developer with over 8 years of practical experience in software development and system design. Here I share my projects, engineering learnings, and ideas useful for developers and technical product owners.",
+    ar: 'أطوّر مواقع وأنظمة تساعد الشركات وأصحاب الأفكار على بناء حضورهم الرقمي وتنظيم أعمالهم. هنا أشارك أعمالي، والمنتجات التي أبنيها، والمعرفة التي أكتسبها خلال رحلتي.',
+    en: 'I build websites and systems that help businesses and founders establish their digital presence and organize their operations. Here I share my work, the products I build, and the knowledge I gain along the way.',
   },
   story: {
     title: {
-      ar: "عن عبد الحكيم",
-      en: "About Abdulhakim",
+      ar: 'قصتي ومسيرتي المهنية',
+      en: 'My Background & Journey',
     },
     paragraphs: [
       {
-        ar: "أعمل في مجال تطوير البرمجيات وهندسة الويب وتصميم الأنظمة منذ أكثر من 8 سنوات. بنيت خلال هذه الفترة تطبيقات ويب، ومنصات رقمية، وواجهات برمجية تخدم احتياجات فعلية وتتعامل مع متطلبات نمو متفاوتة.",
-        en: "I have been working in software engineering, web development, and system design for over 8 years. Over this time, I have built web applications, digital platforms, and backend APIs that solve real problems and handle varying scale requirements.",
+        ar: 'على مدار أكثر من 8 سنوات في تطوير البرمجيات، عملت على تحويل احتياجات الشركات وأصحاب المشاريع إلى مواقع ومنصات رقمية واضحة، سريعة، وسهلة الاستخدام.',
+        en: 'Over more than 8 years in software development, I have helped businesses and founders turn their needs into clear, fast, and reliable websites and digital platforms.',
       },
       {
-        ar: "ينصب تركيزي على بناء تطبيقات ويب حديثة تتسم بالسرعة وسهولة الاستخدام، إلى جانب تطوير الأنظمة الخلفية التي تركز على سلامة البيانات، والمصادقة، واستقرار الخدمات. أهتم بأن يكون النظام البرمجي متماسكاً من قاعدة البيانات وحتى واجهة المستخدم.",
-        en: "My focus is on crafting modern web applications combining responsiveness and intuitive UX, alongside backend services centered around data integrity, authentication, and service reliability. I strive to make the software cohesive from the database to the frontend.",
+        ar: 'يركز عملي اليوم على ثلاثة مسارات رئيسية: تطوير المواقع والمتاجر الإلكترونية، وبناء الأنظمة المخصصة لإدارة الأعمال والعمليات اليومية، وتطوير المنتجات الرقمية السحابية (SaaS) مثل Share2Sells وMasar وCashPro.',
+        en: 'My work today focuses on three core areas: building websites and online stores, developing custom systems to manage daily business operations, and creating SaaS digital products such as Share2Sells, Masar, and CashPro.',
       },
       {
-        ar: "في القرارات الهندسية، أعتمد مبدأ البساطة والوضوح قبل التعقيد. أفهم المشكلة والاحتياج بدقة قبل كتابة الكود، وأفضل المعمارية المعيارية القابلة للصيانة على استخدام أنماط معقدة بلا داعٍ. أحرص على كتابة كود نظيف يسهل على المطورين قراءته ومراجعته وتطويره باطمئنان.",
-        en: "In engineering decisions, I prioritize simplicity and clarity over premature complexity. I make sure to understand the core problem before coding, preferring clean, maintainable modular architectures over unnecessary abstractions. I strive to write readable code that teams can inspect and evolve with confidence.",
-      },
-      {
-        ar: "أشارك في هذا الموقع دراسات حالة لمشاريع عملت عليها، ومقالات تقنية عملية تتناول المعمارية وتطوير الويب، بالإضافة إلى أدوات وموارد وقوالب أسعى أن تكون مفيدة للمطورين وأصحاب المنتجات التقنية.",
-        en: "On this site, I share case studies of projects I have built, practical articles covering architecture and web development, along with tools, checklists, and templates designed to be genuinely useful for developers and technical product owners.",
+        ar: 'إلى جانب العمل مع العملاء وبناء المنتجات، أقدم برنامج WEB CREATOR AI التدريبي لمساعدة المتدربين على تعلم تطوير المواقع الحديثة والاستفادة الصحيحة من أدوات الذكاء الاصطناعي لبناء مشاريع حقيقية خطوة بخطوة.',
+        en: 'Alongside client projects and product building, I lead the WEB CREATOR AI training program to help learners build modern websites and use AI tools effectively through practical, step-by-step projects.',
       },
     ],
   },
   whatIBuild: {
     title: {
-      ar: "مجالات العمل والاهتمام الهندسي",
-      en: "Areas of Engineering Focus",
+      ar: 'ماذا أبني وأطور؟',
+      en: 'What I Build',
     },
     description: {
-      ar: "أركز على الحلول البرمجية العملية التي تجمع بين الاستقرار، سهولة الصيانة، والأداء الجيد.",
-      en: "Practical software solutions combining stability, maintainability, and reliable performance.",
+      ar: 'أطوّر حلولًا رقمية مصممة لخدمة أهداف العمل الفعلية وتسهيل تجربة المستخدم النهائي:',
+      en: 'I build digital solutions designed to serve real business goals and make the end-user experience effortless:',
     },
     focusAreas: [
       {
-        ar: "تطبيقات الويب الحديثة المبنية على Next.js و React مع معمارية واجهات متجاوبة.",
-        en: "Modern web applications built with Next.js and React with responsive UI architectures.",
+        ar: 'المواقع التعريفية والمتاجر الإلكترونية السريعة والمتجاوبة مع الهواتف.',
+        en: 'Fast, mobile-friendly company websites and online stores.',
       },
       {
-        ar: "الأنظمة الخلفية وتطوير واجهات البرمجة (REST APIs) وقواعد البيانات الموثوقة.",
-        en: "Backend systems, structured REST APIs, and reliable database architectures.",
+        ar: 'الأنظمة المخصصة ولوحات التحكم لإدارة المبيعات، المخزون، والمحاسبة.',
+        en: 'Custom business systems and dashboards for sales, inventory, and accounting.',
       },
       {
-        ar: "إدارة الخوادم، بيئات Docker، والبنية التحتية واستقرار تشغيل الخدمات.",
-        en: "Server environments, Docker containerization, and production deployment stability.",
+        ar: 'المنتجات الرقمية السحابية (SaaS) متعددة المستخدمين مثل Share2Sells وMasar وCashPro.',
+        en: 'Multi-tenant SaaS digital products such as Share2Sells, Masar, and CashPro.',
       },
       {
-        ar: "أدوات وموجهات الذكاء الاصطناعي لتسريع سير العمل الهندسي وجودة الكود.",
-        en: "AI-assisted tooling to accelerate engineering workflows and code quality.",
+        ar: 'واجهات البرمجة (APIs) وقواعد البيانات المستقرة والقابلة للتوسع.',
+        en: 'Reliable backend APIs and scalable databases.',
       },
     ],
   },
   whatITeach: {
     title: {
-      ar: "ماذا أعلّم في هذه الدورة؟",
-      en: "What I Teach in this Course",
+      ar: 'ماذا أعلّم في البرامج التدريبية؟',
+      en: 'What I Teach',
     },
     description: {
-      ar: "لا أعلّم مجرد وسوم HTML أو تعريفات CSS جافة، بل أعلّم دورة حياة صناعة الويب الكاملة.",
-      en: "I do not teach isolated code syntax, but the holistic lifecycle of professional web creation.",
+      ar: 'أركز في التدريب على المهارات العملية التي تمكّن المتدرب من بناء موقع حقيقي ونشره:',
+      en: 'My training focuses on practical skills that enable trainees to build and launch real websites:',
     },
     coreTracks: [
       {
-        ar: "التفكير كمهندس ويب وتحليل متطلبات المشاريع (Thinking & Analysis).",
-        en: "Engineering mindset and technical requirement analysis.",
+        ar: 'تخطيط الموقع وتحديد هدفه وجمهوره قبل كتابة الكود.',
+        en: 'Planning the website structure, goal, and audience before writing code.',
       },
       {
-        ar: "مبادئ UI/UX وتصميم واجهات مقنعة وعصرية تبهر المستخدمين.",
-        en: "Applied UI/UX principles and modern interface aesthetics.",
+        ar: 'بناء واجهات حديثة ومتجاوبة باستخدام HTML5 وCSS3 وTailwind CSS.',
+        en: 'Building modern, responsive interfaces with HTML5, CSS3, and Tailwind CSS.',
       },
       {
-        ar: "كتابة كود حديث ونظيف وفق أعلى المعايير القياسية في الصناعة.",
-        en: "Writing clean, accessible, and maintainable modern web code.",
+        ar: 'إضافة التفاعل البرمجي وبناء تطبيقات الويب باستخدام JavaScript وReact وNext.js.',
+        en: 'Adding interactivity and building web apps using JavaScript, React, and Next.js.',
       },
       {
-        ar: "استخدام الذكاء الاصطناعي بذكاء لمضاعفة الإنتاجية وتخطي العقبات التقنية.",
-        en: "Strategic leverage of AI copilots to accelerate building and debugging.",
+        ar: 'استخدام أدوات الذكاء الاصطناعي بذكاء لتسريع التطوير ومراجعة الأخطاء.',
+        en: 'Using AI tools effectively to speed up development and debug code.',
       },
       {
-        ar: "إطلاق المواقع الحية والتحسين التقني SEO وتجهيز معرض الأعمال للعمل الحر.",
-        en: "Live production deployment, technical SEO, and building high-converting portfolios.",
+        ar: 'نشر المشاريع على الإنترنت وتجهيزها للعرض على العملاء.',
+        en: 'Deploying projects live to the web and preparing them for clients.',
       },
     ],
   },
   developerPlusInstructor: {
     title: {
-      ar: "مطور + مدرب: القوة المضاعفة",
-      en: "Developer + Instructor: The Dual Synergy",
+      ar: 'مطور يبني في السوق، ومدرب ينقل التجربة',
+      en: 'A Developer Building in the Market & Sharing Practical Experience',
     },
     developerSide: {
       headline: {
-        ar: "كمطور برمجيات (The Developer)",
-        en: "As a Software Developer",
+        ar: 'في تطوير المشاريع والمنتجات',
+        en: 'As a Product & Systems Developer',
       },
       points: [
         {
-          ar: "أواجه تحديات الكود الحقيقية يومياً وأتعامل مع مشاكل الإنتاج الواقعية.",
-          en: "Hands-on daily coding solving production issues and technical hurdles.",
+          ar: 'أكثر من 8 سنوات خبرة عملية في بناء المواقع والأنظمة الخلفية وقواعد البيانات.',
+          en: '8+ years of hands-on experience building websites, backend systems, and databases.',
         },
         {
-          ar: "أبني معمارية برمجية قابلة للصيانة ومطابقة لأفضل ممارسات السوق.",
-          en: "Designing scalable architectures tailored to modern industry standards.",
+          ar: 'تطوير منتجات رقمية تعمل في السوق مثل Share2Sells وMasar وCashPro.',
+          en: 'Building live SaaS products in the market including Share2Sells, Masar, and CashPro.',
         },
         {
-          ar: "أختبر أدوات التكنولوجيا الجديدة والذكاء الاصطناعي في بيئات حقيقية.",
-          en: "Experimenting with modern developer tools and AI models in real projects.",
+          ar: 'اهتمام مباشر بسرعة الموقع، أمان البيانات، وسهولة الاستخدام على الهواتف.',
+          en: 'Direct focus on site speed, data security, and smooth mobile usability.',
         },
       ],
     },
     instructorSide: {
       headline: {
-        ar: "كمدرب وموجه تقني (The Instructor)",
-        en: "As a Technical Instructor",
+        ar: 'في التدريب ونقل المعرفة',
+        en: 'As a Technical Instructor',
       },
       points: [
         {
-          ar: "أفكك المفاهيم المعقدة إلى خطوات واضحة ومبسطة يفهمها أي متعلم شغوف.",
-          en: "Deconstructing complex paradigms into intuitive, actionable milestones.",
+          ar: 'تبسيط المفاهيم البرمجية بلغة واضحة ومباشرة دون تعقيد غير ضروري.',
+          en: 'Explaining programming concepts in clear, everyday language without unnecessary jargon.',
         },
         {
-          ar: "أبني مسارات تعليمية قائمة على الممارسة العملية وحل التحديات.",
-          en: "Structuring pedagogical journeys rooted in active building rather than passive watching.",
+          ar: 'منهج عملي يعتمد على أنشطة قصيرة ومشاريع متدرجة تنتهي بموقع منشور.',
+          en: 'Hands-on curriculum built around focused activities and progressive projects ending in a live site.',
         },
         {
-          ar: "أوجه المتدرب لتجنب الأخطاء الشائعة واكتساب عقلية حل المشكلات البرمجية.",
-          en: "Guiding trainees to bypass common pitfalls and cultivate a solid problem-solving mindset.",
+          ar: 'متابعة مباشرة لإجابات المتدربين ومشاريعهم عبر واتساب لتقديم ملاحظات عملية.',
+          en: 'Direct review of trainee activity submissions and projects via WhatsApp with actionable feedback.',
         },
       ],
     },
     synergyStatement: {
-      ar: "عندما يجمع المدرب بين ممارسة التطوير الفعلي والقدرة على التدريس، يحصل المتدرب على خبرة حية خالية من الحشو النظري.",
-      en: "When active software craftsmanship meets clear pedagogical mentorship, trainees receive unfiltered, battle-tested knowledge.",
+      ar: 'أقدّم للعملاء حلولًا مبنية على خبرة عملية، وأنقل للمتدربين ما يعمل فعلًا في المشاريع الحقيقية.',
+      en: 'I deliver practical solutions for clients and teach trainees what actually works in real projects.',
     },
   },
   teachingPhilosophy: {
     title: {
-      ar: "فلسفتي في التعليم والتدريب",
-      en: "Teaching Philosophy",
+      ar: 'ركائز منهجيتي في التدريب',
+      en: 'Core Pillars of My Teaching Approach',
     },
     items: [
       {
-        number: "01",
+        number: '01',
         title: {
-          ar: "البناء هو أفضل طريقة للفهم (Build to Understand)",
-          en: "Build to Understand",
+          ar: 'الفهم والتخطيط قبل كتابة الكود',
+          en: 'Understand & Plan Before Coding',
         },
         description: {
-          ar: "لا نكتفي بشرح القاعدة، بل نكتب الكود ونرى نتيجته في المتصفح ونصحح أخطاءه معاً.",
-          en: "We never stop at theory; we write code, inspect live output, and debug iteratively.",
+          ar: 'لا نبدأ بتوليد الكود عشوائيًا؛ نتعلم أولًا كيف نحدد هدف الصفحة وأقسامها الأساسية.',
+          en: 'We never start by generating random code; first we define the page goal and core structure.',
         },
-        icon: "Hammer",
+        icon: 'Compass',
       },
       {
-        number: "02",
+        number: '02',
         title: {
-          ar: "الذكاء الاصطناعي شريك وليس بديلاً (AI as an Amplifier)",
-          en: "AI as an Amplifier",
+          ar: 'خطوات صغيرة قابلة للتنفيذ والتسليم',
+          en: 'Small, Actionable Steps',
         },
         description: {
-          ar: "نعلمك كيف تفهم الكود أولاً، ثم كيف توجه الذكاء الاصطناعي ليكتب أجزاء منه بسرعة تحت إشرافك المعماري.",
-          en: "Master core principles first, then command AI to accelerate production under your architectural control.",
+          ar: 'كل جلسة مقسمة إلى أنشطة قصيرة وواضحة؛ تنفذ النشاط، تحفظ إجابتك، وترسلها عبر واتساب لتلقي الملاحظات.',
+          en: 'Every session is divided into focused activities; complete the task, save your work, and send it via WhatsApp for feedback.',
         },
-        icon: "Cpu",
+        icon: 'Layers',
       },
       {
-        number: "03",
+        number: '03',
         title: {
-          ar: "الموقع ليس مكتملاً حتى يراه العالم (From Zero to Live)",
-          en: "From Zero to Live",
+          ar: 'الذكاء الاصطناعي مساعد لك لا بديل عن فهمك',
+          en: 'AI as an Assistant, Not a Replacement for Understanding',
         },
         description: {
-          ar: "أي مشروع يظل على جهازك هو مجرد تمرين، نحن نهتم بنشر المشروع على نطاق حي ومشاركته مع الجميع.",
-          en: "A project that stays on localhost is merely an exercise; true creation goes live with a custom domain.",
+          ar: 'نبني الأساس البرمجي أولًا، ثم نستخدم الذكاء الاصطناعي لتسريع العمل وتحسين النصوص ومراجعة الأخطاء.',
+          en: 'We build the foundation first, then use AI to speed up work, refine copy, and review bugs.',
         },
-        icon: "Globe",
+        icon: 'Sparkles',
       },
       {
-        number: "04",
+        number: '04',
         title: {
-          ar: "التفكير في القيمة والعميل (Think in Value)",
-          en: "Think in Value & Business",
+          ar: 'التخرج بمشروع منشور على الإنترنت',
+          en: 'Graduate with a Published Live Project',
         },
         description: {
-          ar: "مهاراتك البرمجية قيمتها الحقيقية في حل مشكلات الأعمال، جذب العملاء، وبناء سمعتك المهنية المستقلة.",
-          en: "Technical skill finds its true power when solving real client needs and crafting sustainable income.",
+          ar: 'الهدف النهائي ليس إتمام القراءة فقط، بل إطلاق موقع حقيقي على رابط مباشر يمكنك مشاركته بثقة.',
+          en: 'The goal is not just reading lessons, but launching a real website on a live link you can share with confidence.',
         },
-        icon: "Award",
+        icon: 'Rocket',
       },
     ],
   },
   skills: [
     {
       category: {
-        ar: "تطوير الواجهات والهندسة البرمجية",
-        en: "Frontend & Web Engineering",
+        ar: 'تطوير الواجهات والمواقع (Frontend)',
+        en: 'Frontend & Web Development',
       },
       skills: [
-        { name: "JavaScript (ESNext)", level: "core" },
-        { name: "TypeScript", level: "core" },
-        { name: "React.js", level: "core" },
-        { name: "Next.js (App Router)", level: "core" },
-        { name: "HTML5 Semantic Architecture", level: "core" },
-        { name: "Modern CSS & Tailwind CSS", level: "core" },
-        { name: "State Management (Zustand)", level: "core" },
-        { name: "Responsive & RTL Engineering", level: "core" },
+        { name: 'Next.js (App Router)', level: 'core', badge: 'Primary' },
+        { name: 'React & TypeScript', level: 'core', badge: 'Core' },
+        { name: 'Tailwind CSS', level: 'core', badge: 'UI' },
+        { name: 'HTML5 / CSS3 / SEO', level: 'core' },
       ],
     },
     {
       category: {
-        ar: "الذكاء الاصطناعي وسير عمل المطورين",
-        en: "AI & Modern Dev Workflows",
+        ar: 'الأنظمة الخلفية وقواعد البيانات (Backend)',
+        en: 'Backend Systems & Databases',
       },
       skills: [
-        { name: "Prompt Engineering for Code", level: "advanced" },
-        { name: "AI-Assisted Prototyping", level: "advanced" },
-        { name: "Automated Code Review with AI", level: "advanced" },
-        { name: "LLM API Integration", level: "advanced" },
-        { name: "Cursor & Copilot Workflows", level: "tool" },
+        { name: 'C# & .NET Core', level: 'core', badge: 'Enterprise' },
+        { name: 'PostgreSQL & SQL Server', level: 'core', badge: 'DB' },
+        { name: 'RESTful APIs', level: 'core' },
+        { name: 'Clean Architecture', level: 'advanced' },
       ],
     },
     {
       category: {
-        ar: "التصميم والإنتاجية والنشر",
-        en: "Design, Deployment & Marketing",
+        ar: 'الاستضافة السحابية وأدوات التطوير (DevOps & AI)',
+        en: 'Cloud Deployment, DevOps & AI Workflows',
       },
       skills: [
-        { name: "UI/UX Wireframing & Prototyping", level: "core" },
-        { name: "Design Systems Architecture", level: "core" },
-        { name: "Technical SEO & Core Web Vitals", level: "core" },
-        { name: "Git & GitHub Collaboration", level: "core" },
-        { name: "Vercel / Cloud Deployment", level: "core" },
-        { name: "Freelancing & Client Strategy", level: "advanced" },
+        { name: 'Docker & Linux Servers', level: 'core' },
+        { name: 'CI/CD (GitHub & GitLab)', level: 'advanced' },
+        { name: 'AI-Assisted Engineering', level: 'core' },
       ],
     },
   ],
   showcaseProjects: [
     {
-      id: "prj-web-creator-ai",
+      id: 'showcase-share2sells',
       title: {
-        ar: "منصة WEB CREATOR AI",
-        en: "WEB CREATOR AI Platform",
+        ar: 'منصة Share2Sells للمتاجر الرقمية وقوائم QR السريعة',
+        en: 'Share2Sells — Digital Storefront & QR Menu Platform',
       },
       category: {
-        ar: "منصة ويب تفاعلية ونظام تدريبي",
-        en: "Interactive Web Platform & Learning System",
+        ar: 'منتج رقمي (SaaS)',
+        en: 'SaaS Product',
       },
       description: {
-        ar: "نظام ويب تفاعلي متكامل يضم مسارات تدريبية، معامل كود وذكاء اصطناعي، ونظام حفظ تقدم محلي.",
-        en: "Interactive web platform combining structured engineering curriculum, AI workflow labs, and offline-first state persistence.",
+        ar: 'منصة تمكّن المتاجر والمطاعم والأنشطة التجارية من إطلاق متجر رقمي متكامل وقوائم تفاعلية برمز QR واستقبال الطلبات عبر واتساب ولوحة التحكم في دقائق.',
+        en: 'A platform empowering merchants and restaurants to launch online storefronts, interactive QR digital menus, and WhatsApp order routing in minutes.',
       },
       role: {
-        ar: "المعمارية البرمجية وتطوير الواجهات",
-        en: "System Architecture & Frontend Engineering",
+        ar: 'تصميم وبناء المنظومة السحابية',
+        en: 'System Architecture & Full-Stack Engineering',
       },
-      techStack: [
-        "Next.js App Router",
-        "TypeScript",
-        "Tailwind CSS",
-        "Zustand",
-      ],
-      problem: {
-        ar: "الحاجة إلى منصة ويب تجمع بين تقديم المحتوى التقني، التطبيق التفاعلي، وإدارة الحالة المحلية بدون الاعتماد على خادم خارجي معقد.",
-        en: "The need for a unified platform marrying technical curriculum, interactive labs, and robust client-side state without heavy server overhead.",
-      },
-      approach: {
-        ar: "فصل طبقة البيانات عن الواجهة، واستخدام Zustand لتخزين تقدم المستخدم محلياً مع توفير واجهة متجاوبة وثنائية اللغة بالكامل.",
-        en: "Decoupling data layers from UI components, leveraging Zustand for offline-first persistence, and building a fully responsive bilingual system.",
-      },
-      architecture: {
-        ar: "Next.js App Router مع Server Components للعرض السريع، و Client Components للمكونات التفاعلية وحفظ التفضيلات.",
-        en: "Next.js App Router leveraging Server Components for fast initial loads and isolated Client Components for stateful interactivity.",
-      },
-      decisions: [
-        {
-          ar: "تخزين تفضيلات المستخدم والتقدم في LocalStorage عبر Zustand لتجربة تصفح فورية بدون تسجيل دخول إجباري.",
-          en: "Persisting learner state and theme in LocalStorage via Zustand for zero-latency interactions without mandatory authentication.",
-        },
-        {
-          ar: "بناء نظام Design Tokens يعتمد على CSS Variables لدعم الثيمين الداكن والفاتح بسلاسة تامة.",
-          en: "Architecting semantic Design Tokens with CSS Variables for consistent light/dark mode transitions.",
-        },
-      ],
+      techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'QR Engine'],
+      demoUrl: 'https://share2sells.com',
       keyHighlight: {
-        ar: "بنية معمارية قابلة للتوسع ونظام عرض متقدم مدمج.",
-        en: "Decoupled extensible architecture with integrated presentation system.",
+        ar: 'إطلاق متجر رقمي وقائمة QR في دقائق مع توجيه الطلبات مباشرة إلى واتساب التاجر.',
+        en: 'Launch a digital storefront and QR menu in minutes with direct WhatsApp order routing.',
       },
     },
     {
-      id: "prj-interactive-portfolio",
+      id: 'showcase-masar',
       title: {
-        ar: "معرض أعمال المطور والملف المهني",
-        en: "Developer Engineering Portfolio",
+        ar: 'منظومة مسار (Masar) لإدارة الأعمال والمالية',
+        en: 'Masar — Business Operations & Financial Management Suite',
       },
       category: {
-        ar: "موقع شخصي وأنظمة عرض برمجية",
-        en: "Personal Engineering Profile & Showcase",
+        ar: 'منتج رقمي (SaaS)',
+        en: 'SaaS Product',
       },
       description: {
-        ar: "موقع شخصي عصري متعدد اللغات يعكس الهوية الهندسية ويوفر تجربة تصفح سريعة وفائقة التجاوب مع تدقيق SEO كامل.",
-        en: "Modern bilingual personal portfolio delivering instant load times, dark mode ergonomics, and comprehensive SEO audit.",
+        ar: 'منظومة لإدارة العملاء (CRM)، المشاريع، تسجيل ساعات العمل وتحويلها إلى فواتير، ومتابعة المصاريف والتدفقات المالية مع دعم تعدد الشركات والعملات.',
+        en: 'A comprehensive suite for client CRM, project profitability, hourly billing, expense tracking, and multi-currency financial governance.',
       },
       role: {
-        ar: "التطوير الكامل وهندسة الواجهات",
-        en: "Full-stack Engineering & UI Design",
+        ar: 'تصميم وتطوير المنظومة وتجربة المستخدم',
+        en: 'Architecture Design, Systems Engineering & UX',
       },
-      techStack: [
-        "React",
-        "Next.js",
-        "Tailwind CSS",
-        "TypeScript",
-        "SEO Optimization",
-      ],
-      problem: {
-        ar: "تقديم الخبرات والمشاريع التقنية بأسلوب رصين يركز على الفكر الهندسي بدلاً من التصاميم المزدحمة أو استعراض المهارات غير الواقعي.",
-        en: "Showcasing engineering capabilities through concrete problem-solving and architectural decisions rather than superficial metrics.",
-      },
-      approach: {
-        ar: "الاعتماد على التسلسل البصري الواضح، التباين اللوني المريح المستوحى من هوية حقيقية، وتبسيط بنية التنقل لتخدم أصحاب العمل والمطورين والعملاء.",
-        en: "Prioritizing clear visual hierarchy, accessible color contrasts, and streamlined information architecture serving recruiters, peers, and clients.",
-      },
-      architecture: {
-        ar: "معمارية مكونات معيارية تدعم RTL/LTR والوضع الليلي/النهاري مع تحسين أداء الخطوط والأصول الرقمية.",
-        en: "Modular component architecture with native RTL/LTR and dark/light support, zero unnecessary dependencies, and optimized font loading.",
-      },
-      decisions: [
-        {
-          ar: "استخدام أسلوب Case Studies بدلاً من مجرد روابط خارجية لإبراز طريقة التفكير البرمجي.",
-          en: "Presenting projects as Case Studies highlighting problem context and technical decisions.",
-        },
-      ],
+      techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Multi-Tenant'],
+      demoUrl: 'https://masar.abdulhakimkanbr.com',
       keyHighlight: {
-        ar: "أداء فائق مع معمارية معيارية قابلة لإعادة الاستخدام.",
-        en: "High-performance delivery with modular reusable architecture.",
+        ar: 'ربط العميل بالمشروع وساعات العمل والفاتورة والمصروفات في لوحة واحدة واضحة.',
+        en: 'Connects clients, projects, hourly logs, invoices, and expenses in one clear dashboard.',
+      },
+    },
+    {
+      id: 'showcase-cashpro',
+      title: {
+        ar: 'نظام CashPro للعمليات المالية والتحويلات السريعة',
+        en: 'CashPro — High-Speed Financial Operations & Liquidity System',
+      },
+      category: {
+        ar: 'منتج رقمي (SaaS)',
+        en: 'SaaS Product',
+      },
+      description: {
+        ar: 'نظام رقمي سريع ومخصص لإدارة عمليات الصرافة، تسوية التحويلات النقدية، وإدارة السيولة وجلسات الكاونتر المباشرة.',
+        en: 'Specialized high-speed operational system for exchange management, rapid cash remittance settlement, and real-time teller session control.',
+      },
+      role: {
+        ar: 'تطوير المنظومة التشغيلية والواجهة السريعة',
+        en: 'Operational Architecture & Fast POS UI',
+      },
+      techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Realtime Sync'],
+      demoUrl: 'https://cashpro.abdulhakimkanbr.com',
+      keyHighlight: {
+        ar: 'إدارة دقيقة لجلسات الصرافين ومطابقة آلية للأرصدة النقدية عند نهاية اليوم.',
+        en: 'Strict teller session attribution and automated end-of-day cash balance reconciliation.',
       },
     },
   ],
   messageToStudents: {
     title: {
-      ar: "رسالتي إليك قبل أن تبدأ",
-      en: "My Message to You Before We Begin",
+      ar: 'رسالة إلى كل متدرب في WEB CREATOR AI',
+      en: 'A Message to Every Trainee in WEB CREATOR AI',
     },
     content: [
       {
-        ar: "لا تشغل بالك بحفظ الأوامر أو وسوم الكود؛ كل أمر برمجيات يمكنك البحث عنه أو الاستعانة بالذكاء الاصطناعي لتذكره في ثوانٍ.",
-        en: "Do not worry about memorizing code syntax or commands; any syntax can be searched or prompted with AI in seconds.",
+        ar: 'تعلّم بناء المواقع اليوم أصبح أسهل وأسرع بفضل الأدوات الحديثة والذكاء الاصطناعي، لكن السر الحقيقي للتميز هو أن تفهم ما تبنيه ولماذا تبنيه.',
+        en: 'Learning to build websites today is faster thanks to modern tools and AI, but the real secret to standing out is understanding what you build and why.',
       },
       {
-        ar: "ما ستتعلمه هنا هو العقلية: كيف تفكر، كيف تحلل متطلبات التطبيق، كيف تبني الواجهات خطوة بخطوة، وكيف تثق في قدرتك على إطلاق منتجاتك للعالم.",
-        en: "What you will master here is the mindset: how to think, analyze user requirements, build clean architectures, and gain confidence to launch.",
-      },
-      {
-        ar: "التزم بالتطبيق العملي في كل وحدة، واعتبر هذا الموقع رفيقك الدائم ومختبرك البرمجي.",
-        en: "Commit to hands-on practice in every module, and treat this platform as your living lab and companion.",
+        ar: 'صممت لك هذا المسار ليكون واضحًا ومريحًا: ابدأ من الجلسة الحالية، نفّذ كل نشاط خطوة بخطوة، وأرسل نتيجتك عبر واتساب لأراجعها معك.',
+        en: 'I designed this track to be clear and approachable: start with your current session, complete each activity step by step, and send your result via WhatsApp so we can review it together.',
       },
     ],
     closingQuote: {
-      ar: "من الفكرة إلى موقع ويب حقيقي جاهز للإطلاق والتسويق.. فلنبدأ معاً.",
-      en: "From idea to live, marketed web application.. let us build together.",
+      ar: 'أفضل طريقة لتعلّم بناء المواقع هي أن تبني موقعًا حقيقيًا وتطلقه للعالم.',
+      en: 'The best way to learn web development is to build a real website and launch it to the world.',
     },
   },
   socialLinks: [
     {
-      platform: "github",
-      url: "https://github.com/hakomkanbr",
-      label: "GitHub",
+      platform: 'github',
+      url: 'https://github.com/abdulhakimkanbr',
+      label: 'GitHub',
     },
     {
-      platform: "gitlab",
-      url: "https://gitlab.com/abdulhekimkanbr",
-      label: "GitLab",
+      platform: 'gitlab',
+      url: 'https://gitlab.com/abdulhekimkanbr',
+      label: 'GitLab',
     },
     {
-      platform: "linkedin",
-      url: "https://tr.linkedin.com/in/abdulhekim-kanbr-872175195",
-      label: "LinkedIn",
+      platform: 'linkedin',
+      url: 'https://www.linkedin.com/in/abdulhakim-kanbr-089119196',
+      label: 'LinkedIn',
     },
     {
-      platform: "instagram",
-      url: "https://instagram.com/ht_r6k",
-      label: "Instagram",
+      platform: 'instagram',
+      url: 'https://www.instagram.com/abdulhakim.kanbr',
+      label: 'Instagram',
     },
   ],
-  email: "abdulhekimkanbr@gmail.com",
-  phone: "+905382015072",
-  phoneDisplay: "+90 538 201 50 72",
-  yearsOfExperience: "8+",
+  email: 'abdulhekimkanbr@gmail.com',
+  phone: WHATSAPP_CONFIG.phoneE164,
+  phoneDisplay: WHATSAPP_CONFIG.phoneDisplay,
+  yearsOfExperience: '8+',
 };

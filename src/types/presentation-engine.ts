@@ -23,6 +23,26 @@ export type PresentationSlideType =
   | 'takeaway'
   | 'next';
 
+export type SlideIllustrationType =
+  | 'idea-to-website'
+  | 'owner-user-website'
+  | 'cluttered-vs-clean'
+  | 'web-creator-workflow'
+  | 'site-pages-map'
+  | 'page-anatomy'
+  | 'before-after-ui'
+  | 'ai-loop'
+  | 'prompt-anatomy'
+  | 'analyze-plan-build'
+  | 'html-css-building'
+  | 'responsive-devices'
+  | 'js-interaction'
+  | 'components-lego'
+  | 'nextjs-seo-preview'
+  | 'pre-launch-checklist'
+  | 'client-value-bridge'
+  | 'capstone-roadmap';
+
 export interface TimelineBlock {
   timeRange: string; // e.g. "00:00 – 00:10"
   durationMinutes: number;
@@ -168,6 +188,8 @@ export interface PresentationEngineSlide {
   type: PresentationSlideType;
   title: LocalizedString;
   subtitle?: LocalizedString;
+  visualType?: SlideIllustrationType;
+  realWorldExample?: LocalizedString;
   estimatedMinutes: number;
   teachingGoal: LocalizedString;
   speakerNotes: LocalizedString;

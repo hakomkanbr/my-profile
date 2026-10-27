@@ -1,281 +1,371 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
+import Link from 'next/link';
 import {
   PortfolioShell,
   PageContainer,
-  PageSection,
+  PageHeader,
+  Card,
+  Badge,
+  Button,
+  WhatsAppActionFeedback,
 } from '@/components';
+import { ExperienceTimelineSection } from '@/components/portfolio';
 import { INSTRUCTOR_PROFILE } from '@/content/instructor';
-import { PROFESSIONAL_EXPERIENCES } from '@/content/experience';
 import { usePreferencesStore } from '@/store';
 import { getLocalizedText } from '@/lib/utils';
+import {
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle2,
+  Cpu,
+  FileText,
+  GraduationCap,
+  Layers,
+  MessageCircle,
+} from 'lucide-react';
+import {
+  buildClientInquiryMessage,
+  buildResumeRequestMessage,
+  getCurrentPageUrl,
+  openWhatsAppChat,
+} from '@/lib/whatsapp';
 
 export default function AboutPage() {
   const { language } = usePreferencesStore();
   const isRtl = language === 'ar';
   const name = getLocalizedText(INSTRUCTOR_PROFILE.name, language);
+  const [preparedWhatsAppMsg, setPreparedWhatsAppMsg] = useState<string | null>(
+    null
+  );
 
-  const narrativeQuestions = isRtl
-    ? [
-        {
-          label: 'الخلفية المهنية',
-          text: INSTRUCTOR_PROFILE.story.paragraphs[0]?.ar,
-        },
-        {
-          label: 'نوع البرمجيات والمشكلات التي أهتم بها',
-          text: INSTRUCTOR_PROFILE.story.paragraphs[1]?.ar,
-        },
-        {
-          label: 'القرارات الهندسية وجودة الكود',
-          text: INSTRUCTOR_PROFILE.story.paragraphs[2]?.ar,
-        },
-        {
-          label: 'ماذا يجد الزائر في هذا الموقع؟',
-          text: INSTRUCTOR_PROFILE.story.paragraphs[3]?.ar,
-        },
-      ]
-    : [
-        {
-          label: 'Professional Background',
-          text: INSTRUCTOR_PROFILE.story.paragraphs[0]?.en,
-        },
-        {
-          label: 'Software Focus & Problem Spaces',
-          text: INSTRUCTOR_PROFILE.story.paragraphs[1]?.en,
-        },
-        {
-          label: 'Engineering Decisions & Code Quality',
-          text: INSTRUCTOR_PROFILE.story.paragraphs[2]?.en,
-        },
-        {
-          label: 'What You Will Find on This Site',
-          text: INSTRUCTOR_PROFILE.story.paragraphs[3]?.en,
-        },
-      ];
+  const handleRequestResume = () => {
+    const msg = buildResumeRequestMessage(getCurrentPageUrl('/about#cv'));
+    setPreparedWhatsAppMsg(msg);
+    openWhatsAppChat(msg);
+  };
+
+  const handleContactWhatsApp = () => {
+    const msg = buildClientInquiryMessage({
+      projectType: 'مشروع جديد أو استشارة',
+      details: 'اطلعت على صفحة (عنّي) في موقعك وأرغب في التواصل معك.',
+      pageUrl: getCurrentPageUrl('/about'),
+    });
+    setPreparedWhatsAppMsg(msg);
+    openWhatsAppChat(msg);
+  };
 
   return (
     <PortfolioShell>
       <PageContainer>
-        {/* Profile Intro Banner */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-xs flex flex-col md:flex-row items-center gap-6 text-start mb-10">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/myphoto.jfif"
-            alt={name}
-            width={120}
-            height={120}
-            className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover object-top ring-2 ring-[var(--color-border)] shadow-sm shrink-0"
-          />
-          <div className="space-y-2 flex-1">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs font-mono font-bold text-[var(--color-secondary)] uppercase tracking-wider">
-                {getLocalizedText(INSTRUCTOR_PROFILE.roleTitle, language)}
-              </span>
-              <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-[var(--color-surface-sunken)] border border-[var(--color-border-subtle)] text-[var(--color-text-subtle)]">
-                Senior Software Architect & Full Stack Engineer
-              </span>
-            </div>
-            <h1 className="text-h2 font-extrabold text-[var(--color-text)] tracking-tight">
-              {isRtl ? 'عن عبد الحكيم' : 'About Abdulhakim'}
-            </h1>
-            <p className="text-body text-[var(--color-text-muted)] leading-relaxed max-w-3xl">
-              {getLocalizedText(INSTRUCTOR_PROFILE.briefIntro, language)}
-            </p>
-          </div>
-        </div>
-
-        {/* Narrative & Story — Answering the 4 core questions directly */}
-        <PageSection
-          title={isRtl ? 'طريقة التفكير والعمل' : 'Philosophy & Engineering Practice'}
-          subtitle={
+        <PageHeader
+          title={
             isRtl
-              ? 'إجابات واضحة ومباشرة عن الخلفية، مجالات التركيز، وأسلوب التعامل مع المشكلات الهندسية.'
-              : 'Direct perspectives on background, focus areas, and engineering methodology.'
+              ? `عن ${name} — السيرة المهنية وطريقة العمل`
+              : `About ${name} — Background & Approach`
           }
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {narrativeQuestions.map((q, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-2xs space-y-3 text-start"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-bold text-[var(--color-secondary)] uppercase">
-                    0{idx + 1}
-                  </span>
-                  <h3 className="text-h4 font-bold text-[var(--color-text)]">
-                    {q.label}
-                  </h3>
-                </div>
-                <p className="text-body-sm text-[var(--color-text-muted)] leading-relaxed">
-                  {q.text}
-                </p>
-              </div>
-            ))}
-          </div>
-        </PageSection>
+          subtitle={getLocalizedText(INSTRUCTOR_PROFILE.roleTitle, language)}
+          breadcrumbs={[
+            { id: '1', label: isRtl ? 'الرئيسية' : 'Home', href: '/' },
+            { id: '2', label: isRtl ? 'عنّي' : 'About', isCurrent: true },
+          ]}
+        />
 
-        {/* Professional Milestones & Experience Timeline */}
-        <PageSection
-          title={isRtl ? 'المسار المهني وسجل الخبرة' : 'Professional Experience & Milestones'}
-          subtitle={
-            isRtl
-              ? 'أكثر من 8 سنوات من العمل الفعلي في تطوير الأنظمة وتطبيقات الويب وإدارة الخوادم.'
-              : 'Over 8 years of hands-on practice across application architecture, backend systems, and infrastructure.'
-          }
-        >
-          <div className="space-y-6">
-            {PROFESSIONAL_EXPERIENCES.map((exp, idx) => (
-              <div
-                key={exp.id || idx}
-                className="p-6 sm:p-7 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-2xs space-y-4 text-start transition-all hover:border-[var(--color-border-strong)]"
-              >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--color-border-subtle)] pb-4">
-                  <div>
-                    <h3 className="text-h4 font-bold text-[var(--color-text)]">
-                      {getLocalizedText(exp.role, language)}
-                    </h3>
-                    {exp.organization && (
-                      <p className="text-body-xs font-mono text-[var(--color-text-subtle)] mt-0.5">
-                        {getLocalizedText(exp.organization, language)}
-                      </p>
-                    )}
-                  </div>
-                  {exp.period && (
-                    <span className="font-mono text-xs text-[var(--color-secondary)] self-start sm:self-auto font-semibold">
-                      {getLocalizedText(exp.period, language)}
+        <div className="space-y-12 pb-16 text-start">
+          {/* 1. Executive Summary & Portrait */}
+          <Card className="p-6 sm:p-10 bg-linear-to-b from-[var(--color-surface)] to-[var(--color-surface-sunken)]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-4 flex justify-center">
+                <div className="relative rounded-2xl p-2 bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm max-w-[260px] w-full">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/myphoto.jfif"
+                    alt={name}
+                    className="w-full aspect-4/5 object-cover object-top rounded-xl"
+                  />
+                  <div className="p-3 text-center space-y-1">
+                    <span className="text-base font-extrabold text-[var(--color-text)] block">
+                      {name}
                     </span>
-                  )}
-                </div>
-
-                <p className="text-body-sm text-[var(--color-text-muted)] leading-relaxed">
-                  {getLocalizedText(exp.scope, language)}
-                </p>
-
-                {exp.highlights && exp.highlights.length > 0 && (
-                  <ul className="space-y-2 pt-1">
-                    {exp.highlights.map((h, hIdx) => (
-                      <li
-                        key={hIdx}
-                        className="text-body-xs text-[var(--color-text-muted)] flex items-start gap-2.5"
-                      >
-                        <span className="text-[var(--color-secondary)] font-bold mt-0.5 shrink-0">
-                          •
-                        </span>
-                        <span>{getLocalizedText(h, language)}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-
-                {exp.technologies && exp.technologies.length > 0 && (
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {exp.technologies.map((t) => (
-                      <span
-                        key={t}
-                        className="px-2.5 py-1 rounded text-[11px] font-mono bg-[var(--color-surface-sunken)] border border-[var(--color-border-subtle)] text-[var(--color-text)]"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </PageSection>
-
-        {/* Skills Spectrum */}
-        <PageSection
-          title={isRtl ? 'المهارات والتقنيات الأساسية' : 'Engineering Skills & Toolset'}
-        >
-          <div className="space-y-5">
-            {INSTRUCTOR_PROFILE.skills.map((skillGroup, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] space-y-3 text-start"
-              >
-                <div className="flex items-center justify-between">
-                  <h3 className="text-h4 font-bold text-[var(--color-text)]">
-                    {getLocalizedText(skillGroup.category, language)}
-                  </h3>
-                  <span className="font-mono text-xs text-[var(--color-text-subtle)]">
-                    {skillGroup.skills.length} TECHNOLOGIES
-                  </span>
-                </div>
-
-                <div className="flex flex-wrap gap-2 pt-1">
-                  {skillGroup.skills.map((s) => (
-                    <span
-                      key={s.name}
-                      className="px-3 py-1.5 rounded-sm text-xs font-mono font-medium bg-[var(--color-surface-sunken)] border border-[var(--color-border-subtle)] text-[var(--color-text)]"
-                    >
-                      {s.name}
+                    <span className="text-xs font-mono text-[var(--color-secondary)] block">
+                      {isRtl
+                        ? 'مطور مواقع ومنتجات رقمية ومدرب تقني'
+                        : 'Web & Digital Product Developer'}
                     </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:col-span-8 space-y-5">
+                <Badge variant="primary" size="md">
+                  {isRtl
+                    ? `${INSTRUCTOR_PROFILE.yearsOfExperience || '8+'} سنوات خبرة عملية`
+                    : `${INSTRUCTOR_PROFILE.yearsOfExperience || '8+'} Years of Practical Experience`}
+                </Badge>
+
+                <h2 className="text-h2 font-extrabold text-[var(--color-text)] leading-snug">
+                  {getLocalizedText(INSTRUCTOR_PROFILE.coreMessage, language)}
+                </h2>
+
+                <div className="space-y-4 text-body text-[var(--color-text-muted)] leading-relaxed">
+                  {INSTRUCTOR_PROFILE.story.paragraphs.map((p, idx) => (
+                    <p key={idx}>{getLocalizedText(p, language)}</p>
                   ))}
                 </div>
               </div>
-            ))}
-          </div>
-        </PageSection>
+            </div>
+          </Card>
 
-        {/* CV & Professional Profile Section */}
-        <PageSection
-          title={isRtl ? 'السيرة الذاتية والملف المهني' : 'Curriculum Vitae & Profile'}
-        >
-          <div id="cv" className="p-7 sm:p-9 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-2xs space-y-6 text-start">
-            <div className="space-y-2">
+          {/* 2. What I Build & How I Work */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card className="p-7 space-y-5">
+              <div className="w-11 h-11 rounded-xl bg-[var(--color-primary-subtle)] text-[var(--color-secondary)] flex items-center justify-center">
+                <Cpu className="w-5 h-5" />
+              </div>
               <h3 className="text-h3 font-bold text-[var(--color-text)]">
-                {name} — {getLocalizedText(INSTRUCTOR_PROFILE.roleTitle, language)}
+                {getLocalizedText(
+                  INSTRUCTOR_PROFILE.whatIBuild.title,
+                  language
+                )}
               </h3>
-              <p className="text-body text-[var(--color-text-muted)] font-normal leading-relaxed">
-                {isRtl
-                  ? 'ملف السيرة الذاتية المهني يضم ملخص المهارات الهندسية، المشاريع البرمجية، والمجالات التخصصية.'
-                  : 'Professional resume overview highlighting software engineering competencies, architecture decisions, and core web competencies.'}
+              <p className="text-body-sm text-[var(--color-text-muted)] leading-relaxed">
+                {getLocalizedText(
+                  INSTRUCTOR_PROFILE.whatIBuild.description,
+                  language
+                )}
               </p>
-            </div>
+              <div className="space-y-2.5 pt-2 border-t border-[var(--color-border-subtle)]">
+                {INSTRUCTOR_PROFILE.whatIBuild.focusAreas.map((area, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-[var(--color-secondary)] shrink-0 mt-1" />
+                    <span className="text-body-sm text-[var(--color-text)] font-medium">
+                      {getLocalizedText(area, language)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </Card>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 py-2 border-y border-[var(--color-border-subtle)]">
-              <div>
-                <span className="text-xs font-mono text-[var(--color-text-subtle)] uppercase block mb-1">
-                  {isRtl ? 'المجال التخصصي' : 'Specialization'}
-                </span>
-                <span className="text-body-sm font-semibold text-[var(--color-text)]">
-                  {isRtl ? 'هندسة البرمجيات، تصميم النظم وإدارة الخوادم' : 'Software Engineering, System Design & Infrastructure'}
-                </span>
+            <Card className="p-7 space-y-5">
+              <div className="w-11 h-11 rounded-xl bg-[var(--color-primary-subtle)] text-[var(--color-secondary)] flex items-center justify-center">
+                <GraduationCap className="w-5 h-5" />
               </div>
-              <div>
-                <span className="text-xs font-mono text-[var(--color-text-subtle)] uppercase block mb-1">
-                  {isRtl ? 'سنوات الخبرة' : 'Experience'}
-                </span>
-                <span className="text-body-sm font-semibold text-[var(--color-text)]">
-                  {isRtl ? 'أكثر من 8 سنوات من العمل الفعلي' : 'More than 8 years of engineering practice'}
-                </span>
+              <h3 className="text-h3 font-bold text-[var(--color-text)]">
+                {getLocalizedText(
+                  INSTRUCTOR_PROFILE.whatITeach.title,
+                  language
+                )}
+              </h3>
+              <p className="text-body-sm text-[var(--color-text-muted)] leading-relaxed">
+                {getLocalizedText(
+                  INSTRUCTOR_PROFILE.whatITeach.description,
+                  language
+                )}
+              </p>
+              <div className="space-y-2.5 pt-2 border-t border-[var(--color-border-subtle)]">
+                {INSTRUCTOR_PROFILE.whatITeach.coreTracks.map((track, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-[var(--color-secondary)] shrink-0 mt-1" />
+                    <span className="text-body-sm text-[var(--color-text)] font-medium">
+                      {getLocalizedText(track, language)}
+                    </span>
+                  </div>
+                ))}
               </div>
-              <div>
-                <span className="text-xs font-mono text-[var(--color-text-subtle)] uppercase block mb-1">
-                  {isRtl ? 'حالة التفرغ' : 'Availability'}
-                </span>
-                <span className="text-body-sm font-semibold text-emerald-600 dark:text-emerald-400">
-                  {isRtl ? 'متاح للمشاريع والتعاقدات والتدريب' : 'Available for projects & engagements'}
-                </span>
-              </div>
-            </div>
+            </Card>
+          </div>
 
-            <div className="pt-2 flex flex-wrap items-center gap-3">
-              <a
-                href="mailto:abdulhekimkanbr@gmail.com?subject=Resume%20Inquiry%20-%20Abdulhakim%20Kanbr"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] transition-all shadow-2xs"
-              >
-                <span>{isRtl ? 'طلب السيرة الذاتية المفصلة' : 'Request Full Resume'}</span>
-              </a>
-              <span className="text-xs font-mono text-[var(--color-text-subtle)]">
-                {isRtl ? 'ملف PDF متاح عند الطلب المباشر عبر البريد' : 'Direct PDF available upon request via email'}
+          {/* 3. Developer + Instructor Practice */}
+          <Card className="p-7 sm:p-9 space-y-6">
+            <div className="space-y-2">
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-secondary)]">
+                {isRtl ? 'العمل الميداني والتدريب' : 'Practice & Mentorship'}
               </span>
+              <h3 className="text-h2 font-extrabold text-[var(--color-text)]">
+                {getLocalizedText(
+                  INSTRUCTOR_PROFILE.developerPlusInstructor.title,
+                  language
+                )}
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="p-6 rounded-2xl bg-[var(--color-surface-sunken)] border border-[var(--color-border)] space-y-3">
+                <h4 className="text-h4 font-bold text-[var(--color-text)]">
+                  {getLocalizedText(
+                    INSTRUCTOR_PROFILE.developerPlusInstructor.developerSide
+                      .headline,
+                    language
+                  )}
+                </h4>
+                <ul className="space-y-2">
+                  {INSTRUCTOR_PROFILE.developerPlusInstructor.developerSide.points.map(
+                    (pt, idx) => (
+                      <li
+                        key={idx}
+                        className="flex items-start gap-2 text-body-sm text-[var(--color-text-muted)]"
+                      >
+                        <span className="text-[var(--color-secondary)] font-bold">
+                          •
+                        </span>
+                        <span>{getLocalizedText(pt, language)}</span>
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-[var(--color-surface-sunken)] border border-[var(--color-border)] space-y-3">
+                <h4 className="text-h4 font-bold text-[var(--color-text)]">
+                  {getLocalizedText(
+                    INSTRUCTOR_PROFILE.developerPlusInstructor.instructorSide
+                      .headline,
+                    language
+                  )}
+                </h4>
+                <ul className="space-y-2">
+                  {INSTRUCTOR_PROFILE.developerPlusInstructor.instructorSide.points.map(
+                    (pt, idx) => (
+                      <li
+                        key={idx}
+                        className="flex items-start gap-2 text-body-sm text-[var(--color-text-muted)]"
+                      >
+                        <span className="text-[var(--color-secondary)] font-bold">
+                          •
+                        </span>
+                        <span>{getLocalizedText(pt, language)}</span>
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[var(--color-primary-subtle)] border border-[var(--color-secondary)]/20 text-body-sm font-semibold text-[var(--color-text)]">
+              {getLocalizedText(
+                INSTRUCTOR_PROFILE.developerPlusInstructor.synergyStatement,
+                language
+              )}
+            </div>
+          </Card>
+
+          {/* 4. Technical Stack Matrix */}
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-secondary)]">
+                {isRtl ? 'الأدوات والتقنيات' : 'Technical Stack'}
+              </span>
+              <h3 className="text-h2 font-extrabold text-[var(--color-text)]">
+                {isRtl
+                  ? 'التقنيات التي أستخدمها في بناء المواقع والأنظمة'
+                  : 'Technologies I Use to Build Websites & Systems'}
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {INSTRUCTOR_PROFILE.skills.map((group, idx) => (
+                <Card key={idx} className="p-6 space-y-4">
+                  <div className="flex items-center gap-2.5 border-b border-[var(--color-border-subtle)] pb-3">
+                    <Layers className="w-4 h-4 text-[var(--color-secondary)]" />
+                    <h4 className="text-h4 font-bold text-[var(--color-text)]">
+                      {getLocalizedText(group.category, language)}
+                    </h4>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {group.skills.map((skill) => (
+                      <span
+                        key={skill.name}
+                        className="px-3 py-1.5 rounded-lg text-xs font-mono font-semibold bg-[var(--color-surface-sunken)] border border-[var(--color-border)] text-[var(--color-text)]"
+                      >
+                        {skill.name}
+                      </span>
+                    ))}
+                  </div>
+                </Card>
+              ))}
             </div>
           </div>
-        </PageSection>
+
+          {/* 5. Experience Timeline */}
+          <div className="-mx-4 sm:-mx-6 lg:-mx-8">
+            <ExperienceTimelineSection />
+          </div>
+
+          {/* 6. CV & Direct Contact CTA via WhatsApp */}
+          <div id="cv" className="pt-4 space-y-4">
+            <Card className="p-7 sm:p-10 bg-[var(--color-surface-sunken)] border border-[var(--color-border)] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div className="space-y-2 max-w-xl">
+                <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[var(--color-secondary)]">
+                  <FileText className="w-4 h-4" />
+                  <span>
+                    {isRtl
+                      ? 'السيرة الذاتية والتواصل'
+                      : 'Curriculum Vitae & Contact'}
+                  </span>
+                </div>
+                <h3 className="text-h3 font-extrabold text-[var(--color-text)]">
+                  {isRtl
+                    ? 'هل ترغب في طلب السيرة الذاتية المفصلة أو مناقشة مشروع؟'
+                    : 'Need my full CV or want to discuss a project?'}
+                </h3>
+                <p className="text-body-sm text-[var(--color-text-muted)]">
+                  {isRtl
+                    ? 'يمكنك طلب نسخة محدثة من السيرة الذاتية أو بدء محادثة مباشرة معي عبر واتساب.'
+                    : 'Request an updated copy of my CV or start a direct conversation on WhatsApp.'}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3 shrink-0">
+                <Button
+                  variant="primary"
+                  size="md"
+                  onClick={handleRequestResume}
+                  className="font-bold bg-emerald-600 hover:bg-emerald-700 border-emerald-600 text-white"
+                  leftIcon={<MessageCircle className="w-4 h-4" />}
+                >
+                  {isRtl
+                    ? 'طلب السيرة الذاتية عبر واتساب'
+                    : 'Request Full Resume via WhatsApp'}
+                </Button>
+
+                <Button
+                  variant="outline"
+                  size="md"
+                  onClick={handleContactWhatsApp}
+                  className="font-bold bg-[var(--color-surface)]"
+                >
+                  {isRtl ? 'مناقشة مشروع' : 'Discuss a Project'}
+                </Button>
+
+                <Link href="/projects">
+                  <Button
+                    variant="ghost"
+                    size="md"
+                    rightIcon={
+                      isRtl ? (
+                        <ArrowLeft className="w-4 h-4" />
+                      ) : (
+                        <ArrowRight className="w-4 h-4" />
+                      )
+                    }
+                  >
+                    {isRtl ? 'شاهد أعمالي' : 'View My Work'}
+                  </Button>
+                </Link>
+              </div>
+            </Card>
+
+            {preparedWhatsAppMsg && (
+              <WhatsAppActionFeedback
+                message={preparedWhatsAppMsg}
+                isRtl={isRtl}
+                onClose={() => setPreparedWhatsAppMsg(null)}
+              />
+            )}
+          </div>
+        </div>
       </PageContainer>
     </PortfolioShell>
   );

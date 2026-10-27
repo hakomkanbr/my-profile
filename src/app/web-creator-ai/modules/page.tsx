@@ -74,12 +74,10 @@ export default function WebCreatorModulesPage() {
   // Filtered Modules
   const filteredModules = useMemo(() => {
     return ALL_MODULES.filter((mod) => {
-      // 1. Stage filter
       if (selectedStage !== 'all' && mod.stageId !== selectedStage) {
         return false;
       }
 
-      // 2. Status filter
       const modCompletedLessons = mod.lessons.filter((l) =>
         progress.completedLessons.includes(l.id)
       ).length;
@@ -89,7 +87,6 @@ export default function WebCreatorModulesPage() {
       if (selectedStatus === 'completed' && !isCompleted) return false;
       if (selectedStatus === 'in_progress' && !isInProgress) return false;
 
-      // 3. Search query
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase().trim();
         const titleMatch =
@@ -107,11 +104,10 @@ export default function WebCreatorModulesPage() {
     });
   }, [selectedStage, selectedStatus, searchQuery, language, progress.completedLessons]);
 
-  // Quick helper to map module to suggested session
-  const getSessionNumberForModule = (modNum: string) => {
+  // Quick helper to map module to suggested session number ('01'..'12')
+  const getSessionNumberForModule = (modNum: string): string => {
     const n = parseInt(modNum, 10);
     if (isNaN(n)) return '01';
-    // 10 modules align comfortably across the 12 sessions
     if (n === 1) return '01';
     if (n === 2) return '02';
     if (n === 3) return '03';
@@ -125,21 +121,20 @@ export default function WebCreatorModulesPage() {
   };
 
   return (
-    <LearningShell headerTitle={isRtl ? 'الوحدات التدريبية' : 'Curriculum Modules'}>
+    <LearningShell headerTitle={isRtl ? 'خارطة المنهج والوحدات' : 'Curriculum Modules'}>
       <PageContainer>
         <div className="space-y-10 text-start pb-20">
           {/* Header */}
           <PageHeader
-            title={isRtl ? 'الوحدات التدريبية العشر (The 10 Core Modules)' : 'The 10 Core Modules'}
+            title={isRtl ? 'الوحدات التدريبية العشر (خارطة المنهج)' : 'The 10 Core Curriculum Modules'}
             subtitle={
               isRtl
-                ? 'منهج هندسي عملي متكامل يغطي معمارية الويب، تصميم UI/UX، الواجهات الحديثة، الذكاء الاصطناعي، والنشر السحابي.'
-                : 'A comprehensive, disciplined engineering curriculum taking you from architectural concepts to live, marketed products.'
+                ? 'منهج تطبيقي مرتب خطوة بخطوة يغطي تخطيط الموقع، وتصميم الواجهات، والبناء البرمجي، وأدوات الذكاء الاصطناعي، والنشر على الإنترنت.'
+                : 'A practical, step-by-step curriculum covering website planning, UI/UX design, modern development, AI workflows, and live deployment.'
             }
             breadcrumbs={[
-              { id: '1', label: isRtl ? 'الرئيسية' : 'Home', href: '/' },
-              { id: '2', label: 'WEB CREATOR AI', href: '/web-creator-ai' },
-              { id: '3', label: isRtl ? 'الوحدات التدريبية' : 'Modules', isCurrent: true },
+              { id: '1', label: isRtl ? 'لوحة التدريب' : 'Dashboard', href: '/web-creator-ai' },
+              { id: '2', label: isRtl ? 'خارطة المنهج' : 'Modules', isCurrent: true },
             ]}
             actions={
               <div className="flex flex-wrap items-center gap-2.5">
@@ -149,7 +144,7 @@ export default function WebCreatorModulesPage() {
                     size="sm"
                     leftIcon={<BookOpen className="w-4 h-4 text-[var(--color-primary)]" />}
                   >
-                    {isRtl ? 'الجلسات الـ 12 المباشرة' : '12 Live Sessions'}
+                    {isRtl ? 'الجلسات الـ 12 العملية' : '12 Practical Sessions'}
                   </Button>
                 </Link>
                 <Link href="/web-creator-ai/progress">
@@ -158,7 +153,7 @@ export default function WebCreatorModulesPage() {
                     size="sm"
                     leftIcon={<Compass className="w-4 h-4" />}
                   >
-                    {isRtl ? 'رحلتي وسجل إنجازاتي' : 'My Learning Journey'}
+                    {isRtl ? 'تقدمي وسجل إنجازاتي' : 'My Progress'}
                   </Button>
                 </Link>
               </div>
@@ -181,7 +176,7 @@ export default function WebCreatorModulesPage() {
                   {totalModules}
                 </p>
                 <p className="text-xs text-[var(--color-text-muted)] mt-1">
-                  {isRtl ? 'وحدات متسلسلة هندسياً' : 'Sequential modules'}
+                  {isRtl ? 'وحدات مرتبة بتدرج واضح' : 'Sequential modules'}
                 </p>
               </div>
             </Card>
@@ -200,7 +195,7 @@ export default function WebCreatorModulesPage() {
                   {totalLessons}
                 </p>
                 <p className="text-xs text-[var(--color-text-muted)] mt-1">
-                  {isRtl ? 'درساً نظرياً وتطبيقياً' : 'Deep-dive lessons'}
+                  {isRtl ? 'درسًا نظريًا وتطبيقيًا' : 'Practical lessons'}
                 </p>
               </div>
             </Card>
@@ -496,7 +491,7 @@ export default function WebCreatorModulesPage() {
 
                         <div className="flex items-center gap-2 shrink-0">
                           <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[var(--color-surface-sunken)] text-[var(--color-text-subtle)]">
-                            ~{lesson.estimatedMinutes} د
+                            ~{lesson.estimatedMinutes} {isRtl ? 'د' : 'm'}
                           </span>
                           <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-[var(--color-primary-subtle)] text-[var(--color-primary)]">
                             {lesson.type}
@@ -514,7 +509,7 @@ export default function WebCreatorModulesPage() {
                         <div className="space-y-1.5 pt-2 border-t border-[var(--color-border-subtle)]">
                           <span className="text-[11px] font-bold text-[var(--color-text-subtle)] flex items-center gap-1.5">
                             <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-                            <span>{isRtl ? 'الأهداف المعرفية للدرس:' : 'Learning Objectives:'}</span>
+                            <span>{isRtl ? 'ماذا ستتعلم في هذا الدرس:' : 'What you will learn:'}</span>
                           </span>
                           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1 text-[11px] text-[var(--color-text)]">
                             {lesson.learningObjectives.map((obj, idx) => (
@@ -532,7 +527,7 @@ export default function WebCreatorModulesPage() {
                         <span className="text-[11px] text-[var(--color-text-subtle)]">
                           {isDone ? (
                             <span className="text-emerald-600 font-bold">
-                              ✓ {isRtl ? 'تم توثيق إكمال هذا الدرس' : 'Lesson completed'}
+                              ✓ {isRtl ? 'تم إكمال هذا الدرس' : 'Lesson completed'}
                             </span>
                           ) : (
                             <span>{isRtl ? 'جاهز للدراسة والتطبيق' : 'Ready to study'}</span>

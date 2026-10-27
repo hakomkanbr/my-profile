@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دليل وسردة المدرب الأكاديمية | الجلسة الأولى • Web Creator AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --border-color: #e2e8f0;
+      
+      --text-main: #0f172a;
+      --text-sub: #334155;
+      --text-muted: #64748b;
+      
+      --primary: #0284c7;
+      --primary-hover: #0369a1;
+      --primary-light: #f0f9ff;
+      --primary-border: #bae6fd;
+      
+      --emerald: #059669;
+      --emerald-light: #ecfdf5;
+      --emerald-border: #a7f3d0;
+      
+      --amber: #d97706;
+      --amber-light: #fffbeb;
+      --amber-border: #fde68a;
+      
+      --purple: #7c3aed;
+      --purple-light: #f5f3ff;
+      --purple-border: #ddd6fe;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.06), 0 2px 4px -2px rgba(0,0,0,0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Cairo', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.85;
+      padding-bottom: 90px;
+    }
+
+    /* Top Sticky Header */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow-sm);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge-tag {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .brand-title h1 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .brand-title p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .actions-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .timer-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .timer-digits {
+      font-family: monospace;
+      font-size: 17px;
+      color: var(--primary);
+      direction: ltr;
+    }
+
+    .btn {
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-default {
+      background: #ffffff;
+      color: var(--text-sub);
+      border-color: var(--border-color);
+    }
+
+    .btn-default:hover {
+      background: var(--bg-subtle);
+      color: var(--text-main);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-accent {
+      background: var(--primary-light);
+      color: #0369a1;
+      border: 1px solid var(--primary-border);
+    }
+
+    .btn-accent:hover {
+      background: #e0f2fe;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 24px 16px;
+    }
+
+    /* Academic Syrian Instructor Banner */
+    .trainer-hero {
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+      border: 1px solid #d1fae5;
+      border-radius: 18px;
+      padding: 26px 30px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .trainer-hero h2 {
+      font-size: 21px;
+      font-weight: 900;
+      color: #065f46;
+      margin-bottom: 8px;
+    }
+
+    .trainer-hero p {
+      font-size: 15px;
+      color: #334155;
+      line-height: 1.8;
+      max-width: 900px;
+    }
+
+    .hero-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .meta-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 13.5px;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    /* One-Click Slide Pills Stepper */
+    .stepper-nav {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stepper-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding: 0 4px;
+    }
+
+    .stepper-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    .mode-btn {
+      font-size: 12px;
+      color: var(--primary);
+      background: none;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      text-decoration: underline;
+    }
+
+    .pills-scroll-row {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      scrollbar-width: thin;
+    }
+
+    .slide-step-btn {
+      background: var(--bg-subtle);
+      color: var(--text-sub);
+      border: 1px solid var(--border-color);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .slide-step-btn:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .slide-step-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 3px 8px rgba(2, 132, 199, 0.25);
+    }
+
+    /* Main Slide Card */
+    .slide-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 32px 36px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-md);
+      transition: all 0.2s ease;
+      display: block;
+    }
+
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid var(--bg-subtle);
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .slide-identity {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .slide-badge-circle {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #ffffff;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 900;
+      box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
+      flex-shrink: 0;
+    }
+
+    .slide-titles h3 {
+      font-size: 21px;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.4;
+    }
+
+    .slide-titles .sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-top: 3px;
+    }
+
+    .timing-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--amber-light);
+      color: #92400e;
+      border: 1px solid var(--amber-border);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 800;
+    }
+
+    /* Purpose Strip */
+    .purpose-strip {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-right: 4px solid var(--primary);
+      border-radius: 10px;
+      padding: 12px 18px;
+      margin-bottom: 22px;
+      font-size: 14px;
+      color: #334155;
+    }
+
+    .purpose-strip strong {
+      color: var(--primary);
+    }
+
+    /* Syrian Narrative Box (السردة الشامية الراقية) */
+    .narrative-box {
+      background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%);
+      border: 1.5px solid var(--primary-border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 22px;
+    }
+
+    .narrative-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15.5px;
+      font-weight: 800;
+      color: #0369a1;
+      margin-bottom: 12px;
+    }
+
+    .tone-badge {
+      font-size: 12px;
+      background: #e0f2fe;
+      color: #0284c7;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .speech-text {
+      font-size: 15.5px;
+      line-height: 2;
+      color: #1e293b;
+    }
+
+    .speech-text p {
+      margin-bottom: 14px;
+    }
+
+    .speech-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .syrian-accent-hint {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fde68a;
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin-left: 6px;
+    }
+
+    /* Web Creator Platform Activity Integration Card */
+    .platform-activity-card {
+      background: linear-gradient(135deg, #fefce8 0%, #fffbeb 100%);
+      border: 1.5px solid #fef08a;
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin-bottom: 22px;
+    }
+
+    .platform-activity-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .platform-activity-title {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #854d0e;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .platform-badge {
+      font-size: 11px;
+      font-weight: 800;
+      background: #fef08a;
+      color: #713f12;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    .platform-activity-content {
+      font-size: 14px;
+      color: #451a03;
+      line-height: 1.8;
+    }
+
+    /* Three Column Detail Grid */
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .col-card {
+      border-radius: 12px;
+      padding: 16px 18px;
+      border: 1px solid var(--border-color);
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .col-card.ideas {
+      border-top: 3.5px solid var(--amber);
+      background: #fffdfa;
+    }
+
+    .col-card.dialogue {
+      border-top: 3.5px solid var(--emerald);
+      background: #fafffc;
+    }
+
+    .col-card.advisory {
+      border-top: 3.5px solid #6366f1;
+      background: #f8fafc;
+    }
+
+    .col-heading {
+      font-size: 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .ideas .col-heading { color: #b45309; }
+    .dialogue .col-heading { color: #047857; }
+    .advisory .col-heading { color: #4338ca; }
+
+    .col-card ul {
+      list-style-position: inside;
+      font-size: 13.8px;
+      color: #475569;
+      line-height: 1.8;
+    }
+
+    .col-card li {
+      margin-bottom: 8px;
+    }
+
+    .col-card li:last-child {
+      margin-bottom: 0;
+    }
+
+    .col-card strong {
+      color: #0f172a;
+    }
+
+    /* Prompt Box with One-Click Copy */
+    .prompt-box {
+      background: #f8fafc;
+      border: 1px dashed var(--primary);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin: 14px 0;
+      position: relative;
+    }
+
+    .prompt-text {
+      font-family: 'Cairo', monospace;
+      font-size: 13.8px;
+      color: #0369a1;
+      font-weight: 700;
+      line-height: 1.8;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #475569;
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Bridge / Transition */
+    .bridge-box {
+      background: var(--purple-light);
+      border: 1px solid var(--purple-border);
+      border-radius: 12px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: #5b21b6;
+      font-weight: 600;
+    }
+
+    .bridge-tag {
+      background: var(--purple);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    /* Controls Footer */
+    .slide-footer-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+      gap: 12px;
+    }
+
+    .shortcut-tip {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .kbd {
+      background: var(--bg-subtle);
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-family: monospace;
+      font-size: 11px;
+    }
+
+    /* Sticky Bottom Nav Bar */
+    .sticky-bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid var(--border-color);
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.04);
+      z-index: 90;
+    }
+
+    .progress-info {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--text-sub);
+    }
+
+    @media (max-width: 768px) {
+      .top-bar { padding: 10px 14px; }
+      .slide-card { padding: 20px 16px; }
+      .sticky-bottom-bar { padding: 8px 12px; }
+    }
+
+    @media print {
+      .top-bar, .stepper-nav, .sticky-bottom-bar, .slide-footer-nav, .btn, .copy-btn {
+        display: none !important;
+      }
+      body { background: #ffffff; }
+      .slide-card {
+        display: block !important;
+        page-break-after: always;
+        border: 1px solid #ccc;
+        box-shadow: none;
+        margin-bottom: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="top-bar">
+    <div class="brand-section">
+      <span class="badge-tag">☀️ تصميم Light • منهجية Web Creator</span>
+      <div class="brand-title">
+        <h1>دليل وسردة المدرب الأكاديمية • الجلسة 01</h1>
+        <p>نبرة سورية راقية ومهذبة تراعي وقار القاعة التعليمية بين الأستاذ وطلابه وطالباته</p>
+      </div>
+    </div>
+
+    <div class="actions-section">
+      <div class="timer-pill">
+        <span>⏱️ وقت الجلسة:</span>
+        <span class="timer-digits" id="timerDigits">00:00</span>
+        <button class="btn btn-default" style="padding: 2px 8px; font-size: 11px;" id="timerToggle" onclick="toggleTimer()">بدء</button>
+        <button class="btn btn-default" style="padding: 2px 8px; font-size: 11px;" onclick="resetTimer()">تصفير</button>
+      </div>
+
+      <a href="http://localhost:3000/trainer/presentation/session-01" target="_blank" class="btn btn-accent">
+        <span>🖥️ سلايدات العرض</span>
+        <span>↗</span>
+      </a>
+
+      <button class="btn btn-default" onclick="window.print()">🖨️ طباعة</button>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- Instructor Welcome Header -->
+    <section class="trainer-hero">
+      <h2>أهلاً وسهلاً بحضرتك يا أستاذنا الكريم! 🎓✨</h2>
+      <p>
+        هذا الدليل تم إعداده خصيصاً ليتطابق بالكامل مع <strong>منهجية Web Creator</strong> المعتمدة في المنصة، وبـ <strong>لهجة سورية شامية راقية ومهذبة</strong> تناسب قاعة المحاضرات، وتراعي وجود الطالبات والطلاب مع الحفاظ على هيبة الأستاذ ولطفه الأبوي والأكاديمي.
+      </p>
+
+      <div class="hero-meta-grid">
+        <div class="meta-item">🏛️ <strong>المرحلة 01 (THINK):</strong> التفكير والتخطيط المعماري</div>
+        <div class="meta-item">🎯 <strong>نشاط المنصة الأساسي:</strong> تفكيك فكرة المشروع وطلب العميل</div>
+        <div class="meta-item">🤝 <strong>نبرة الخطاب:</strong> وقورة، مهذبة، مشجعة، وراقية</div>
+        <div class="meta-item">⌨️ <strong>التنقل:</strong> بنقرة زر واحدة أو بأسهم الكيبورد (⬅ / ➡)</div>
+      </div>
+    </section>
+
+    <!-- One-Click Stepper Navigation -->
+    <nav class="stepper-nav">
+      <div class="stepper-header">
+        <span class="stepper-title">🎯 الانتقال السريع بين شرائح الجلسة بنقرة زر واحدة:</span>
+        <button class="mode-btn" id="modeBtn" onclick="toggleViewMode()">عرض كامل الشرائح (قائمة مستمرة)</button>
+      </div>
+      <div class="pills-scroll-row" id="pillsContainer">
+        <button class="slide-step-btn active" onclick="jumpTo(0)">00. الترحيب والافتتاح</button>
+        <button class="slide-step-btn" onclick="jumpTo(1)">1. من الفكرة للموقع</button>
+        <button class="slide-step-btn" onclick="jumpTo(2)">2. لماذا نبني الموقع؟</button>
+        <button class="slide-step-btn" onclick="jumpTo(3)">3. التفكير كزائر</button>
+        <button class="slide-step-btn" onclick="jumpTo(4)">4. العناصر الثلاثة الأساسية</button>
+        <button class="slide-step-btn" onclick="jumpTo(5)">5. المنظم مقابل المزدحم</button>
+        <button class="slide-step-btn" onclick="jumpTo(6)">6. المراحل الأربع للبناء</button>
+        <button class="slide-step-btn" onclick="jumpTo(7)">7. هندسة العمل مع الـ AI</button>
+        <button class="slide-step-btn" onclick="jumpTo(8)">8. الأسئلة الأربعة للمشروع</button>
+        <button class="slide-step-btn" onclick="jumpTo(9)">9. تطبيق عملي المقهى</button>
+        <button class="slide-step-btn" onclick="jumpTo(10)">10. نشاط الطلاب العملي (s01-act-01)</button>
+        <button class="slide-step-btn" onclick="jumpTo(11)">11. نحو مشروع التخرج</button>
+        <button class="slide-step-btn" onclick="jumpTo(12)">12. الخلاصة وتشويق الجلسة 02</button>
+      </div>
+    </nav>
+
+    <!-- ======================================================== -->
+    <!-- SLIDE CARDS -->
+    <!-- ======================================================== -->
+    <div id="slidesArea">
+
+      <!-- ========================================== -->
+      <!-- SLIDE 00: START SCREEN -->
+      <!-- ========================================== -->
+      <article class="slide-card" data-idx="0" id="card-0">
+        <div class="slide-header">
+          <div class="slide-identity">
+            <div class="slide-badge-circle">00</div>
+            <div class="slide-titles">
+              <h3>شاشة البداية: الترحيب بطلابنا وطالباتنا الأعزاء</h3>
+              <div class="sub">Welcome & Ice Breaking • كسر الرهبة وبناء جسر الثقة الأكاديمي</div>
+            </div>
+          </div>
+          <div class="timing-badge">⏱️ 00:00 – 00:05 (5 دقائق)</div>
+        </div>
+
+        <div class="purpose-strip">
+          <strong>🎯 الهدف التعليمي والنفسي:</strong>
+          <span>إشعار الطالبات والطلاب بالأمان التام؛ المبتدئ يدخل وعنده خوف من التعقيد البرمجي، ومهمتنا طمأنته بأن الفهم المنطقي والتخطيط المعماري يسبق أي شيء آخر.</span>
+        </div>
+
+        <div class="narrative-box">
+          <div class="narrative-title">
+            🎙️ السردة الشامية الراقية (ماذا تقول لحضراتهم بصوتك الهادئ والمشجع):
+            <span class="tone-badge">نبرة وقورة، دافئة، ومهذبة</span>
+          </div>
+          <div class="speech-text">
+            <p>
+              <span class="syrian-accent-hint">ابتسامة وقورة وتحية طيبة</span>
+              «يا مية أهلاً وسهلاً بحضراتكم جميعاً، طالباتنا وطلابنا الأعزاء.. يسعد أوقاتكم بكل خير، وباسم الله نبدأ اليوم أولى جلسات برنامج <strong>Web Creator AI</strong>.
+            </p>
+            <p>
+              قبل ما نبدأ بالجانب العلمي، خلوني أقول لحضراتكم كلمة صادقة من القلب: <strong>إذا كان حدا من حضراتكم داخل اليوم وعنده تردد أو خوف إنه ما يلحق معنا، أو عم يفكر إنه بناء المواقع بحاجة لسنوات من دراسة البرمجة المعقدة، فبطمنكم إنكم بالمكان الصح تماماً.</strong>
+            </p>
+            <p>
+              نحن اليوم ما جايين لحتى نحفظ سطور كود جافة، نحن هون لحتى نتعلّم <strong>«كيف بيفكر مهندس الويب وصانع المواقع الحقيقي»</strong>. اليوم بوجود أدوات الذكاء الاصطناعي، صار التنفيذ سريع جداً، لكن القيمة الحقيقية اللي رح تتميزوا فيها بسوق العمل هي: كيف تفهموا طلب العميل، وكيف تخططوا للمشروع بذكاء، وتخلوا الذكاء الاصطناعي ينفذ رؤيتكم بدقة وإتقان.
+            </p>
+            <p>
+              بإذن الله مع نهاية جلسة اليوم الـ 90 دقيقة، رح يكون كل واحد وكل واحدة منكم حطّ حجر الأساس الأول لمشروعه الحقيقي اللي رح يتخرج فيه بنهاية البرنامج. خلونا نبدأ سوا على بركة الله!»
+            </p>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <div class="col-card ideas">
+            <div class="col-heading">💡 أفكار تطرحها بلطف</div>
+            <ul>
+              <li><strong>مفهوم التحول:</strong> «سابقاً كان بناء صفحة واحدة بحاجة لعدة أيام بين مبرمج ومصمم، اليوم الطالب الذكي بيبني موقعاً متكاملاً بأيام معدودة إذا امتلك الرؤية الصحيحة».</li>
+              <li><strong>تشجيع السؤال:</strong> «السؤال نصف العلم، وكل فكرة أو استفسار بيخطر ببالكم هو محط تقدير وترحيب كبير».</li>
+            </ul>
+          </div>
+
+          <div class="col-card dialogue">
+            <div class="col-heading">🗣️ أسئلة لفتح الشات باحترام</div>
+            <ul>
+              <li>«يا ريت تكتبوا لنا بالشات من أي مدن عم تتابعونا اليوم؟ ويسعدنا جداً نتعرف على اهتماماتكم وطموحاتكم بهالدورة الكريمة».</li>
+              <li>«كم حدا من حضراتكم جرب سابقاً يستخدم الذكاء الاصطناعي بطلب معين؟ اكتبوا لنا رقم 1 بالشات».</li>
+            </ul>
+          </div>
+
+          <div class="col-card advisory">
+            <div class="col-heading">🛡️ تنبيه تربوي للمدرب</div>
+            <ul>
+              <li>تجنب ذكر أي مصطلحات تقنية معقدة (مثل React، أو Git، أو Frameworks). التركيز الآن فقط على زرع الثقة وبناء الألفة المحترمة مع القاعة.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bridge-box">
+          <span class="bridge-tag">الجسر الانتقالي للشريحة 1</span>
+          «خلونا ننتقل سوا للشريحة الأولى، ونشوف كيف بتولد الفكرة وبتتحول لموقع إلكتروني ناجح!»
+        </div>
+
+        <div class="slide-footer-nav">
+          <span class="shortcut-tip">💡 يمكنك استخدام زر <span class="kbd">⬅</span> أو النقر على الزر للانتقال</span>
+          <button class="btn btn-primary" onclick="jumpTo(1)">الشريحة التالية: من الفكرة للموقع ⬅</button>
+        </div>
+      </article>
+
+      <!-- ========================================== -->
+      <!-- SLIDE 01: FROM IDEA TO WEBSITE -->
+      <!-- ========================================== -->
+      <article class="slide-card" data-idx="1" id="card-1">
+        <div class="slide-header">
+          <div class="slide-identity">
+            <div class="slide-badge-circle">01</div>
+            <div class="slide-titles">
+              <h3>الشريحة 01: من الفكرة إلى الموقع الإلكتروني</h3>
+              <div class="sub">From Idea to Live Website • كيف نحول أي فكرة واقعية إلى موقع ناجح؟</div>
+            </div>
+          </div>
+          <div class="timing-badge">⏱️ 00:05 – 00:10 (5 دقائق)</div>
+        </div>
+
+        <div class="purpose-strip">
+          <strong>🎯 الهدف التعليمي:</strong>
+          <span>توضيح مسار التحول: فكرة واقعية ⬅ تخطيط معماري منظم ⬅ موقع حقيقي يعمل على الهاتف والحاسوب.</span>
+        </div>
+
+        <div class="narrative-box">
+          <div class="narrative-title">
+            🎙️ السردة الشامية الراقية:
+            <span class="tone-badge">نبرة شرح منهجي هادئ</span>
+          </div>
+          <div class="speech-text">
+            <p>
+              <span class="syrian-accent-hint">إشارة للرسم التوضيحي على الشاشة</span>
+              «لو تفضلتم ونظرتم معي للرسم التوضيحي.. الرحلة كلها بتبدأ من نقطة جوهرية: <strong>فكرة مشروع واقعي</strong>.
+            </p>
+            <p>
+              ممكن تكون الفكرة مشروع لمقهى قهوة مختصة بمدينتكم، أو متجر لبيع العطور الفاخرة، أو عيادة طبية بحاجة لتنظيم المواعيد، أو صفحة خدمات شخصية لحضراتكم بتعرضوا فيها أعمالكم وخبراتكم.
+            </p>
+            <p>
+              الفكرة بحد ذاتها متل بذرة صغيرة.. إذا انتركت بدون عناية بتضيع، لكن إذا حطيناها بقالب منظم ورتبنا أقسامها، بتتحول لموقع حي متكامل بتفتحوه من جوالكم ومن حاسوبكم بكل أناقة.
+            </p>
+            <p>
+              واليوم لحتى يكون درسنا عملي وقريب للأذهان، رح نعتمد سوا مثال <strong>«مقهى قهوة مختصة محلي»</strong> كحالة دراسية تطبيقية بنمشي معها خطوة بخطوة!»
+            </p>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <div class="col-card ideas">
+            <div class="col-heading">💡 تشبيه المخطط الهندسي</div>
+            <ul>
+              <li><strong>المخطط قبل البناء:</strong> «متل المهندس المعماري اللي مستحيل يباشر بوضع حجر الأساس قبل ما يرسم المخطط الدقيق.. نحن اليوم عم نرسم المخطط الذكي لموقعنا».</li>
+            </ul>
+          </div>
+
+          <div class="col-card dialogue">
+            <div class="col-heading">🗣️ سؤال موجه للطلاب والطالبات</div>
+            <ul>
+              <li>«لو عُرض على حضراتكم اليوم بناء موقع لمشروع معروف بحيكم أو مدينتكم.. شو نوع المشروع اللي بتفضلوا تصمموا له؟ شاركونا أفكاركم الكريمة بالشات».</li>
+            </ul>
+          </div>
+
+          <div class="col-card advisory">
+            <div class="col-heading">🛡️ تفاعل الأستاذ مع الشات</div>
+            <ul>
+              <li>اقرأ أسماء الطلاب والطالبات بأدب وتقدير: «ما شاء الله، فكرة عيادة طبية ممتازة يا آنسة سارة»، «أستاذ فيصل فكرة متجر إلكتروني فكرة واعدة جداً».</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bridge-box">
+          <span class="bridge-tag">الجسر الانتقالي للشريحة 2</span>
+          «لكن السؤال الأساسي اللي لازم نطرحه على حالنا كصناع ويب: ليش صاحب العمل بحاجة لموقع إلكتروني أصلاً؟ خلونا نشوف بالشريحة الثانية!»
+        </div>
+
+        <div class="slide-footer-nav">
+          <button class="btn btn-default" onclick="jumpTo(0)">السابق: شاشة البداية ➡</button>
+          <button class="btn btn-primary" onclick="jumpTo(2)">التالي: لماذا نبني الموقع؟ ⬅</button>
+        </div>
+      </article>
+
+      <!-- ========================================== -->
+      <!-- SLIDE 02: WHY BUILD A WEBSITE -->
+      <!-- ========================================== -->
+      <article class="slide-card" data-idx="2" id="card-2">
+        <div class="slide-header">
+          <div class="slide-identity">
+            <div class="slide-badge-circle">02</div>
+            <div class="slide-titles">
+              <h3>الشريحة 02: لماذا ننشئ موقعًا إلكترونيًا أصلًا؟</h3>
+              <div class="sub">The 3-Way Bridge • العلاقة الثلاثية: صاحب المشروع ↔ الموقع ↔ الزائر</div>
+            </div>
+          </div>
+          <div class="timing-badge">⏱️ 00:10 – 00:18 (8 دقائق)</div>
+        </div>
+
+        <div class="purpose-strip">
+          <strong>🎯 الهدف التعليمي:</strong>
+          <span>ترسيخ القيمة التجارية للموقع كجسر يخدم مصلحة الطرفين: صاحب العمل والزائر.</span>
+        </div>
+
+        <div class="narrative-box">
+          <div class="narrative-title">
+            🎙️ السردة الشامية الراقية:
+            <span class="tone-badge">نبرة تحليل تجاري ذكي ومقنع</span>
+          </div>
+          <div class="speech-text">
+            <p>
+              <span class="syrian-accent-hint">طرح تساؤل واقعي بأدب</span>
+              «أحياناً بيسألنا صاحب مشروع: <em>"يا أستاذ، أنا عندي صفحة على إنستغرام أو فيسبوك، ليش لحتى اتكلف واعمل موقع إلكتروني مستقل؟"</em>
+            </p>
+            <p>
+              خلونا نتأمل هذا الموقف الواقعي اللي بصير معنا جميعاً:
+              زبون دخل على حساب مطعم بالسوشيال ميديا بالليل، عجبته صورة الوجبة، لكن بده يعرف الأسعار وقائمة الطعام.. بيدخل على المنشورات ما بلاقي سعر، بيبعت رسالة على الخاص: "لو سمحتوا شو الأسعار وكيف فيني اطلب؟".. بعد ساعتين ما حدا بيرد لأنه الموظف المسؤول بكون بنهاية دوامه أو نايم! النتيجة الطبيعية شو بتكون؟ الزبون بيترك الحساب وبيطلب من مكان تاني واضح ومباشر!
+            </p>
+            <p>
+              <strong>الموقع الإلكتروني هو الواجهة الرسمية والموظف الذكي اللي بضل فاتح أبوابه 24 ساعة باليوم:</strong>
+              <br>• صاحب المشروع بيرتاح من تكرار الرد على نفس الأسئلة مئات المرات يومياً.
+              <br>• والزائر بيدخل، بيلاقي الأصناف والأسعار مرتبة أمامه بثواني، وبكبسة زر واحدة بينتقل للطلب عبر واتساب بكل راحة وسلاسة.
+              <br>الموقع هو الجسر اللي بحول رغبة الزائر لعملية طلب حقيقية وناجحة!»
+            </p>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <div class="col-card ideas">
+            <div class="col-heading">💡 ملكية الأصول الرقمية</div>
+            <ul>
+              <li><strong>الموقع ملكك الخاص:</strong> على السوشيال ميديا أنت مستأجر وخاضع للخوارزميات وإغلاق الحسابات. موقعك هو عقارك الرقمي المستقل.</li>
+              <li><strong>مفهوم التحويل (Conversion):</strong> قيمة الموقع تقاس بمدى قدرته على مساعدة الزائر في اتخاذ القرار والطلب.</li>
+            </ul>
+          </div>
+
+          <div class="col-card dialogue">
+            <div class="col-heading">🗣️ سؤال للنقاش مع القاعة</div>
+            <ul>
+              <li>«كم مرة مريتوا بتجربة شراء ترددتم فيها بسبب غياب الأسعار والوضوح بالصفحة؟ شاركونا تجربتكم باختصار بالشات».</li>
+            </ul>
+          </div>
+
+          <div class="col-card advisory">
+            <div class="col-heading">🛡️ نصيحة للمدرب</div>
+            <ul>
+              <li>بيّن للطلاب والطالبات أن السوشيال ميديا ممتازة لجلب الجمهور، لكن الموقع هو المكان الذي "تُغلق فيه الصفقة التجارية".</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bridge-box">
+          <span class="bridge-tag">الجسر الانتقالي للشريحة 3</span>
+          «وطالما الموقع معمول بالأساس لخدمة هذا الزائر.. خلونا بالشريحة 3 نتعلم كيف نفكر بعقلية الزائر قبل ما نفكر كمصممين!»
+        </div>
+
+        <div class="slide-footer-nav">
+          <button class="btn btn-default" onclick="jumpTo(1)">السابق: من الفكرة للموقع ➡</button>
+          <button class="btn btn-primary" onclick="jumpTo(3)">التالي: التفكير كزائر ⬅</button>
+        </div>
+      </article>
+
+      <!-- ========================================== -->
+      <!-- SLIDE 03: THINK LIKE A VISITOR -->
+      <!-- ========================================== -->
+      <article class="slide-card" data-idx="3" id="card-3">
+        <div class="slide-header">
+          <div class="slide-identity">
+            <div class="slide-badge-circle">03</div>
+            <div class="slide-titles">
+              <h3>الشريحة 03: فكّر كزائر قبل أن تفكّر كمصمم</h3>
+              <div class="sub">Think Like a Visitor • ما هي العناصر الأساسية التي يبحث عنها زائر الهاتف؟</div>
+            </div>
+          </div>
+          <div class="timing-badge">⏱️ 00:18 – 00:25 (7 دقائق)</div>
+        </div>
+
+        <div class="purpose-strip">
+          <strong>🎯 الهدف التعليمي:</strong>
+          <span>نقل تفكير الطالب من "الرغبة الشخصية" إلى "تجربة المستخدم وسيكولوجية الزائر المستعجل".</span>
+        </div>
+
+        <div class="narrative-box">
+          <div class="narrative-title">
+            🎙️ السردة الشامية الراقية:
+            <span class="tone-badge">نبرة حوار تفاعلي مشوق</span>
+          </div>
+          <div class="speech-text">
+            <p>
+              <span class="syrian-accent-hint">وقفة تأمل هادئة</span>
+              «في قاعدة أساسية بعالم هندسة الويب بتمنى تضل راسخة بأذهان حضراتكم:
+              <strong>أكبر خطأ بيقع فيه المبتدئ هو إنه بيفتح شاشة التصميم وبيفكر: "أنا شو الألوان اللي بتعجبني؟ وأنا شو الكلمات اللي بتطربني؟"</strong>.
+            </p>
+            <p>
+              الموقع مو معمول لإرضاء ذوقنا الشخصي، الموقع صُمم لخدمة إنسان واحد فقط: <strong>الزائر المستعجل!</strong>
+            </p>
+            <p>
+              تخيلوا الزائر ماسك جواله، عم يتصفح وهو مستعجل بالسيارة أو بالطريق.. ما عنده وقت يقرأ فقرات طويلة، عينه بتعمل مسح بصري سريع جداً خلال أول 3 ثواني فقط!
+            </p>
+            <p>
+              <strong>وهون بدي اسأل حضراتكم في الشات:</strong> لما بتفتحوا موقع مطعم أو متجر أو عيادة لأول مرة من جوالكم، ما هي أول 3 أشياء بتبحث عنها عيونكم تلقائياً وبدون تفكير؟
+              مع حضراتكم دقيقة، ويا ريت تكتبوا لنا إجاباتكم الكريمة بالشات!»
+            </p>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <div class="col-card ideas">
+            <div class="col-heading">💡 كشف الإجابات البصري</div>
+            <ul>
+              <li>بعد تلقي الإجابات في الشات، اكشف الإجابات على السلايد وعلّق: «ما شاء الله، إجاباتكم تماماً مطابقة للتحليل البصري المعتمد عالمياً:
+                <br>1. ماذا يقدم المكان؟ (العنوان الواضح).
+                <br>2. ما هي الأصناف والأسعار؟ (البطاقات).
+                <br>3. كيف اطلب أو اتواصل فوراً؟ (زر الواتساب)».
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-card dialogue">
+            <div class="col-heading">🗣️ توجيه راقي للطلاب</div>
+            <ul>
+              <li>«أحسنتم جميعاً.. الآنسة نورة ذكرت الأسعار، والأستاذ خالد ذكر زر التواصل، وهاد بأكد لنا إنه سلوك الزائر عالمي وموحد».</li>
+            </ul>
+          </div>
+
+          <div class="col-card advisory">
+            <div class="col-heading">🛡️ تنبيه للمدرب</div>
+            <ul>
+              <li>لا تجب بنفسك قبل أن تفسح المجال لهم للتفكير والتفاعل؛ إحساس الطالب بالاكتشاف هو جوهر التعلم.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bridge-box">
+          <span class="bridge-tag">الجسر الانتقالي للشريحة 4</span>
+          «ومن هذا التفكير البسيط للزائر، تعالوا بالشريحة 4 نتعرف على الهيكل التشريحي الذهبي لأي صفحة ناجحة!»
+        </div>
+
+        <div class="slide-footer-nav">
+          <button class="btn btn-default" onclick="jumpTo(2)">السابق: لماذا نبني الموقع؟ ➡</button>
+          <button class="btn btn-primary" onclick="jumpTo(4)">التالي: العناصر الثلاثة الأساسية ⬅</button>
+        </div>
+      </article>
+
+      <!-- ========================================== -->
+      <!-- SLIDE 04: THE 3 ESSENTIALS (PAGE ANATOMY) -->
+      <!-- ========================================== -->
+      <article class="slide-card" data-idx="4" id="card-4">
+        <div class="slide-header">
+          <div class="slide-identity">
+            <div class="slide-badge-circle">04</div>
+            <div class="slide-titles">
+              <h3>الشريحة 04: العناصر الثلاثة لأي صفحة ويب ناجحة</h3>
+              <div class="sub">Page Anatomy • تشريح الصفحة المنظم (القسم الترحيبي + العرض + زر الإجراء)</div>
+            </div>
+          </div>
+          <div class="timing-badge">⏱️ 00:25 – 00:33 (8 دقائق)</div>
+        </div>
+
+        <div class="purpose-strip">
+          <strong>🎯 الهدف التعليمي:</strong>
+          <span>تبسيط تشريح الصفحة إلى 3 كتل بنائية أساسية يسهل على المبتدئ تصورها وتنفيذها.</span>
+        </div>
+
+        <div class="narrative-box">
+          <div class="narrative-title">
+            🎙️ السردة الشامية الراقية:
+            <span class="tone-badge">نبرة تشريح هندسي مبسط وواضح</span>
+          </div>
+          <div class="speech-text">
+            <p>
+              <span class="syrian-accent-hint">إشارة لمخطط الصفحة على يسار الشاشة</span>
+              «انظروا معي حضراتكم إلى هذا الرسم.. هذا ما نسميه في هندسة الويب <strong>تشريح الصفحة (Page Anatomy)</strong>.
+            </p>
+            <p>
+              سواء زرنا موقع شركة Apple العالمية، أو متجر أمازون، أو موقع مقهى راقٍ في مدينتكم، كل الصفحات الناجحة تتبع هذا التسلسل المنطقي المرتب من الأعلى للأسفل:
+            </p>
+            <p>
+              <strong>1. القسم الترحيبي في الأعلى (Hero Section):</strong><br>
+              بيمثّل واجهة المحل الزجاجية الأنيقة.. بيحتوي على عنوان بارز وواضح بيشرح للزائر بأول ثانية: <em>"نحن مقهى متخصص بتقديم أجود أنواع القهوة المختصة والحلويات اليومية الطازجة"</em>. هون الزائر ارتاح وعرف تماماً أين هو.
+            </p>
+            <p>
+              <strong>2. قسم العرض والمنتجات (Offer Cards):</strong><br>
+              بيمثّل الرفوف المنظمة داخل المتجر.. بطاقات واضحة وأنيقة: صورة المشروب، اسمه، وسعره. لا توجد فقرات طويلة ترهق العين، بل معلومات مرتبة يسهل تصفحها.
+            </p>
+            <p>
+              <strong>3. زر الإجراء المباشر (Call to Action - CTA):</strong><br>
+              بيمثّل موظف الاستقبال الودود في مكانه الصحيح.. زر واضح ومريح بيقول للزائر: <em>«اطلب قهوتك الآن عبر واتساب»</em>، بنقرة واحدة بتفتح محادثة الطلب مباشرة.
+            </p>
+            <p>
+              <strong>قاعدتنا الذهبية: إذا فهم الزائر ماذا تقدم وكيف يطلب خلال 10 ثوانٍ، فموقعك موقع ناجح وفعال تجارياً!»</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <div class="col-card ideas">
+            <div class="col-heading">💡 تشبيه لافتات المطارات</div>
+            <ul>
+              <li><strong>الوضوح التوجيهي:</strong> لافتة المطار الكبيرة ترشد المسافر مباشرة لبوابته دون إرباك، والموقع المنظم يقود الزائر لزر الشراء أو الحجز مباشرة.</li>
+              <li><strong>مبدأ Above the Fold:</strong> القسم الترحيبي يجب أن يظهر كاملاً على شاشة الهاتف دون الحاجة للتمرير الأولي.</li>
+            </ul>
+          </div>
+
+          <div class="col-card dialogue">
+            <div class="col-heading">🗣️ تثبيت المفاهيم الثلاثة</div>
+            <ul>
+              <li>«من يعيد لنا باختصار أسماء الأقسام الثلاثة في الشات؟ (Hero Section + بطاقات العرض + زر الـ CTA)».</li>
+            </ul>
+          </div>
+
+          <div class="col-card advisory">
+            <div class="col-heading">🛡️ تنبيه أكاديمي</div>
+            <ul>
+              <li>نثبت المفهوم البصري والوظيفي أولاً قبل الحديث عن الأكواد في الجلسات القادمة.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bridge-box">
+          <span class="bridge-tag">الجسر الانتقالي للشريحة 5</span>
+          «وحتى نلمس أثر هذا الترتيب واقعياً.. تعالوا بالشريحة 5 نقارن بصرياً بين موقع منظم ومريح، وموقع مزدحم ومربك!»
+        </div>
+
+        <div class="slide-footer-nav">
+          <button class="btn btn-default" onclick="jumpTo(3)">السابق: التفكير كزائر ➡</button>
+          <button class="btn btn-primary" onclick="jumpTo(5)">التالي: المنظم مقابل المزدحم ⬅</button>
+        </div>
+      </article>
+
+      <!-- ========================================== -->
+      <!-- SLIDE 05: ORGANIZED VS CLUTTERED -->
+      <!-- ========================================== -->
+      <article class="slide-card" data-idx="5" id="card-5">
+        <div class="slide-header">
+          <div class="slide-identity">
+            <div class="slide-badge-circle">05</div>
+            <div class="slide-titles">
+              <h3>الشريحة 05: مقارنة بصرية: المنظم مقابل المزدحم</h3>
+              <div class="sub">Organized vs Cluttered • سيكولوجية الراحة وبناء ثقة الزائر من النظرة الأولى</div>
+            </div>
+          </div>
+          <div class="timing-badge">⏱️ 00:33 – 00:40 (7 دقائق)</div>
+        </div>
+
+        <div class="purpose-strip">
+          <strong>🎯 الهدف التعليمي:</strong>
+          <span>إدراك أن الجمال والاحترافية ينبعان من البساطة والمساحات المريحة، وليس من تكديس الألوان والعناصر.</span>
+        </div>
+
+        <div class="narrative-box">
+          <div class="narrative-title">
+            🎙️ السردة الشامية الراقية:
+            <span class="tone-badge">نبرة مقارنة فنية وتربوية راقية</span>
+          </div>
+          <div class="speech-text">
+            <p>
+              <span class="syrian-accent-hint">مقارنة بصرية واضحة على الشاشة</span>
+              «تفضلوا وتأملوا معي هاتين الصورتين في الشريحة:
+            </p>
+            <p>
+              على اليمين: النموذج الأحمر المزدحم. عناوين كثيرة متداخلة، ألوان فاقعة متعددة تشتت التركيز، فقرات نصية طويلة تشبه الصحف القديمة، وخمسة أزرار تنادي الزائر في ذات الوقت: "اضغط هنا، لا اشترك هنا، لا شاهد الفيديو هنا!". الزائر عندما يفتح هذه الصفحة يشعر بنوع من الإرباك والضغط النفسي، وتلقائياً يقوم بإغلاق الصفحة دون أن يشتري أي شيء.
+            </p>
+            <p>
+              بينما على اليسار: النموذج الأخضر المنظم. عنوان واحد واضح يشرح الفائدة، مساحات بيضاء متناسقة تجعل العين تتنفس بارتياح، 3 بطاقات مرتبة للخيارات الأساسية، وزر واحد مباشر: "اطلب الآن عبر واتساب".
+            </p>
+            <p>
+              <strong>المبتدئ دائماً يتصور خطأً أن كثرة الزخارف تعني احترافية أكبر، بينما في عالم هندسة الويب الحقيقي: البساطة والمساحات المريحة (White Space) هي التي تبني هيبة العلامة التجارية وتولد الثقة لدى العميل!</strong>»
+            </p>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <div class="col-card ideas">
+            <div class="col-heading">💡 تشبيه المتاجر الراقية</div>
+            <ul>
+              <li><strong>متاجر العلامات الفاخرة:</strong> لماذا تشعر بالفخامة في متاجر مثل Apple؟ لأن الطاولات واسعة، والمنتجات معروضة بهدوء، ولا يوجد تكديس عشوائي للبضائع.</li>
+              <li><strong>قيمة الفراغ الأبيض:</strong> المساحة البيضاء ليست فراغاً ضائعاً، بل هي الإطار الذي يبرز جودة المنتج.</li>
+            </ul>
+          </div>
+
+          <div class="col-card dialogue">
+            <div class="col-heading">🗣️ تصويت سريع باحترام</div>
+            <ul>
+              <li>«لو كان بحوزة حضراتكم ميزانية للشراء.. في أي الموقعين تشعرون بالاطمئنان لإتمام الطلب؟ اكتبوا لنا (المنظم) أو (المزدحم) في الشات».</li>
+            </ul>
+          </div>
+
+          <div class="col-card advisory">
+            <div class="col-heading">🛡️ ميثاق الجودة في الدورة</div>
+            <ul>
+              <li>«نحن في برنامج Web Creator AI عهدنا الدائم هو النظافة، البساطة، وراحة عين الزائر في كل موقع نبنيه».</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bridge-box">
+          <span class="bridge-tag">الجسر الانتقالي للشريحة 6</span>
+          «والآن.. كيف نصل إلى هذا المستوى من التنظيم في مشاريعنا؟ ما هي خارطة الطريق التي سنتبعها معاً؟ دعونا نرى الشريحة 6!»
+        </div>
+
+        <div class="slide-footer-nav">
+          <button class="btn btn-default" onclick="jumpTo(4)">السابق: العناصر الثلاثة ➡</button>
+          <button class="btn btn-primary" onclick="jumpTo(6)">التالي: المراحل الأربع للبناء ⬅</button>
+        </div>
+      </article>
+
+      <!-- ========================================== -->
+      <!-- SLIDE 06: THE 4 STAGES WORKFLOW -->
+      <!-- ========================================== -->
+      <article class="slide-card" data-idx="6" id="card-6">
+        <div class="slide-header">
+          <div class="slide-identity">
+            <div class="slide-badge-circle">06</div>
+            <div class="slide-titles">
+              <h3>الشريحة 06: رحلتنا في بناء الموقع: 4 مراحل بسيطة</h3>
+              <div class="sub">The 4-Stage Workflow • خارطة الطريق المنهجية من الفكرة حتى النشر الحي</div>
+            </div>
+          </div>
+          <div class="timing-badge">⏱️ 00:40 – 00:48 (8 دقائق)</div>
+        </div>
+
+        <div class="purpose-strip">
+          <strong>🎯 الهدف التعليمي:</strong>
+          <span>إعطاء خارطة طريق واضحة ومطمئنة لجميع مراحل البرنامج، وإيضاح سبب وضع الذكاء الاصطناعي في المرحلة الثالثة.</span>
+        </div>
+
+        <div class="narrative-box">
+          <div class="narrative-title">
+            🎙️ السردة الشامية الراقية:
+            <span class="tone-badge">نبرة توجيه أكاديمي واثق ومطمئن</span>
+          </div>
+          <div class="speech-text">
+            <p>
+              <span class="syrian-accent-hint">مرور منظم على المحطات الأربع</span>
+              «حتى تكون رحلتنا واضحة تماماً لجميع طالباتنا وطلابنا، قمنا بتنظيم مسار البرنامج في <strong>4 محطات منهجية مترابطة</strong>:
+            </p>
+            <p>
+              <strong>المحطة 1 (فهم الفكرة والزائر - جلستنا اليوم):</strong><br>
+              نحدد لمن هذا الموقع، ما المشكلة التي يحلها، وما الهدف التجاري الأساسي منه.
+            </p>
+            <p>
+              <strong>المحطة 2 (تخطيط الصفحات والأقسام - الجلسة القادمة):</strong><br>
+              نرتب العناوين والبطاقات وتناسق الألوان قبل كتابة أي كود أو أمر.
+            </p>
+            <p>
+              <strong>المحطة 3 (البناء بالذكاء الاصطناعي):</strong><br>
+              هنا نقود الذكاء الاصطناعي ليولد لنا الأكواد والصفحات قسماً بقسم تحت إشرافنا ومراجعتنا الدقيقة.
+            </p>
+            <p>
+              <strong>المحطة 4 (الفحص والنشر الحي):</strong><br>
+              نتأكد من سرعة الموقع وتوافقه التام مع الهواتف الذكية، ونطلقه على رابط رسمي حقيقي ليكون فخراً في معرض أعمالكم.
+            </p>
+            <p>
+              <strong>ولاحظوا معي نقطة في غاية الأهمية:</strong> لماذا وضعنا البناء مع الذكاء الاصطناعي في الخطوة الثالثة وليس الأولى؟ 
+              لأنك إذا دخلت على الذكاء الاصطناعي وأنت لا تملك خطة واضحة ومحددة، ستكون النتيجة عشوائية تماماً ولن ترضي العميل! الوضوح المعماري أولاً ثم سرعة التنفيذ!»
+            </p>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <div class="col-card ideas">
+            <div class="col-heading">💡 منهجية المهندس المحترف</div>
+            <ul>
+              <li><strong>الفرق بين الهاوي والمحترف:</strong> الهاوي يقفز للأدوات عشوائياً، والمحترف يتبع مسار عمل (Pipeline) منظم يضمن جودة ثابتة في كل مشروع.</li>
+              <li><strong>مبدأ الخطوة بخطوة:</strong> لا توجد قفزات مفاجئة؛ كل خطوة تؤسس للتي تليها.</li>
+            </ul>
+          </div>
+
+          <div class="col-card dialogue">
+            <div class="col-heading">🗣️ سؤال منهجي للقاعة</div>
+            <ul>
+              <li>«برأي حضراتكم، أي مرحلة من هذه المراحل الأربع لو أهملناها ستؤدي لخلل في باقي المشروع؟ (الإجابة: التخطيط الأولي وفهم الفكرة)».</li>
+            </ul>
+          </div>
+
+          <div class="col-card advisory">
+            <div class="col-heading">🛡️ توجيه للمدرب</div>
+            <ul>
+              <li>طمئن الطلاب بأن الأدوات التقنية ستكون سهلة وميسرة للغاية عند الوصول للمرحلة الثالثة، لأن الأساس المعماري قد بُني بنجاح.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bridge-box">
+          <span class="bridge-tag">الجسر الانتقالي للشريحة 7</span>
+          «وهذا يقودنا للمبدأ الجوهري في دورتنا: كيف نعمل مع الذكاء الاصطناعي بطريقة هندسية صحيحة؟ دعونا نرى الشريحة 7!»
+        </div>
+
+        <div class="slide-footer-nav">
+          <button class="btn btn-default" onclick="jumpTo(5)">السابق: المنظم vs المزدحم ➡</button>
+          <button class="btn btn-primary" onclick="jumpTo(7)">التالي: هندسة العمل مع الـ AI ⬅</button>
+        </div>
+      </article>
+
+      <!-- ========================================== -->
+      <!-- SLIDE 07: HOW WE WORK WITH AI -->
+      <!-- ========================================== -->
+      <article class="slide-card" data-idx="7" id="card-7">
+        <div class="slide-header">
+          <div class="slide-identity">
+            <div class="slide-badge-circle">07</div>
+            <div class="slide-titles">
+              <h3>الشريحة 07: كيف نعمل مع الذكاء الاصطناعي بطريقة صحيحة؟</h3>
+              <div class="sub">Engineering vs Vibe Coding • أنت القائد والمهندس صاحب القرار والـ AI مساعدك السريع</div>
+            </div>
+          </div>
+          <div class="timing-badge">⏱️ 00:48 – 00:56 (8 دقائق)</div>
+        </div>
+
+        <div class="purpose-strip">
+          <strong>🎯 الهدف التعليمي:</strong>
+          <span>تفنيد أسلوب الـ (Vibe Coding) السطحي وترسيخ دور الطالب كقائد هندسي للذكاء الاصطناعي (حلقة العمل الخماسية).</span>
+        </div>
+
+        <div class="narrative-box">
+          <div class="narrative-title">
+            🎙️ السردة الشامية الراقية:
+            <span class="tone-badge">نبرة حزم علمي وتشجيع راقٍ</span>
+          </div>
+          <div class="speech-text">
+            <p>
+              <span class="syrian-accent-hint">تأكيد على المبدأ العلمي للبرنامج</span>
+              «أرجو من حضراتكم التركيز معي جيداً في هذه النقطة، لأنها هي الفارق الجوهري بين مطور الويب الحقيقي وبين أي شخص عادي يتسلى بأدوات الذكاء الاصطناعي.
+            </p>
+            <p>
+              كثير من الناس يدخلون على ChatGPT ويكتبون: <em>"اصنع لي موقعاً جميلاً لمقهى"</em>. الذكاء الاصطناعي يولد لهم صفحة مليئة بنصوص عشوائية وتصميم غير متناسق، فيشعرون بالإحباط ويقولون: <em>"الذكاء الاصطناعي غير مجدٍ!"</em>. 
+              في أوساط التقنية اليوم يسمون هذه الطريقة العشوائية (Vibe Coding) أو "البرمجة بالمشاعر السطحية"، وهي طريقة لا تبني حلولاً قابلة للاعتماد في سوق العمل.
+            </p>
+            <p>
+              <strong>تعالوا نشبه الذكاء الاصطناعي بتشبيه واقعي دقيق:</strong><br>
+              تخيلوا أن لديكم مساعداً تنفيذياً عالي السرعة والمهارة، يستطيع إنجاز المهام في دقائق، لكنه ينتظر منكم التوجيه الواضح: <em>ما هو نوع النشاط؟ ما هي الأقسام المحددة؟ وما هو الإجراء المطلوب من الزائر؟</em>
+            </p>
+            <p>
+              إذا لم تقدموا له مدخلات دقيقة، فالمخرجات ستكون بلا قيمة كما يقول مبدأ (Garbage In, Garbage Out).
+              لذلك قاعدتنا الأساسية في Web Creator هي: <strong>أنت القائد، وأنت المهندس وصاحب القرار، والذكاء الاصطناعي مساعدك فائق السرعة!</strong> 
+              نحن نقدم الوصف الدقيق، هو يبني المسودة الأولى بثوانٍ، ونحن نراجعها بعين الزائر ونوجهه لتحسينها خطوة بخطوة!»
+            </p>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <div class="col-card ideas">
+            <div class="col-heading">💡 حلقة العمل الخماسية (AI Loop)</div>
+            <ul>
+              <li><strong>1. الفكرة المحددة:</strong> وضوح الهدف التجاري.</li>
+              <li><strong>2. التوجيه الدقيق (Prompt):</strong> وصف الأقسام بعبارات محددة.</li>
+              <li><strong>3. المسودة الأولى:</strong> توليد الهيكل برمشة عين.</li>
+              <li><strong>4. المراجعة النقدية:</strong> التحقق من راحة عين الزائر.</li>
+              <li><strong>5. التحسين المستمر:</strong> تعديل الأزرار والألوان حتى الإتقان.</li>
+            </ul>
+          </div>
+
+          <div class="col-card dialogue">
+            <div class="col-heading">🗣️ سؤال لترسيخ القيادة</div>
+            <ul>
+              <li>«من هو صاحب القرار المعماري في المشروع؟ هل هو الذكاء الاصطناعي أم حضراتكم؟ (دع الشات يؤكد: نحن أصحاب القرار!)».</li>
+            </ul>
+          </div>
+
+          <div class="col-card advisory">
+            <div class="col-heading">🛡️ تنبيه للمدرب</div>
+            <ul>
+              <li>بيّن للطلاب والطالبات أن الذكاء الاصطناعي لا يملك حساً تجارياً، بل يملك قدرة تنفيذية فقط، وحسهم التجاري والجمالي هو قيمتهم الحقيقية.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bridge-box">
+          <span class="bridge-tag">الجسر الانتقالي للشريحة 8</span>
+          «وحتى نقود مشاريعنا بأعلى درجات الاحتراف.. ما هي الأسئلة الأربعة التي نستخرج بها متطلبات أي مشروع؟ دعونا نراها بالشريحة 8!»
+        </div>
+
+        <div class="slide-footer-nav">
+          <button class="btn btn-default" onclick="jumpTo(6)">السابق: المراحل الأربع ➡</button>
+          <button class="btn btn-primary" onclick="jumpTo(8)">التالي: الأسئلة الأربعة السحرية ⬅</button>
+        </div>
+      </article>
+
+      <!-- ========================================== -->
+      <!-- SLIDE 08: THE 4 QUESTIONS -->
+      <!-- ========================================== -->
+      <article class="slide-card" data-idx="8" id="card-8">
+        <div class="slide-header">
+          <div class="slide-identity">
+            <div class="slide-badge-circle">08</div>
+            <div class="slide-titles">
+              <h3>الشريحة 08: الأسئلة الأربعة لتحديد فكرة موقعك</h3>
+              <div class="sub">The 4 Questions Template • القالب المعماري لاستخراج متطلبات أي مشروع في دقائق</div>
+            </div>
+          </div>
+          <div class="timing-badge">⏱️ 00:56 – 01:04 (8 دقائق)</div>
+        </div>
+
+        <div class="purpose-strip">
+          <strong>🎯 الهدف التعليمي:</strong>
+          <span>تزويد الطلاب بقالب قياسي محدد من 4 أسئلة يحلل متطلبات أي عميل واقعي تمهيداً للنشاط العملي.</span>
+        </div>
+
+        <div class="narrative-box">
+          <div class="narrative-title">
+            🎙️ السردة الشامية الراقية:
+            <span class="tone-badge">نبرة إرشاد مهني وتطبيق مباشر</span>
+          </div>
+          <div class="speech-text">
+            <p>
+              <span class="syrian-accent-hint">دعوة لتسجيل القالب باهتمام</span>
+              «أرجو من حضراتكم تدوين هذه الأسئلة الأربعة في دفاتركم أو ملاحظات هواتفكم، لأنكم ستستخدمونها في كل مشروع مستقبلي:
+            </p>
+            <p>
+              أي عميل في العالم، أو أي فكرة تراودكم، يمكن تفكيكها وتلخيصها في <strong>4 أسئلة محددة تماماً</strong>:
+            </p>
+            <p>
+              <strong>السؤال 1: ما هو المشروع وماذا يقدم بالتحديد؟</strong><br>
+              بجملة واحدة واضحة: مثال: مقهى يقدم قهوة مختصة وحلويات يومية طازجة.
+            </p>
+            <p>
+              <strong>السؤال 2: من هو الزائر المستهدف الذي ندعوه للموقع؟</strong><br>
+              سكان الحي ومحبو القهوة الذين يبحثون عن طلب سريع ومريح من هاتفهم الذكي.
+            </p>
+            <p>
+              <strong>السؤال 3: ما الأقسام الثلاثة الأهم التي يحتاجها هذا الزائر في الصفحة؟</strong><br>
+              1. قسم ترحيبي واضح بهوية المقهى + 2. قائمة المشروبات مع الأسعار + 3. العنوان وساعات العمل.
+            </p>
+            <p>
+              <strong>السؤال 4: ما هو الإجراء الأساسي (CTA) والزر الوحيد الذي نريده أن يضغط عليه؟</strong><br>
+              زر مباشر وواضح: «اطلب قهوتك الآن عبر واتساب».
+            </p>
+            <p>
+              إذا تمت الإجابة عن هذه الأسئلة الأربعة، فأنتم أنجزتم 70% من بناء الموقع بنجاح قبل كتابة أي سطر تقني!»
+            </p>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <div class="col-card ideas">
+            <div class="col-heading">💡 أمثلة متنوعة من الحياة العملية</div>
+            <ul>
+              <li><strong>عيادة أسنان تخصصية:</strong> المشروع: طب وجراحة الأسنان. الزائر: مريض يبحث عن علاج موثوق. الأقسام: نبذة عن الطبيب + الخدمات والأسعار + آراء المرضى. الزر الأساسي: «احجز موعد استشارتك الآن عبر واتساب».</li>
+              <li><strong>متجر أزياء وعطور:</strong> المشروع: عطور شرقية فاخرة. الزائر: محبو الروائح المميزة. الأقسام: تشكيلة العطور + الباقات الخاصة + تقييمات المشترين. الزر: «اطلب عطرك المفضل اليوم».</li>
+            </ul>
+          </div>
+
+          <div class="col-card dialogue">
+            <div class="col-heading">🗣️ سؤال التحفيز الذهني</div>
+            <ul>
+              <li>«لماذا نحدد زراً أساسياً واحداً واضحاً (CTA)؟ لأن تشتيت الزائر بعدة خيارات يقلل من احتمالية اتخاذ القرار».</li>
+            </ul>
+          </div>
+
+          <div class="col-card advisory">
+            <div class="col-heading">🛡️ تأكيد على قاعدة الثلاثة</div>
+            <ul>
+              <li>نبه الطلاب والطالبات على الاكتفاء بثلاثة أقسام رئيسية فقط في الصفحة الأولى؛ لضمان البساطة والتركيز.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bridge-box">
+          <span class="bridge-tag">الجسر الانتقالي للشريحة 9</span>
+          «دعونا نرى في الشريحة 9 كيف نجمع إجابات المقهى في بطاقة خطة مكتوبة بدقيقتين فقط!»
+        </div>
+
+        <div class="slide-footer-nav">
+          <button class="btn btn-default" onclick="jumpTo(7)">السابق: العمل مع الـ AI ➡</button>
+          <button class="btn btn-primary" onclick="jumpTo(9)">التالي: خطة المقهى في دقيقتين ⬅</button>
+        </div>
+      </article>
+
+      <!-- ========================================== -->
+      <!-- SLIDE 09: LIVE DEMO CAFE PLAN -->
+      <!-- ========================================== -->
+      <article class="slide-card" data-idx="9" id="card-9">
+        <div class="slide-header">
+          <div class="slide-identity">
+            <div class="slide-badge-circle">09</div>
+            <div class="slide-titles">
+              <h3>الشريحة 09: تطبيق عملي: كتابة خطة مقهى في دقيقتين</h3>
+              <div class="sub">Live Walkthrough • تحويل الأسئلة الأربعة إلى نص خطة واضح وجاهز للتنفيذ</div>
+            </div>
+          </div>
+          <div class="timing-badge">⏱️ 01:04 – 01:12 (8 دقائق)</div>
+        </div>
+
+        <div class="purpose-strip">
+          <strong>🎯 الهدف التعليمي:</strong>
+          <span>نمذجة عملية حية أمام الطلاب توضح كيف تبدو الخطة المكتوبة بلغة بسيطة ومباشرة.</span>
+        </div>
+
+        <div class="narrative-box">
+          <div class="narrative-title">
+            🎙️ السردة الشامية الراقية:
+            <span class="tone-badge">نبرة استعراض عملي مشجع وواضح</span>
+          </div>
+          <div class="speech-text">
+            <p>
+              <span class="syrian-accent-hint">قراءة النموذج المعروض بهدوء</span>
+              «انظروا معي حضراتكم كيف نحول الأسئلة الأربعة إلى هذه البطاقة البسيطة المصاغة بكلمات واضحة تماماً:
+            </p>
+
+            <div class="prompt-box">
+              <button class="copy-btn" onclick="copySnippet('cafeCardText')">نسخ النص 📋</button>
+              <div class="prompt-text" id="cafeCardText">
+                مشروعي: موقع لمقهى قهوة مختصة | الزائر: محبو القهوة في المدينة الراغبون في طلب سريع من الجوال | الأقسام: 1. قسم ترحيبي بهوية المقهى 2. قائمة 6 مشروبات مع الأسعار 3. العنوان وساعات العمل | الزر الأساسي: «اطلب قهوتك الآن عبر واتساب»
+              </div>
+            </div>
+
+            <p>
+              تأملوا هذا النص معي.. هل يحتوي على أي تعقيد أو طلاسم برمجية؟ إطلاقاً!
+              أي شخص يقرأ هذا السطرين يستطيع أن يغمض عينيه ويتصور الموقع كاملاً في ذهنه.
+            </p>
+            <p>
+              وهذا النص البسيط هو بالضبط ما سنقدمه للذكاء الاصطناعي في الجلسات القادمة لنقول له: <em>"ابنِ لنا هذا الموقع بهذه الأقسام وهذا الزر"</em>، وسيبنيه لنا بدقة واحترافية لأننا وجهناه كمهندسين أذكياء!»
+            </p>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <div class="col-card ideas">
+            <div class="col-heading">💡 دلالة الترتيب المنطقي</div>
+            <ul>
+              <li>الفواصل (|) ترتب الأفكار لعين القارئ ولأدوات الذكاء الاصطناعي التي تحلل النصوص بدقة.</li>
+              <li>كل قسم له دور وظيفي ولا يوجد حشو زائد.</li>
+            </ul>
+          </div>
+
+          <div class="col-card dialogue">
+            <div class="col-heading">🗣️ سؤال تشجيعي للنشاط التالي</div>
+            <ul>
+              <li>«هل ترون كم أصبحت الفكرة واضحة وميسرة عند ترتيبها؟ هل أنتم مستعدون لكتابة بطاقتكم الخاصة الآن؟»</li>
+            </ul>
+          </div>
+
+          <div class="col-card advisory">
+            <div class="col-heading">🛡️ تنبيه للمدرب</div>
+            <ul>
+              <li>انسخ النص وضعه في شات الزوم كمرجع يستأنس به الطلاب والطالبات أثناء النشاط العملي.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bridge-box">
+          <span class="bridge-tag">الجسر الانتقالي للشريحة 10</span>
+          «والآن جاء دور حضراتكم لتتألقوا! الـ 15 دقيقة القادمة هي مساحتكم العملية لتطبيق نشاط المنصة الأول بالشريحة 10!»
+        </div>
+
+        <div class="slide-footer-nav">
+          <button class="btn btn-default" onclick="jumpTo(8)">السابق: الأسئلة الأربعة ➡</button>
+          <button class="btn btn-primary" onclick="jumpTo(10)">التالي: نشاط الطلاب العملي ⬅</button>
+        </div>
+      </article>
+
+      <!-- ========================================== -->
+      <!-- SLIDE 10: TRAINEE ACTIVITY (s01-act-01 & s01-act-02) -->
+      <!-- ========================================== -->
+      <article class="slide-card" data-idx="10" id="card-10">
+        <div class="slide-header">
+          <div class="slide-identity">
+            <div class="slide-badge-circle">10</div>
+            <div class="slide-titles">
+              <h3>الشريحة 10: نشاطك العملي الأول: خطة موقعك الشخصي</h3>
+              <div class="sub">Activity 01 (s01-act-01) • تفكيك فكرة المشروع واستخراج متطلبات العميل من منصة الطلاب</div>
+            </div>
+          </div>
+          <div class="timing-badge">⏱️ 01:12 – 01:25 (13 دقيقة)</div>
+        </div>
+
+        <div class="purpose-strip">
+          <strong>🎯 الهدف التعليمي:</strong>
+          <span>تمكين كل طالب وطالبة من كتابة بطاقة مشروعه من 4 أسطر وتسليمها في المنصة للمراجعة الحية.</span>
+        </div>
+
+        <!-- Integrated Platform Box -->
+        <div class="platform-activity-card">
+          <div class="platform-activity-header">
+            <div class="platform-activity-title">
+              📌 تذكير بالنشاط المعتمد في منصة الطلاب: <strong>النشاط 01 (s01-act-01)</strong>
+            </div>
+            <span class="platform-badge">المرحلة 01: THINK</span>
+          </div>
+          <div class="platform-activity-content">
+            <strong>نص المطلوب من الطالب في المنصة:</strong>
+            <br>• تحديد هوية الموقع وقطاع النشاط (مطعم، متجر متخصص، عيادة، خدمات مستقلة).
+            <br>• تحديد الزائر المستهدف والمشكلة التي يحلها الموقع.
+            <br>• تحديد الأقسام الأساسية وزر الإجراء الرئيسي (CTA: "اطلب الآن عبر واتساب" أو "احجز موعداً").
+            <br>• تسليم الإجابة في صندوق تسليم النشاط في المنصة.
+          </div>
+        </div>
+
+        <div class="narrative-box">
+          <div class="narrative-title">
+            🎙️ السردة الشامية الراقية:
+            <span class="tone-badge">نبرة تشجيع وبدء التطبيق العملي</span>
+          </div>
+          <div class="speech-text">
+            <p>
+              <span class="syrian-accent-hint">إطلاق النشاط بحماس وقور</span>
+              «وصلنا الآن إلى الجزء الأهم والأمتع في جلستنا اليوم!
+            </p>
+            <p>
+              معنا الآن من 10 إلى 13 دقيقة راقية وهادئة.. والمطلوب من كل واحدة وكل واحد من حضراتكم خطوة عملية ميسرة:
+              <br>1. فكروا في فكرة مشروع تحبون بناء موقع له (قد يكون فكرة خاصة بحضراتكم، أو مشروع لأحد المعارف، أو مجال عمل ترغبون في التخصص فيه).
+              <br>2. اكتبوا بطاقة مشروعكم في 4 أسطر متطابقة مع قالب النشاط:
+              <br>&nbsp;&nbsp;• <strong>اسم المشروع ونشاطه:</strong> ...
+              <br>&nbsp;&nbsp;• <strong>الجمهور المستهدف:</strong> ...
+              <br>&nbsp;&nbsp;• <strong>الأقسام الثلاثة الأساسية:</strong> ...
+              <br>&nbsp;&nbsp;• <strong>زر الإجراء الأساسي (CTA):</strong> ...
+              <br>3. انسخوا النص وضعوه في شات الزوم، أو قوموا بتسليمه في صفحة الجلسة بالمنصة.. وأنا متواجد معكم لايف لأقرأ إجاباتكم وأقدم الملاحظات الكريمة لكل فكرة!»
+            </p>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <div class="col-card ideas">
+            <div class="col-heading">💡 أفكار لمساعدة الطالب المتردد</div>
+            <ul>
+              <li>إذا شعر طالب أو طالبة بالحيرة، اقترح عليه مجالات مألوفة:
+                <br>• متجر عطور وبخور فاخرة.
+                <br>• عيادة استشارات تغذية أو طب عام.
+                <br>• معرض أعمال شخصي لمصمم أو مترجم.
+                <br>• مخبز وحلويات للمناسبات.
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-card dialogue">
+            <div class="col-heading">🗣️ التغذية الراجعة المهذبة (Live Feedback)</div>
+            <ul>
+              <li>اقرأ النماذج بأدب وتقدير: «ما شاء الله، إجابة ممتازة ومحددة جداً من الآنسة سارة، وفكرة موفقة جداً من الأستاذ فيصل، فقط نقترح تعديل نص الزر ليكون: اطلب الآن عبر واتساب ليكون أكثر وضوحاً».</li>
+            </ul>
+          </div>
+
+          <div class="col-card advisory">
+            <div class="col-heading">🛡️ معالجة التشتت</div>
+            <ul>
+              <li>إذا كتب طالب أكثر من 5 أقسام، انصحه بلطف بالتركيز على أهم 3 أقسام فقط للمرحلة الأولى، ترسيخاً لمبدأ التبسيط والوضوح.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bridge-box">
+          <span class="bridge-tag">الجسر الانتقالي للشريحة 11</span>
+          «ما شاء الله، نماذج وأفكار تشرح الصدر! هل تعلمون كيف ستبني هذه البطاقة مشروع تخرجكم الكامل؟ دعونا نرى الشريحة 11!»
+        </div>
+
+        <div class="slide-footer-nav">
+          <button class="btn btn-default" onclick="jumpTo(9)">السابق: تطبيق المقهى ➡</button>
+          <button class="btn btn-primary" onclick="jumpTo(11)">التالي: نحو المشروع النهائي ⬅</button>
+        </div>
+      </article>
+
+      <!-- ========================================== -->
+      <!-- SLIDE 11: CAPSTONE CONNECTION -->
+      <!-- ========================================== -->
+      <article class="slide-card" data-idx="11" id="card-11">
+        <div class="slide-header">
+          <div class="slide-identity">
+            <div class="slide-badge-circle">11</div>
+            <div class="slide-titles">
+              <h3>الشريحة 11: كيف تبني هذه الخطوة مشروعك النهائي؟</h3>
+              <div class="sub">Capstone Roadmap • ربط نشاط اليوم العملي بمشروع التخرج المتكامل في الجلسة 12</div>
+            </div>
+          </div>
+          <div class="timing-badge">⏱️ 01:25 – 01:28 (3 دقائق)</div>
+        </div>
+
+        <div class="purpose-strip">
+          <strong>🎯 الهدف التعليمي:</strong>
+          <span>ربط تمرين اليوم بالصورة الكلية لمشروع التخرج؛ الطالب يشعر بأن جهده اليوم استثمار دائم وليس واجباً مؤقتاً.</span>
+        </div>
+
+        <div class="narrative-box">
+          <div class="narrative-title">
+            🎙️ السردة الشامية الراقية:
+            <span class="tone-badge">نبرة ربط مستقبلي واعدة ومشجعة</span>
+          </div>
+          <div class="speech-text">
+            <p>
+              <span class="syrian-accent-hint">تأكيد على حفظ المخرجات باهتمام</span>
+              «أرجو من حضراتكم الاحتفاظ بنص بطاقة المشروع التي كتبتموها اليوم في مكان آمن في حواسبكم.
+            </p>
+            <p>
+              في بعض البرامج التدريبية قد ينجز المتدرب تمريناً منفصلاً ينساه غداً، لكن في برنامج <strong>Web Creator AI</strong> المنهجية تراكمية تماماً:
+            </p>
+            <p>
+              • اليوم وضعنا حجر الأساس: حددنا الفكرة والزائر والأقسام وزر الواتساب.<br>
+              • في الجلسة القادمة: سنحول هذه النقاط إلى مخطط بصري وتناسق لوني مريح للعين.<br>
+              • بعدها: سنقود الذكاء الاصطناعي لتوليد الأكواد والتصميم البرمجي الكامل.<br>
+              • ثم: سنربط زر الواتساب ونفحص الموقع على مختلف الشاشات.<br>
+              • وفي نهاية البرنامج: ستتخرجون بمشروع واقعي منشور على رابط رسمي يُوضع بكل ثقة في معرض أعمالكم وسيرتكم المهنية!
+            </p>
+            <p>
+              هنيئاً لكم، أنتم اليوم خطوتم الخطوة الأولى الحقيقية في هذا المسار المهني المتميز!»
+            </p>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <div class="col-card ideas">
+            <div class="col-heading">💡 الأثر التراكمي للتعلم</div>
+            <ul>
+              <li><strong>مبدأ اللبنات المتراكمة:</strong> خطوة واحدة متقنة في كل جلسة تصنع إنجازاً ضخماً بنهاية الـ 12 جلسة دون أي ضغط ذهني.</li>
+              <li><strong>معرض الأعمال (Portfolio):</strong> امتلاك موقع حي منشور يساوي مئات الشهادات النظرية.</li>
+            </ul>
+          </div>
+
+          <div class="col-card dialogue">
+            <div class="col-heading">🗣️ سؤال استشراف المستقبل</div>
+            <ul>
+              <li>«تخيلوا شعور الفخر والاعتزاز عندما تشاركون رابط موقعكم مع الأهل والأصدقاء والعملاء وتقولون: هذا الموقع خططته وبنيته بنفسي!».</li>
+            </ul>
+          </div>
+
+          <div class="col-card advisory">
+            <div class="col-heading">🛡️ تنبيه الحفظ والمتابعة</div>
+            <ul>
+              <li>ذكر الطلاب بحفظ نصوصهم في ملف خاص على أجهزتهم لمتابعة التطوير في الجلسة القادمة.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bridge-box">
+          <span class="bridge-tag">الجسر الانتقالي للشريحة 12</span>
+          «والآن دعونا نلخص جلستنا الأولى في 3 نقاط ذهبية تبقى في الأذهان، ونختم لقاءنا الأول بالشريحة 12!»
+        </div>
+
+        <div class="slide-footer-nav">
+          <button class="btn btn-default" onclick="jumpTo(10)">السابق: نشاط الطلاب ➡</button>
+          <button class="btn btn-primary" onclick="jumpTo(12)">التالي: خلاصة الجلسة والوداع ⬅</button>
+        </div>
+      </article>
+
+      <!-- ========================================== -->
+      <!-- SLIDE 12: SUMMARY & NEXT SESSION -->
+      <!-- ========================================== -->
+      <article class="slide-card" data-idx="12" id="card-12">
+        <div class="slide-header">
+          <div class="slide-identity">
+            <div class="slide-badge-circle">12</div>
+            <div class="slide-titles">
+              <h3>الشريحة 12: خلاصة الجلسة الأولى وتشويق القادم</h3>
+              <div class="sub">Recap & Next Session • ثلاث قواعد ذهبية وختام اللقاء الافتتاحي الراقي</div>
+            </div>
+          </div>
+          <div class="timing-badge">⏱️ 01:28 – 01:30 (دقيقتان)</div>
+        </div>
+
+        <div class="purpose-strip">
+          <strong>🎯 الهدف التعليمي:</strong>
+          <span>ترسيخ المفاهيم الثلاثة في الأذهان، وتوديع الطلاب بتقدير كبير، وتشويقهم لحضور الجلسة الثانية.</span>
+        </div>
+
+        <div class="narrative-box">
+          <div class="narrative-title">
+            🎙️ السردة الشامية الراقية:
+            <span class="tone-badge">نبرة تقدير وامتنان وتشويق للقادم</span>
+          </div>
+          <div class="speech-text">
+            <p>
+              <span class="syrian-accent-hint">ابتسامة شكر وتقدير للقاعة</span>
+              «ما شاء الله عليكم! كانت جلسة افتتاحية في غاية التميز والروعة بفضل مشاركاتكم الكريمة وتفاعلكم الراقي.
+            </p>
+            <p>
+              دعونا نلخص درس اليوم في <strong>3 قواعد ذهبية</strong> تبقى راسخة في أذهاننا:
+              <br><strong>1. الموقع الناجح هو الذي يخدم الزائر المستعجل بوضوح:</strong> يفهم ماذا تقدم خلال 10 ثوانٍ، ويرتاح للترتيب، ويصل لزر الطلب بسهولة.
+              <br><strong>2. التخطيط المعماري يسبق البناء دائماً:</strong> الأسطر الأربعة التي كتبتموها اليوم ستوفر عليكم ساعات طويلة من التعديل العشوائي.
+              <br><strong>3. أنتم القادة والذكاء الاصطناعي مساعدكم:</strong> كلما كان توجيهكم محدداً ومنطقياً، أخرج لكم الذكاء الاصطناعي عملاً احترافياً متقناً.
+            </p>
+            <p>
+              <strong>ماذا ينتظرنا في الجلسة الثانية (الجلسة 02)؟</strong><br>
+              سنأخذ بطاقاتكم الكريمة التي كتبتموها اليوم، وسنتعلم كيف نخطط صفحات الموقع بالرسم وتوزيع الأقسام (Wireframing)، وكيف نختار ألواناً وخطوطاً مريحة للعين تبني ثقة فورية مع الزائر!
+            </p>
+            <p>
+              كل الشكر والتقدير لوقتكم وحرصكم، وسعدت جداً بوجودي معكم اليوم، ونلتقي على خير وبركة في جلستنا القادمة.. أستودعكم الله والسلام عليكم ورحمة الله وبركاته! 🌟🙌»
+            </p>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <div class="col-card ideas">
+            <div class="col-heading">💡 مهمة بصرية خفيفة للمنزل</div>
+            <ul>
+              <li>«أثناء تصفحكم لهواتفكم اليوم وغداً، تأملوا المواقع التي تزورونها: هل هي منظمة أم مزدحمة؟ وأين يقع زر الإجراء الأساسي؟ هذا التمرين ينمي ذائقتكم البصرية».</li>
+            </ul>
+          </div>
+
+          <div class="col-card dialogue">
+            <div class="col-heading">🗣️ كلمة الوداع في الشات</div>
+            <ul>
+              <li>«يسعدنا أن تشاركونا بكلمة واحدة في الشات تعبر عن انطباعكم عن جلستنا الافتتاحية اليوم».</li>
+            </ul>
+          </div>
+
+          <div class="col-card advisory">
+            <div class="col-heading">🛡️ لمسة أستاذ خبير</div>
+            <ul>
+              <li>ابقَ دقيقتين أو ثلاثاً إضافية بعد إيقاف التسجيل للرد على أي استفسار خاص للطالبات أو الطلاب في جو أكاديمي دافئ.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bridge-box" style="background: #ecfdf5; border-color: #a7f3d0; color: #065f46;">
+          <span class="bridge-tag" style="background: #10b981;">🎉 نهاية الجلسة الأولى</span>
+          «ألف مبارك يا أستاذنا الفاضل! أنهيت الجلسة الأولى بأرقى أسلوب وتركت أثراً علمياً ونفسياً جميلاً في قلوب طلابك وطالباتك!»
+        </div>
+
+        <div class="slide-footer-nav">
+          <button class="btn btn-default" onclick="jumpTo(11)">السابق: نحو المشروع النهائي ➡</button>
+          <button class="btn btn-primary" onclick="jumpTo(0)">العودة للبداية ↺</button>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- Bottom Fixed Navigation Bar -->
+  <footer class="sticky-bottom-bar" id="stickyNav">
+    <button class="btn btn-default" id="prevBtn" onclick="prevSlide()">
+      <span>➡ الشريحة السابقة</span>
+    </button>
+
+    <div class="progress-info" id="progressInfo">
+      شريحة 1 من 13 • الترحيب والافتتاح
+    </div>
+
+    <button class="btn btn-primary" id="nextBtn" onclick="nextSlide()">
+      <span>الشريحة التالية ⬅</span>
+    </button>
+  </footer>
+
+  <!-- Scripts for 1-Click Stepping & Light Theme Handling -->
+  <script>
+    let activeSlide = 0;
+    const totalSlidesCount = 13;
+    let singleMode = true;
+
+    const titlesList = [
+      "00. الترحيب والافتتاح",
+      "1. من الفكرة للموقع",
+      "2. لماذا نبني الموقع؟",
+      "3. التفكير كزائر",
+      "4. العناصر الثلاثة الأساسية",
+      "5. المنظم مقابل المزدحم",
+      "6. المراحل الأربع للبناء",
+      "7. هندسة العمل مع الـ AI",
+      "8. الأسئلة الأربعة للمشروع",
+      "9. تطبيق عملي المقهى",
+      "10. نشاط الطلاب (s01-act-01)",
+      "11. نحو مشروع التخرج",
+      "12. خلاصة الجلسة والوداع"
+    ];
+
+    function renderSlide() {
+      const cards = document.querySelectorAll('.slide-card');
+      const stepBtns = document.querySelectorAll('.slide-step-btn');
+      const info = document.getElementById('progressInfo');
+      const prev = document.getElementById('prevBtn');
+      const next = document.getElementById('nextBtn');
+
+      if (singleMode) {
+        cards.forEach((card, i) => {
+          card.style.display = i === activeSlide ? 'block' : 'none';
+        });
+        window.scrollTo({ top: 160, behavior: 'smooth' });
+      } else {
+        cards.forEach(card => card.style.display = 'block');
+        const target = document.getElementById('card-' + activeSlide);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+
+      stepBtns.forEach((btn, i) => {
+        if (i === activeSlide) {
+          btn.classList.add('active');
+          btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      info.textContent = `شريحة ${activeSlide + 1} من ${totalSlidesCount} • ${titlesList[activeSlide]}`;
+
+      prev.disabled = activeSlide === 0;
+      prev.style.opacity = activeSlide === 0 ? '0.4' : '1';
+
+      if (activeSlide === totalSlidesCount - 1) {
+        next.innerHTML = '<span>نهاية الجلسة 🎉</span>';
+      } else {
+        next.innerHTML = '<span>الشريحة التالية ⬅</span>';
+      }
+    }
+
+    function jumpTo(index) {
+      if (index >= 0 && index < totalSlidesCount) {
+        activeSlide = index;
+        renderSlide();
+      }
+    }
+
+    function nextSlide() {
+      if (activeSlide < totalSlidesCount - 1) {
+        activeSlide++;
+        renderSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (activeSlide > 0) {
+        activeSlide--;
+        renderSlide();
+      }
+    }
+
+    function toggleViewMode() {
+      singleMode = !singleMode;
+      const btn = document.getElementById('modeBtn');
+      if (singleMode) {
+        btn.textContent = 'عرض كامل الشرائح (قائمة مستمرة)';
+      } else {
+        btn.textContent = 'العودة لوضع (شريحة بشريحة)';
+      }
+      renderSlide();
+    }
+
+    // Keyboard support (RTL: ArrowLeft = forward, ArrowRight = back)
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        nextSlide();
+      } else if (e.key === 'ArrowRight') {
+        prevSlide();
+      }
+    });
+
+    function copySnippet(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('تم نسخ نص النموذج بنجاح للمشاركة في الشات 📋');
+      }).catch(err => {
+        console.error(err);
+      });
+    }
+
+    // Session Timer
+    let secondsElapsed = 0;
+    let timerId = null;
+    let isTimerRunning = false;
+
+    function toggleTimer() {
+      const btn = document.getElementById('timerToggle');
+      if (isTimerRunning) {
+        clearInterval(timerId);
+        isTimerRunning = false;
+        btn.textContent = 'استئناف';
+      } else {
+        timerId = setInterval(() => {
+          secondsElapsed++;
+          const m = Math.floor(secondsElapsed / 60);
+          const s = secondsElapsed % 60;
+          document.getElementById('timerDigits').textContent =
+            (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+        }, 1000);
+        isTimerRunning = true;
+        btn.textContent = 'إيقاف';
+      }
+    }
+
+    function resetTimer() {
+      clearInterval(timerId);
+      isTimerRunning = false;
+      secondsElapsed = 0;
+      document.getElementById('timerDigits').textContent = '00:00';
+      document.getElementById('timerToggle').textContent = 'بدء';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderSlide();
+    });
+    renderSlide();
+  </script>
+</body>
+</html>

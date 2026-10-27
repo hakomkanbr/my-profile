@@ -3,6 +3,7 @@ export * from './PortfolioAboutSection';
 export * from './EngineeringFocusSection';
 export * from './ExperienceTimelineSection';
 export * from './FeaturedProjectsSection';
+export * from './DigitalProductsSection';
 export * from './CoursesSection';
 export * from './PortfolioCTASection';
 export * from './FlagshipProductSection';

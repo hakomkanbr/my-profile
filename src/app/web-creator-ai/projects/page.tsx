@@ -12,10 +12,17 @@ import {
   Textarea,
   Modal,
   ProjectCard,
+  WhatsAppActionFeedback,
 } from '@/components';
 import { ALL_PROJECTS } from '@/content';
 import { usePreferencesStore, useProgressStore } from '@/store';
 import { getLocalizedText } from '@/lib/utils';
+import { getStudentName, saveStudentName } from '@/lib/student-storage';
+import {
+  buildProjectSubmissionMessage,
+  getCurrentPageUrl,
+  openWhatsAppChat,
+} from '@/lib/whatsapp';
 import {
   Sparkles,
   Layers,
@@ -36,9 +43,17 @@ import {
   Trophy,
   Terminal,
   FileCode,
+  MessageCircle,
+  Save,
+  User,
 } from 'lucide-react';
 
-type WorkshopTabId = 'overview' | 'milestones' | 'ai-copilot' | 'starter-code' | 'submission';
+type WorkshopTabId =
+  | 'overview'
+  | 'milestones'
+  | 'ai-copilot'
+  | 'starter-code'
+  | 'submission';
 
 interface ProjectSubmission {
   liveUrl: string;
@@ -51,36 +66,59 @@ export default function WebCreatorProjectsPage() {
   const { language } = usePreferencesStore();
   const isRtl = language === 'ar';
 
-  const { progress, completeProject, toggleProject, saveNote } = useProgressStore();
+  const { progress, completeProject, toggleProject, saveNote } =
+    useProgressStore();
 
   // Active filters and query
   const [selectedLevel, setSelectedLevel] = useState<string>('all');
-  const [selectedStatus, setSelectedStatus] = useState<'all' | 'completed' | 'in_progress'>('all');
+  const [selectedStatus, setSelectedStatus] = useState<
+    'all' | 'completed' | 'in_progress'
+  >('all');
   const [searchQuery, setSearchQuery] = useState('');
 
   // Workshop modal state
-  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
-  const [activeWorkshopTab, setActiveWorkshopTab] = useState<WorkshopTabId>('overview');
+  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(
+    null
+  );
+  const [activeWorkshopTab, setActiveWorkshopTab] =
+    useState<WorkshopTabId>('overview');
 
   // Copy feedback state
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
+  // Student name
+  const [studentName, setStudentName] = useState('');
+
   // Local storage state for task checkboxes per project
-  const [checkedTasks, setCheckedTasks] = useState<Record<string, string[]>>({});
+  const [checkedTasks, setCheckedTasks] = useState<Record<string, string[]>>(
+    {}
+  );
 
   // Submissions state per project
-  const [submissions, setSubmissions] = useState<Record<string, ProjectSubmission>>({});
-  const [submissionFeedback, setSubmissionFeedback] = useState<string | null>(null);
+  const [submissions, setSubmissions] = useState<
+    Record<string, ProjectSubmission>
+  >({});
+  const [submissionFeedback, setSubmissionFeedback] = useState<string | null>(
+    null
+  );
+  const [whatsAppProjectMsg, setWhatsAppProjectMsg] = useState<string | null>(
+    null
+  );
 
   // Load saved task checks and submissions from localStorage on mount
   useEffect(() => {
     const timer = setTimeout(() => {
       try {
-        const savedTasks = window.localStorage.getItem('web_creator_ai_project_tasks_v1');
+        setStudentName(getStudentName());
+        const savedTasks = window.localStorage.getItem(
+          'web_creator_ai_project_tasks_v1'
+        );
         if (savedTasks) {
           setCheckedTasks(JSON.parse(savedTasks));
         }
-        const savedSubmissions = window.localStorage.getItem('web_creator_ai_project_submissions_v1');
+        const savedSubmissions = window.localStorage.getItem(
+          'web_creator_ai_project_submissions_v1'
+        );
         if (savedSubmissions) {
           setSubmissions(JSON.parse(savedSubmissions));
         }
@@ -109,7 +147,10 @@ export default function WebCreatorProjectsPage() {
 
       const nextState = { ...prev, [projectId]: updated };
       if (typeof window !== 'undefined') {
-        window.localStorage.setItem('web_creator_ai_project_tasks_v1', JSON.stringify(nextState));
+        window.localStorage.setItem(
+          'web_creator_ai_project_tasks_v1',
+          JSON.stringify(nextState)
+        );
       }
       return nextState;
     });
@@ -131,7 +172,11 @@ export default function WebCreatorProjectsPage() {
     val: string
   ) => {
     setSubmissions((prev) => {
-      const current = prev[projectId] || { liveUrl: '', githubUrl: '', notes: '' };
+      const current = prev[projectId] || {
+        liveUrl: '',
+        githubUrl: '',
+        notes: '',
+      };
       return {
         ...prev,
         [projectId]: { ...current, [field]: val },
@@ -139,8 +184,12 @@ export default function WebCreatorProjectsPage() {
     });
   };
 
-  const handleSaveSubmission = (projectId: string) => {
-    const current = submissions[projectId] || { liveUrl: '', githubUrl: '', notes: '' };
+  const persistProjectSubmissionLocally = (projectId: string) => {
+    const current = submissions[projectId] || {
+      liveUrl: '',
+      githubUrl: '',
+      notes: '',
+    };
     const finalized: ProjectSubmission = {
       ...current,
       submittedAt: new Date().toISOString(),
@@ -160,7 +209,6 @@ export default function WebCreatorProjectsPage() {
       );
     }
 
-    // Save into central progress notes
     saveNote(
       projectId,
       'project',
@@ -173,11 +221,45 @@ export default function WebCreatorProjectsPage() {
       })
     );
 
-    // Mark completed in progress store
     completeProject(projectId);
+    return finalized;
+  };
 
-    setSubmissionFeedback(isRtl ? 'تم حفظ واعتماد تسليم المشروع بنجاح 🎉' : 'Project deliverables submitted successfully! 🎉');
+  const handleSaveSubmissionLocally = (projectId: string) => {
+    persistProjectSubmissionLocally(projectId);
+    setSubmissionFeedback(
+      isRtl
+        ? 'تم حفظ بيانات المشروع في جهازك بنجاح ✓'
+        : 'Project deliverables saved on your device ✓'
+    );
     setTimeout(() => setSubmissionFeedback(null), 3500);
+  };
+
+  const handleSendSubmissionViaWhatsApp = (projectId: string) => {
+    const proj = ALL_PROJECTS.find((p) => p.id === projectId);
+    if (!proj) return;
+
+    const finalized = persistProjectSubmissionLocally(projectId);
+    const totalTasks = proj.milestones.reduce(
+      (sum, ms) => sum + ms.tasks.length,
+      0
+    );
+    const completedCount = (checkedTasks[projectId] || []).length;
+
+    const message = buildProjectSubmissionMessage({
+      projectCode: proj.code,
+      projectTitle: getLocalizedText(proj.title, 'ar'),
+      studentName,
+      liveUrl: finalized.liveUrl,
+      githubUrl: finalized.githubUrl,
+      notes: finalized.notes,
+      completedTasksCount: completedCount,
+      totalTasksCount: totalTasks,
+      pageUrl: getCurrentPageUrl(`/web-creator-ai/projects?project=${proj.id}`),
+    });
+
+    setWhatsAppProjectMsg(message);
+    openWhatsAppChat(message);
   };
 
   // Filtered projects
@@ -185,23 +267,27 @@ export default function WebCreatorProjectsPage() {
     return ALL_PROJECTS.filter((proj) => {
       const isCompleted = progress.completedProjects.includes(proj.id);
 
-      // Level filter
       if (selectedLevel !== 'all' && proj.level !== selectedLevel) {
         return false;
       }
 
-      // Status filter
       if (selectedStatus === 'completed' && !isCompleted) return false;
       if (selectedStatus === 'in_progress' && isCompleted) return false;
 
-      // Search query
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase();
         const titleAr = proj.title.ar.toLowerCase();
         const titleEn = proj.title.en.toLowerCase();
         const code = proj.code.toLowerCase();
-        const techMatch = proj.techStack.some((t) => t.toLowerCase().includes(q));
-        if (!titleAr.includes(q) && !titleEn.includes(q) && !code.includes(q) && !techMatch) {
+        const techMatch = proj.techStack.some((t) =>
+          t.toLowerCase().includes(q)
+        );
+        if (
+          !titleAr.includes(q) &&
+          !titleEn.includes(q) &&
+          !code.includes(q) &&
+          !techMatch
+        ) {
           return false;
         }
       }
@@ -210,22 +296,28 @@ export default function WebCreatorProjectsPage() {
     });
   }, [selectedLevel, selectedStatus, searchQuery, progress.completedProjects]);
 
-  // Selected project for workshop modal
-  const activeProject = ALL_PROJECTS.find((p) => p.id === selectedProjectId) || null;
+  const activeProject =
+    ALL_PROJECTS.find((p) => p.id === selectedProjectId) || null;
   const activeSubmission = activeProject
-    ? submissions[activeProject.id] || { liveUrl: '', githubUrl: '', notes: '' }
+    ? submissions[activeProject.id] || {
+        liveUrl: '',
+        githubUrl: '',
+        notes: '',
+      }
     : { liveUrl: '', githubUrl: '', notes: '' };
-  const activeCheckedList = activeProject ? checkedTasks[activeProject.id] || [] : [];
+  const activeCheckedList = activeProject
+    ? checkedTasks[activeProject.id] || []
+    : [];
 
-  // Total tasks count for active project
   const activeTotalTasks = activeProject
     ? activeProject.milestones.reduce((sum, ms) => sum + ms.tasks.length, 0)
     : 0;
 
   const activeCompletionPercentage =
-    activeTotalTasks > 0 ? Math.round((activeCheckedList.length / activeTotalTasks) * 100) : 0;
+    activeTotalTasks > 0
+      ? Math.round((activeCheckedList.length / activeTotalTasks) * 100)
+      : 0;
 
-  // Global project stats
   const totalProjectsCount = ALL_PROJECTS.length;
   const completedProjectsCount = progress.completedProjects.length;
   const globalProgressPercentage =
@@ -234,19 +326,27 @@ export default function WebCreatorProjectsPage() {
       : 0;
 
   return (
-    <LearningShell headerTitle={isRtl ? 'المشاريع التطبيقية' : 'Hands-On Projects'}>
+    <LearningShell
+      headerTitle={isRtl ? 'المشاريع التطبيقية' : 'Hands-On Projects'}
+    >
       <PageContainer>
         <PageHeader
-          title={isRtl ? 'المشاريع التطبيقية الحقيقية' : 'Production-Ready Web Projects'}
+          title={
+            isRtl ? 'ورش المشاريع التطبيقية' : 'Hands-On Project Workshops'
+          }
           subtitle={
             isRtl
-              ? 'ورش عمل هندسية موجهة لبناء ونشر مواقع ومنصات متكاملة خطوة بخطوة وإضافتها لمعرض أعمالك التجاري.'
-              : 'End-to-end guided engineering workshops to build, deploy, and showcase real-world web platforms.'
+              ? 'طبّق ما تعلمته في الجلسات من خلال بناء مشاريع ويب حقيقية خطوة بخطوة، ثم أرسل مشروعك عبر واتساب للمراجعة.'
+              : 'Apply what you learned in the sessions by building real web projects step by step, then submit your work via WhatsApp for review.'
           }
           breadcrumbs={[
             { id: '1', label: isRtl ? 'الرئيسية' : 'Home', href: '/' },
             { id: '2', label: 'WEB CREATOR AI', href: '/web-creator-ai' },
-            { id: '3', label: isRtl ? 'المشاريع التطبيقية' : 'Applied Projects', isCurrent: true },
+            {
+              id: '3',
+              label: isRtl ? 'المشاريع التطبيقية' : 'Applied Projects',
+              isCurrent: true,
+            },
           ]}
         />
 
@@ -256,27 +356,28 @@ export default function WebCreatorProjectsPage() {
             <div className="space-y-2 max-w-xl">
               <div className="flex items-center gap-2">
                 <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-[var(--color-primary-subtle)] text-[var(--color-primary)]">
-                  {isRtl ? 'معرض المخرجات العملية' : 'PORTFOLIO PIPELINE'}
+                  {isRtl ? 'ورش العمل التطبيقية' : 'PROJECT WORKSHOPS'}
                 </span>
                 <span className="text-xs font-medium text-[var(--color-text-subtle)]">
-                  {completedProjectsCount} {isRtl ? 'من' : 'of'} {totalProjectsCount} {isRtl ? 'مشاريع مكتملة' : 'projects finished'}
+                  {completedProjectsCount} {isRtl ? 'من' : 'of'}{' '}
+                  {totalProjectsCount}{' '}
+                  {isRtl ? 'مشاريع مكتملة' : 'projects finished'}
                 </span>
               </div>
 
               <h2 className="text-xl sm:text-2xl font-black text-[var(--color-text)]">
                 {isRtl
-                  ? 'بناء مشاريع حقيقية تبرهن قدراتك الهندسية'
-                  : 'Build real systems that prove your engineering craft'}
+                  ? 'ابنِ مشاريع حقيقية وأضفها لمعرض أعمالك'
+                  : 'Build real projects for your portfolio'}
               </h2>
 
               <p className="text-xs sm:text-body-sm text-[var(--color-text-muted)] leading-relaxed">
                 {isRtl
-                  ? 'كل مشروع يمثل لبنة متكاملة تنقلك من الفكرة إلى التصميم، ثم الكود، ثم الذكاء الاصطناعي، فالنشر والتسويق.'
-                  : 'Each project guides you across the entire lifecycle: concept, layout, code, AI acceleration, and deployment.'}
+                  ? 'افتح أي مشروع لاستعراض قائمة المهام، قالب الكود، وموجهات الذكاء الاصطناعي المساعدة، ثم سلّم رابط مشروعك عبر واتساب.'
+                  : 'Open any project to view the task checklist, starter code, and AI prompts, then submit your project link via WhatsApp.'}
               </p>
             </div>
 
-            {/* Visual Progress Dial */}
             <div className="flex items-center gap-5 p-4 rounded-2xl bg-[var(--color-surface-sunken)] border border-[var(--color-border-subtle)] shrink-0">
               <div className="text-center space-y-0.5">
                 <span className="text-3xl font-mono font-black text-[var(--color-primary)]">
@@ -295,7 +396,8 @@ export default function WebCreatorProjectsPage() {
                   />
                 </div>
                 <span className="text-[10px] font-mono text-[var(--color-text-muted)] block text-end">
-                  {completedProjectsCount}/{totalProjectsCount} {isRtl ? 'مشاريع' : 'done'}
+                  {completedProjectsCount}/{totalProjectsCount}{' '}
+                  {isRtl ? 'مشاريع' : 'done'}
                 </span>
               </div>
             </div>
@@ -303,7 +405,6 @@ export default function WebCreatorProjectsPage() {
 
           {/* 2. CONTROLS, SEARCH & FILTERS */}
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-            {/* Level Tabs */}
             <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-[var(--color-surface-sunken)] border border-[var(--color-border-subtle)]">
               {[
                 { key: 'all', label: isRtl ? 'كل المستويات' : 'All Levels' },
@@ -327,9 +428,7 @@ export default function WebCreatorProjectsPage() {
               ))}
             </div>
 
-            {/* Status & Search Bar */}
             <div className="flex flex-wrap items-center gap-3">
-              {/* Status Filter */}
               <div className="flex items-center gap-1 p-1 rounded-xl bg-[var(--color-surface-sunken)] border border-[var(--color-border-subtle)] text-xs">
                 <button
                   type="button"
@@ -366,12 +465,15 @@ export default function WebCreatorProjectsPage() {
                 </button>
               </div>
 
-              {/* Search Box */}
               <div className="relative min-w-[220px] max-w-xs">
                 <Search className="w-3.5 h-3.5 absolute start-3 top-1/2 -translate-y-1/2 text-[var(--color-text-subtle)]" />
                 <input
                   type="text"
-                  placeholder={isRtl ? 'بحث باسم المشروع أو التقنية...' : 'Search by name or tech...'}
+                  placeholder={
+                    isRtl
+                      ? 'بحث باسم المشروع أو التقنية...'
+                      : 'Search by name or tech...'
+                  }
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full ps-8 pe-3 py-1.5 text-xs rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] focus:outline-hidden focus:border-[var(--color-primary)] transition-colors text-[var(--color-text)]"
@@ -386,10 +488,14 @@ export default function WebCreatorProjectsPage() {
               <Layers className="w-12 h-12 mx-auto text-[var(--color-text-subtle)] stroke-1" />
               <div className="space-y-1">
                 <h3 className="text-base font-bold text-[var(--color-text)]">
-                  {isRtl ? 'لا توجد مشاريع تطابق المعايير المحددة' : 'No matching projects found'}
+                  {isRtl
+                    ? 'لا توجد مشاريع تطابق المعايير المحددة'
+                    : 'No matching projects found'}
                 </h3>
                 <p className="text-xs text-[var(--color-text-muted)]">
-                  {isRtl ? 'جرب تغيير خيارات الفلترة أو مسح عبارة البحث.' : 'Try changing your filter options or clearing the search.'}
+                  {isRtl
+                    ? 'جرب تغيير خيارات الفلترة أو مسح عبارة البحث.'
+                    : 'Try changing your filter options or clearing the search.'}
                 </p>
               </div>
               <Button
@@ -408,18 +514,27 @@ export default function WebCreatorProjectsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredProjects.map((proj) => {
                 const isCompleted = progress.completedProjects.includes(proj.id);
-                const projectTasks = proj.milestones.reduce((acc, m) => acc + m.tasks.length, 0);
+                const projectTasks = proj.milestones.reduce(
+                  (acc, m) => acc + m.tasks.length,
+                  0
+                );
                 const checkedCount = (checkedTasks[proj.id] || []).length;
                 const submission = submissions[proj.id];
 
                 return (
-                  <div key={proj.id} className="relative flex flex-col justify-between">
+                  <div
+                    key={proj.id}
+                    className="relative flex flex-col justify-between"
+                  >
                     <ProjectCard
                       code={proj.code}
                       title={getLocalizedText(proj.title, language)}
                       tagline={getLocalizedText(proj.tagline, language)}
                       level={proj.level}
-                      targetOutput={getLocalizedText(proj.targetOutput, language)}
+                      targetOutput={getLocalizedText(
+                        proj.targetOutput,
+                        language
+                      )}
                       techStack={proj.techStack}
                       isCompleted={isCompleted}
                       completedTasksCount={checkedCount}
@@ -427,11 +542,11 @@ export default function WebCreatorProjectsPage() {
                       onOpenWorkshop={() => {
                         setSelectedProjectId(proj.id);
                         setActiveWorkshopTab('overview');
+                        setWhatsAppProjectMsg(null);
                       }}
                       onToggleComplete={() => toggleProject(proj.id)}
                     />
 
-                    {/* Quick Action Footer on Card */}
                     {submission?.liveUrl && (
                       <div className="mt-2 px-3 py-1.5 rounded-lg bg-[var(--color-surface-sunken)] border border-[var(--color-border-subtle)] flex items-center justify-between text-xs">
                         <span className="text-[11px] text-[var(--color-text-subtle)] flex items-center gap-1 font-mono">
@@ -471,13 +586,21 @@ export default function WebCreatorProjectsPage() {
                   <span className="font-mono text-xs font-bold text-[var(--color-primary)] px-2.5 py-0.5 rounded-md bg-[var(--color-primary-subtle)]">
                     {activeProject.code}
                   </span>
-                  <Badge variant={activeProject.level === 'Capstone' ? 'accent' : 'secondary'} size="sm">
+                  <Badge
+                    variant={
+                      activeProject.level === 'Capstone' ? 'accent' : 'secondary'
+                    }
+                    size="sm"
+                  >
                     {activeProject.level}
                   </Badge>
                   {activeProject.estimatedHours && (
                     <span className="text-xs font-mono text-[var(--color-text-subtle)] flex items-center gap-1">
                       <Clock className="w-3 h-3" />
-                      <span>{activeProject.estimatedHours} {isRtl ? 'ساعات تقديرية' : 'hours'}</span>
+                      <span>
+                        {activeProject.estimatedHours}{' '}
+                        {isRtl ? 'ساعات تقديرية' : 'hours'}
+                      </span>
                     </span>
                   )}
                 </div>
@@ -490,11 +613,14 @@ export default function WebCreatorProjectsPage() {
                 </p>
               </div>
 
-              {/* Header Actions: Toggle Complete & Share */}
               <div className="flex items-center gap-2 shrink-0">
                 <Button
                   size="sm"
-                  variant={progress.completedProjects.includes(activeProject.id) ? 'primary' : 'outline'}
+                  variant={
+                    progress.completedProjects.includes(activeProject.id)
+                      ? 'primary'
+                      : 'outline'
+                  }
                   onClick={() => toggleProject(activeProject.id)}
                   leftIcon={
                     progress.completedProjects.includes(activeProject.id) ? (
@@ -506,8 +632,12 @@ export default function WebCreatorProjectsPage() {
                   className="text-xs font-bold"
                 >
                   {progress.completedProjects.includes(activeProject.id)
-                    ? (isRtl ? 'تم اعتماد الإنجاز ✓' : 'Completed ✓')
-                    : (isRtl ? 'تحديد كمكتمل' : 'Mark as Done')}
+                    ? isRtl
+                      ? 'تم اعتماد الإنجاز ✓'
+                      : 'Completed ✓'
+                    : isRtl
+                      ? 'تحديد كمكتمل'
+                      : 'Mark as Done'}
                 </Button>
               </div>
             </div>
@@ -527,17 +657,23 @@ export default function WebCreatorProjectsPage() {
                 },
                 {
                   id: 'ai-copilot',
-                  label: isRtl ? 'مساعد الذكاء الاصطناعي' : 'AI Copilot Prompts',
+                  label: isRtl
+                    ? 'مساعد الذكاء الاصطناعي'
+                    : 'AI Copilot Prompts',
                   icon: Sparkles,
                 },
                 {
                   id: 'starter-code',
-                  label: isRtl ? 'كود البداية والهيكلية' : 'Starter Architecture',
+                  label: isRtl
+                    ? 'كود البداية والهيكلية'
+                    : 'Starter Architecture',
                   icon: Code2,
                 },
                 {
                   id: 'submission',
-                  label: isRtl ? 'تسليم المشروع ومعرض الأعمال' : 'Project Submission',
+                  label: isRtl
+                    ? 'تسليم المشروع عبر واتساب'
+                    : 'Submit via WhatsApp',
                   icon: Send,
                 },
               ].map((tab) => {
@@ -547,7 +683,9 @@ export default function WebCreatorProjectsPage() {
                   <button
                     key={tab.id}
                     type="button"
-                    onClick={() => setActiveWorkshopTab(tab.id as WorkshopTabId)}
+                    onClick={() =>
+                      setActiveWorkshopTab(tab.id as WorkshopTabId)
+                    }
                     className={`flex items-center gap-1.5 px-3 py-2 rounded-xl font-bold whitespace-nowrap transition-all cursor-pointer ${
                       isActive
                         ? 'bg-[var(--color-surface)] text-[var(--color-primary)] shadow-xs border border-[var(--color-border)]'
@@ -561,12 +699,11 @@ export default function WebCreatorProjectsPage() {
               })}
             </div>
 
-            {/* Modal Body (Scrollable) */}
+            {/* Modal Body */}
             <div className="p-6 overflow-y-auto max-h-[65vh] space-y-6 text-start">
               {/* TAB 1: OVERVIEW */}
               {activeWorkshopTab === 'overview' && (
                 <div className="space-y-6">
-                  {/* Detailed Description */}
                   <div className="space-y-2">
                     <h4 className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">
                       {isRtl ? 'وصف الورشة التطبيقية' : 'Workshop Description'}
@@ -576,20 +713,23 @@ export default function WebCreatorProjectsPage() {
                     </p>
                   </div>
 
-                  {/* Target Output */}
                   <div className="p-4 rounded-2xl bg-blue-50/50 dark:bg-blue-950/20 border border-blue-200/60 dark:border-blue-800/40 space-y-1">
                     <span className="text-caption font-bold text-blue-700 dark:text-blue-400 block">
-                      🎯 {isRtl ? 'المخرجات الحقيقية المستهدفة:' : 'Target Concrete Output:'}
+                      🎯{' '}
+                      {isRtl
+                        ? 'المخرجات الحقيقية المستهدفة:'
+                        : 'Target Concrete Output:'}
                     </span>
                     <p className="text-xs sm:text-body-sm text-blue-900 dark:text-blue-200 leading-relaxed font-medium">
                       {getLocalizedText(activeProject.targetOutput, language)}
                     </p>
                   </div>
 
-                  {/* Tech Stack */}
                   <div className="space-y-2">
                     <h4 className="text-xs font-bold text-[var(--color-text-subtle)]">
-                      {isRtl ? 'التقنيات وحزم العمل المستخدمة' : 'Tech Stack & Libraries'}
+                      {isRtl
+                        ? 'التقنيات وحزم العمل المستخدمة'
+                        : 'Tech Stack & Libraries'}
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {activeProject.techStack.map((tech) => (
@@ -603,12 +743,15 @@ export default function WebCreatorProjectsPage() {
                     </div>
                   </div>
 
-                  {/* Recommended AI Tools */}
                   {activeProject.aiToolsRecommended?.length > 0 && (
                     <div className="space-y-2">
                       <h4 className="text-xs font-bold text-[var(--color-text-subtle)] flex items-center gap-1.5">
                         <Sparkles className="w-3.5 h-3.5 text-[var(--color-primary)]" />
-                        <span>{isRtl ? 'أدوات الذكاء الاصطناعي الموصى بها لهذا المشروع' : 'Recommended AI Tooling'}</span>
+                        <span>
+                          {isRtl
+                            ? 'أدوات الذكاء الاصطناعي الموصى بها لهذا المشروع'
+                            : 'Recommended AI Tooling'}
+                        </span>
                       </h4>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         {activeProject.aiToolsRecommended.map((tool, idx) => (
@@ -624,11 +767,13 @@ export default function WebCreatorProjectsPage() {
                     </div>
                   )}
 
-                  {/* Tips for Success */}
                   {activeProject.tipsForSuccess?.length > 0 && (
                     <div className="space-y-2 pt-2">
                       <h4 className="text-xs font-bold text-[var(--color-text-subtle)]">
-                        💡 {isRtl ? 'توجيهات مهنية لضمان النجاح والتميز' : 'Pro Tips for Engineering Excellence'}
+                        💡{' '}
+                        {isRtl
+                          ? 'توجيهات عملية لضمان نجاح المشروع'
+                          : 'Practical Tips for Success'}
                       </h4>
                       <ul className="space-y-2">
                         {activeProject.tipsForSuccess.map((tip, idx) => (
@@ -636,7 +781,9 @@ export default function WebCreatorProjectsPage() {
                             key={idx}
                             className="text-xs text-[var(--color-text-muted)] flex items-start gap-2 leading-relaxed"
                           >
-                            <span className="text-[var(--color-primary)] font-bold shrink-0">•</span>
+                            <span className="text-[var(--color-primary)] font-bold shrink-0">
+                              •
+                            </span>
                             <span>{getLocalizedText(tip, language)}</span>
                           </li>
                         ))}
@@ -644,15 +791,22 @@ export default function WebCreatorProjectsPage() {
                     </div>
                   )}
 
-                  {/* CTA to start milestones */}
                   <div className="pt-4 flex justify-end">
                     <Button
                       size="sm"
                       variant="primary"
                       onClick={() => setActiveWorkshopTab('milestones')}
-                      rightIcon={isRtl ? <ArrowLeft className="w-3.5 h-3.5" /> : <ArrowRight className="w-3.5 h-3.5" />}
+                      rightIcon={
+                        isRtl ? (
+                          <ArrowLeft className="w-3.5 h-3.5" />
+                        ) : (
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        )
+                      }
                     >
-                      {isRtl ? 'الانتقال لقائمة المهام والمراحل ←' : 'Proceed to Tasks Checklist →'}
+                      {isRtl
+                        ? 'الانتقال لقائمة المهام والمراحل ←'
+                        : 'Proceed to Tasks Checklist →'}
                     </Button>
                   </div>
                 </div>
@@ -661,11 +815,12 @@ export default function WebCreatorProjectsPage() {
               {/* TAB 2: MILESTONES & INTERACTIVE CHECKLIST */}
               {activeWorkshopTab === 'milestones' && (
                 <div className="space-y-6">
-                  {/* Progress Header */}
                   <div className="p-4 rounded-2xl bg-[var(--color-surface-sunken)] border border-[var(--color-border)] flex items-center justify-between gap-4">
                     <div className="space-y-1">
                       <span className="text-xs font-bold text-[var(--color-text)]">
-                        {isRtl ? 'نسبة إنجاز مهام المشروع' : 'Task Completion Status'}
+                        {isRtl
+                          ? 'نسبة إنجاز مهام المشروع'
+                          : 'Task Completion Status'}
                       </span>
                       <p className="text-[11px] text-[var(--color-text-muted)]">
                         {isRtl
@@ -687,11 +842,12 @@ export default function WebCreatorProjectsPage() {
                     </div>
                   </div>
 
-                  {/* Milestones List */}
                   <div className="space-y-6">
                     {activeProject.milestones.map((milestone, mIdx) => {
                       const msTasks = milestone.tasks || [];
-                      const completedInMs = msTasks.filter((t) => activeCheckedList.includes(t.id)).length;
+                      const completedInMs = msTasks.filter((t) =>
+                        activeCheckedList.includes(t.id)
+                      ).length;
 
                       return (
                         <div
@@ -709,24 +865,31 @@ export default function WebCreatorProjectsPage() {
                                 </span>
                               </div>
                               <p className="text-[11px] text-[var(--color-text-muted)] mt-0.5">
-                                {getLocalizedText(milestone.description, language)}
+                                {getLocalizedText(
+                                  milestone.description,
+                                  language
+                                )}
                               </p>
                             </div>
 
                             <span className="text-xs font-mono font-bold text-[var(--color-text-subtle)] self-start sm:self-center">
-                              {completedInMs}/{msTasks.length} {isRtl ? 'مهام' : 'tasks'}
+                              {completedInMs}/{msTasks.length}{' '}
+                              {isRtl ? 'مهام' : 'tasks'}
                             </span>
                           </div>
 
-                          {/* Task Checkboxes */}
                           <div className="space-y-2">
                             {msTasks.map((task) => {
-                              const isChecked = activeCheckedList.includes(task.id);
+                              const isChecked = activeCheckedList.includes(
+                                task.id
+                              );
 
                               return (
                                 <div
                                   key={task.id}
-                                  onClick={() => handleToggleTask(activeProject.id, task.id)}
+                                  onClick={() =>
+                                    handleToggleTask(activeProject.id, task.id)
+                                  }
                                   className={`p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 select-none ${
                                     isChecked
                                       ? 'bg-green-500/5 border-green-500/30 text-slate-800 dark:text-slate-200'
@@ -758,8 +921,14 @@ export default function WebCreatorProjectsPage() {
                                   </div>
 
                                   {task.isKeyDeliverable && (
-                                    <Badge variant="accent" size="sm" className="shrink-0 text-[10px]">
-                                      {isRtl ? 'تسليم رئيسي' : 'Key Deliverable'}
+                                    <Badge
+                                      variant="accent"
+                                      size="sm"
+                                      className="shrink-0 text-[10px]"
+                                    >
+                                      {isRtl
+                                        ? 'تسليم رئيسي'
+                                        : 'Key Deliverable'}
                                     </Badge>
                                   )}
                                 </div>
@@ -779,12 +948,16 @@ export default function WebCreatorProjectsPage() {
                   <div className="space-y-1 bg-amber-500/10 border border-amber-500/30 p-4 rounded-2xl">
                     <span className="text-xs font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1.5">
                       <Sparkles className="w-4 h-4" />
-                      <span>{isRtl ? 'موجه البناء الرئيسي (Master Prompt)' : 'Project Master Prompt'}</span>
+                      <span>
+                        {isRtl
+                          ? 'موجه البناء الرئيسي (Master Prompt)'
+                          : 'Project Master Prompt'}
+                      </span>
                     </span>
                     <p className="text-xs text-[var(--color-text-muted)] leading-relaxed">
                       {isRtl
-                        ? 'انسخ هذا الموجه وضعه مباشرة في Cursor أو Claude 3.5 Sonnet أو ChatGPT لتوليد كود المشروع ومعماريته فوراً.'
-                        : 'Copy and paste this master prompt directly into Cursor or Claude to scaffold this project.'}
+                        ? 'انسخ هذا الموجه واستخدمه في أداة الذكاء الاصطناعي المفضلة لديك (مثل Claude أو ChatGPT أو Cursor) لمساعدتك في بناء هيكل المشروع.'
+                        : 'Copy and paste this master prompt into Claude, ChatGPT, or Cursor to help scaffold this project.'}
                     </p>
                   </div>
 
@@ -801,7 +974,10 @@ export default function WebCreatorProjectsPage() {
                           variant="outline"
                           onClick={() =>
                             handleCopy(
-                              getLocalizedText(activeProject.aiMasterPrompt!, language),
+                              getLocalizedText(
+                                activeProject.aiMasterPrompt!,
+                                language
+                              ),
                               'master-prompt'
                             )
                           }
@@ -815,61 +991,68 @@ export default function WebCreatorProjectsPage() {
                           }
                         >
                           {copiedKey === 'master-prompt'
-                            ? (isRtl ? 'تم النسخ!' : 'Copied!')
-                            : (isRtl ? 'نسخ الموجه البرمجي' : 'Copy Prompt')}
+                            ? isRtl
+                              ? 'تم النسخ!'
+                              : 'Copied!'
+                            : isRtl
+                              ? 'نسخ الموجه'
+                              : 'Copy Prompt'}
                         </Button>
                       </div>
 
                       <pre className="whitespace-pre-wrap leading-relaxed text-[12px] font-sans">
-                        {getLocalizedText(activeProject.aiMasterPrompt, language)}
+                        {getLocalizedText(
+                          activeProject.aiMasterPrompt,
+                          language
+                        )}
                       </pre>
                     </div>
                   )}
-
-                  {/* Step-by-step how to prompt */}
-                  <div className="p-4 rounded-2xl bg-[var(--color-surface-sunken)] border border-[var(--color-border-subtle)] space-y-2">
-                    <h5 className="text-xs font-bold text-[var(--color-text)]">
-                      🛠️ {isRtl ? 'كيف تحقق أقصى استفادة من الموجه؟' : 'How to use this prompt effectively:'}
-                    </h5>
-                    <ol className="list-decimal list-inside text-xs text-[var(--color-text-muted)] space-y-1.5 leading-relaxed">
-                      <li>{isRtl ? 'افتح محرر الكود (VS Code / Cursor) وافتح مجلداً فارغاً للمشروع.' : 'Open Cursor or VS Code with an empty directory.'}</li>
-                      <li>{isRtl ? 'اضغط على زر النسخ أعلاه والصق النص في خانة المحادثة البرمجية (Cursor Composer / Copilot Chat).' : 'Copy the prompt above and paste into Composer or Chat.'}</li>
-                      <li>{isRtl ? 'راجع الكود المولد وقم بتشغيل خادم التطوير محلياً عبر npm run dev.' : 'Review generated code and run npm run dev.'}</li>
-                      <li>{isRtl ? 'اطلب من الذكاء الاصطناعي تعديل الألوان أو إضافة لمستك الخاصة للمشروع.' : 'Prompt for styling tweaks to match your personal brand.'}</li>
-                    </ol>
-                  </div>
                 </div>
               )}
 
               {/* TAB 4: STARTER CODE & ARCHITECTURE */}
               {activeWorkshopTab === 'starter-code' && (
                 <div className="space-y-6">
-                  {/* File Structure */}
                   {activeProject.fileStructureTree && (
                     <div className="space-y-2">
                       <h4 className="text-xs font-bold text-[var(--color-text-subtle)] flex items-center gap-1.5">
                         <FileCode className="w-3.5 h-3.5 text-[var(--color-primary)]" />
-                        <span>{isRtl ? 'شجرة الملفات المعمارية المقترحة للمشروع' : 'Recommended Project File Tree'}</span>
+                        <span>
+                          {isRtl
+                            ? 'شجرة الملفات المقترحة للمشروع'
+                            : 'Recommended Project File Tree'}
+                        </span>
                       </h4>
                       <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto">
-                        <pre className="whitespace-pre">{activeProject.fileStructureTree}</pre>
+                        <pre className="whitespace-pre">
+                          {activeProject.fileStructureTree}
+                        </pre>
                       </div>
                     </div>
                   )}
 
-                  {/* Starter Code Snippet */}
                   {activeProject.starterCodeSnippet && (
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <h4 className="text-xs font-bold text-[var(--color-text-subtle)] flex items-center gap-1.5">
                           <Code2 className="w-3.5 h-3.5 text-[var(--color-primary)]" />
-                          <span>{isRtl ? 'كود البداية التأسيسي (Boilerplate Starter)' : 'Boilerplate Starter Code'}</span>
+                          <span>
+                            {isRtl
+                              ? 'كود البداية التأسيسي (Starter Code)'
+                              : 'Starter Code'}
+                          </span>
                         </h4>
 
                         <Button
                           size="sm"
                           variant="outline"
-                          onClick={() => handleCopy(activeProject.starterCodeSnippet!, 'starter-code')}
+                          onClick={() =>
+                            handleCopy(
+                              activeProject.starterCodeSnippet!,
+                              'starter-code'
+                            )
+                          }
                           className="text-xs"
                           leftIcon={
                             copiedKey === 'starter-code' ? (
@@ -880,36 +1063,46 @@ export default function WebCreatorProjectsPage() {
                           }
                         >
                           {copiedKey === 'starter-code'
-                            ? (isRtl ? 'تم النسخ!' : 'Copied!')
-                            : (isRtl ? 'نسخ الكود' : 'Copy Code')}
+                            ? isRtl
+                              ? 'تم النسخ!'
+                              : 'Copied!'
+                            : isRtl
+                              ? 'نسخ الكود'
+                              : 'Copy Code'}
                         </Button>
                       </div>
 
                       <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-xs text-slate-200 overflow-x-auto shadow-inner leading-relaxed">
-                        <pre className="whitespace-pre">{activeProject.starterCodeSnippet}</pre>
+                        <pre className="whitespace-pre">
+                          {activeProject.starterCodeSnippet}
+                        </pre>
                       </div>
                     </div>
                   )}
                 </div>
               )}
 
-              {/* TAB 5: SUBMISSION & PORTFOLIO */}
+              {/* TAB 5: SUBMISSION VIA WHATSAPP */}
               {activeWorkshopTab === 'submission' && (
                 <div className="space-y-6">
-                  <div className="p-4 rounded-2xl bg-green-500/10 border border-green-500/30 space-y-1">
-                    <span className="text-xs font-bold text-green-700 dark:text-green-400 flex items-center gap-1.5">
+                  <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-1">
+                    <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5">
                       <Trophy className="w-4 h-4" />
-                      <span>{isRtl ? 'اعتماد المشروع وإضافته لمعرض أعمالك' : 'Publish & Showcase Deliverables'}</span>
+                      <span>
+                        {isRtl
+                          ? 'تسليم المشروع ومراجعته عبر واتساب'
+                          : 'Submit Project for Review via WhatsApp'}
+                      </span>
                     </span>
                     <p className="text-xs text-[var(--color-text-muted)] leading-relaxed">
                       {isRtl
-                        ? 'أدخل رابط موقعك المنشور ورابط المستودع البرمجي. سيتم حفظ البيانات محلياً وتحديث مؤشرات تقدمك تلقائياً.'
-                        : 'Submit your live deployment URL and GitHub repo link to finalize this milestone.'}
+                        ? 'أدخل رابط مشروعك المنشور أو رابط الكود وملاحظاتك، ثم اضغط «إرسال مخرجات المشروع عبر واتساب» لحفظ عملك في جهازك وفتح رسالة واتساب جاهزة للمدرب.'
+                        : 'Enter your live deployment URL or repository link and notes, then click "Send Project via WhatsApp" to save locally and open a ready WhatsApp message for the instructor.'}
                     </p>
                   </div>
 
                   {submissionFeedback && (
-                    <div className="p-3.5 rounded-xl bg-green-500/15 border border-green-500/40 text-green-700 dark:text-green-300 text-xs font-bold flex items-center gap-2">
+                    <div className="p-3.5 rounded-xl bg-emerald-500/15 border border-emerald-500/40 text-emerald-700 dark:text-emerald-300 text-xs font-bold flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4" />
                       <span>{submissionFeedback}</span>
                     </div>
@@ -919,15 +1112,45 @@ export default function WebCreatorProjectsPage() {
                   <div className="space-y-4">
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold text-[var(--color-text)] flex items-center gap-1.5">
+                        <User className="w-3.5 h-3.5 text-[var(--color-secondary)]" />
+                        <span>
+                          {isRtl
+                            ? 'اسم المتدرب (يُحفظ تلقائيًا)'
+                            : 'Trainee Name (saved automatically)'}
+                        </span>
+                      </label>
+                      <Input
+                        type="text"
+                        placeholder={
+                          isRtl ? 'اكتب اسمك الكامل...' : 'Your full name...'
+                        }
+                        value={studentName}
+                        onChange={(e) => {
+                          setStudentName(e.target.value);
+                          saveStudentName(e.target.value);
+                        }}
+                      />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-bold text-[var(--color-text)] flex items-center gap-1.5">
                         <Globe className="w-3.5 h-3.5 text-blue-500" />
-                        <span>{isRtl ? 'رابط الموقع المنشور الحي (Live Preview URL)' : 'Live Preview URL'}</span>
+                        <span>
+                          {isRtl
+                            ? 'رابط الموقع المنشور الحي (Live URL)'
+                            : 'Live Preview URL'}
+                        </span>
                       </label>
                       <Input
                         type="url"
                         placeholder="https://my-app.vercel.app"
                         value={activeSubmission.liveUrl}
                         onChange={(e) =>
-                          handleSubmissionChange(activeProject.id, 'liveUrl', e.target.value)
+                          handleSubmissionChange(
+                            activeProject.id,
+                            'liveUrl',
+                            e.target.value
+                          )
                         }
                       />
                     </div>
@@ -935,59 +1158,108 @@ export default function WebCreatorProjectsPage() {
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold text-[var(--color-text)] flex items-center gap-1.5">
                         <GitBranch className="w-3.5 h-3.5 text-slate-700 dark:text-slate-300" />
-                        <span>{isRtl ? 'رابط مستودع الكود على GitHub (Repository URL)' : 'GitHub Repository URL'}</span>
+                        <span>
+                          {isRtl
+                            ? 'رابط مستودع الكود على GitHub (اختياري)'
+                            : 'GitHub Repository URL (Optional)'}
+                        </span>
                       </label>
                       <Input
                         type="url"
                         placeholder="https://github.com/username/my-project"
                         value={activeSubmission.githubUrl}
                         onChange={(e) =>
-                          handleSubmissionChange(activeProject.id, 'githubUrl', e.target.value)
+                          handleSubmissionChange(
+                            activeProject.id,
+                            'githubUrl',
+                            e.target.value
+                          )
                         }
                       />
                     </div>
 
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold text-[var(--color-text)]">
-                        {isRtl ? 'ملاحظاتك وما تعلمته في هذا المشروع (Reflection Notes)' : 'Learner Reflection Notes'}
+                        {isRtl
+                          ? 'ملخص ما أنجزته أو ملاحظاتك للمدرب'
+                          : 'Summary of What You Built / Notes'}
                       </label>
                       <Textarea
                         rows={3}
                         placeholder={
                           isRtl
-                            ? 'اكتب أهم التحديات التي واجهتك، التقنيات التي اتقنتها، أو التحسينات القادمة...'
-                            : 'Notes, key takeaways, architectural decisions...'
+                            ? 'اكتب ملخصًا لما قمت ببنائه أو أي نقطة تريد من المدرب مراجعتها...'
+                            : 'Write a brief summary of what you built or any questions for the instructor...'
                         }
                         value={activeSubmission.notes}
                         onChange={(e) =>
-                          handleSubmissionChange(activeProject.id, 'notes', e.target.value)
+                          handleSubmissionChange(
+                            activeProject.id,
+                            'notes',
+                            e.target.value
+                          )
                         }
                       />
                     </div>
 
-                    {/* Action Submit Button */}
-                    <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
+                    {/* Action Submit Buttons */}
+                    <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                        <Button
+                          size="md"
+                          variant="primary"
+                          onClick={() =>
+                            handleSendSubmissionViaWhatsApp(activeProject.id)
+                          }
+                          className="font-bold bg-emerald-600 hover:bg-emerald-700 border-emerald-600 text-white shadow-sm"
+                          leftIcon={<MessageCircle className="w-4 h-4" />}
+                        >
+                          {isRtl
+                            ? 'إرسال مخرجات المشروع عبر واتساب'
+                            : 'Send Project via WhatsApp'}
+                        </Button>
+
+                        <Button
+                          size="md"
+                          variant="outline"
+                          onClick={() =>
+                            handleSaveSubmissionLocally(activeProject.id)
+                          }
+                          className="font-bold"
+                          leftIcon={<Save className="w-4 h-4" />}
+                        >
+                          {isRtl
+                            ? 'حفظ في جهازي فقط'
+                            : 'Save on My Device Only'}
+                        </Button>
+                      </div>
+
                       <div className="text-xs text-[var(--color-text-subtle)]">
                         {activeSubmission.submittedAt && (
                           <span>
-                            {isRtl ? 'تم آخر تسليم بتاريخ:' : 'Last submitted:'}{' '}
-                            {new Date(activeSubmission.submittedAt).toLocaleDateString(
+                            {isRtl ? 'آخر حفظ:' : 'Last saved:'}{' '}
+                            {new Date(
+                              activeSubmission.submittedAt
+                            ).toLocaleDateString(
                               language === 'ar' ? 'ar-SA' : 'en-US'
                             )}
                           </span>
                         )}
                       </div>
-
-                      <Button
-                        size="md"
-                        variant="primary"
-                        onClick={() => handleSaveSubmission(activeProject.id)}
-                        className="w-full sm:w-auto shadow-md"
-                        leftIcon={<Send className="w-4 h-4" />}
-                      >
-                        {isRtl ? 'حفظ واعتماد تسليم المشروع' : 'Save & Submit Project'}
-                      </Button>
                     </div>
+
+                    {whatsAppProjectMsg && (
+                      <WhatsAppActionFeedback
+                        message={whatsAppProjectMsg}
+                        isRtl={isRtl}
+                        savedLocallyNote={
+                          isRtl
+                            ? '✓ تم حفظ روابط وملاحظات مشروعك في متصفحك أيضًا.'
+                            : '✓ Your project links and notes are also saved in your browser.'
+                        }
+                        onClose={() => setWhatsAppProjectMsg(null)}
+                      />
+                    )}
                   </div>
 
                   {/* Direct Link Preview if already submitted */}
@@ -1000,7 +1272,9 @@ export default function WebCreatorProjectsPage() {
                         className="px-4 py-2 rounded-xl bg-blue-600 text-white text-xs font-bold hover:bg-blue-700 transition-colors inline-flex items-center gap-1.5"
                       >
                         <Globe className="w-3.5 h-3.5" />
-                        <span>{isRtl ? 'فتح الرابط المباشر ↗' : 'Open Live App ↗'}</span>
+                        <span>
+                          {isRtl ? 'فتح الرابط المباشر ↗' : 'Open Live App ↗'}
+                        </span>
                       </a>
 
                       {activeSubmission.githubUrl && (
@@ -1011,7 +1285,11 @@ export default function WebCreatorProjectsPage() {
                           className="px-4 py-2 rounded-xl border border-[var(--color-border)] text-xs font-bold hover:bg-[var(--color-surface-sunken)] transition-colors inline-flex items-center gap-1.5 text-[var(--color-text)]"
                         >
                           <GitBranch className="w-3.5 h-3.5" />
-                          <span>{isRtl ? 'زيارة مستودع GitHub ↗' : 'Visit GitHub Repo ↗'}</span>
+                          <span>
+                            {isRtl
+                              ? 'زيارة مستودع GitHub ↗'
+                              : 'Visit GitHub Repo ↗'}
+                          </span>
                         </a>
                       )}
                     </div>
@@ -1026,7 +1304,11 @@ export default function WebCreatorProjectsPage() {
                 {activeProject.id} • {activeProject.level}
               </span>
 
-              <Button size="sm" variant="ghost" onClick={() => setSelectedProjectId(null)}>
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={() => setSelectedProjectId(null)}
+              >
                 {isRtl ? 'إغلاق ورشة العمل' : 'Close Workshop'}
               </Button>
             </div>

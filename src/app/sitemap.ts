@@ -5,14 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://abdulhakimkanbr.com';
   const currentDate = new Date();
 
-
   const staticRoutes: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}/links`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
     {
       url: `${baseUrl}`,
       lastModified: currentDate,
@@ -38,22 +31,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/resources`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/contact`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.85,
     },
     {
+      url: `${baseUrl}/links`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/instructor`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/trainer`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.85,
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/teaching`,
@@ -71,7 +70,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/web-creator-ai`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.85,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/web-creator-ai/sessions`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/web-creator-ai/journey`,
@@ -92,6 +97,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.75,
     },
     {
+      url: `${baseUrl}/web-creator-ai/resources`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
       url: `${baseUrl}/web-creator-ai/ai-lab`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
@@ -99,18 +110,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/web-creator-ai/marketing-lab`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/web-creator-ai/resources`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/web-creator-ai/sessions`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.7,

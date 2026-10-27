@@ -1,12 +1,15 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import {
+  PortfolioShell,
   PageContainer,
   PageHeader,
-  PageSection,
+  Card,
+  Badge,
   Button,
+  WhatsAppActionFeedback,
 } from '@/components';
 import { PortfolioProject } from '@/types';
 import { usePreferencesStore } from '@/store';
@@ -14,375 +17,433 @@ import { getLocalizedText } from '@/lib/utils';
 import {
   ArrowLeft,
   ArrowRight,
-  ExternalLink,
   CheckCircle2,
-  AlertCircle,
-  Layers,
-  Server,
-  ShieldCheck,
   Cpu,
+  ExternalLink,
+  Layers,
+  Lightbulb,
+  MessageCircle,
+  Server,
+  ShieldAlert,
+  Sparkles,
+  Users,
 } from 'lucide-react';
+import {
+  buildClientInquiryMessage,
+  getCurrentPageUrl,
+  openWhatsAppChat,
+} from '@/lib/whatsapp';
 
-const GithubIcon: React.FC<{ className?: string }> = ({ className = 'w-3.5 h-3.5' }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-    />
-  </svg>
-);
-
-interface ProjectCaseStudyClientProps {
+interface Props {
   project: PortfolioProject;
-  otherProjects: PortfolioProject[];
+  otherProjects?: PortfolioProject[];
 }
 
-export function ProjectCaseStudyClient({ project, otherProjects }: ProjectCaseStudyClientProps) {
+export const ProjectCaseStudyClient: React.FC<Props> = ({ project }) => {
   const { language } = usePreferencesStore();
   const isRtl = language === 'ar';
+  const [preparedWhatsAppMsg, setPreparedWhatsAppMsg] = useState<string | null>(
+    null
+  );
 
   const title = getLocalizedText(project.title, language);
   const tagline = getLocalizedText(project.tagline, language);
+  const category = getLocalizedText(project.category, language);
+  const role = getLocalizedText(project.role, language);
+  const status = getLocalizedText(project.status, language);
+  const overview = getLocalizedText(project.overview, language);
+
+  const handleWhatsAppInquiry = () => {
+    const msg = buildClientInquiryMessage({
+      projectType: `استفسار حول مشروع (${getLocalizedText(project.title, 'ar')})`,
+      details: `قرأت تفاصيل مشروع (${getLocalizedText(project.title, 'ar')}) وأود التحدث معك بخصوص مشروع أو نظام مشابه.`,
+      pageUrl: getCurrentPageUrl(`/projects/${project.slug}`),
+    });
+    setPreparedWhatsAppMsg(msg);
+    openWhatsAppChat(msg);
+  };
 
   return (
-    <PageContainer>
-      {/* Header Breadcrumbs & Overview */}
-      <PageHeader
-        title={title}
-        subtitle={tagline}
-        breadcrumbs={[
-          { id: '1', label: isRtl ? 'الرئيسية' : 'Home', href: '/' },
-          { id: '2', label: isRtl ? 'المشاريع' : 'Projects', href: '/projects' },
-          { id: '3', label: title, isCurrent: true },
-        ]}
-      />
-
-      {/* Project Meta Card */}
-      <div className="p-6 sm:p-8 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-xs mb-8 text-start space-y-6">
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[var(--color-border-subtle)] pb-4">
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-mono font-bold text-[var(--color-secondary)] uppercase">
-              {project.level === 1
-                ? isRtl ? 'دراسة حالة متكاملة' : 'FULL CASE STUDY'
-                : isRtl ? 'مشروع هندسي تطبيقي' : 'ENGINEERING MILESTONE'}
-            </span>
-            <span className="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-[var(--color-surface-sunken)] border border-[var(--color-border)] text-[var(--color-text-subtle)]">
-              {getLocalizedText(project.category, language)}
-            </span>
-          </div>
-
-          <div className="flex items-center gap-3 text-xs font-mono text-[var(--color-text-subtle)]">
-            {project.status && (
-              <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
-                {getLocalizedText(project.status, language)}
-              </span>
-            )}
-            {project.year && <span>· {project.year}</span>}
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-          <div>
-            <span className="font-mono text-[var(--color-text-subtle)] uppercase block mb-1">
-              {isRtl ? 'الدور والمسؤولية' : 'Role & Responsibility'}
-            </span>
-            <span className="font-semibold text-[var(--color-text)]">
-              {getLocalizedText(project.role, language)}
-            </span>
-          </div>
-          <div className="sm:col-span-2">
-            <span className="font-mono text-[var(--color-text-subtle)] uppercase block mb-1">
-              {isRtl ? 'التقنيات وحزمة البناء' : 'Technologies & Stack'}
-            </span>
-            <div className="flex flex-wrap gap-1.5">
-              {project.techStack.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2.5 py-0.5 rounded-md text-[11px] font-mono font-medium bg-[var(--color-surface-sunken)] border border-[var(--color-border-subtle)] text-[var(--color-text-muted)]"
+    <PortfolioShell>
+      <PageContainer>
+        <PageHeader
+          title={title}
+          subtitle={tagline}
+          breadcrumbs={[
+            { id: '1', label: isRtl ? 'الرئيسية' : 'Home', href: '/' },
+            {
+              id: '2',
+              label: isRtl ? 'أعمالي ومنتجاتي' : 'Work & Products',
+              href: '/projects',
+            },
+            { id: '3', label: title, isCurrent: true },
+          ]}
+          actions={
+            <div className="flex flex-wrap items-center gap-2.5">
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target={
+                    project.liveUrl.startsWith('http') ? '_blank' : undefined
+                  }
+                  rel={
+                    project.liveUrl.startsWith('http')
+                      ? 'noopener noreferrer'
+                      : undefined
+                  }
                 >
-                  {tech}
-                </span>
-              ))}
+                  <Button
+                    variant="primary"
+                    size="md"
+                    rightIcon={<ExternalLink className="w-4 h-4" />}
+                  >
+                    {isRtl ? 'زيارة الموقع الحي' : 'Visit Live Site'}
+                  </Button>
+                </a>
+              )}
+
+              <Button
+                variant="outline"
+                size="md"
+                onClick={handleWhatsAppInquiry}
+                leftIcon={
+                  <MessageCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                }
+              >
+                {isRtl
+                  ? 'اطلب مشروعًا مشابهًا عبر واتساب'
+                  : 'Request Similar on WhatsApp'}
+              </Button>
             </div>
-          </div>
-        </div>
+          }
+        />
 
-        {/* Action Links */}
-        {(project.liveUrl || project.repoUrl) && (
-          <div className="pt-2 flex flex-wrap items-center gap-3 border-t border-[var(--color-border-subtle)]">
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target={project.liveUrl.startsWith('http') ? '_blank' : undefined}
-                rel={project.liveUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] transition-all shadow-xs"
-              >
-                <span>{isRtl ? 'فتح المعاينة الحية / المنصة' : 'Open Platform / Live Preview'}</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-            )}
-            {project.repoUrl && (
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-[var(--color-surface-sunken)] border border-[var(--color-border)] text-[var(--color-text)] hover:border-[var(--color-secondary)] transition-all"
-              >
-                <GithubIcon className="w-3.5 h-3.5" />
-                <span>{isRtl ? 'مستودع الكود' : 'View Repository'}</span>
-              </a>
+        <div className="space-y-10 pb-16 text-start">
+          {/* 1. Executive Metadata Strip */}
+          <Card className="p-6 sm:p-8 bg-[var(--color-surface)]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="space-y-1">
+                <span className="text-xs font-mono font-bold text-[var(--color-text-subtle)] uppercase">
+                  {isRtl ? 'التصنيف' : 'Category'}
+                </span>
+                <div>
+                  <Badge variant="primary" size="sm">
+                    {category}
+                  </Badge>
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <span className="text-xs font-mono font-bold text-[var(--color-text-subtle)] uppercase">
+                  {isRtl ? 'دوري في المشروع' : 'My Role'}
+                </span>
+                <p className="text-sm font-bold text-[var(--color-text)]">
+                  {role}
+                </p>
+              </div>
+
+              <div className="space-y-1">
+                <span className="text-xs font-mono font-bold text-[var(--color-text-subtle)] uppercase">
+                  {isRtl ? 'حالة المشروع' : 'Status'}
+                </span>
+                <p className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+                  {status}
+                </p>
+              </div>
+
+              <div className="space-y-1">
+                <span className="text-xs font-mono font-bold text-[var(--color-text-subtle)] uppercase">
+                  {isRtl ? 'سنة الإطلاق' : 'Release Year'}
+                </span>
+                <p className="text-sm font-mono font-bold text-[var(--color-text)]">
+                  {project.year || '2025'}
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6 pt-6 border-t border-[var(--color-border-subtle)] space-y-2.5">
+              <span className="text-xs font-mono font-bold text-[var(--color-text-subtle)] uppercase block">
+                {isRtl
+                  ? 'التقنيات المستخدمة في بناء النظام'
+                  : 'Technologies Used'}
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {project.techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1 rounded-lg text-xs font-mono font-semibold bg-[var(--color-surface-sunken)] border border-[var(--color-border)] text-[var(--color-text)]"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </Card>
+
+          {/* 2. Overview & Target Audience */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <Card
+              className={`${project.productAudience ? 'lg:col-span-8' : 'lg:col-span-12'} p-6 sm:p-8 space-y-4`}
+            >
+              <div className="flex items-center gap-2 text-xs font-mono font-bold text-[var(--color-secondary)] uppercase">
+                <Layers className="w-4 h-4" />
+                <span>
+                  {isRtl ? 'نظرة عامة على المشروع' : 'Project Overview'}
+                </span>
+              </div>
+              <h2 className="text-h2 font-extrabold text-[var(--color-text)]">
+                {isRtl
+                  ? 'ماذا يقدّم هذا النظام وكيف يعمل؟'
+                  : 'What This System Does & How It Works'}
+              </h2>
+              <p className="text-body text-[var(--color-text-muted)] leading-relaxed">
+                {overview}
+              </p>
+            </Card>
+
+            {project.productAudience && (
+              <Card className="lg:col-span-4 p-6 sm:p-8 bg-[var(--color-surface-sunken)] space-y-4 flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="w-10 h-10 rounded-xl bg-[var(--color-primary-subtle)] text-[var(--color-secondary)] flex items-center justify-center">
+                    <Users className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-h3 font-bold text-[var(--color-text)]">
+                    {isRtl ? 'لمن صُمم هذا المنتج؟' : 'Who Is It Built For?'}
+                  </h3>
+                  <p className="text-body-sm text-[var(--color-text-muted)] leading-relaxed">
+                    {getLocalizedText(project.productAudience, language)}
+                  </p>
+                </div>
+              </Card>
             )}
           </div>
-        )}
-      </div>
 
-      {/* 01. Project Overview */}
-      <PageSection title={isRtl ? 'نظرة عامة على المشروع' : 'Project Overview'}>
-        <div className="p-7 sm:p-9 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] text-start space-y-4">
-          <p className="text-body text-[var(--color-text)] leading-relaxed font-normal">
-            {getLocalizedText(project.overview, language)}
-          </p>
-          {project.role && (
-            <div className="pt-3 border-t border-[var(--color-border-subtle)] text-xs text-[var(--color-text-muted)] font-mono">
-              <strong className="text-[var(--color-text)]">
-                {isRtl ? 'المشاركة الهندسية:' : 'Engineering Engagement:'}
-              </strong>{' '}
-              {getLocalizedText(project.role, language)}
+          {/* 3. Problem vs Solution */}
+          {(project.problem || project.solution) && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {project.problem && (
+                <Card className="p-6 sm:p-8 space-y-4 border-s-4 border-s-amber-500">
+                  <div className="flex items-center gap-2 text-xs font-mono font-bold text-amber-600 dark:text-amber-400 uppercase">
+                    <ShieldAlert className="w-4 h-4" />
+                    <span>
+                      {isRtl
+                        ? 'المشكلة أو التحدي'
+                        : 'The Problem & Challenge'}
+                    </span>
+                  </div>
+                  <h3 className="text-h3 font-bold text-[var(--color-text)]">
+                    {isRtl
+                      ? 'ما الصعوبة التي كان يواجهها المستخدم؟'
+                      : 'What Problem Needed Solving?'}
+                  </h3>
+                  <p className="text-body-sm text-[var(--color-text-muted)] leading-relaxed">
+                    {getLocalizedText(project.problem, language)}
+                  </p>
+                </Card>
+              )}
+
+              {project.solution && (
+                <Card className="p-6 sm:p-8 space-y-4 border-s-4 border-s-emerald-500">
+                  <div className="flex items-center gap-2 text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase">
+                    <Sparkles className="w-4 h-4" />
+                    <span>
+                      {isRtl ? 'الحل الذي تم بناؤه' : 'The Solution Built'}
+                    </span>
+                  </div>
+                  <h3 className="text-h3 font-bold text-[var(--color-text)]">
+                    {isRtl
+                      ? 'كيف عالج النظام هذه المشكلة؟'
+                      : 'How the System Solved It'}
+                  </h3>
+                  <p className="text-body-sm text-[var(--color-text-muted)] leading-relaxed">
+                    {getLocalizedText(project.solution, language)}
+                  </p>
+                </Card>
+              )}
             </div>
           )}
-        </div>
-      </PageSection>
 
-      {/* 02. Problem & Context */}
-      {project.problem && (
-        <PageSection title={isRtl ? 'المشكلة وسياق التحدي' : 'The Problem & Context'}>
-          <div className="p-7 sm:p-9 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] text-start space-y-3">
-            <div className="flex items-center gap-2 text-xs font-mono font-bold text-amber-500 uppercase">
-              <AlertCircle className="w-4 h-4" />
-              <span>{isRtl ? 'تحديد المشكلة' : 'Problem Statement'}</span>
-            </div>
-            <p className="text-body text-[var(--color-text-muted)] leading-relaxed font-normal">
-              {getLocalizedText(project.problem, language)}
-            </p>
-          </div>
-        </PageSection>
-      )}
-
-      {/* 03. Architecture & Solution */}
-      {(project.solution || project.architecture) && (
-        <PageSection title={isRtl ? 'المعمارية والحل الهندسي' : 'System Architecture & Approach'}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-start">
-            {project.solution && (
-              <div className="p-7 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] space-y-3">
+          {/* 4. Architecture & Technical Implementation */}
+          {(project.architecture ||
+            (project.technicalImplementation &&
+              project.technicalImplementation.length > 0)) && (
+            <Card className="p-6 sm:p-8 space-y-6">
+              <div className="space-y-2 border-b border-[var(--color-border-subtle)] pb-4">
                 <div className="flex items-center gap-2 text-xs font-mono font-bold text-[var(--color-secondary)] uppercase">
-                  <CheckCircle2 className="w-4 h-4" />
-                  <span>{isRtl ? 'الحل البرمجي' : 'Engineered Solution'}</span>
+                  <Cpu className="w-4 h-4" />
+                  <span>
+                    {isRtl
+                      ? 'التفاصيل التقنية وبنية النظام'
+                      : 'Technical Details & Architecture'}
+                  </span>
                 </div>
-                <p className="text-body-sm text-[var(--color-text-muted)] leading-relaxed font-normal">
-                  {getLocalizedText(project.solution, language)}
-                </p>
+                <h2 className="text-h2 font-extrabold text-[var(--color-text)]">
+                  {isRtl
+                    ? 'كيف بُني النظام من الداخل؟'
+                    : 'How the System Is Architected'}
+                </h2>
+                {project.architecture && (
+                  <p className="text-body text-[var(--color-text-muted)] leading-relaxed pt-1">
+                    {getLocalizedText(project.architecture, language)}
+                  </p>
+                )}
               </div>
-            )}
-            {project.architecture && (
-              <div className="p-7 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] space-y-3">
-                <div className="flex items-center gap-2 text-xs font-mono font-bold text-blue-400 uppercase">
-                  <Layers className="w-4 h-4" />
-                  <span>{isRtl ? 'الاستراتيجية المعمارية' : 'Architectural Strategy'}</span>
-                </div>
-                <p className="text-body-sm text-[var(--color-text-muted)] leading-relaxed font-normal">
-                  {getLocalizedText(project.architecture, language)}
-                </p>
-              </div>
-            )}
-          </div>
-        </PageSection>
-      )}
 
-      {/* 04. Technical Implementation Pillars */}
-      {project.technicalImplementation && project.technicalImplementation.length > 0 && (
-        <PageSection title={isRtl ? 'محاور التنفيذ التقني' : 'Technical Implementation'}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-start">
-            {project.technicalImplementation.map((pillar, pIdx) => (
-              <div
-                key={pIdx}
-                className="p-7 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] space-y-4"
-              >
-                <div className="flex items-center gap-2">
-                  <Cpu className="w-4 h-4 text-[var(--color-secondary)]" />
-                  <h4 className="text-h4 font-bold text-[var(--color-text)]">
-                    {getLocalizedText(pillar.title, language)}
-                  </h4>
+              {project.technicalImplementation &&
+                project.technicalImplementation.length > 0 && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {project.technicalImplementation.map((section, idx) => (
+                      <div
+                        key={idx}
+                        className="p-5 rounded-2xl bg-[var(--color-surface-sunken)] border border-[var(--color-border)] space-y-3"
+                      >
+                        <h3 className="text-h4 font-bold text-[var(--color-text)]">
+                          {getLocalizedText(section.title, language)}
+                        </h3>
+                        <ul className="space-y-2">
+                          {section.details.map((detail, dIdx) => (
+                            <li
+                              key={dIdx}
+                              className="flex items-start gap-2 text-xs sm:text-body-sm text-[var(--color-text-muted)] leading-relaxed"
+                            >
+                              <span className="text-[var(--color-secondary)] font-bold">
+                                •
+                              </span>
+                              <span>{getLocalizedText(detail, language)}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+              {project.infrastructure && (
+                <div className="p-4 rounded-xl bg-[var(--color-primary-subtle)] border border-[var(--color-secondary)]/20 flex items-start gap-3">
+                  <Server className="w-5 h-5 text-[var(--color-secondary)] shrink-0 mt-0.5" />
+                  <div className="space-y-1">
+                    <span className="text-xs font-mono font-bold text-[var(--color-secondary)] uppercase block">
+                      {isRtl
+                        ? 'الاستضافة وبيئة التشغيل'
+                        : 'Hosting & Infrastructure'}
+                    </span>
+                    <p className="text-xs sm:text-body-sm text-[var(--color-text)] font-medium">
+                      {getLocalizedText(project.infrastructure, language)}
+                    </p>
+                  </div>
                 </div>
-                <div className="space-y-2 pt-1">
-                  {pillar.details.map((detail, dIdx) => (
+              )}
+            </Card>
+          )}
+
+          {/* 5. Key Features & Lessons Learned */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {project.keyFeatures.length > 0 && (
+              <Card
+                className={`${project.lessonsLearned && project.lessonsLearned.length > 0 ? 'lg:col-span-7' : 'lg:col-span-12'} p-6 sm:p-8 space-y-4`}
+              >
+                <h3 className="text-h3 font-bold text-[var(--color-text)]">
+                  {isRtl
+                    ? 'أبرز المزايا التي يقدمها النظام'
+                    : 'Key Capabilities & Features'}
+                </h3>
+                <div className="space-y-3">
+                  {project.keyFeatures.map((feat, idx) => (
                     <div
-                      key={dIdx}
-                      className="flex items-start gap-2.5 text-xs text-[var(--color-text-muted)] font-medium"
+                      key={idx}
+                      className="flex items-start gap-3 p-3.5 rounded-xl bg-[var(--color-surface-sunken)] border border-[var(--color-border-subtle)]"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-secondary)] shrink-0 mt-1.5" />
-                      <span>{getLocalizedText(detail, language)}</span>
+                      <CheckCircle2 className="w-4 h-4 text-[var(--color-secondary)] shrink-0 mt-0.5" />
+                      <span className="text-body-sm text-[var(--color-text)] font-medium">
+                        {getLocalizedText(feat, language)}
+                      </span>
                     </div>
                   ))}
                 </div>
-              </div>
-            ))}
-          </div>
-        </PageSection>
-      )}
+              </Card>
+            )}
 
-      {/* 05. Infrastructure & Deployment */}
-      {project.infrastructure && (
-        <PageSection title={isRtl ? 'البنية التحتية والنشر' : 'Infrastructure & Deployment'}>
-          <div className="p-7 sm:p-9 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] text-start space-y-3">
-            <div className="flex items-center gap-2 text-xs font-mono font-bold text-emerald-400 uppercase">
-              <Server className="w-4 h-4" />
-              <span>{isRtl ? 'بيئة التشغيل الإنتاجية' : 'Production Environment'}</span>
+            {project.lessonsLearned && project.lessonsLearned.length > 0 && (
+              <Card className="lg:col-span-5 p-6 sm:p-8 bg-[var(--color-surface-sunken)] space-y-4">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center">
+                  <Lightbulb className="w-5 h-5" />
+                </div>
+                <h3 className="text-h3 font-bold text-[var(--color-text)]">
+                  {isRtl
+                    ? 'خلاصة التجربة والدروس المستفادة'
+                    : 'Key Takeaways'}
+                </h3>
+                <div className="space-y-3">
+                  {project.lessonsLearned.map((lesson, idx) => (
+                    <p
+                      key={idx}
+                      className="text-body-sm text-[var(--color-text-muted)] leading-relaxed"
+                    >
+                      {getLocalizedText(lesson, language)}
+                    </p>
+                  ))}
+                </div>
+              </Card>
+            )}
+          </div>
+
+          {/* 6. Bottom Navigation & WhatsApp CTA */}
+          <Card className="p-6 sm:p-8 bg-[var(--color-surface)] border border-[var(--color-border)] space-y-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="space-y-1">
+                <h3 className="text-h4 font-bold text-[var(--color-text)]">
+                  {isRtl
+                    ? 'هل ترغب في بناء مشروع أو نظام مشابه؟'
+                    : 'Looking to build a similar project or system?'}
+                </h3>
+                <p className="text-xs text-[var(--color-text-muted)]">
+                  {isRtl
+                    ? 'تواصل معي مباشرة عبر واتساب لمناقشة متطلبات مشروعك.'
+                    : 'Message me directly on WhatsApp to discuss your project requirements.'}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3">
+                <Link href="/projects">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    leftIcon={
+                      isRtl ? (
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      ) : (
+                        <ArrowLeft className="w-3.5 h-3.5" />
+                      )
+                    }
+                  >
+                    {isRtl ? 'العودة لجميع الأعمال' : 'Back to Projects'}
+                  </Button>
+                </Link>
+
+                <Button
+                  variant="primary"
+                  size="sm"
+                  onClick={handleWhatsAppInquiry}
+                  className="font-bold bg-emerald-600 hover:bg-emerald-700 border-emerald-600 text-white"
+                  leftIcon={<MessageCircle className="w-3.5 h-3.5" />}
+                >
+                  {isRtl
+                    ? 'ناقش مشروعك عبر واتساب'
+                    : 'Chat on WhatsApp'}
+                </Button>
+              </div>
             </div>
-            <p className="text-body text-[var(--color-text-muted)] leading-relaxed font-normal">
-              {getLocalizedText(project.infrastructure, language)}
-            </p>
-          </div>
-        </PageSection>
-      )}
 
-      {/* 06. Engineering Challenges */}
-      {project.engineeringChallenges && project.engineeringChallenges.length > 0 && (
-        <PageSection
-          title={isRtl ? 'أبرز التحديات الهندسية وكيفية معالجتها' : 'Key Engineering Challenges & Resolutions'}
-        >
-          <div className="space-y-4 text-start">
-            {project.engineeringChallenges.map((item, cIdx) => (
-              <div
-                key={cIdx}
-                className="p-6 sm:p-7 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] space-y-3"
-              >
-                <div className="flex items-start gap-3">
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/10 border border-amber-500/20 text-amber-500 dark:text-amber-400 uppercase shrink-0 mt-0.5">
-                    {isRtl ? 'التحدي' : 'Challenge'}
-                  </span>
-                  <p className="text-body-sm font-semibold text-[var(--color-text)]">
-                    {getLocalizedText(item.challenge, language)}
-                  </p>
-                </div>
-                <div className="flex items-start gap-3 pt-2 border-t border-[var(--color-border-subtle)]">
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 dark:text-emerald-400 uppercase shrink-0 mt-0.5">
-                    {isRtl ? 'الحل الهندسي' : 'Resolution'}
-                  </span>
-                  <p className="text-xs text-[var(--color-text-muted)] leading-relaxed font-normal">
-                    {getLocalizedText(item.solution, language)}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </PageSection>
-      )}
-
-      {/* 07. Key Features */}
-      {project.keyFeatures && project.keyFeatures.length > 0 && (
-        <PageSection title={isRtl ? 'أبرز الميزات والخصائص' : 'Key System Features'}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-start">
-            {project.keyFeatures.map((feature, fIdx) => (
-              <div
-                key={fIdx}
-                className="p-5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] flex items-start gap-3"
-              >
-                <ShieldCheck className="w-4 h-4 text-[var(--color-secondary)] shrink-0 mt-1" />
-                <span className="text-body-sm text-[var(--color-text)] font-medium">
-                  {getLocalizedText(feature, language)}
-                </span>
-              </div>
-            ))}
-          </div>
-        </PageSection>
-      )}
-
-      {/* 08. Lessons Learned */}
-      {project.lessonsLearned && project.lessonsLearned.length > 0 && (
-        <PageSection title={isRtl ? 'الدروس والتجارب المستفادة' : 'Pragmatic Lessons & Takeaways'}>
-          <div className="p-7 sm:p-9 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] text-start space-y-3">
-            {project.lessonsLearned.map((lesson, lIdx) => (
-              <div
-                key={lIdx}
-                className="flex items-start gap-3 text-body-sm text-[var(--color-text-muted)] font-normal"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-secondary)] shrink-0 mt-2" />
-                <span>{getLocalizedText(lesson, language)}</span>
-              </div>
-            ))}
-          </div>
-        </PageSection>
-      )}
-
-      {/* Contextual Collaboration & Custom Engineering CTA */}
-      <div className="my-10 p-7 sm:p-9 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-start">
-        <div className="space-y-2 max-w-2xl">
-          <span className="text-xs font-mono font-bold text-[var(--color-secondary)] uppercase tracking-wider">
-            {isRtl ? 'هندسة الأنظمة وتطوير الحلول' : 'Custom Software Engineering'}
-          </span>
-          <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-text)]">
-            {isRtl
-              ? 'هل تخطط لبناء نظام مخصص أو منصة سحابية مشابهة؟'
-              : 'Planning a custom platform or similar software solution?'}
-          </h3>
-          <p className="text-body-sm text-[var(--color-text-muted)] leading-relaxed">
-            {isRtl
-              ? 'أساعد الشركات ورواد الأعمال في التصميم المعماري، وتطوير المنصات السحابية والأنظمة الإدارية والمالية مع ضمان الأمان وحماية خصوصية الأعمال.'
-              : 'I help companies and founders with architectural design, cloud SaaS engineering, and enterprise financial portals with strict confidentiality.'}
-          </p>
+            {preparedWhatsAppMsg && (
+              <WhatsAppActionFeedback
+                message={preparedWhatsAppMsg}
+                isRtl={isRtl}
+                onClose={() => setPreparedWhatsAppMsg(null)}
+              />
+            )}
+          </Card>
         </div>
-
-        <div className="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0 w-full sm:w-auto">
-          <Link href="/contact" className="w-full sm:w-auto">
-            <Button
-              variant="primary"
-              size="sm"
-              className="w-full justify-center"
-              rightIcon={isRtl ? <ArrowLeft className="w-3.5 h-3.5" /> : <ArrowRight className="w-3.5 h-3.5" />}
-            >
-              {isRtl ? 'تواصل لمناقشة مشروعك' : 'Discuss Your Project'}
-            </Button>
-          </Link>
-          <Link href="/projects" className="w-full sm:w-auto">
-            <Button
-              variant="outline"
-              size="sm"
-              className="w-full justify-center text-xs"
-            >
-              {isRtl ? 'عرض بقية المشاريع' : 'Browse Other Projects'}
-            </Button>
-          </Link>
-        </div>
-      </div>
-
-      {/* Related Projects & Return Navigation */}
-      <div className="pt-8 border-t border-[var(--color-border)] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-        <Link href="/projects">
-          <Button
-            variant="outline"
-            size="md"
-            leftIcon={isRtl ? <ArrowRight className="w-4 h-4" /> : <ArrowLeft className="w-4 h-4" />}
-          >
-            {isRtl ? 'العودة إلى جميع المشاريع' : 'Back to All Projects'}
-          </Button>
-        </Link>
-
-        {otherProjects.length > 0 && (
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-mono text-[var(--color-text-subtle)]">
-              {isRtl ? 'دراسة الحالة التالية:' : 'Next Case Study:'}
-            </span>
-            <Link
-              href={`/projects/${otherProjects[0].slug}`}
-              className="text-xs font-bold text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors inline-flex items-center gap-1.5"
-            >
-              <span>{getLocalizedText(otherProjects[0].title, language)}</span>
-              {isRtl ? <ArrowLeft className="w-3.5 h-3.5" /> : <ArrowRight className="w-3.5 h-3.5" />}
-            </Link>
-          </div>
-        )}
-      </div>
-    </PageContainer>
+      </PageContainer>
+    </PortfolioShell>
   );
-}
+};

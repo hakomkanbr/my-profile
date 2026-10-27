@@ -5,458 +5,674 @@ export const SESSION_09: PresentationSession = {
   number: 9,
   slug: 'session-09',
   title: {
-    ar: 'Next.js + SEO: مواقع فائقة السرعة وجاهزة للإنتاج',
-    en: 'Next.js + SEO: Building Production-Ready, Search-Optimized Platforms',
+    ar: 'ربط الصفحات وتسريع الموقع وتجهيزه لمحركات البحث (Next.js & SEO)',
+    en: 'Connecting Pages, Speeding Up the Site & Search Optimization (Next.js & SEO)',
   },
   subtitle: {
-    ar: 'كيف تحول مكونات React إلى منصة إنتاجية حقيقية تتصدر نتائج بحث Google وتفتح في أجزاء من الثانية؟',
-    en: 'Elevating React components into production web applications dominating search engines with sub-second speeds',
+    ar: 'كيف يفتح موقعك بسرعة على الهاتف، وكيف يظهر بعنوان وصورة جذابة عند البحث عنه في Google أو مشاركة رابطه في واتساب؟',
+    en: 'How your site loads fast on phones and shows a great title and preview card on Google and WhatsApp',
   },
   durationMinutes: 90,
   goal: {
-    ar: 'تمكين الطالب من استخدام ميزات Next.js المتقدمة (App Router, Server Layouts, Metadata) وضبط إعدادات الـ SEO والأداء، وإجراء تدقيق شامل بالذكاء الاصطناعي.',
-    en: 'Master Next.js App Router architectures, dynamic metadata for Google indexing, performance budgets, and comprehensive AI SEO audits.',
+    ar: 'تمكين المتدرب من فهم كيف يربط Next.js صفحات الموقع بسرعة، وإعداد بطاقة تعريف الموقع (العنوان، الوصف، وصورة المشاركة في واتساب وGoogle) لتحسين ظهوره في نتائج البحث.',
+    en: 'Understand how Next.js connects pages fast and configure site metadata (title, description, WhatsApp/Google preview card).',
   },
   prerequisites: [
-    { ar: 'إكمال الجلسة 08 وامتلاك شجرة مكونات React المنظمة', en: 'Completion of Session 08 with modular React components' },
+    {
+      ar: 'إكمال الجلسة 08 وتنظيم أجزاء الموقع وبياناته',
+      en: 'Completion of Session 08 with organized components and data',
+    },
   ],
   objectives: [
-    { ar: 'فهم معمارية Next.js App Router والفرق بين Server Components و Client Components', en: 'Understand App Router architecture and Server vs Client Component boundaries' },
-    { ar: 'إعداد حزمة البيانات الوصفية (Metadata & Open Graph) لظهور الموقع باحترافية في محركات البحث وشبكات التواصل', en: 'Configure production Metadata and Open Graph social sharing previews' },
-    { ar: 'تحسين أداء الصور وسرعة التحميل (Core Web Vitals) لتسجيل أعلى درجات في فحص Google Lighthouse', en: 'Optimize images and Core Web Vitals to score top marks on Lighthouse audits' },
-    { ar: 'استخدام الذكاء الاصطناعي لإجراء تدقيق شامل (Full Production Audit) لـ SEO والوصولية والأداء', en: 'Conduct a comprehensive AI audit scanning SEO, accessibility, performance, and semantics' },
+    {
+      ar: 'فهم دور Next.js ببساطة: تنظيم صفحات الموقع وجعلها تفتح بسرعة كبيرة',
+      en: 'Understand Next.js simply: organizing website pages and making them load fast',
+    },
+    {
+      ar: 'معرفة معنى تحسين محركات البحث (SEO): كيف يجد الزبون موقعك عندما يبحث في Google؟',
+      en: 'Understand SEO simply: how customers find your website when searching on Google',
+    },
+    {
+      ar: 'إعداد بطاقة المشاركة (Open Graph) ليظهر الموقع بصورة وعنوان أنيق عند إرسال رابطه في واتساب',
+      en: 'Configure Open Graph metadata so your link shows a clean title and banner when shared on WhatsApp',
+    },
+    {
+      ar: 'تحسين حجم الصور والعناوين الرئيسية لضمان سرعة فتح الصفحة على الهاتف',
+      en: 'Optimize images and headings to ensure fast loading on mobile phones',
+    },
   ],
   timeline: [
-    { timeRange: '00:00 – 00:10', durationMinutes: 10, label: { ar: 'مقدمة: لماذا يعتبر Next.js المعيار الذهبي لمواقع الإنتاج؟', en: 'Why Next.js is the gold standard for production' }, type: 'context' },
-    { timeRange: '00:10 – 00:25', durationMinutes: 15, label: { ar: 'معمارية App Router والـ Metadata: كيف يرى Google موقعك؟', en: 'App Router & Metadata: How Google crawls sites' }, type: 'concept' },
-    { timeRange: '00:25 – 00:45', durationMinutes: 20, label: { ar: 'تطبيق حي: إعداد الـ Metadata وتحسين الصور وتدقيق Lighthouse', en: 'Live Demo: Setting Metadata & Image Optimization' }, type: 'demo' },
-    { timeRange: '00:45 – 01:00', durationMinutes: 15, label: { ar: 'تدقيق الذكاء الاصطناعي الشامل لـ SEO والأداء ومحتوى الصفحة', en: 'Comprehensive AI SEO & Performance Audit' }, type: 'ai' },
-    { timeRange: '01:00 – 01:20', durationMinutes: 20, label: { ar: 'تحدي الطلاب: ضبط بيانات SEO مشروعهم وتجهيز بطاقة المشاركة', en: 'Student Challenge: Configure Project Metadata' }, type: 'practice' },
-    { timeRange: '01:20 – 01:25', durationMinutes: 5, label: { ar: 'فحص نتائج الـ Metadata لروابط الطلاب', en: 'Inspect student Open Graph and SEO tags' }, type: 'review' },
-    { timeRange: '01:25 – 01:30', durationMinutes: 5, label: { ar: 'الخلاصة والتجهيز لجلسة مسار عمل AI المتقدم (Session 10)', en: 'Takeaways & Prep for Advanced AI Workflow' }, type: 'takeaway' },
+    {
+      timeRange: '00:00 – 00:15',
+      durationMinutes: 15,
+      label: { ar: 'كيف يرى الزائر موقعك في Google وفي محادثات واتساب قبل أن يفتحه؟', en: 'How visitors see your site on Google & WhatsApp before opening it' },
+      type: 'context',
+    },
+    {
+      timeRange: '00:15 – 00:35',
+      durationMinutes: 20,
+      label: { ar: 'العناصر الثلاثة لظهور احترافي في البحث والمشاركة (العنوان، الوصف، الصورة)', en: 'The 3 elements of search & share previews (Title, Description, Image)' },
+      type: 'concept',
+    },
+    {
+      timeRange: '00:35 – 00:55',
+      durationMinutes: 20,
+      label: { ar: 'تطبيق عملي: إعداد بطاقة ظهور مقهى القهوة المختصة في Google وواتساب', en: 'Live Demo: Setting up Google & WhatsApp preview metadata for the Café' },
+      type: 'demo',
+    },
+    {
+      timeRange: '00:55 – 01:20',
+      durationMinutes: 25,
+      label: { ar: 'نشاط المتدرب: كتابة وضبط عنوان ووصف وصورة مشاركة موقعه', en: 'Trainee Activity: Write & configure your website search and share card' },
+      type: 'practice',
+    },
+    {
+      timeRange: '01:20 – 01:30',
+      durationMinutes: 10,
+      label: { ar: 'مراجعة بطاقات مشاركة المتدربين وخلاصة الجلسة التاسعة', en: 'Review trainee share cards & Session 09 summary' },
+      type: 'takeaway',
+    },
   ],
   projectMilestone: {
-    ar: 'ضبط كافة إعدادات الـ SEO و Open Graph وبطاقات المشاركة الاجتماعية وتجهيز مشروع التخرج للإطلاق التجريبي.',
-    en: 'Configure complete production SEO, Open Graph social cards, and performance optimizations for the capstone site.',
+    ar: 'إعداد بيانات البحث والمشاركة (SEO & WhatsApp Preview) وتحسين سرعة الصور في المشروع.',
+    en: 'Configure SEO and WhatsApp link preview metadata and optimize image loading in the project.',
   },
   aiRole: {
-    ar: 'مدقق ومفتش إنتاجي (Production Auditor) يفحص جاهزية محركات البحث وسرعة التحميل وثغرات الأداء.',
-    en: 'Production audit scanner evaluating search intent, semantic hierarchy, metadata, and core web vitals.',
+    ar: 'مساعد يضبط إعدادات الصفحة (Metadata) ويقترح كلمات واضحة يبحث عنها العملاء في Google.',
+    en: 'Assistant configuring page metadata and suggesting clear keywords customers search for on Google.',
   },
   marketConnection: {
-    ar: 'تحسين محركات البحث يساعد العملاء على الوصول إلى جمهور يبحث عن خدماتهم، ويمنح المطور فرصة لتقديم قيمة قابلة للشرح والقياس.',
-    en: 'Production-grade SEO delivers continuous organic revenue for clients, justifying premium freelance pricing.',
+    ar: 'عندما يرسل صاحب المشروع رابط موقعه لعميل في واتساب ويظهر بعنوان وصورة احترافية، تتضاعف ثقة العميل فورًا.',
+    en: 'When a business owner sends their link on WhatsApp and a rich preview card appears, client trust doubles immediately.',
   },
   startScreen: {
-    badge: 'SESSION 09 / 12 • PRODUCTION & SEO',
+    badge: 'الجلسة 09 من 12 • بناء الموقع وتحسينه (5)',
     headline: {
-      ar: 'Next.js + SEO: كيف تجعل موقعك يفتح في رمشة عين ويتصدر نتائج Google؟',
-      en: 'Next.js + SEO: Engineering Sub-Second Loading Speeds and Top Search Rankings',
+      ar: 'ربط الصفحات وتسريع الموقع وتجهيزه لمحركات البحث',
+      en: 'Connecting Pages, Speeding Up the Site & Search Optimization',
     },
     description: {
-      ar: 'تعلم أسرار الإنتاجية العالية: تحسين محركات البحث، بطاقات المشاركة، والتحكم في ميزانية الأداء الرقمي عبر Next.js 16.',
-      en: 'Master enterprise production delivery: metadata optimization, social sharing cards, and core web vitals in Next.js 16.',
+      ar: 'نتعلم اليوم كيف نجعل موقعنا سريع الفتح، وكيف نتحكم في العنوان والوصف والصورة التي تظهر عندما يبحث أحد عن موقعنا في Google أو يشارك رابطه في واتساب.',
+      en: 'Learn how to make your site load fast and control the title, description, and image shown on Google and WhatsApp.',
     },
     sessionGoal: {
-      ar: 'إعداد حزمة الـ SEO والـ Metadata الكاملة لمشروع تخرجك واجتياز فحص التدقيق الشامل بالذكاء الاصطناعي.',
-      en: 'Configure complete production SEO and metadata for your capstone project and pass the AI production audit.',
+      ar: 'ضبط عنوان ووصف موقعك لمحرك بحث Google وتجهيز بطاقة مشاركته في واتساب.',
+      en: 'Configure your website Google search title/description and WhatsApp share preview card.',
     },
   },
   endScreen: {
     headline: {
-      ar: 'رائع! مشروعك الآن جاهز لمنافسة كبرى المواقع في السرعة ومحركات البحث',
-      en: 'Magnificent! Your Project is Now Primed for Search Dominance & Speed',
+      ar: 'رائع! أصبح موقعك سريعًا ويظهر ببطاقة احترافية في Google وواتساب',
+      en: 'Awesome! Your Site Loads Fast and Shows a Pro Card on Google & WhatsApp',
     },
     keyRecap: [
       {
-        ar: 'الـ Metadata هي بطاقة هوية موقعك أمام محرك بحث Google ومستخدمي شبكات التواصل الاجتماعي.',
-        en: 'Metadata is your site digital passport for Google crawlers and social media sharing platforms.',
+        ar: 'بيانات تعريف الصفحة (Metadata) هي بطاقة الهوية التي تقرؤها Google وتطبيقات المحادثة مثل واتساب.',
+        en: 'Page metadata is the ID card read by Google and chat apps like WhatsApp.',
       },
       {
-        ar: 'سرعة تحميل الصفحة تؤثر في تجربة الاستخدام؛ قِس الأداء الفعلي قبل أن تربطه بنتائج النشاط التجاري.',
-        en: 'Page speed affects user experience; measure the actual result before linking it to business outcomes.',
+        ar: 'العنوان الواضح الذي يذكر نوع الخدمة والمدينة يساعد العملاء على إيجاد موقعك في البحث.',
+        en: 'A clear title mentioning your service and city helps customers find you on Google.',
       },
       {
-        ar: 'استخدم الذكاء الاصطناعي كفاحص دقيق للأداء والكلمات المفتاحية وليس فقط لكتابة الأكواد.',
-        en: 'Deploy AI as a relentless auditor of keywords, accessibility, and performance budgets.',
+        ar: 'ضغط الصور واستخدام الأحجام المناسبة يجعل الموقع يفتح في ثوانٍ حتى مع إنترنت الهاتف المتوسط.',
+        en: 'Optimizing images makes the site open in seconds even on mobile data.',
       },
     ],
     nextSessionNumber: '10',
     nextSessionTitle: {
-      ar: 'الذكاء الاصطناعي كمسار عمل مهني متكامل (Full SDLC Workflow)',
-      en: 'AI as a Professional Development Workflow: Architecture to Ship',
+      ar: 'فحص الموقع واختباره الشامل قبل الإطلاق',
+      en: 'Comprehensive Website Testing & Pre-Launch Inspection',
     },
   },
   slides: [
-    // Slide 1: Title
     {
       id: 's09-slide-01',
       sessionNumber: 9,
       slideNumber: 1,
       totalSlides: 10,
       type: 'title',
-      title: { ar: "Next.js + SEO — مواقع جاهزة للإنتاج", en: "Next.js + SEO — Production Web" },
-      estimatedMinutes: 2,
-      teachingGoal: { ar: 'افتتاح الجلسة وإعلان دخول مرحلة الجاهزية للإنتاج والتسويق الرقمي.', en: 'Open session: crossing into enterprise production-readiness and search discovery.' },
-      speakerNotes: { ar: "نفّذ: رحب بالطلاب: \"اليوم لا نتعلم فقط كيف نجعل الموقع يعمل على جهازك؛ اليوم نتعلم كيف نجعل العالم يكتشفه ويزوره عبر Google!\".\nاسأل: ما الهدف الذي تتوقع تحقيقه في جلسة «Next.js + SEO — مواقع جاهزة للإنتاج»؟\nتحقق: افتتاح الجلسة وإعلان دخول مرحلة الجاهزية للإنتاج والتسويق الرقمي.", en: "Cue: Welcome learners: \"Today we ensure your site is not just running on localhost, but ready for the entire world on Google!\"\nAsk: What outcome do you expect from “Next.js + SEO — Production Web”?\nCheck: Open session: crossing into enterprise production-readiness and search discovery." },
+      visualType: 'nextjs-seo-preview',
+      realWorldExample: {
+        ar: 'عندما ترسل رابط موقع لصديقك في واتساب، أحيانًا يظهر كرابط أزرق جاف، وأحيانًا يظهر كبطاقة جميلة فيها صورة وعنوان ووصف يشجع على الضغط!',
+        en: 'When you send a link on WhatsApp, sometimes it looks like a plain URL, and sometimes it shows a rich card with a photo, title, and description!',
+      },
+      title: {
+        ar: 'سرعة الموقع وظهوره في Google وواتساب',
+        en: 'Website Speed & Appearance on Google and WhatsApp',
+      },
+      estimatedMinutes: 5,
+      teachingGoal: {
+        ar: 'توضيح مفهوم SEO و Open Graph و Next.js من خلال تجربة مشاركة الرابط في واتساب والبحث في Google.',
+        en: 'Explain SEO, Open Graph, and Next.js through the familiar experience of WhatsApp link previews and Google search.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: أشر إلى الرسم التوضيحي على اليسار (معاينة بحث Google ومعاينة بطاقة واتساب). كل متدرب رأى هاتين البطاقتين آلاف المرات في حياته اليومية، واليوم سيتعلم كيف يصنعهما لموقعه!\nاسأل: عندما يصلك رابط بدون عنوان ولا صورة في واتساب، هل تتحمس للضغط عليه؟\nتحقق: البطاقة الواضحة تمنح الموقع مصداقية فورية قبل حتى أن يفتحه الزائر.',
+        en: 'Point to the Google search and WhatsApp share card previews in the illustration.',
+      },
       payload: {
         type: 'title',
         data: {
           sessionNumber: '09',
-          kicker: { ar: 'الجاهزية للإنتاج والانتشار', en: 'Production Readiness & SEO' },
-          headline: { ar: 'NEXT.JS & PRODUCTION SEO', en: 'NEXT.JS & PRODUCTION SEO' },
-          subheadline: { ar: 'معمارية App Router، تحسين السرعة، وضبط محركات البحث للريادة', en: 'App Router architecture, speed budgets, and dominating Google search rankings' },
           totalSessions: '12',
           durationMinutes: 90,
-          tags: ['Next.js 16', 'App Router', 'Production SEO', 'Metadata & Open Graph', 'Core Web Vitals'],
+          kicker: {
+            ar: 'المرحلة الرابعة • بناء الموقع وتحسينه (الجزء الخامس)',
+            en: 'Phase 4 • Building & Improving the Website (Part 5)',
+          },
+          headline: {
+            ar: 'كيف يظهر موقعك باحترافية في بحث Google ومحادثات واتساب؟',
+            en: 'How Does Your Website Appear Professionally on Google & WhatsApp?',
+          },
+          subheadline: {
+            ar: 'نتعرف على دور Next.js في تسريع الموقع، وكيف نضبط عنوان الموقع ووصفه وصورته الترحيبية عند مشاركة الرابط.',
+            en: 'Learn how Next.js speeds up your site and how to set your title, description, and preview image when sharing links.',
+          },
+          tags: ['ظهور في Google', 'بطاقة مشاركة واتساب', 'سرعة التصفح', 'Next.js & SEO'],
         },
       },
     },
-
-    // Slide 2: Context
     {
       id: 's09-slide-02',
       sessionNumber: 9,
       slideNumber: 2,
       totalSlides: 10,
-      type: 'context',
-      title: { ar: "اجعل موقعك قابلًا للاكتشاف", en: "Make Your Site Discoverable" },
-      subtitle: { ar: 'الفرق بين المطور الذي يسلم كوداً وبين صانع الويب الذي يسلم أداة جذب زبائن', en: 'The gap between a coder shipping files and a Web Creator shipping a customer engine' },
-      estimatedMinutes: 4,
-      teachingGoal: { ar: 'ربط مهارات الـ Next.js والـ SEO بالقيمة التجارية التي يدفع العميل لأجلها.', en: 'Connect technical Next.js capabilities directly to client business acquisition value.' },
-      speakerNotes: { ar: "نفّذ: أكد: \"يمكن لتهيئة موقع العميل لمحركات البحث أن تساعده على الوصول إلى جمهور يبحث عن خدماته. هذه قيمة عملية لصانع الويب\".\nاسأل: ما المشكلة التي توضّحها «اجعل موقعك قابلًا للاكتشاف»؟\nتحقق: مواقع React التقليدية (Client-Side Rendering) ترسل للمتصفح صفحة HTML فارغة، مما يصعب على روبوتات البحث قراءتها وأرشفتها.", en: "Cue: Search-ready websites can help clients reach people looking for their services.\nAsk: What problem does “Make Your Site Discoverable” point to?\nCheck: Legacy client-rendered React sends blank HTML shells, hobbling search bots from indexing content." },
+      type: 'concept',
+      visualType: 'nextjs-seo-preview',
+      realWorldExample: {
+        ar: 'بطاقة تعريف الموقع (Metadata) تشبه الغلاف الخارجي للكتاب: يقرؤه القارئ في المكتبة ليعرف موضوع الكتاب قبل أن يفتحه.',
+        en: 'Website metadata is like a book cover: people read the title and summary on the cover before opening the book.',
+      },
+      title: {
+        ar: 'ما هي «بطاقة تعريف الموقع» (Metadata) ولماذا تهمك؟',
+        en: 'What Is Website Metadata and Why Does It Matter?',
+      },
+      estimatedMinutes: 9,
+      teachingGoal: {
+        ar: 'تبسيط مفهوم `Metadata` و `SEO` إلى 3 عناصر واضحة (العنوان، الوصف، وصورة المشاركة).',
+        en: 'Simplify Metadata and SEO into 3 clear items: Title, Description, and Share Image.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: اشرح العناصر الثلاثة لبطاقة تعريف الموقع. في Next.js نضع هذه الأسطر الثلاثة البسيطة في ملف الإعداد الأساسي (`layout.tsx`)، فيقرؤها محرك بحث Google وتطبيق واتساب تلقائيًا.\nاسأل: ماذا يجب أن نكتب في عنوان الموقع ليظهر لمن يبحث في Google؟ (اسم المشروع + الخدمة الأساسية).\nتحقق: تأكد أن الجميع يفهم أن هذه البيانات تظهر في شريط عنوان المتصفح وفي Google وفي واتساب.',
+        en: 'Explain the 3 metadata fields: Page Title, Short Description, and Social Share Image.',
+      },
       payload: {
-        type: 'context',
+        type: 'concept',
         data: {
-          industryShift: {
-            ar: 'يبدأ كثير من المستخدمين رحلة العثور على موقع عبر البحث؛ الموقع غير المحسن لمحركات البحث يعتبر غير موجود عملياً.',
-            en: 'Many users discover websites through search; unoptimized sites are invisible.',
+          tagline: { ar: 'غلاف موقعك أمام العالم', en: 'Your Website Cover Card' },
+          principle: {
+            ar: '3 معلومات بسيطة تحدد كيف يرى الناس رابط موقعك',
+            en: '3 Simple Details Decide How People See Your Website Link',
           },
-          realWorldProblem: {
-            ar: 'مواقع React التقليدية (Client-Side Rendering) ترسل للمتصفح صفحة HTML فارغة، مما يصعب على روبوتات البحث قراءتها وأرشفتها.',
-            en: 'Legacy client-rendered React sends blank HTML shells, hobbling search bots from indexing content.',
+          explanation: {
+            ar: 'قبل أن يدخل الزائر إلى موقعك، يرى بطاقة صغيرة تمثل الموقع في نتائج بحث Google أو داخل محادثة واتساب تتكون من:',
+            en: 'Before visiting your site, people see a preview card on Google or WhatsApp made of:',
           },
-          whyItMatters: {
-            ar: 'محرك Next.js يحل هذه المشكلة جذرياً: ينشئ الـ HTML على الخادم (Server Rendering) ليكون جاهزاً فوراً للزوار وروبوتات Google قبل إرسال الصفحة إلى المتصفح.',
-            en: 'Next.js pre-renders semantic HTML on the server, serving rendered HTML to browsers and crawlers.',
+          bulletPoints: [
+            {
+              ar: '1. عنوان الصفحة (Title): يوضح اسم المشروع وماذا يقدم في 5 إلى 8 كلمات.',
+              en: '1. Page Title: States the project name and main service in 5–8 words.',
+            },
+            {
+              ar: '2. الوصف المختصر (Description): جملة واحدة جذابة تشرح الفائدة وتشجع الزائر على الدخول.',
+              en: '2. Short Description: One clear sentence explaining the benefit to visitors.',
+            },
+            {
+              ar: '3. صورة المشاركة (Open Graph Image): صورة أنيقة تظهر تلقائيًا عند إرسال الرابط في واتساب أو شبكات التواصل.',
+              en: '3. Share Image (Open Graph): A clean banner shown automatically when sharing the link on WhatsApp.',
+            },
+          ],
+          architecturalRule: {
+            ar: 'لا تطلق موقعًا أبدًا بعنوان افتراضي مثل "Create Next App"؛ اكتب دائمًا عنوان موقعك الحقيقي.',
+            en: 'Never launch a site with a default title like "Create Next App"—always set your real title.',
           },
         },
       },
     },
-
-    // Slide 3: Concept (The SEO Triangle)
     {
       id: 's09-slide-03',
       sessionNumber: 9,
       slideNumber: 3,
       totalSlides: 10,
-      type: 'concept',
-      title: { ar: "ركائز SEO الثلاث", en: "The Three SEO Pillars" },
-      estimatedMinutes: 5,
-      teachingGoal: { ar: 'شرح ركائز الـ SEO الثلاث التي يتحكم فيها مهندس الويب بالكامل.', en: 'Present the 3 technical pillars of modern SEO commanded by web creators.' },
-      speakerNotes: { ar: "نفّذ: استعرض الأركان الثلاثة: 1. المعمارية الدلالية، 2. نية البحث والكلمات المفتاحية، 3. سرعة التحميل و Core Web Vitals.\nاسأل: كيف تطبّق هذا المبدأ: الـ SEO الاحترافي ليس حِيلاً تسويقية، بل هو معمارية هندسية نظيفة تخدم الزائر وروبوت البحث معاً.؟\nتحقق: قاعدة معمارية: يجب أن يحتوي كل مسار في موقعك على كائن metadata مخصص ومفرغ من العبارات المكررة.", en: "Cue: Review the 3 pillars: Semantic Architecture, Search Intent & Metadata, and Core Web Vitals performance.\nAsk: How would you apply this principle: Professional SEO is not marketing gimmicks; it is clean engineering serving users and crawlers.?\nCheck: Architectural Rule: Every route in your Next.js project must export dedicated, unique metadata." },
+      type: 'comparison',
+      visualType: 'nextjs-seo-preview',
+      title: {
+        ar: 'مقارنة: رابط مهمل الإعدادات مقابل رابط مضبوط الهوية',
+        en: 'Comparison: Unconfigured Link vs. Properly Configured Link',
+      },
+      subtitle: {
+        ar: 'كيف يؤثر إعداد العنوان والوصف على انطباع العميل الأول؟',
+        en: 'How title and description settings shape a client’s first impression',
+      },
+      estimatedMinutes: 8,
+      teachingGoal: {
+        ar: 'إظهار الفرق البصري بين رابط يترك الإعدادات الافتراضية ورابط مضبوط بعناية.',
+        en: 'Show the contrast between default unconfigured metadata and a polished preview card.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: قارن بين العمودين. كثير من المطورين المبتدئين يبنون صفحة جميلة جدًا، لكن عندما يرسلون رابطها للعميل في واتساب يظهر العنوان `localhost` أو `Create Next App` بدون وصف! هذا يضعف الانطباع الاحترافي فورًا.\nاسأل: أي الرابطين سيثق به العميل ويضغط عليه فورًا؟\nتحقق: ضبط هذه الإعدادات لا يستغرق سوى دقيقتين مع الذكاء الاصطناعي.',
+        en: 'Compare a link showing "Create Next App" with a branded Arabic preview card.',
+      },
       payload: {
-        type: 'concept',
+        type: 'comparison',
         data: {
-          principle: {
-            ar: 'الـ SEO الاحترافي ليس حِيلاً تسويقية، بل هو معمارية هندسية نظيفة تخدم الزائر وروبوت البحث معاً.',
-            en: 'Professional SEO is not marketing gimmicks; it is clean engineering serving users and crawlers.',
+          leftHeader: {
+            ar: 'رابط مضبوط الهوية (يثير الثقة والاحترافية)',
+            en: 'Configured Link Preview (Builds Instant Trust)',
           },
-          tagline: { ar: 'ENGINEERED SEARCH SUPREMACY', en: 'ENGINEERED SEARCH SUPREMACY' },
-          explanation: {
-            ar: 'خوارزميات بحث Google تقيس موقعك عبر ثلاثة محاور متكاملة: صحة البيانات الوصفية (Metadata)، وضوح التسلسل الدلالي للعناوين، وسرعة استجابة الشاشة على الهواتف.',
-            en: 'Search crawlers evaluate platforms across three technical vectors: rich metadata fidelity, logical semantic heading hierarchy, and mobile viewport performance.',
+          rightHeader: {
+            ar: 'رابط بالإعدادات الافتراضية المنسية (مربك للعميل)',
+            en: 'Forgotten Default Settings (Confusing)',
           },
-          bulletPoints: [
-            { ar: 'نية البحث (Search Intent): كتابة عناوين ووصف يطابق بدقة ما يكتبه الزبون في شريط البحث', en: 'Search Intent: Crafting title and description matching exact client user queries' },
-            { ar: 'البيانات الوصفية (Metadata): ضبط title, description, keywords, و canonical URLs', en: 'Metadata schemas: Authoring title, description, keywords, and canonical links' },
-            { ar: 'بطاقات المشاركة الاجتماعية (Open Graph): صورة وعنوان يظهران بأناقة عند مشاركة الرابط على واتساب ولينكدإن', en: 'Open Graph cards: Rich visual previews when links are shared on WhatsApp or LinkedIn' },
-            { ar: 'مؤشرات الأداء الحيوية (Core Web Vitals): منع اهتزاز العناصر (Zero CLS) وسرعة ظهور أول نص (LCP < 1.5s)', en: 'Core Web Vitals: Zero visual layout shift and Largest Contentful Paint under 1.5s' },
+          dimensions: [
+            {
+              dimension: { ar: 'العنوان الظاهر في واتساب وGoogle', en: 'Title on WhatsApp & Google' },
+              left: {
+                ar: '«مقهى القهوة المختصة | قائمة المشروبات والطلب السريع»',
+                en: '"Specialty Roastery Café | Menu & Quick WhatsApp Ordering"',
+              },
+              right: {
+                ar: 'عبارات تقنية مبهمة مثل "Create Next App" أو "Home Page"',
+                en: 'Generic tech placeholders like "Create Next App" or "Untitled"',
+              },
+            },
+            {
+              dimension: { ar: 'الوصف تحت العنوان', en: 'Description Below Title' },
+              left: {
+                ar: '«تصفح قائمة القهوة المختصة والحلويات الطازجة واطلب مباشرة عبر واتساب»',
+                en: '"Browse our fresh specialty coffee menu and order directly via WhatsApp"',
+              },
+              right: {
+                ar: 'لا يوجد وصف أو نص إنجليزي افتراضي لا علاقة له بالموقع',
+                en: 'Missing description or unrelated English boilerplate text',
+              },
+            },
+            {
+              dimension: { ar: 'سرعة فتح الصور على الهاتف', en: 'Image Speed on Phones' },
+              left: {
+                ar: 'صور خفيفة ومضغوطة تفتح في أجزاء من الثانية',
+                en: 'Optimized lightweight images that load in a split second',
+              },
+              right: {
+                ar: 'صور خام ثقيلة جدًا تتأخر في الظهور وتبطئ الصفحة',
+                en: 'Heavy raw images that load slowly and lag the screen',
+              },
+            },
           ],
-          architecturalRule: {
-            ar: 'قاعدة معمارية: يجب أن يحتوي كل مسار في موقعك على كائن metadata مخصص ومفرغ من العبارات المكررة.',
-            en: 'Architectural Rule: Every route in your Next.js project must export dedicated, unique metadata.' },
+          balancedVerdict: {
+            ar: 'ضبط عنوان ووصف موقعك في دقيقتين يمنح مشروعك مظهر الشركات الكبرى عند مشاركة رابطه.',
+            en: 'Setting your title and description in two minutes gives your link big-brand polish.',
+          },
         },
       },
     },
-
-    // Slide 4: Code (Next.js 16 Metadata API)
     {
       id: 's09-slide-04',
       sessionNumber: 9,
       slideNumber: 4,
       totalSlides: 10,
-      type: 'code',
-      title: { ar: "كائن الـ Metadata الاحترافي في Next.js", en: "Code Artifact — Production Metadata in Next.js" },
-      estimatedMinutes: 5,
-      teachingGoal: { ar: 'تعليم الطلاب كيفية كتابة كائن metadata شامل يغطي محركات البحث وشبكات التواصل.', en: 'Teach authoring comprehensive typed Next.js metadata covering SEO and Open Graph.' },
-      speakerNotes: { ar: "نفّذ: اشرح حقول title, description, openGraph, و twitter. هذا الكود يوضع مباشرة في ملف layout.tsx أو page.tsx.\nاسأل: ما وظيفة المثال في «كائن الـ Metadata الاحترافي في Next.js»؟\nتحقق: كائن Metadata قياسي ومُنمذج بـ TypeScript يحدد هوية الصفحة لمحركات البحث ومنصات التواصل الاجتماعي. بدون هذا الكائن، سيظهر رابط موقعك كشريط رمادي فارغ عند مشاركته على واتساب ولن يفهم Google محتواه بدقة.", en: "Cue: Walk through title, description, openGraph, and twitter cards. This lives right in layout.tsx or page.tsx.\nAsk: What does the example in “Code Artifact — Production Metadata in Next.js” do?\nCheck: Production TypeScript Metadata object establishing page identity for search crawlers and social shares. Without Open Graph metadata, shared links display as naked grey links on WhatsApp and iMessage." },
+      type: 'reveal',
+      visualType: 'site-pages-map',
+      title: {
+        ar: 'كيف ينظم Next.js صفحات الموقع ويسرّع فتحها؟',
+        en: 'How Next.js Organizes Pages and Makes Them Load Fast',
+      },
+      estimatedMinutes: 8,
+      teachingGoal: {
+        ar: 'شرح فائدة استخدام إطار Next.js للمبتدئ في 3 نقاط عملية مفهومة (تنظيم الصفحات، سرعة الفتح، وبطاقة البحث).',
+        en: 'Explain why we use Next.js in 3 beginner-friendly points: page folders, fast loading, and built-in SEO.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: اشرح للمتدربين لماذا نستخدم Next.js فوق React: لأنه يرتب الصفحات في مجلدات بسيطة، ويجهز الصفحة بسرعة فائقة قبل إرسالها للهاتف، ويوفر مكانًا جاهزًا لكتابة بيانات Google وواتساب.\nاسأل: كيف نضيف صفحة جديدة اسمها `/about` في Next.js؟\nتحقق: ننشئ مجلدًا صغيرًا اسمه `about` وبداخله ملف `page.tsx` فقط!',
+        en: 'Explain the 3 benefits of Next.js: folder-based pages, fast server preparation, and easy metadata.',
+      },
       payload: {
-        type: 'code',
+        type: 'reveal',
         data: {
-          language: 'tsx',
-          codeSnippet: `// src/app/layout.tsx — Enterprise SEO Metadata Spec
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: {
-    default: 'Trattoria Roma — Artisan Italian Dining & Reservations',
-    template: '%s | Trattoria Roma',
-  },
-  description: 'Experience authentic Roman pasta and heritage dining handcrafted fresh daily. Book your reservation online.',
-  keywords: ['Italian restaurant', 'artisan pasta', 'Rome dining', 'dinner reservations'],
-  authors: [{ name: 'Trattoria Roma Culinary Team' }],
-  openGraph: {
-    title: 'Trattoria Roma — Handcrafted Italian Dining',
-    description: 'Reserve your table today for authentic Roman flavors and timeless culinary heritage.',
-    url: 'https://trattoria-roma.example.com',
-    siteName: 'Trattoria Roma',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Trattoria Roma Dining Room' }],
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Trattoria Roma — Artisan Italian Dining',
-    description: 'Authentic Roman pasta and reservations in the heart of the city.',
-    images: ['/og-image.jpg'],
-  },
-};`,
-          what: { ar: 'كائن Metadata قياسي ومُنمذج بـ TypeScript يحدد هوية الصفحة لمحركات البحث ومنصات التواصل الاجتماعي.', en: 'Production TypeScript Metadata object establishing page identity for search crawlers and social shares.' },
-          why: { ar: 'بدون هذا الكائن، سيظهر رابط موقعك كشريط رمادي فارغ عند مشاركته على واتساب ولن يفهم Google محتواه بدقة.', en: 'Without Open Graph metadata, shared links display as naked grey links on WhatsApp and iMessage.' },
-          when: { ar: 'إلزامي في ملف layout.tsx الرئيسي وفي كل صفحة فرعية داخل مجلد src/app.', en: 'Mandatory in root layout.tsx and every standalone route in modern Next.js projects.' },
+          premise: {
+            ar: 'يقدم لنا Next.js ثلاث خدمات رائعة تجعل موقعنا سريعًا ومنظمًا:',
+            en: 'Next.js gives us three practical benefits that keep our website fast and organized:',
+          },
+          steps: [
+            {
+              number: '01',
+              title: { ar: 'تنظيم الصفحات بالمجلدات البسيطة', en: '1. Simple Folder-Based Pages' },
+              description: {
+                ar: 'الصفحة الرئيسية في `app/page.tsx`، وأي صفحة جديدة هي مجرد مجلد جديد باسم الرابط.',
+                en: 'The homepage lives in `app/page.tsx`, and any new page is just a folder with the route name.',
+              },
+            },
+            {
+              number: '02',
+              title: { ar: 'تجهيز الصفحة بسرعة فائقة للزائر', en: '2. Ultra-Fast Page Loading' },
+              description: {
+                ar: 'يرسل النصوص والعناوين جاهزة للمتصفح فورًا فلا يرى الزائر شاشة بيضاء فارغة.',
+                en: 'Sends headlines and text ready to the browser immediately with zero blank-screen wait.',
+              },
+            },
+            {
+              number: '03',
+              title: { ar: 'إعداد مدمج لبيانات Google وواتساب', en: '3. Built-in Google & WhatsApp Metadata' },
+              description: {
+                ar: 'يحتوي على قسم جاهز (`metadata`) نكتب فيه عنوان الموقع ووصفه وصورته فيظهر في كل مكان.',
+                en: 'Includes a built-in `metadata` block where we set our site title, description, and preview card.',
+              },
+            },
+          ],
         },
       },
     },
-
-    // Slide 5: AI (The Comprehensive Production Audit Prompt)
     {
       id: 's09-slide-05',
       sessionNumber: 9,
       slideNumber: 5,
       totalSlides: 10,
-      type: 'ai',
-      title: { ar: "تدقيق الذكاء الاصطناعي الشامل لـ SEO والأداء", en: "The Comprehensive AI Production Audit Prompt" },
-      subtitle: { ar: 'الأمر المعتمد لفحص 6 محاور إنتاجية حاسمة قبل إطلاق أي موقع للعميل', en: 'The battle-tested audit prompt scanning 6 critical production vectors before client handoff' },
-      estimatedMinutes: 6,
-      teachingGoal: { ar: 'تدريب الطلاب على استخدام هذا البرومبت لفحص صفحاتهم واكتشاف أي قصور في معايير الـ SEO.', en: 'Equip students with this rigorous audit prompt to inspect their pages before deployment.' },
-      speakerNotes: { ar: "نفّذ: اقرأ المحاور الستة: SEO, Accessibility, Performance, Semantic HTML, Content Structure, Metadata. يساعد هذا الفحص على كشف جوانب تحتاج إلى تحسين.\nاسأل: أي قيد أو معيار قبول سيحمي الناتج من التخمين؟\nتحقق: معيار قابل للفحص: Every missing meta tag identified", en: "Cue: Review the 6 audit dimensions: SEO, Accessibility, Performance, Semantics, Content Structure, Metadata.\nAsk: Which constraint or acceptance criterion will guard against guesswork?\nCheck: A verifiable criterion: Every missing meta tag identified" },
+      type: 'code',
+      visualType: 'nextjs-seo-preview',
+      title: {
+        ar: 'كيف تبدو بطاقة تعريف الموقع في الكود؟ (6 أسطر واضحة)',
+        en: 'What Does Website Metadata Look Like in Code? (6 Clear Lines)',
+      },
+      estimatedMinutes: 8,
+      teachingGoal: {
+        ar: 'عرض كود `metadata` البسيط جدًا في Next.js ليرى المتدرب بنفسه سهولة قراءته وتعديله.',
+        en: 'Show the simple 6-line Next.js metadata block so trainees can read and edit it confidently.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: اعرض الأسطر الستة أمام المتدربين. انظروا كم هي مباشرة: `title` للعنوان، و`description` للوصف، و`openGraph` لبطاقة المشاركة في واتساب!\nاسأل: لو أردت تغيير الوصف الذي يظهر في واتساب، أي سطر ستعدل؟\nتحقق: سطر `description` الواضح باللغة العربية!',
+        en: 'Walk through `title`, `description`, and `openGraph` in the 6-line snippet.',
+      },
       payload: {
-        type: 'ai',
+        type: 'code',
         data: {
-          role: 'Principal Web Performance Auditor and Senior Technical SEO Consultant.',
-          context: 'Auditing our Next.js 16 landing page codebase ahead of production release.',
-          task: `Perform an exhaustive, multi-vector production audit across:
-1. SEO & Search Intent (Keyword density, Title, Description, Heading hierarchy h1-h3)
-2. Accessibility Compliance (WCAG 2.1 AA contrast, button labels, image alts)
-3. Performance & Core Web Vitals (Image dimensions, layout shifts, bundle weight)
-4. Semantic HTML Architecture (Proper W3C elements over divs)
-5. Content & Copywriting Structure (Value proposition clarity, CTA visibility)
-6. Metadata & Open Graph Social Previews`,
-          constraints: 'Be rigorous and brutally objective. List exact filename and line references for every identified issue. Provide drop-in remediation code.',
-          output: `Return:
-- Executive Readiness Score (0-100%)
-- Critical Findings by Vector
-- Immediate Remediation Code Patches`,
-          acceptanceCriteria: [
-            'Every missing meta tag identified',
-            'Zero heading hierarchy skips (e.g. h1 directly to h3 flagged)',
-            'Actionable copy-paste remediation diff provided',
-          ],
-          iterationTip: {
-            ar: 'شغل هذا الفحص مرتين: مرة قبل إنهاء الكود، ومرة ثانية بعد تطبيق التعديلات للتحقق من النتيجة.',
-            en: 'Execute this audit twice: once before polishing, and once after to verify which issues have been resolved.',
+          language: 'Next.js Metadata (layout.tsx)',
+          codeSnippet: `export const metadata = {
+  title: 'مقهى القهوة المختصة | قائمة المشروبات والطلب السريع',
+  description: 'تصفح قائمة القهوة المختصة والحلويات الطازجة واطلب مباشرة عبر واتساب.',
+  openGraph: {
+    title: 'مقهى القهوة المختصة — اطلب قهوتك الآن',
+    description: 'قهوة محمصة طازجة يومياً مع طلب سريع عبر واتساب.',
+  },
+};`,
+          what: {
+            ar: 'إعداد بطاقة تعريف الموقع التي تحدد العنوان والوصف في بحث Google ومحادثات واتساب.',
+            en: 'The metadata block setting the title and description for Google search and WhatsApp shares.',
+          },
+          why: {
+            ar: 'لأنها تجعل رابط موقعك يظهر كبطاقة تعريف احترافية ومقنعة في كل مرة تشاركه فيها.',
+            en: 'It makes your website link appear as a professional, trustworthy preview card every time it is shared.',
+          },
+          when: {
+            ar: 'نضعها في الملف الرئيسي للموقع (`src/app/layout.tsx`) قبل نشر الموقع.',
+            en: 'Placed in the main layout file (`src/app/layout.tsx`) before launching the website.',
           },
         },
       },
     },
-
-    // Slide 6: Demo (Live Metadata & Audit Run)
     {
       id: 's09-slide-06',
       sessionNumber: 9,
       slideNumber: 6,
       totalSlides: 10,
-      type: 'demo',
-      title: { ar: "تشغيل فحص الـ SEO واختبار بطاقة المشاركة", en: "Live Demo — Running SEO Audit & Testing Social Preview" },
+      type: 'question',
+      visualType: 'nextjs-seo-preview',
+      title: {
+        ar: 'سؤال تفاعلي: ما العنوان الأفضل لمحرك بحث Google؟',
+        en: 'Interactive Question: Which Title Is Best for Google Search?',
+      },
       estimatedMinutes: 6,
-      teachingGoal: { ar: 'مشاهدة تطبيق الـ Metadata عملياً واختبار ظهور بطاقة المشاركة في المتصفح.', en: 'Demonstrate live metadata injection and social card rendering in browser tools.' },
-      speakerNotes: { ar: "نفّذ: افتح ملف layout.tsx وأضف الـ Metadata. اعرض بطاقة المشاركة باستخدام أداة فحص الـ Open Graph في المتصفح.\nاسأل: تضمين كائن Metadata المعتمد وتشغيل فحص التدقيق بالذكاء الاصطناعي لتقييم جاهزية المشروع.\nتحقق: صفحة متكاملة المعالم ببيانات وصفية دقيقة واجتياز تام لجميع معايير الـ SEO.", en: "Cue: Open layout.tsx, add metadata block, and demonstrate social card simulation live.\nAsk: Inject production metadata and execute comprehensive AI audit assessing readiness.\nCheck: Fully compliant page with rich metadata passing all search and accessibility benchmarks." },
+      teachingGoal: {
+        ar: 'تدريب المتدرب على صياغة عنوان موقع غني بالكلمات الواضحة التي يبحث عنها الناس فعليًا.',
+        en: 'Train learners to write clear titles containing the words real customers search for.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: اطرح السؤال في شات Zoom.\nاسأل: لو كنت تبحث في Google عن عيادة أسنان، هل تكتب «الصفحة الرئيسية» أم تكتب «عيادة النور لطب وتجميل الأسنان»؟\nتحقق: العنوان الناجح يجمع بين (اسم المشروع + الخدمة الأساسية التي يبحث عنها الزبون).',
+        en: 'Ask trainees which title helps customers find a business on Google.',
+      },
       payload: {
-        type: 'demo',
+        type: 'question',
         data: {
-          objective: {
-            ar: 'تضمين كائن Metadata المعتمد وتشغيل فحص التدقيق بالذكاء الاصطناعي لتقييم جاهزية المشروع.',
-            en: 'Inject production metadata and execute comprehensive AI audit assessing readiness.',
+          question: {
+            ar: 'أي العناوين التالية هو الأفضل لكتابته في بطاقة تعريف موقع عيادة أسنان؟',
+            en: 'Which of the following titles is best for a dental clinic website metadata?',
           },
-          promptToUse: `Analyze this Next.js page for:
-SEO
-Accessibility
-Performance
-Semantic HTML
-Content structure
-Metadata
-
-Flag any missing attributes and generate corrected layout metadata.`,
-          instructorSteps: [
-            { ar: 'إضافة كائن Metadata إلى ملف layout.tsx في المشروع', en: 'Inject Metadata object into project layout.tsx' },
-            { ar: 'تشغيل المتصفح وفحص وسم <head> للتأكد من توليد وسوم og:image و og:title', en: 'Inspect document <head> in DevTools to verify og:image tags' },
-            { ar: 'إرسال كود الصفحة لبرومبت التدقيق الشامل بالذكاء الاصطناعي', en: 'Submit page code to comprehensive AI audit prompt' },
-            { ar: 'تطبيق التعديلات المقترحة واستيفاء معايير الجاهزية المحددة', en: 'Apply recommendations to meet the stated readiness criteria' },
+          contextHint: {
+            ar: 'فكر في الكلمات التي يكتبها المريض في بحث Google وما يريد قراءته في واتساب.',
+            en: 'Think about the words a patient types on Google and reads on WhatsApp.',
+          },
+          promptToClass: {
+            ar: 'اكتب رقم الخيار الأفضل في شات Zoom 💬',
+            en: 'Type the best option in Zoom chat 💬',
+          },
+          expectedAnswers: [
+            {
+              ar: '✅ الخيار الصحيح: «عيادة النور لطب الأسنان | ابتسامة صحية وحجز سريع عبر واتساب».',
+              en: '✅ Best Choice: "Al-Noor Dental Clinic | Healthy Smile & Quick WhatsApp Booking".',
+            },
+            {
+              ar: 'لأنه يوضح اسم العيادة، ونوع الخدمة، وطريقة الحجز المباشرة في سطر واحد.',
+              en: 'Because it clearly states the clinic name, service type, and booking method in one line.',
+            },
           ],
-          expectedOutput: {
-            ar: 'صفحة متكاملة المعالم ببيانات وصفية دقيقة واجتياز تام لجميع معايير الـ SEO.',
-            en: 'Fully compliant page with rich metadata passing all search and accessibility benchmarks.',
-          },
         },
       },
     },
-
-    // Slide 7: Challenge (Student Metadata Lab)
     {
       id: 's09-slide-07',
       sessionNumber: 9,
       slideNumber: 7,
       totalSlides: 10,
-      type: 'challenge',
-      title: { ar: "إعداد حزمة الـ SEO لمشروعك", en: "Student Challenge — Author Project Metadata Package" },
-      estimatedMinutes: 8,
-      teachingGoal: { ar: 'قيام كل طالب بكتابة كائن Metadata مخصص لمشروعه وتجربة فحص الـ AI عليه.', en: 'Every student configures bespoke production metadata for their capstone domain.' },
-      speakerNotes: { ar: "نفّذ: أطلق مؤقت الـ 5 دقائق. اطلب منهم كتابة title مخصص جذاب ووصف description دقيق لمشروعهم ووضعه في layout.tsx.\nاسأل: ما الناتج الذي ستسلّمه؟ كتابة وتضمين كائن الـ Metadata الكامل (Title, Description, OpenGraph) في ملف layout.tsx لمشروعك.\nتحقق: ملف layout.tsx مجهز ببيانات SEO وإنتاجية متكاملة لمشروع تخرجك.", en: "Cue: Start 5-minute timer. Instruct students to craft compelling title and description in layout.tsx.\nAsk: What will you submit? Author and inject complete production Metadata (Title, Description, OpenGraph) in your project layout.\nCheck: Production-ready layout.tsx equipped with complete search and social metadata." },
+      type: 'demo',
+      visualType: 'nextjs-seo-preview',
+      title: {
+        ar: 'تطبيق عملي: ضبط بطاقة Google وواتساب لموقع المقهى',
+        en: 'Live Demo: Setting Up Google & WhatsApp Metadata for the Café',
+      },
+      estimatedMinutes: 15,
+      teachingGoal: {
+        ar: 'تطبيق حي لإعداد `metadata` لموقع المقهى ومعاينة تغير عنوان تبويب المتصفح وبطاقة المشاركة.',
+        en: 'Demonstrate setting up metadata for the café site and verifying the browser tab title.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: أرسل البرومبت أمام المتدربين وأرهم كيف يتغير عنوان التبويب في أعلى المتصفح فورًا إلى «مقهى القهوة المختصة | قائمة المشروبات والطلب السريع».\nاسأل: هل لاحظتم كيف أصبح عنوان الموقع واضحًا في شريط المتصفح؟\nتحقق: هذا نفس العنوان الذي سيظهر عندما نرسل الرابط لأي عميل عبر واتساب.',
+        en: 'Show the browser tab title and Open Graph tags updating live.',
+      },
       payload: {
-        type: 'challenge',
+        type: 'demo',
         data: {
-          mission: {
-            ar: 'كتابة وتضمين كائن الـ Metadata الكامل (Title, Description, OpenGraph) في ملف layout.tsx لمشروعك.',
-            en: 'Author and inject complete production Metadata (Title, Description, OpenGraph) in your project layout.',
-          },
-          durationMinutes: 5,
           objective: {
-            ar: 'تأهيل مشروعك البرمجي للظهور في محركات البحث ومشاركته كبطاقة احترافية على منصات التواصل.',
-            en: 'Equip your capstone repository with rich search metadata and polished social sharing cards.',
+            ar: 'إعداد العنوان والوصف وبطاقة المشاركة في واتساب لموقع المقهى',
+            en: 'Configure title, description, and WhatsApp Open Graph card for the café site',
           },
-          instructions: [
-            { ar: 'افتح ملف src/app/layout.tsx في مشروعك', en: 'Open src/app/layout.tsx in your workspace' },
-            { ar: 'اكتب title جذاب يحتوي اسم مشروعك والكلمة المفتاحية (مثال: Trattoria Roma — Artisan Italian Dining)', en: 'Craft compelling title including brand name and primary search keyword' },
-            { ar: 'اكتب description من 140-160 حرفاً يصف بدقة القيمة التي يقدمها مشروعك للعميل', en: 'Author a 140-160 character description summarizing unique customer value' },
-            { ar: 'أضف بيانات الـ Open Graph بما فيها رابط صورة المعاينة og:image', en: 'Configure Open Graph block with title, description, and preview image URL' },
+          instructorSteps: [
+            {
+              ar: 'نطلب من الذكاء الاصطناعي تحديث بيانات تعريف الموقع (Metadata) في الملف الرئيسي باللغة العربية.',
+              en: 'Ask AI to update the Arabic Metadata in the main layout file.',
+            },
+            {
+              ar: 'نحدد العنوان الواضح، والوصف المختصر الجذاب، وبيانات المشاركة في واتساب (Open Graph).',
+              en: 'Set the clear title, concise description, and Open Graph WhatsApp share fields.',
+            },
+            {
+              ar: 'ننظر إلى أعلى تبويب المتصفح لنتأكد من ظهور العنوان العربي الجديد بوضوح.',
+              en: 'Check the top browser tab to confirm the new Arabic title appears clearly.',
+            },
           ],
-          starterPromptOrCode: "export const metadata: Metadata = { title: '...', description: '...', openGraph: { ... } };",
-          deliverable: {
-            ar: 'ملف layout.tsx مجهز ببيانات SEO وإنتاجية متكاملة لمشروع تخرجك.',
-            en: 'Production-ready layout.tsx equipped with complete search and social metadata.',
+          promptToUse:
+            'اضبط بيانات تعريف الموقع (Metadata و Open Graph) في ملف layout.tsx باللغة العربية بحيث يظهر العنوان: «مقهى القهوة المختصة | قائمة المشروبات والطلب السريع»، والوصف: «تصفح قائمة القهوة المختصة والحلويات الطازجة واطلب مباشرة عبر واتساب»، وتأكد من ضبط اتجاه الصفحة من اليمين لليسار (dir="rtl" و lang="ar").',
+          expectedOutput: {
+            ar: 'ظهور اسم المقهى ووصفه الاحترافي في شريط المتصفح ونتائج البحث ومشاركات واتساب.',
+            en: 'The café name and description appear cleanly in browser tabs, search results, and WhatsApp shares.',
           },
         },
       },
     },
-
-    // Slide 8: Project (Milestone 09)
     {
       id: 's09-slide-08',
       sessionNumber: 9,
       slideNumber: 8,
       totalSlides: 10,
-      type: 'project',
-      title: { ar: "الجاهزية للإنتاج ومحركات البحث", en: "Project Milestone — Production & Search Ready" },
-      estimatedMinutes: 4,
-      teachingGoal: { ar: 'تثبيت اكتمال الجانب المعماري والـ SEO لمشروع التخرج بالكامل.', en: 'Confirm capstone project is now an SEO-optimized, production-ready web platform.' },
-      speakerNotes: { ar: "نفّذ: هنئ الطلاب: \"مشروعك الآن ليس مجرد موقع تجريبي؛ مشروعك الآن يملك المعايير التقنية التي تؤهله للمنافسة في محرك بحث Google فور إطلاقه!\".\nاسأل: أي مخرج من هذه المرحلة يحتاج إلى استكمال؟\nتحقق: كائن Metadata متكامل يغطي محركات البحث وشبكات التواصل؛ هيكل عناوين دلالي منضبط (h1 واحد فقط، h2 للأقسام، h3 للبطاقات)؛ اجتياز فحص التدقيق الشامل بالذكاء الاصطناعي وفق معايير الفحص المحددة", en: "Cue: Congratulate learners: \"Your repo now carries enterprise SEO engineering ready for Google competition!\"\nAsk: Which deliverable from this phase still needs work?\nCheck: Comprehensive Metadata object with Open Graph and Twitter cards; Strict sequential heading hierarchy across all page sections; Passing comprehensive AI production audit against the stated audit criteria" },
+      type: 'challenge',
+      visualType: 'nextjs-seo-preview',
+      title: {
+        ar: 'نشاطك العملي: اكتب واضبط بطاقة ظهور موقعك في Google وواتساب',
+        en: 'Your Activity: Write & Configure Your Google and WhatsApp Card',
+      },
+      estimatedMinutes: 20,
+      teachingGoal: {
+        ar: 'تمكين كل متدرب من صياغة عنوان ووصف موقعه وتطبيقهما في مشروعه.',
+        en: 'Have each trainee write and apply their own site title and description metadata.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: شغّل المؤقت لمدة 20 دقيقة. اطلب من كل متدرب كتابة العنوان والوصف لمشروعه وتطبيقهما.\nاسأل: من يشاركنا العنوان والوصف اللذين اختارهما لموقعه في الشات؟\nتحقق: راجع عناوين المتدربين وتأكد أنها واضحة ومباشرة وخالية من المبالغات.',
+        en: 'Run the 20-minute timer and review trainee metadata titles and descriptions.',
+      },
       payload: {
-        type: 'project',
+        type: 'challenge',
         data: {
-          phaseName: { ar: 'المرحلة 09: الجاهزية للإنتاج والـ SEO الاحترافي', en: 'Phase 09: Production Readiness & Enterprise SEO' },
-          stepNumber: '09',
-          whatWeBuildNow: {
-            ar: 'اكتمال دمج معايير الـ SEO، بيانات الـ Metadata، وتحسينات الأداء في مشروع التخرج.',
-            en: 'Finalize SEO integration, metadata schemas, and performance budgets for your capstone project.',
+          mission: {
+            ar: 'جهّز عنوان موقعك ووصفه ليظهر باحترافية عند مشاركة الرابط',
+            en: 'Prepare Your Website Title and Description for Professional Link Sharing',
           },
-          deliverables: [
-            { ar: 'كائن Metadata متكامل يغطي محركات البحث وشبكات التواصل', en: 'Comprehensive Metadata object with Open Graph and Twitter cards' },
-            { ar: 'هيكل عناوين دلالي منضبط (h1 واحد فقط، h2 للأقسام، h3 للبطاقات)', en: 'Strict sequential heading hierarchy across all page sections' },
-            { ar: 'اجتياز فحص التدقيق الشامل بالذكاء الاصطناعي وفق معايير الفحص المحددة', en: 'Passing comprehensive AI production audit against the stated audit criteria' },
+          durationMinutes: 20,
+          objective: {
+            ar: 'إعداد هوية موقعك لمحرك بحث Google ومحادثات واتساب.',
+            en: 'Configure your website identity for Google search and WhatsApp link previews.',
+          },
+          instructions: [
+            {
+              ar: '1. اكتب عنوان موقعك (اسم المشروع + الخدمة الأساسية في 5 إلى 8 كلمات).',
+              en: '1. Write your site title (Project Name + Main Service in 5–8 words).',
+            },
+            {
+              ar: '2. اكتب وصفًا مختصرًا في جملة واحدة يوضح فائدة الموقع ويشجع على الطلب أو التواصل.',
+              en: '2. Write a 1-sentence description explaining the site benefit and action.',
+            },
+            {
+              ar: '3. اطلب من الذكاء الاصطناعي إضافتهما في إعدادات الصفحة (Metadata & Open Graph) وتأكد من ظهورهما في تبويب المتصفح.',
+              en: '3. Ask AI to add them to your page Metadata & Open Graph and verify the browser tab title.',
+            },
           ],
-          connectionToFinalProject: {
-            ar: 'في الجلسة 10 سننتقل إلى المرحلة المتقدمة: توظيف الذكاء الاصطناعي في كامل مسار تطوير البرمجيات المهني (SDLC).',
-            en: 'In Session 10 we elevate AI to full-lifecycle professional engineering: research, planning, testing, and review.',
+          deliverable: {
+            ar: 'شارك عنوان موقعك ووصفه في شات Zoom أو أرسلهما عبر واتساب من صفحة الجلسة.',
+            en: 'Share your site title and description in Zoom chat or via WhatsApp.',
           },
         },
       },
     },
-
-    // Slide 9: Takeaway
     {
       id: 's09-slide-09',
       sessionNumber: 9,
       slideNumber: 9,
       totalSlides: 10,
-      type: 'takeaway',
-      title: { ar: "خلاصة: SEO والإنتاج", en: "Recap: SEO & Production" },
+      type: 'project',
+      visualType: 'nextjs-seo-preview',
+      title: {
+        ar: 'الخطوة التاسعة في مشروعك: موقع سريع ومجهز للمشاركة والبحث',
+        en: 'Step 9 in Your Project: Fast Website Ready for Sharing & Search',
+      },
       estimatedMinutes: 4,
-      teachingGoal: { ar: 'تثبيت مبادئ الـ SEO الهندسي وسرعة الأداء الرقمي كمعيار مهني.', en: 'Cement technical SEO and sub-second performance budgets as non-negotiable standards.' },
-      speakerNotes: { ar: "نفّذ: اقرأ النقاط الثلاث. أكد: \"الـ SEO الحقيقي هو كود نظيف وسريع يلبي نية بحث المستخدم بدقة\".\nاسأل: أي مبدأ من «خلاصة: SEO والإنتاج» ستستخدمه في مشروعك؟\nتحقق: الموقع الناجح هو الذي يجمع بين روعة التصميم، نظافة الكود، وسهولة اكتشافه في العالم الرقمي.", en: "Cue: Review takeaways: Genuine SEO is fast, clean code answering user intent with precision.\nAsk: Which principle from “Recap: SEO & Production” will you use in your project?\nCheck: A triumphant web product unites striking aesthetics, clean architecture, and instant discoverability." },
+      teachingGoal: {
+        ar: 'تتويج ختام المرحلة الرابعة (بناء الموقع وتحسينه) والتمهيد للمرحلة الخامسة (الاختبار والإطلاق).',
+        en: 'Celebrate completing Phase 4 (Building & Improving) and preview Phase 5 (Testing & Pre-Launch).',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: هنئ المتدربين بإتمام المرحلة الرابعة بالكامل! موقعهم الآن مقسم، مبني، متجاوب مع الهاتف، تفاعلي، ومجهز لمحركات البحث وواتساب.\nاسأل: ماذا نفعل قبل أن ننشر هذا الموقع للناس والعملاء؟\nتحقق: ننتقل في الجلسة العاشرة إلى المرحلة الخامسة: الفحص الشامل والاختبار قبل الإطلاق!',
+        en: 'Congratulate trainees on completing Phase 4 and introduce Phase 5 (Testing & Launch).',
+      },
+      payload: {
+        type: 'project',
+        data: {
+          stepNumber: '09',
+          phaseName: {
+            ar: 'المرحلة الرابعة: تسريع الموقع وتجهيز بطاقة البحث والمشاركة',
+            en: 'Phase 4: Speed & Search/Share Preview Setup',
+          },
+          whatWeBuildNow: {
+            ar: 'بطاقة تعريف الموقع الكاملة (SEO & WhatsApp Open Graph) + ضبط اتجاه اللغة',
+            en: 'Complete SEO & WhatsApp Open Graph Card + RTL Language Configuration',
+          },
+          deliverables: [
+            {
+              ar: 'عنوان موقع واضح يظهر في شريط المتصفح ونتائج بحث Google',
+              en: 'Clear site title visible in browser tabs and Google search results',
+            },
+            {
+              ar: 'وصف مختصر وبطاقة مشاركة أنيقة عند إرسال الرابط في واتساب',
+              en: 'Concise description and clean preview card when sharing on WhatsApp',
+            },
+            {
+              ar: 'ضبط اتجاه اللغة العربية (RTL) وتحسين سرعة ظهور الصور',
+              en: 'Proper Arabic RTL attributes and fast image loading',
+            },
+          ],
+          connectionToFinalProject: {
+            ar: 'بهذه الخطوة يكتمل بناء موقعك تقنيًا وبصريًا، ويصبح جاهزًا لمرحلة الفحص النهائي والنشر الحي.',
+            en: 'With this step, your site is technically and visually built, ready for final testing and launch.',
+          },
+        },
+      },
+    },
+    {
+      id: 's09-slide-10',
+      sessionNumber: 9,
+      slideNumber: 10,
+      totalSlides: 10,
+      type: 'takeaway',
+      title: {
+        ar: 'خلاصة الجلسة التاسعة في 3 نقاط',
+        en: 'Session 09 Summary in 3 Points',
+      },
+      estimatedMinutes: 3,
+      teachingGoal: {
+        ar: 'تثبيت خلاصة الجلسة التاسعة والتمهيد للجلسة العاشرة.',
+        en: 'Reinforce Session 09 takeaways and preview Session 10.',
+      },
+      speakerNotes: {
+        ar: 'نفّذ: راجع النقاط الثلاث مع المتدربين.\nاسأل: ما الأشياء الثلاثة التي تحدد شكل رابط موقعك في واتساب؟ (العنوان، الوصف، والصورة).\nتحقق: ذكّرهم بإرسال نشاط الجلسة عبر واتساب.',
+        en: 'Review the 3 takeaways and preview Session 10.',
+      },
       payload: {
         type: 'takeaway',
         data: {
           takeaways: [
             {
               number: '01',
-              title: { ar: 'الـ SEO هندسة وليس كلمات عشوائية', en: 'SEO is Architecture, Not Keywords' },
+              title: {
+                ar: 'بطاقة تعريف الموقع هي انطباعك الأول',
+                en: 'Your Link Preview Card Is Your First Impression',
+              },
               description: {
-                ar: 'بناء الهيكل الدلالي، العناوين المتسلسلة، وبيانات الـ Metadata الصريحة هو الأساس الأول لتصدر محركات البحث.',
-                en: 'Clean semantic structure, sequential headings, and rigid metadata form the bedrock of search ranking.',
+                ar: 'عنوان الموقع ووصفه هما أول ما يقرؤه العميل في واتساب أو Google قبل فتح الرابط.',
+                en: 'Your title and description are the first things clients read on WhatsApp or Google.',
               },
             },
             {
               number: '02',
-              title: { ar: 'السرعة ومؤشرات الـ Web Vitals تحسم المنافسة', en: 'Core Web Vitals Crown the Victor' },
+              title: {
+                ar: 'اكتب كلمات واضحة يبحث عنها الزبون',
+                en: 'Use Clear Words Customers Actually Search For',
+              },
               description: {
-                ar: 'الصور المحسنة والتحميل اللحظي يمنحان موقعك أفضلية مطلقة على المواقع البطيئة في خوارزميات Google.',
-                en: 'Optimized media assets and sub-second rendering grant absolute search preference over bloated competitors.',
+                ar: 'اذكر نوع الخدمة أو المنتج بوضوح في العنوان والوصف ليفهمه الزائر ومحرك البحث معًا.',
+                en: 'Clearly state your service or product in the title and description.',
               },
             },
             {
               number: '03',
-              title: { ar: 'فحص الـ AI الشامل قبل كل إطلاق', en: 'Mandatory AI Audit Before Every Launch' },
+              title: {
+                ar: 'السرعة جزء أساسي من راحة الزائر',
+                en: 'Speed Is Essential for Visitor Comfort',
+              },
               description: {
-                ar: 'لا تطلق موقعاً للعميل قبل تشغيل فحص الـ 6 محاور بالذكاء الاصطناعي لاكتشاف أي ثغرات خفية وتصحيحها.',
-                en: 'Never deploy to production without executing the 6-vector AI audit scanning for silent regressions.',
+                ar: 'الصور الخفيفة والصفحات المنظمة تفتح فورًا على الهاتف وتحافظ على اهتمام الزائر.',
+                en: 'Lightweight images and clean pages load immediately on mobile phones.',
               },
             },
           ],
           coreMotto: {
-            ar: 'الموقع الناجح هو الذي يجمع بين روعة التصميم، نظافة الكود، وسهولة اكتشافه في العالم الرقمي.',
-            en: 'A triumphant web product unites striking aesthetics, clean architecture, and instant discoverability.',
-          },
-        },
-      },
-    },
-
-    // Slide 10: Next
-    {
-      id: 's09-slide-10',
-      sessionNumber: 9,
-      slideNumber: 10,
-      totalSlides: 10,
-      type: 'next',
-      title: { ar: "المحطة القادمة — AI كمسار عمل مهني متكامل", en: "Next Waypoint — AI as a Professional SDLC Workflow" },
-      estimatedMinutes: 2,
-      teachingGoal: { ar: 'تشويق الطلاب للجلسة 10 حيث سنتعلم دور الذكاء الاصطناعي في كامل دورة حياة المشروع.', en: 'Build anticipation for Session 10: deploying AI across the full software development lifecycle.' },
-      speakerNotes: { ar: "نفّذ: اختم الجلسة: \"في الجلسة 10 سنكشف كيف يوظف كبار المطورين AI في الاختبارات والتوثيق والمراجعة، وكيف تتجنب فخاخ الهلوسة والمخاطر الأمنية!\".\nاسأل: ما الذي ستجهزه قبل الجلسة القادمة؟\nتحقق: تأكد من أن ملفات مشروعك وحزمة الـ Metadata تعمل بسلاسة وخالية من أي أخطاء build.", en: "Cue: Closing: \"In Session 10 we reveal how senior architects deploy AI for testing, refactoring, and avoiding hallucination traps!\"\nAsk: What will you prepare before the next session?\nCheck: Verify your project builds cleanly with zero errors ahead of Session 10." },
-      payload: {
-        type: 'next',
-        data: {
-          nextSessionNumber: '10',
-          nextSessionTitle: {
-            ar: 'الذكاء الاصطناعي كمسار عمل مهني متكامل (Full SDLC Workflow)',
-            en: 'AI as a Professional Development Workflow: Architecture to Ship',
-          },
-          teaser: {
-            ar: 'الذكاء الاصطناعي ليس مجرد توليد كود؛ سنتعلم كيف نوظفه في التخطيط، الاختبار، التوثيق، مراجعة الأكواد، وفهم حدوده ومخاطره الأمنية: "AI generates. Human validates".',
-            en: 'AI is not just code generation; master AI across planning, testing, refactoring, code review, and risk mitigation: "AI generates. Human validates".',
-          },
-          preparationHint: {
-            ar: 'تأكد من أن ملفات مشروعك وحزمة الـ Metadata تعمل بسلاسة وخالية من أي أخطاء build.',
-            en: 'Verify your project builds cleanly with zero errors ahead of Session 10.',
+            ar: 'الخطوة القادمة في الجلسة 10: كيف نفحص الموقع ونختبر جميع أزراره وشاشاته قبل الإطلاق؟',
+            en: 'Up Next in Session 10: How to inspect and test all buttons and screens before launch.',
           },
         },
       },

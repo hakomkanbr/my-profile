@@ -3,78 +3,83 @@
 import React, { useState } from 'react';
 import { QuestionSlidePayload, LocalizedString } from '@/types';
 import { getLocalizedText } from '@/lib/utils';
-import { usePreferencesStore, useTrainerStore } from '@/store';
-import { HelpCircle, MessageSquare, ChevronDown, CheckCircle2 } from 'lucide-react';
+import { usePreferencesStore } from '@/store';
+import { ChevronDown } from 'lucide-react';
 
 interface QuestionSlideProps {
   title: LocalizedString;
   payload: QuestionSlidePayload;
 }
 
-export const QuestionSlide: React.FC<QuestionSlideProps> = ({ title, payload }) => {
+export const QuestionSlide: React.FC<QuestionSlideProps> = ({
+  title,
+  payload,
+}) => {
   const { language } = usePreferencesStore();
-  const { viewMode } = useTrainerStore();
   const isRtl = language === 'ar';
   const [showAnswers, setShowAnswers] = useState(false);
 
   return (
     <div className="w-full h-full flex flex-col justify-between p-8 sm:p-14 lg:p-20 select-none overflow-y-auto text-start">
       {/* Top Category Tag */}
-      <div className="flex items-center justify-between border-b border-[var(--pres-border-subtle)] pb-4">
-        <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[var(--pres-primary)]">
-          <HelpCircle className="w-4 h-4" />
-          <span>{isRtl ? 'سؤال للنقاش التفاعلي' : 'Live Interactive Question'}</span>
-        </div>
-        <span className="text-xs font-mono text-[var(--pres-text-subtle)]">
+      <div className="flex items-center justify-between border-b border-[var(--pres-border)] pb-4">
+        <span className="text-xs sm:text-sm font-mono font-bold text-[var(--pres-primary)]">
+          {isRtl ? 'سؤال للنقاش' : 'Discussion Question'}
+        </span>
+        <span className="text-xs sm:text-sm text-[var(--pres-text-muted)]">
           {getLocalizedText(title, language)}
         </span>
       </div>
 
-      {/* Main Center Question */}
-      <div className="max-w-4xl space-y-6 my-auto py-6">
-        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[var(--pres-text)] tracking-tight leading-[1.15]">
+      {/* Main Question */}
+      <div className="max-w-4xl space-y-6 my-auto py-8">
+        <h2 className="text-3xl sm:text-5xl font-black text-[var(--pres-text)] tracking-tight leading-[1.2]">
           {getLocalizedText(payload.question, language)}
         </h2>
 
         {payload.contextHint && (
-          <p className="text-lg sm:text-xl text-[var(--pres-secondary)] font-medium leading-relaxed max-w-2xl">
+          <p className="text-lg sm:text-xl text-[var(--pres-text-muted)] leading-relaxed max-w-3xl">
             {getLocalizedText(payload.contextHint, language)}
           </p>
         )}
 
-        {/* Prompt to Class Box */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[var(--pres-surface-sunken)] border border-[var(--pres-border)] text-sm font-mono font-bold text-[var(--pres-accent)]">
-          <MessageSquare className="w-4 h-4" />
-          <span>{getLocalizedText(payload.promptToClass, language)}</span>
+        <div className="inline-block px-4 py-2.5 rounded-lg bg-[var(--pres-surface-sunken)] border border-[var(--pres-border)] text-sm font-medium text-[var(--pres-text)]">
+          {getLocalizedText(payload.promptToClass, language)}
         </div>
 
-        {/* Expected Answers Accordion (Available to Trainer or revealable) */}
+        {/* Revealable Points */}
         {payload.expectedAnswers && payload.expectedAnswers.length > 0 && (
-          <div className="pt-4 space-y-3 max-w-3xl">
+          <div className="pt-4 space-y-3">
             <button
               type="button"
               onClick={() => setShowAnswers(!showAnswers)}
-              className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[var(--pres-text-muted)] hover:text-[var(--pres-text)] cursor-pointer"
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[var(--pres-primary)] hover:underline cursor-pointer"
             >
               <ChevronDown
                 className={`w-4 h-4 transition-transform ${showAnswers ? 'rotate-180' : ''}`}
               />
               <span>
                 {showAnswers
-                  ? (isRtl ? 'إخفاء الإجابات النموذجية' : 'Hide Expected Answers')
-                  : (isRtl ? 'كشف الإجابات والمحاور الأساسية' : 'Reveal Expected Points')}
+                  ? isRtl
+                    ? 'إخفاء محاور الإجابة'
+                    : 'Hide Answer Points'
+                  : isRtl
+                    ? 'عرض محاور الإجابة بعد النقاش'
+                    : 'Show Answer Points'}
               </span>
             </button>
 
-            {(showAnswers || viewMode === 'trainer') && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 animate-in fade-in duration-200">
+            {showAnswers && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                 {payload.expectedAnswers.map((ans, idx) => (
                   <div
                     key={idx}
-                    className="p-3.5 rounded-xl bg-[var(--pres-surface)] border border-[var(--pres-border)] flex items-start gap-2.5"
+                    className="p-4 rounded-xl bg-[var(--pres-surface)] border border-[var(--pres-border)] flex items-start gap-3"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-[var(--pres-primary)] mt-0.5 shrink-0" />
-                    <span className="text-xs sm:text-sm text-[var(--pres-text)] font-medium leading-relaxed">
+                    <span className="font-mono text-xs font-bold text-[var(--pres-primary)] mt-1 shrink-0">
+                      0{idx + 1}
+                    </span>
+                    <span className="text-sm sm:text-base text-[var(--pres-text)] leading-relaxed">
                       {getLocalizedText(ans, language)}
                     </span>
                   </div>
@@ -85,10 +90,10 @@ export const QuestionSlide: React.FC<QuestionSlideProps> = ({ title, payload }) 
         )}
       </div>
 
-      {/* Footer Ribbon */}
-      <div className="border-t border-[var(--pres-border-subtle)] pt-4 text-xs font-mono text-[var(--pres-text-subtle)] flex items-center justify-between">
-        <span>{isRtl ? 'شارك إجابتك في شات Zoom 💬' : 'Drop your thought in the Zoom chat 💬'}</span>
-        <span>{isRtl ? 'اضغط Space للمتابعة →' : 'Press Space to Continue →'}</span>
+      {/* Footer */}
+      <div className="border-t border-[var(--pres-border-subtle)] pt-4 text-xs sm:text-sm text-[var(--pres-text-muted)] flex items-center justify-between">
+        <span>{getLocalizedText(title, language)}</span>
+        <span>{isRtl ? 'التالي ←' : 'Next →'}</span>
       </div>
     </div>
   );

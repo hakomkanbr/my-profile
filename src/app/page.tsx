@@ -1,11 +1,12 @@
 'use client';
 
 import React from 'react';
-import { PortfolioShell } from '@/components';
+import { PortfolioShell } from '@/components/layout';
 import {
   PortfolioHeroSection,
-  FeaturedProjectsSection,
   EngineeringFocusSection,
+  FeaturedProjectsSection,
+  DigitalProductsSection,
   EngineeringWritingsSection,
   ResourcesTeaserSection,
   PortfolioCTASection,
@@ -14,24 +15,24 @@ import {
 export default function HomePage() {
   return (
     <PortfolioShell>
-      {/* 1. عنوان رئيسي ونبذة شخصية قصيرة وأزرار التوجيه */}
+      {/* 1. التعريف — Introduction */}
       <PortfolioHeroSection />
 
-      {/* 2. ثلاثة مشاريع مختارة فقط */}
-      <FeaturedProjectsSection />
-
-      {/* 3. نبذة موجزة عن مجالات عملي */}
+      {/* 2. كيف أساعد العملاء؟ — How I Help Clients */}
       <EngineeringFocusSection />
 
-      {/* 4. أحدث ثلاثة مقالات أو فيديوهات مفيدة */}
-      <EngineeringWritingsSection />
+      {/* 3. أعمالي — Selected Approved Work */}
+      <FeaturedProjectsSection />
 
-      {/* 5. تعريف قصير بالمحتوى والموارد التي أشاركها */}
+      {/* 4. منتجاتي الرقمية — My Digital Products (SaaS) */}
+      <DigitalProductsSection />
+
+      {/* 5. المحتوى والمعرفة — Curated Articles, Resources & WEB CREATOR AI */}
+      <EngineeringWritingsSection />
       <ResourcesTeaserSection />
 
-      {/* 6 & 7. دعوة واضحة للتواصل ورابط مختصر إلى صفحة «عنّي» */}
+      {/* 6. التواصل — Contact CTA */}
       <PortfolioCTASection />
     </PortfolioShell>
   );
 }
-

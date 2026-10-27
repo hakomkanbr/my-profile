@@ -1,10 +1,9 @@
-"use client";
+'use client';
 
-import React from "react";
-import { ComparisonSlidePayload, LocalizedString } from "@/types";
-import { getLocalizedText } from "@/lib/utils";
-import { usePreferencesStore } from "@/store";
-import { Scale, ShieldCheck } from "lucide-react";
+import React from 'react';
+import { ComparisonSlidePayload, LocalizedString } from '@/types';
+import { getLocalizedText } from '@/lib/utils';
+import { usePreferencesStore } from '@/store';
 
 interface ComparisonSlideProps {
   title: LocalizedString;
@@ -18,62 +17,52 @@ export const ComparisonSlide: React.FC<ComparisonSlideProps> = ({
   payload,
 }) => {
   const { language } = usePreferencesStore();
-  const isRtl = language === "ar";
+  const isRtl = language === 'ar';
 
   return (
-    <div className="w-full h-full flex flex-col justify-center px-6 py-12 sm:px-12 lg:px-20 select-none overflow-y-auto text-start">
-      {/* Top Header */}
-      <div className="max-w-5xl space-y-2 border-b border-[var(--pres-border-subtle)] pb-4">
-        <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[var(--pres-accent)]">
-          <Scale className="w-4 h-4" />
-          <span>
-            {isRtl
-              ? "مقارنة هندسية موضوعية"
-              : "Objective Engineering Comparison"}
-          </span>
-        </div>
-        <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--pres-text)] tracking-tight leading-tight">
+    <div className="w-full h-full flex flex-col justify-between p-8 sm:p-14 lg:p-20 select-none overflow-y-auto text-start">
+      {/* Header */}
+      <div className="space-y-1.5 border-b border-[var(--pres-border)] pb-4">
+        <span className="text-xs sm:text-sm font-mono font-bold text-[var(--pres-primary)] block">
+          {isRtl ? 'مقارنة توضيحية' : 'Comparison'}
+        </span>
+        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[var(--pres-text)] tracking-tight">
           {getLocalizedText(title, language)}
         </h2>
         {subtitle && (
-          <p className="text-lg sm:text-xl text-[var(--pres-secondary)] font-medium">
+          <p className="text-base sm:text-lg text-[var(--pres-text-muted)]">
             {getLocalizedText(subtitle, language)}
           </p>
         )}
       </div>
 
-      {/* Main Comparison Table */}
-      <div className="max-w-6xl py-6 space-y-5">
-        <div className="border-y border-[var(--pres-border)] bg-[var(--pres-surface)] overflow-hidden">
-          {/* Table Headers */}
-          <div className="hidden sm:grid sm:grid-cols-12 bg-[var(--pres-surface-sunken)] border-b border-[var(--pres-border)] text-sm font-bold py-3 px-4">
-            <div className="col-span-4 text-[var(--pres-text-subtle)]">
-              {isRtl ? "المعيار / البُعد" : "Dimension / Practice"}
+      {/* Clean Comparison Table */}
+      <div className="my-auto py-6 space-y-5 max-w-5xl">
+        <div className="rounded-xl border border-[var(--pres-border)] overflow-hidden bg-[var(--pres-surface)]">
+          {/* Table Header */}
+          <div className="grid grid-cols-12 border-b border-[var(--pres-border)] bg-[var(--pres-surface-sunken)] text-xs sm:text-sm font-bold">
+            <div className="col-span-3 p-4 text-[var(--pres-text-muted)]">
+              {isRtl ? 'المعيار' : 'Aspect'}
             </div>
-            <div className="col-span-4 text-[var(--pres-primary)] border-x border-[var(--pres-border)] px-3">
+            <div className="col-span-4 sm:col-span-5 p-4 text-[var(--pres-primary)] border-s border-[var(--pres-border)]">
               {getLocalizedText(payload.leftHeader, language)}
             </div>
-            <div className="col-span-4 text-[var(--pres-accent)] px-3">
+            <div className="col-span-5 sm:col-span-4 p-4 text-[var(--pres-text-muted)] border-s border-[var(--pres-border)]">
               {getLocalizedText(payload.rightHeader, language)}
             </div>
           </div>
 
           {/* Rows */}
-          <div className="divide-y divide-[var(--pres-border-subtle)] text-base sm:text-lg">
+          <div className="divide-y divide-[var(--pres-border-subtle)]">
             {payload.dimensions.map((row, idx) => (
-              <div
-                key={idx}
-                className="grid grid-cols-1 sm:grid-cols-12 py-4 px-4 sm:py-5 items-start sm:items-center hover:bg-[var(--pres-surface-sunken)]/50 transition-colors"
-              >
-                <div className="sm:col-span-4 font-bold text-[var(--pres-primary)] pr-2 pb-2 sm:pb-0">
+              <div key={idx} className="grid grid-cols-12 items-center text-sm sm:text-base">
+                <div className="col-span-3 p-4 font-bold text-[var(--pres-text)]">
                   {getLocalizedText(row.dimension, language)}
                 </div>
-                <div className="sm:col-span-4 text-[var(--pres-text-muted)] sm:border-x border-[var(--pres-border)] sm:px-3 leading-relaxed">
-                  <span className="sm:hidden font-semibold text-[var(--pres-text)]">{getLocalizedText(payload.leftHeader, language)}: </span>
+                <div className="col-span-4 sm:col-span-5 p-4 text-[var(--pres-text)] font-medium border-s border-[var(--pres-border-subtle)] leading-relaxed">
                   {getLocalizedText(row.left, language)}
                 </div>
-                <div className="sm:col-span-4 text-[var(--pres-text-muted)] px-0 sm:px-3 leading-relaxed pt-2 sm:pt-0">
-                  <span className="sm:hidden font-semibold text-[var(--pres-text)]">{getLocalizedText(payload.rightHeader, language)}: </span>
+                <div className="col-span-5 sm:col-span-4 p-4 text-[var(--pres-text-muted)] border-s border-[var(--pres-border-subtle)] leading-relaxed">
                   {getLocalizedText(row.right, language)}
                 </div>
               </div>
@@ -81,30 +70,18 @@ export const ComparisonSlide: React.FC<ComparisonSlideProps> = ({
           </div>
         </div>
 
-        {/* Balanced Verdict Box */}
-        <div className="p-4 border-s-4 border-[var(--pres-primary)] bg-[var(--pres-surface-sunken)] flex items-start gap-3">
-          <ShieldCheck className="w-5 h-5 text-[var(--pres-primary)] shrink-0 mt-0.5" />
-          <div className="space-y-0.5">
-            <span className="text-sm font-bold text-[var(--pres-primary)] block">
-              {isRtl
-                ? "الرؤية الهندسية المتزنة"
-                : "Balanced Engineering Takeaway"}
-            </span>
-            <p className="text-base sm:text-lg font-medium text-[var(--pres-text)] leading-relaxed">
-              {getLocalizedText(payload.balancedVerdict, language)}
-            </p>
-          </div>
+        {/* Takeaway Line */}
+        <div className="border-s-4 border-[var(--pres-primary)] ps-4 py-1">
+          <p className="text-sm sm:text-base font-semibold text-[var(--pres-text)] leading-relaxed">
+            {getLocalizedText(payload.balancedVerdict, language)}
+          </p>
         </div>
       </div>
 
       {/* Footer */}
-      <div className="max-w-6xl border-t border-[var(--pres-border-subtle)] pt-4 text-sm text-[var(--pres-text-muted)] flex items-center justify-between">
-        <span>
-          {isRtl
-            ? "الذكاء الاصطناعي يسرع التنفيذ — والمهندس يملك المسؤولية"
-            : "AI Accelerates — Engineers Own Responsibility"}
-        </span>
-        <span className="text-xs">{isRtl ? "مسافة: التالي" : "Space: next"}</span>
+      <div className="border-t border-[var(--pres-border-subtle)] pt-4 text-xs sm:text-sm text-[var(--pres-text-muted)] flex items-center justify-between">
+        <span>{getLocalizedText(title, language)}</span>
+        <span>{isRtl ? 'التالي ←' : 'Next →'}</span>
       </div>
     </div>
   );

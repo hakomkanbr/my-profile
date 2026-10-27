@@ -1,188 +1,255 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import Link from "next/link";
-import { usePreferencesStore } from "@/store";
-import { Reveal } from "@/components/motion";
-import { Button } from "@/components/ui";
-import { CheckSquare, FileCode, GraduationCap, ArrowLeft, ArrowRight, Mail, CheckCircle } from "lucide-react";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { usePreferencesStore } from '@/store';
+import { ALL_RESOURCES } from '@/content/resources';
+import { getLocalizedText } from '@/lib/utils';
+import { Button, WhatsAppActionFeedback } from '@/components/ui';
+import {
+  ArrowLeft,
+  ArrowRight,
+  ExternalLink,
+  FileCheck2,
+  GraduationCap,
+  MessageCircle,
+} from 'lucide-react';
+import { Reveal } from '@/components/motion';
+import {
+  buildResourceRequestMessage,
+  openWhatsAppChat,
+} from '@/lib/whatsapp';
 
 export const ResourcesTeaserSection: React.FC = () => {
   const { language } = usePreferencesStore();
-  const isRtl = language === "ar";
+  const isRtl = language === 'ar';
 
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
+  const [nameOrEmail, setNameOrEmail] = useState('');
+  const [preparedMessage, setPreparedMessage] = useState<string | null>(null);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const featuredResources = ALL_RESOURCES.slice(0, 3);
+
+  const handleWhatsAppResourceRequest = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email && email.includes("@")) {
-      setSubscribed(true);
-    }
+    const message = buildResourceRequestMessage({
+      nameOrEmail,
+      topic: 'قوائم الفحص والقوالب العملية والموارد الجديدة',
+      pageUrl: 'https://abdulhakimkanbr.com/#resources',
+    });
+    setPreparedMessage(message);
+    openWhatsAppChat(message);
   };
 
-  const resourcePillars = [
-    {
-      id: "checklists",
-      icon: <CheckSquare className="w-5 h-5 text-[var(--color-secondary)]" />,
-      title: { ar: "قوائم الفحص الهندسية", en: "Engineering Checklists" },
-      description: {
-        ar: "قوائم عملية تغطي فحص الأداء، ومعايير إطلاق الويب، وأمان الـ APIs لضمان جاهزية الإنتاج.",
-        en: "Actionable checklists covering Core Web Vitals, launch readiness, and API security.",
-      },
-      badge: { ar: "مجاني ومتاح", en: "Free & Open" },
-      href: "/resources#launch-checklist",
-    },
-    {
-      id: "templates",
-      icon: <FileCode className="w-5 h-5 text-[var(--color-secondary)]" />,
-      title: { ar: "قوالب التوثيق والمعمارية", en: "Architecture & ADR Templates" },
-      description: {
-        ar: "نماذج جاهزة لتوثيق القرارات المعمارية (ADR) وهيكلة كود المشاريع بطريقة معيارية قابلة للتوسع.",
-        en: "Battle-tested templates for Architecture Decision Records (ADRs) and modular project scaffolds.",
-      },
-      badge: { ar: "قوالب توثيق", en: "Documentation" },
-      href: "/resources#adr-template",
-    },
-    {
-      id: "learning",
-      icon: <GraduationCap className="w-5 h-5 text-[var(--color-secondary)]" />,
-      title: { ar: "مسار WEB CREATOR AI", en: "WEB CREATOR AI Curriculum" },
-      description: {
-        ar: "مسار تدريبي منظم يغطي دورة حياة تطوير الويب كاملة من التصميم وحتى الإنتاج الحقيقي.",
-        en: "A structured engineering curriculum covering the full web lifecycle from concept to production.",
-      },
-      badge: { ar: "مسار تعليمي", en: "Curriculum" },
-      href: "/web-creator-ai",
-    },
-  ];
-
   return (
-    <section className="py-12 sm:py-20 border-b border-[var(--color-border)] text-start">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
+    <section
+      id="resources"
+      className="py-12 sm:py-20 border-b border-[var(--color-border)] text-start bg-[var(--color-surface-sunken)]/40"
+    >
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <Reveal direction="up" distance={16}>
-            <div className="space-y-2">
+        <Reveal direction="up" delay={0}>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="space-y-2 max-w-2xl">
               <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-secondary)]">
-                {isRtl ? "الموارد والمعرفة" : "Resources & Knowledge"}
+                {isRtl ? 'موارد وتدريب عملي' : 'Resources & Practical Training'}
               </span>
               <h2 className="text-h1 font-extrabold text-[var(--color-text)] tracking-tight rtl:tracking-normal">
-                {isRtl ? "أدوات وقوائم فحص وموارد للمطورين" : "Tools, Checklists & Developer Resources"}
-              </h2>
-              <p className="text-body text-[var(--color-text-muted)] max-w-2xl font-normal leading-relaxed">
                 {isRtl
-                  ? "أشارك موارد عملية ونماذج كود وقوالب تساعد المطورين وأصحاب المنتجات على بناء برمجيات أفضل."
-                  : "Practical checklists, architecture templates, and open tools to help developers and product owners build better software."}
+                  ? 'قوالب جاهزة ومسار تدريبي لبناء المواقع'
+                  : 'Ready Checklists & Web Creation Track'}
+              </h2>
+              <p className="text-body text-[var(--color-text-muted)] font-normal leading-relaxed">
+                {isRtl
+                  ? 'أدوات وقوائم فحص مختصرة تساعدك عند إطلاق موقعك، بالإضافة إلى مساري التدريبي التفاعلي WEB CREATOR AI.'
+                  : 'Practical checklists and templates to help you launch better websites, alongside my interactive training program WEB CREATOR AI.'}
               </p>
             </div>
-          </Reveal>
 
-          <Reveal direction="up" delayMs={100} distance={16}>
-            <Link
-              href="/resources"
-              className="inline-flex items-center gap-2 text-sm font-bold text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors shrink-0"
-            >
-              <span>{isRtl ? "استكشف كل الموارد" : "View all resources"}</span>
-              {isRtl ? <ArrowLeft className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
-            </Link>
-          </Reveal>
-        </div>
-
-        {/* 3 Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {resourcePillars.map((item, idx) => (
-            <Reveal key={item.id} direction="up" delayMs={100 + idx * 80} distance={18}>
-              <Link
-                href={item.href}
-                className="group h-full p-6 sm:p-7 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-secondary)]/60 flex flex-col justify-between space-y-5 hover:-translate-y-1 transition-all duration-300 shadow-2xs block"
+            <Link href="/resources" className="shrink-0">
+              <Button
+                variant="outline"
+                size="sm"
+                className="font-bold group"
+                rightIcon={
+                  isRtl ? (
+                    <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-0.5" />
+                  ) : (
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                  )
+                }
               >
+                {isRtl ? 'استعراض جميع الموارد' : 'Browse All Resources'}
+              </Button>
+            </Link>
+          </div>
+        </Reveal>
+
+        {/* 3 Practical Resources Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {featuredResources.map((res, idx) => {
+            const title = getLocalizedText(res.title, language);
+            const desc = getLocalizedText(res.description, language);
+
+            const content = (
+              <div className="p-5 sm:p-6 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-2xs flex flex-col justify-between space-y-4 hover:border-[var(--color-secondary)]/50 transition-all duration-300 h-full">
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-[var(--color-surface-sunken)] border border-[var(--color-border-subtle)] flex items-center justify-center">
-                      {item.icon}
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="w-9 h-9 rounded-xl bg-[var(--color-primary-subtle)] text-[var(--color-secondary)] flex items-center justify-center">
+                      <FileCheck2 className="w-4 h-4" />
                     </div>
-                    <span className="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-[var(--color-surface-sunken)] border border-[var(--color-border-subtle)] text-[var(--color-text-subtle)]">
-                      {isRtl ? item.badge.ar : item.badge.en}
-                    </span>
+                    {res.badge && (
+                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-[var(--color-surface-sunken)] border border-[var(--color-border)] text-[var(--color-text-subtle)]">
+                        {res.badge}
+                      </span>
+                    )}
                   </div>
 
-                  <h3 className="text-lg font-bold text-[var(--color-text)] group-hover:text-[var(--color-secondary)] transition-colors">
-                    {isRtl ? item.title.ar : item.title.en}
+                  <h3 className="text-h4 font-bold text-[var(--color-text)] leading-snug">
+                    {title}
                   </h3>
 
                   <p className="text-body-sm text-[var(--color-text-muted)] font-normal leading-relaxed">
-                    {isRtl ? item.description.ar : item.description.en}
+                    {desc}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-[var(--color-border-subtle)] flex items-center gap-1.5 text-xs font-bold text-[var(--color-secondary)] group-hover:text-[var(--color-primary)] transition-colors">
-                  <span>{isRtl ? "استكشف المحتوى" : "Explore Content"}</span>
-                  {isRtl ? (
-                    <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
+                <div className="pt-3 border-t border-[var(--color-border-subtle)] flex items-center justify-between text-xs font-bold text-[var(--color-secondary)]">
+                  <span>{isRtl ? 'فتح المورد' : 'Open Resource'}</span>
+                  {res.isExternal ? (
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  ) : isRtl ? (
+                    <ArrowLeft className="w-3.5 h-3.5" />
                   ) : (
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5" />
                   )}
                 </div>
-              </Link>
-            </Reveal>
-          ))}
+              </div>
+            );
+
+            return (
+              <Reveal key={res.id} direction="up" delay={70 + idx * 70}>
+                {res.isExternal ? (
+                  <a
+                    href={res.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block h-full"
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <Link href={res.url} className="block h-full">
+                    {content}
+                  </Link>
+                )}
+              </Reveal>
+            );
+          })}
         </div>
 
-        {/* Calm Newsletter / Updates Opt-in */}
-        <Reveal direction="up" delayMs={240} distance={16}>
-          <div className="p-6 sm:p-8 rounded-2xl bg-[var(--color-surface-sunken)] border border-[var(--color-border)] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="space-y-1 max-w-xl">
-              <span className="text-xs font-mono font-bold text-[var(--color-secondary)] uppercase">
-                {isRtl ? "النشرة البريدية الهندسية" : "Engineering Newsletter"}
-              </span>
-              <h3 className="text-h3 font-bold text-[var(--color-text)]">
-                {isRtl ? "تصلك الموارد والمقالات الجديدة أولاً بأول" : "Get new resources & articles in your inbox"}
-              </h3>
-              <p className="text-body-sm text-[var(--color-text-muted)] font-normal leading-relaxed">
-                {isRtl
-                  ? "أشارك أفكاراً وتلخيصات وموارد جديدة فقط، بدون رسائل مزعجة أو ترويج فارغ. يمكنك إلغاء الاشتراك في أي وقت."
-                  : "Occasional technical summaries, new checklists, and tools. Zero spam, unsubscribe anytime."}
-              </p>
-            </div>
+        {/* Two-Column Action Row: WEB CREATOR AI + WhatsApp Resource Request */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          {/* WEB CREATOR AI Card */}
+          <Reveal direction="up" delay={180} className="lg:col-span-7">
+            <div className="p-6 sm:p-7 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-xs flex flex-col justify-between space-y-5 h-full">
+              <div className="space-y-3">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-primary-subtle)] text-[var(--color-secondary)] text-xs font-bold">
+                  <GraduationCap className="w-4 h-4" />
+                  <span>WEB CREATOR AI</span>
+                </div>
+                <h3 className="text-h3 font-extrabold text-[var(--color-text)]">
+                  {isRtl
+                    ? 'تعلّم بناء موقعك خطوة بخطوة مع مراجعة الأنشطة عبر واتساب'
+                    : 'Learn to Build Your Website Step by Step with WhatsApp Feedback'}
+                </h3>
+                <p className="text-body-sm text-[var(--color-text-muted)] leading-relaxed">
+                  {isRtl
+                    ? 'مسار تدريبي عملي مكوّن من 12 جلسة، يأخذك من تخطيط الفكرة وتصميم الواجهات إلى كتابة الكود واستخدام الذكاء الاصطناعي بذكاء حتى نشر موقعك على الإنترنت.'
+                    : 'A practical 12-session training track taking you from planning and UI design to coding and smart AI usage until your website is live.'}
+                </p>
+              </div>
 
-            <div className="w-full md:w-auto shrink-0">
-              {subscribed ? (
-                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-bold font-mono">
-                  <CheckCircle className="w-4 h-4" />
-                  <span>{isRtl ? "شكراً لك! تم تسجيل بريدك بنجاح." : "Thank you! You're subscribed."}</span>
-                </div>
-              ) : (
-                <div className="space-y-2 w-full sm:w-auto">
-                  <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2.5 w-full sm:w-auto">
-                    <input
-                      type="email"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder={isRtl ? "أدخل بريدك الإلكتروني..." : "Enter your email..."}
-                      className="h-11 px-4 rounded-xl text-xs font-mono bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text)] placeholder:text-[var(--color-text-subtle)] focus:outline-none focus:border-[var(--color-secondary)] transition-colors w-full sm:w-64"
-                    />
-                    <Button
-                      type="submit"
-                      variant="primary"
-                      size="sm"
-                      className="font-bold text-xs h-11 px-5 shadow-2xs whitespace-nowrap"
-                      leftIcon={<Mail className="w-4 h-4" />}
-                    >
-                      <span>{isRtl ? "اشتراك تجريبي" : "Subscribe"}</span>
-                    </Button>
-                  </form>
-                  <span className="text-[10px] font-mono text-[var(--color-text-subtle)] block text-start">
+              <div className="pt-2">
+                <Link href="/web-creator-ai">
+                  <Button
+                    variant="primary"
+                    size="md"
+                    className="font-bold"
+                    rightIcon={
+                      isRtl ? (
+                        <ArrowLeft className="w-4 h-4" />
+                      ) : (
+                        <ArrowRight className="w-4 h-4" />
+                      )
+                    }
+                  >
                     {isRtl
-                      ? "* النموذج حالياً في طور المعاينة التجريبية؛ لا يتم تخزين البيانات خارجياً."
-                      : "* Preview mode: Form is demonstration only; no external storage is connected."}
-                  </span>
-                </div>
+                      ? 'دخول مسار WEB CREATOR AI'
+                      : 'Enter WEB CREATOR AI'}
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* WhatsApp Resource / Updates Request Card */}
+          <Reveal direction="up" delay={240} className="lg:col-span-5">
+            <div className="p-6 sm:p-7 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-xs flex flex-col justify-between space-y-4 h-full">
+              <div className="space-y-2">
+                <h3 className="text-h4 font-bold text-[var(--color-text)]">
+                  {isRtl
+                    ? 'اطلب قالبًا أو انضم لقائمة التحديثات عبر واتساب'
+                    : 'Request a Template or Join Updates via WhatsApp'}
+                </h3>
+                <p className="text-xs text-[var(--color-text-muted)] leading-relaxed">
+                  {isRtl
+                    ? 'أدخل اسمك أو بريدك (اختياري) ثم اضغط الزر لفتح رسالة واتساب جاهزة لطلب القوالب أو متابعة الدروس الجديدة.'
+                    : 'Enter your name or email (optional) and click to open a ready WhatsApp message to request templates or updates.'}
+                </p>
+              </div>
+
+              <form onSubmit={handleWhatsAppResourceRequest} className="space-y-3">
+                <input
+                  type="text"
+                  value={nameOrEmail}
+                  onChange={(e) => setNameOrEmail(e.target.value)}
+                  placeholder={
+                    isRtl
+                      ? 'الاسم أو البريد الإلكتروني (اختياري)'
+                      : 'Your name or email (optional)'
+                  }
+                  aria-label={
+                    isRtl
+                      ? 'الاسم أو البريد الإلكتروني'
+                      : 'Your name or email'
+                  }
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-secondary)]"
+                />
+                <Button
+                  type="submit"
+                  variant="outline"
+                  size="md"
+                  className="w-full font-bold justify-center"
+                  leftIcon={
+                    <MessageCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                  }
+                >
+                  {isRtl
+                    ? 'طلب الموارد والتحديثات عبر واتساب'
+                    : 'Request via WhatsApp'}
+                </Button>
+              </form>
+
+              {preparedMessage && (
+                <WhatsAppActionFeedback
+                  message={preparedMessage}
+                  isRtl={isRtl}
+                  onClose={() => setPreparedMessage(null)}
+                />
               )}
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
